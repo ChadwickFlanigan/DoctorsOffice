@@ -8,8 +8,11 @@ The purpose of this software is to help clinics to manage their patients informa
 # Team Members
 Maged Assad (ma00217@my.westga.edu\
 John Owens (jowens14@my.westga.edu)\
-Leemarosi Tamilarasan (lt00044@my.westga.edu)
+Leemarosi Tamilarasan (lt00044@my.westga.edu)\
+Chadwick Flanigan (cflanig1@my.westga.edu)
 
 # Scrum Master
+-Maged Assad
 
 # Product Owner
+-John Owens
