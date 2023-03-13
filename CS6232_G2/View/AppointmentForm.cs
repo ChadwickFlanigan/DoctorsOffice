@@ -4,12 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace CS6232_G2.UserControls
+namespace CS6232_G2
 {
-    /// <summary>
-    /// Appointment user control will allow the nurse to take in a new appointment
-    /// </summary>
-    public partial class ucAppointments : UserControl
+    public partial class AppointmentForm : Form
     {
         private DateTime _lastTimeValue;
         private AppointmentController _appointmentController;
@@ -18,14 +15,14 @@ namespace CS6232_G2.UserControls
         /// <summary>
         /// Constructor to draw the ui components and initialize the controller
         /// </summary>
-        public ucAppointments(Appointment appointment)
+        public AppointmentForm(Appointment appointment)
         {
             InitializeComponent();
             _appointmentController = new AppointmentController();
             _appointment = appointment;
         }
 
-        private void ucAppointments_Load(object sender, EventArgs e)
+        private void AppointmentForm_Load(object sender, EventArgs e)
         {
             if (_appointment.PatientId == 0)
             {
@@ -192,6 +189,11 @@ namespace CS6232_G2.UserControls
         {
             // validate if the doctor is book
             return true;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

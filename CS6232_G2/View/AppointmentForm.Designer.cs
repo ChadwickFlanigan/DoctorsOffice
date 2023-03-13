@@ -1,13 +1,13 @@
-﻿namespace CS6232_G2.UserControls
+﻿namespace CS6232_G2
 {
-    partial class ucAppointments
+    partial class AppointmentForm
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,10 +20,10 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region Windows Form Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -73,17 +73,17 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(614, 392);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 132);
+            this.label5.Location = new System.Drawing.Point(3, 155);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(208, 25);
+            this.label5.Size = new System.Drawing.Size(274, 25);
             this.label5.TabIndex = 4;
             this.label5.Text = "Appointment Date";
             // 
@@ -92,9 +92,9 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 74);
+            this.label3.Location = new System.Drawing.Point(3, 88);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(208, 25);
+            this.label3.Size = new System.Drawing.Size(274, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Doctor";
             // 
@@ -103,9 +103,9 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 16);
+            this.label1.Location = new System.Drawing.Point(3, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 25);
+            this.label1.Size = new System.Drawing.Size(274, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Patient Name";
             // 
@@ -114,27 +114,28 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 190);
+            this.label2.Location = new System.Drawing.Point(3, 222);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(208, 25);
+            this.label2.Size = new System.Drawing.Size(274, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Appointment Time";
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCancel.Location = new System.Drawing.Point(3, 333);
+            this.btnCancel.Location = new System.Drawing.Point(3, 391);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(161, 56);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(450, 333);
+            this.btnAdd.Location = new System.Drawing.Point(636, 391);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(161, 56);
             this.btnAdd.TabIndex = 5;
@@ -146,9 +147,9 @@
             // 
             this.lblPatientName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPatientName.AutoSize = true;
-            this.lblPatientName.Location = new System.Drawing.Point(217, 16);
+            this.lblPatientName.Location = new System.Drawing.Point(283, 21);
             this.lblPatientName.Name = "lblPatientName";
-            this.lblPatientName.Size = new System.Drawing.Size(394, 25);
+            this.lblPatientName.Size = new System.Drawing.Size(514, 25);
             this.lblPatientName.TabIndex = 7;
             // 
             // dtAppointmentDate
@@ -156,18 +157,18 @@
             this.dtAppointmentDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dtAppointmentDate.CustomFormat = "";
             this.dtAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtAppointmentDate.Location = new System.Drawing.Point(217, 129);
+            this.dtAppointmentDate.Location = new System.Drawing.Point(283, 152);
             this.dtAppointmentDate.Name = "dtAppointmentDate";
-            this.dtAppointmentDate.Size = new System.Drawing.Size(394, 31);
+            this.dtAppointmentDate.Size = new System.Drawing.Size(514, 31);
             this.dtAppointmentDate.TabIndex = 2;
             // 
             // cbDoctors
             // 
             this.cbDoctors.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbDoctors.FormattingEnabled = true;
-            this.cbDoctors.Location = new System.Drawing.Point(217, 76);
+            this.cbDoctors.Location = new System.Drawing.Point(283, 90);
             this.cbDoctors.Name = "cbDoctors";
-            this.cbDoctors.Size = new System.Drawing.Size(394, 33);
+            this.cbDoctors.Size = new System.Drawing.Size(514, 33);
             this.cbDoctors.TabIndex = 1;
             // 
             // label4
@@ -175,19 +176,19 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 268);
+            this.label4.Location = new System.Drawing.Point(3, 311);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(208, 25);
+            this.label4.Size = new System.Drawing.Size(274, 25);
             this.label4.TabIndex = 1;
             this.label4.Text = "Reason";
             // 
             // txtReason
             // 
             this.txtReason.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtReason.Location = new System.Drawing.Point(217, 247);
+            this.txtReason.Location = new System.Drawing.Point(283, 290);
             this.txtReason.Multiline = true;
             this.txtReason.Name = "txtReason";
-            this.txtReason.Size = new System.Drawing.Size(394, 67);
+            this.txtReason.Size = new System.Drawing.Size(514, 67);
             this.txtReason.TabIndex = 4;
             // 
             // dtAppointmentTime
@@ -195,21 +196,22 @@
             this.dtAppointmentTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dtAppointmentTime.CustomFormat = "hh:mm";
             this.dtAppointmentTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtAppointmentTime.Location = new System.Drawing.Point(217, 187);
+            this.dtAppointmentTime.Location = new System.Drawing.Point(283, 219);
             this.dtAppointmentTime.Name = "dtAppointmentTime";
             this.dtAppointmentTime.ShowUpDown = true;
-            this.dtAppointmentTime.Size = new System.Drawing.Size(394, 31);
+            this.dtAppointmentTime.Size = new System.Drawing.Size(514, 31);
             this.dtAppointmentTime.TabIndex = 3;
-            this.dtAppointmentTime.ValueChanged += new System.EventHandler(this.dtAppointmentTime_ValueChanged);
             // 
-            // ucAppointments
+            // AppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "ucAppointments";
-            this.Size = new System.Drawing.Size(614, 392);
-            this.Load += new System.EventHandler(this.ucAppointments_Load);
+            this.Name = "AppointmentForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Appointments";
+            this.Load += new System.EventHandler(this.AppointmentForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -227,9 +229,9 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label lblPatientName;
         private System.Windows.Forms.DateTimePicker dtAppointmentDate;
-        private System.Windows.Forms.TextBox txtReason;
         private System.Windows.Forms.ComboBox cbDoctors;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtReason;
         private System.Windows.Forms.DateTimePicker dtAppointmentTime;
     }
 }

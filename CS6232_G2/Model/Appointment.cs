@@ -8,6 +8,8 @@ namespace CS6232_G2.Model
     public class Appointment
     {
         public int AppointmentId { get; set; }
+        public int PatientId { get; set; }
+        public string PatientName { get; set; }
         public int DoctorId { get; set; }
         public DateTime AppointmentTime { get; set; }
         public string Reason { get; set; }

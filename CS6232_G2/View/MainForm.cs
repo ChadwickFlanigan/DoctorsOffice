@@ -1,4 +1,5 @@
-﻿using CS6232_G2.View;
+﻿using CS6232_G2.Model;
+using CS6232_G2.View;
 using System.Windows.Forms;
 
 namespace CS6232_G2
@@ -62,6 +63,22 @@ namespace CS6232_G2
             {
                 Application.Exit();
             }
+        }
+
+        private void button1_Click(object sender, System.EventArgs e)
+        {
+            Appointment appointment = new Appointment
+            {
+                AppointmentId = 0,
+                AppointmentTime = new System.DateTime(2023, 10, 12, 14, 30, 00),
+                DoctorId = 0,
+                PatientId = 1,
+                PatientName = "Maged Assad",
+                Reason = "Test"
+            };
+
+            AppointmentForm appointmentForm = new AppointmentForm(appointment);
+            appointmentForm.ShowDialog();
         }
     }
 }

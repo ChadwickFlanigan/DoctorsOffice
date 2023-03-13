@@ -37,5 +37,42 @@ namespace CS6232_G2.DAL
 
             return doctors;
         }
+
+        public bool SaveAppointment(Appointment appointment)
+        {
+            string query = string.Empty;
+
+            if (appointment.AppointmentId <= 0)
+            {
+                query = "Insert into Appointments(patientId, doctorId, appointmentTime, reasonForVisit)" +
+                "Values(@patientId, @doctorId, @appointmentTime, @reason";
+            }
+            else
+            {
+                query = "Update Appointments " +
+                    "Set doctorId = @doctorId, appointmentTime = @appointmentTime, reasonForVisit = @reasonForVisit " +
+                    "Where appointmentId = @appointmentId and doctorId = @doctorId";
+            }
+
+            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand saveCommand = new SqlCommand(query, connection))
+                {
+                    saveCommand.Parameters.AddWithValue("@patientId", appointment.PatientId);
+                    saveCommand.Parameters.AddWithValue("@doctorId", appointment.DoctorId);
+                    saveCommand.Parameters.AddWithValue("@appointmentTime", appointment.AppointmentTime);
+                    saveCommand.Parameters.AddWithValue("@reason", appointment.Reason);
+
+                    if (appointment.AppointmentId > 0)
+                    {
+                        saveCommand.Parameters.AddWithValue("@appointmentId", appointment.AppointmentId);
+                    }
+
+                    return saveCommand.ExecuteNonQuery() > 0;
+                }
+            }
+        }
     }
 }
