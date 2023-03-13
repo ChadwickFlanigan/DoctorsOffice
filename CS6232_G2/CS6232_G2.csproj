@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\LoginDALController.cs" />
+    <Compile Include="Controller\LoginController.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
     <Compile Include="Model\Login.cs" />
     <Compile Include="View\AppointmentForm.cs">
@@ -60,12 +60,6 @@
     <Compile Include="DAL\G2ProjectConnectionString.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
-    <Compile Include="UserControls\ucAppointments.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\ucAppointments.Designer.cs">
-      <DependentUpon>ucAppointments.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,9 +86,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControls\ucAppointments.resx">
-      <DependentUpon>ucAppointments.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +105,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="UserControls\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,6 @@
-﻿using CS6232_G2.Model;
-using CS6232_G2.View;
+﻿using CS6232_G2.Controller;
 using CS6232_G2.Model;
+using CS6232_G2.View;
 using System.Windows.Forms;
 
 namespace CS6232_G2
@@ -34,7 +34,7 @@ namespace CS6232_G2
         /// <param name="username"></param>
         public void SetUsername(Login login)
         {
-            lblUsername.Text = login.username;
+            lblUsername.Text = login.Username;
         }
 
         /// <summary>
@@ -77,16 +77,7 @@ namespace CS6232_G2
 
         private void button1_Click(object sender, System.EventArgs e)
         {
-            Appointment appointment = new Appointment
-            {
-                AppointmentId = 0,
-                AppointmentTime = new System.DateTime(2023, 10, 12, 14, 30, 00),
-                DoctorId = 0,
-                PatientId = 1,
-                PatientName = "Maged Assad",
-                Reason = "Test"
-            };
-
+            Appointment appointment = new AppointmentController().GetAppointmentById(4);
             AppointmentForm appointmentForm = new AppointmentForm(appointment);
             appointmentForm.ShowDialog();
         }

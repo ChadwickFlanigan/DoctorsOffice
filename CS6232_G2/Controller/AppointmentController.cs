@@ -1,5 +1,6 @@
 ﻿using CS6232_G2.DAL;
 using CS6232_G2.Model;
+using System;
 using System.Collections.Generic;
 
 namespace CS6232_G2.Controller
@@ -36,6 +37,17 @@ namespace CS6232_G2.Controller
         public bool SaveAppointment(Appointment appointment)
         {
             return _appointmentDAL.SaveAppointment(appointment);
+        }
+
+        /// <summary>
+        /// Gets an appointment details by the appointmentId
+        /// </summary>
+        /// <param name="appointmentId"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public Appointment GetAppointmentById(int appointmentId)
+        {
+            return _appointmentDAL.GetAppointmentById(appointmentId);
         }
     }
 }
