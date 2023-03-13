@@ -1,5 +1,6 @@
 ﻿using CS6232_G2.Model;
 using CS6232_G2.View;
+using CS6232_G2.Model;
 using System.Windows.Forms;
 
 namespace CS6232_G2
@@ -25,6 +26,15 @@ namespace CS6232_G2
         public void SetUsername(string username)
         {
             lblUsername.Text = username;
+        }
+
+        /// <summary>
+        /// Sets the label username
+        /// </summary>
+        /// <param name="username"></param>
+        public void SetUsername(Login login)
+        {
+            lblUsername.Text = login.username;
         }
 
         /// <summary>
