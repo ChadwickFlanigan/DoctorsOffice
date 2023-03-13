@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AppointmentController.cs" />
+    <Compile Include="DAL\AppointmentDAL.cs" />
     <Compile Include="DAL\G2ProjectConnectionString.cs" />
     <Compile Include="Model\Appointment.cs" />
+    <Compile Include="Model\Doctor.cs" />
     <Compile Include="UserControls\ucAppointments.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -78,6 +80,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\ucAppointments.resx">
+      <DependentUpon>ucAppointments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

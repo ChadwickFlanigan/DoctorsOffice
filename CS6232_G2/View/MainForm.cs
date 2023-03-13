@@ -50,5 +50,18 @@ namespace CS6232_G2
             _loginForm.Logout();
             Close();
         }
+
+        private void mnuNewAppointment_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void MainForm_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            if (!loggedOut)
+            {
+                Application.Exit();
+            }
+        }
     }
 }

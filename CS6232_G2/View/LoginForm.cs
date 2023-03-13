@@ -21,6 +21,9 @@ namespace CS6232_G2.View
         public LoginForm()
         {
             InitializeComponent();
+
+            txtUsername.Text = "jane";
+            txtPassword.Text = "test1234";
         }
 
         /// <summary>
