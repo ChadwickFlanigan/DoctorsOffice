@@ -1,6 +1,4 @@
 ﻿using CS6232_G2.Model;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace CS6232_G2.DAL
