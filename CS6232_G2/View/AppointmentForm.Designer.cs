@@ -167,7 +167,7 @@
             this.cbDoctors.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbDoctors.DisplayMember = "DoctorName";
             this.cbDoctors.FormattingEnabled = true;
-            this.cbDoctors.Location = new System.Drawing.Point(283, 84);
+            this.cbDoctors.Location = new System.Drawing.Point(283, 90);
             this.cbDoctors.Name = "cbDoctors";
             this.cbDoctors.Size = new System.Drawing.Size(514, 33);
             this.cbDoctors.TabIndex = 1;
