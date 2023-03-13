@@ -19,6 +19,7 @@ namespace CS6232_G2.View
         public LoginForm()
         {
             InitializeComponent();
+            _login = new Login();
             _loginController = new LoginDALController();
             txtUsername.Text = "jane";
             txtPassword.Text = "test1234";
@@ -31,23 +32,28 @@ namespace CS6232_G2.View
         /// <param name="e"></param>
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text.Equals("jane") && txtPassword.Text.Equals("test1234"))
+            try
             {
-                MainForm _mainForm = new MainForm(this);
-                _mainForm.SetUsername(txtUsername.Text);
-                Hide();
-                _mainForm.Show();
+                _login.Username = txtUsername.Text.Trim();
+                _login.Password = txtPassword.Text.Trim();
+
+                _login = _loginController.CheckIfLoginIsValid(_login);
+
+                if (_login.AdministratorId > 0 || _login.NurseId > 0)
+                {
+                    MainForm _mainForm = new MainForm(this);
+                    _mainForm.SetUsername(_login);
+                    Hide();
+                    _mainForm.Show();
+                }
+                else
+                {
+                    lblError.Text = "Invalid username/password";
+                }
             }
-            else if (_loginController.CheckIfLoginIsValid(_login))
+            catch (Exception ex)
             {
-                MainForm _mainForm = new MainForm(this);
-                _mainForm.SetUsername(_login);
-                Hide();
-                _mainForm.Show();
-            }
-            else
-            {
-                lblError.Text = "Invalid username/password";
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
         /// <summary>
@@ -62,13 +68,13 @@ namespace CS6232_G2.View
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
-            _login.username = txtUsername.Text;
+            _login.Username = txtUsername.Text;
             lblError.Text = string.Empty;
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            _login.password = txtPassword.Text;
+            _login.Password = txtPassword.Text;
             lblError.Text = string.Empty;
         }
 

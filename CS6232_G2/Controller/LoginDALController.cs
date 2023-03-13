@@ -12,7 +12,7 @@ namespace CS6232_G2.Controller
             _loginDBDAL = new LoginDAL();
         }
 
-        public bool CheckIfLoginIsValid(Login login)
+        public Login CheckIfLoginIsValid(Login login)
         {
             return _loginDBDAL.CheckIfUserIsValid(login);
         }
