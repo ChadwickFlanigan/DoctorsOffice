@@ -47,9 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AppointmentController.cs" />
+    <Compile Include="DAL\LoginDBDAL.cs" />
     <Compile Include="DAL\AppointmentDAL.cs" />
     <Compile Include="DAL\G2ProjectConnectionString.cs" />
     <Compile Include="Model\Appointment.cs" />
+    <Compile Include="Model\Login.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="UserControls\ucAppointments.cs">
       <SubType>UserControl</SubType>
