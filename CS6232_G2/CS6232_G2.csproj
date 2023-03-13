@@ -49,6 +49,12 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
     <Compile Include="Model\Login.cs" />
+    <Compile Include="UserControls\ucRegistration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucRegistration.Designer.cs">
+      <DependentUpon>ucRegistration.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AppointmentForm.cs">
       <SubType>Form</SubType>
     </Compile>

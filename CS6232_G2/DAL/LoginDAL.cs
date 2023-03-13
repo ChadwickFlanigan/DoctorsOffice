@@ -4,10 +4,13 @@ using System.Data.SqlClient;
 
 namespace CS6232_G2.DAL
 {
+    /// <summary>
+    /// The class for interacting with the login table of the database
+    /// </summary>
     public class LoginDAL
     {
         /// <summary>
-        /// Checks the database to see if the given login information is valid
+        /// Returns the login information associated with the given username and password
         /// </summary>
         /// <returns></returns>
         public Login CheckIfUserIsValid(Login login)
