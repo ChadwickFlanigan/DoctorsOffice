@@ -10,7 +10,7 @@ namespace CS6232_G2.View
     /// </summary>
     public partial class LoginForm : Form
     {
-        private LoginController _loginController;
+        private LoginDBDALController _loginController;
         private Login _login;
 
         /// <summary>
@@ -19,7 +19,7 @@ namespace CS6232_G2.View
         public LoginForm()
         {
             InitializeComponent();
-            _loginController = new LoginController();
+            _loginController = new LoginDBDALController();
             txtUsername.Text = "jane";
             txtPassword.Text = "test1234";
         }

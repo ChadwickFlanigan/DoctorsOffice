@@ -3,11 +3,11 @@ using CS6232_G2.Model;
 
 namespace CS6232_G2.Controller
 {
-    public class LoginController
+    public class LoginDBDALController
     {
         private LoginDBDAL _loginDBDAL;
 
-        public LoginController()
+        public LoginDBDALController()
         {
             _loginDBDAL = new LoginDBDAL();
         }
