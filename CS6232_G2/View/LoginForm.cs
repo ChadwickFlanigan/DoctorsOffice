@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CS6232_G2.Controller;
+using CS6232_G2.Model;
+using System;
 using System.Windows.Forms;
 
 namespace CS6232_G2.View
@@ -15,13 +10,16 @@ namespace CS6232_G2.View
     /// </summary>
     public partial class LoginForm : Form
     {
+        private LoginController _loginController;
+        private Login _login;
+
         /// <summary>
         /// Login form for users to login before heading to the main form
         /// </summary>
         public LoginForm()
         {
             InitializeComponent();
-
+            _loginController = new LoginController();
             txtUsername.Text = "jane";
             txtPassword.Text = "test1234";
         }
@@ -37,6 +35,11 @@ namespace CS6232_G2.View
             {
                 MainForm _mainForm = new MainForm(this);
                 _mainForm.SetUsername(txtUsername.Text);
+                Hide();
+                _mainForm.Show();
+            } else if (_loginController.CheckIfLoginIsValid(_login)) {
+                MainForm _mainForm = new MainForm(this);
+                _mainForm.SetUsername(_login);
                 Hide();
                 _mainForm.Show();
             }
@@ -57,11 +60,13 @@ namespace CS6232_G2.View
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
+            _login.username = txtUsername.Text;
             lblError.Text = string.Empty;
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
+            _login.password = txtPassword.Text;
             lblError.Text = string.Empty;
         }
 
