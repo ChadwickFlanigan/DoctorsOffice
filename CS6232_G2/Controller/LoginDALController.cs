@@ -3,13 +3,13 @@ using CS6232_G2.Model;
 
 namespace CS6232_G2.Controller
 {
-    public class LoginDBDALController
+    public class LoginDALController
     {
-        private LoginDBDAL _loginDBDAL;
+        private LoginDAL _loginDBDAL;
 
-        public LoginDBDALController()
+        public LoginDALController()
         {
-            _loginDBDAL = new LoginDBDAL();
+            _loginDBDAL = new LoginDAL();
         }
 
         public bool CheckIfLoginIsValid(Login login)

@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\LoginDALController.cs" />
+    <Compile Include="DAL\LoginDAL.cs" />
+    <Compile Include="Model\Login.cs" />
     <Compile Include="View\AppointmentForm.cs">
       <SubType>Form</SubType>
     </Compile>

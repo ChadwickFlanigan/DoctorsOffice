@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace CS6232_G2.DAL
 {
-    public class LoginDBDAL
+    public class LoginDAL
     {
         /// <summary>
         /// Checks the database to see if the given login information is valid
