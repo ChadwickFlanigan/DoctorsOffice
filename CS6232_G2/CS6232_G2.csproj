@@ -86,6 +86,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UserControls\ucRegistration.resx">
+      <DependentUpon>ucRegistration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AppointmentForm.resx">
       <DependentUpon>AppointmentForm.cs</DependentUpon>
     </EmbeddedResource>

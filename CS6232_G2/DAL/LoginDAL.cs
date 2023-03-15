@@ -33,13 +33,13 @@ namespace CS6232_G2.DAL
                     {
                         while (reader.Read())
                         {
-                            if (reader["nurseId"] != null)
+                            if (reader["nurseId"] != DBNull.Value)
                             {
                                 login.NurseId = Convert.ToInt32(reader["nurseId"]);
                                 login.UserId = Convert.ToInt32(reader["userId"]);
                                 login.Active = Convert.ToBoolean(reader["active"]);
                             }
-                            else if (reader["administratorId"] != null)
+                            else if (reader["administratorId"] != DBNull.Value)
                             {
                                 login.AdministratorId = Convert.ToInt32(reader["administratorId"]);
                                 login.UserId = Convert.ToInt32(reader["personId"]);

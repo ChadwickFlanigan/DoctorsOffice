@@ -13,7 +13,7 @@ namespace CS6232_G2.DAL
         /// <returns></returns>
         public static SqlConnection GetConnection()
         {
-            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=CS6232-G2;Integrated Security=True";
+            string connectionString = "Data Source=localhost;Initial Catalog=CS6232-G2;Integrated Security=True";
 
             return new SqlConnection(connectionString);
         }

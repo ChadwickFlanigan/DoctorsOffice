@@ -34,7 +34,7 @@ namespace CS6232_G2
         /// <param name="username"></param>
         public void SetUsername(Login login)
         {
-            lblUsername.Text = login.username;
+            lblUsername.Text = login.Username;
         }
 
         /// <summary>
