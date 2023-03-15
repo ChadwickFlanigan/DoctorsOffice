@@ -46,9 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\LoginDALController.cs" />
+    <Compile Include="Controller\LoginController.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
     <Compile Include="Model\Login.cs" />
+    <Compile Include="UserControls\SearchPatientUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\SearchPatientUserControl.Designer.cs">
+      <DependentUpon>SearchPatientUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucRegistration.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -66,12 +72,6 @@
     <Compile Include="DAL\G2ProjectConnectionString.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
-    <Compile Include="UserControls\ucAppointments.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\ucAppointments.Designer.cs">
-      <DependentUpon>ucAppointments.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,8 +86,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="UserControls\ucRegistration.resx">
-      <DependentUpon>ucRegistration.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\SearchPatientUserControl.resx">
+      <DependentUpon>SearchPatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AppointmentForm.resx">
       <DependentUpon>AppointmentForm.cs</DependentUpon>
@@ -101,9 +101,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControls\ucAppointments.resx">
-      <DependentUpon>ucAppointments.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

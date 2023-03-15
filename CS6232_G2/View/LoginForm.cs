@@ -10,7 +10,7 @@ namespace CS6232_G2.View
     /// </summary>
     public partial class LoginForm : Form
     {
-        private LoginDALController _loginController;
+        private LoginController _loginController;
         private Login _login;
 
         /// <summary>
@@ -19,10 +19,11 @@ namespace CS6232_G2.View
         public LoginForm()
         {
             InitializeComponent();
+            _loginController = new LoginController();
             _login = new Login();
-            _loginController = new LoginDALController();
-            txtUsername.Text = "jane";
-            txtPassword.Text = "test1234";
+
+            txtUsername.Text = "johnsmith";
+            txtPassword.Text = "password123";
         }
 
         /// <summary>
@@ -56,6 +57,7 @@ namespace CS6232_G2.View
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
+
         /// <summary>
         /// Handles page closing, will close the application if user closes the page
         /// </summary>

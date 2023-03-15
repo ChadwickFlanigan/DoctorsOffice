@@ -11,6 +11,7 @@ namespace CS6232_G2
         private DateTime _lastTimeValue;
         private AppointmentController _appointmentController;
         private Appointment _appointment;
+        private List<Doctor> _doctorList;
 
         /// <summary>
         /// Constructor to draw the ui components and initialize the controller
@@ -24,7 +25,7 @@ namespace CS6232_G2
 
         private void AppointmentForm_Load(object sender, EventArgs e)
         {
-            if (_appointment.PatientId == 0)
+            if (_appointment.PatientId == 0 || string.IsNullOrEmpty(_appointment.PatientName))
             {
                 MessageBox.Show("Invalid request, please select a patient first", "Invalid patient", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cbDoctors.Enabled = false;
@@ -39,22 +40,17 @@ namespace CS6232_G2
             dtAppointmentDate.MinDate = newAvailableTime;
             dtAppointmentTime.MinDate = newAvailableTime;
 
-            BindDoctors(_appointment.DoctorId);
+            BindDoctors();
             BindAppointmentValues();
         }
 
-        private void BindDoctors(int doctorId)
+        private void BindDoctors()
         {
             try
             {
-                List<Doctor> doctors = _appointmentController.GetDoctors();
+                _doctorList = _appointmentController.GetDoctors();
                 cbDoctors.Items.Clear();
-                cbDoctors.Items.AddRange(doctors.ToArray());
-
-                if (doctors?.Count > 0)
-                {
-                    cbDoctors.SelectedItem = doctors.Find(d => d.DoctorId == doctorId);
-                }
+                cbDoctors.Items.AddRange(_doctorList.ToArray());
             }
             catch (Exception ex)
             {
@@ -65,9 +61,27 @@ namespace CS6232_G2
         private void BindAppointmentValues()
         {
             lblPatientName.Text = _appointment.PatientName;
-            dtAppointmentDate.Value = _appointment.AppointmentTime;
-            dtAppointmentTime.Value = _appointment.AppointmentTime;
-            txtReason.Text = _appointment.Reason;
+
+            if (_appointment.AppointmentId > 0)
+            {
+                //try
+                //{
+                //    _appointment = _appointmentController.GetAppointmentById(_appointment.AppointmentId);
+                //}
+                //catch (Exception ex)
+                //{
+                //    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                //}
+
+                dtAppointmentDate.Value = _appointment.AppointmentTime;
+                dtAppointmentTime.Value = _appointment.AppointmentTime;
+                txtReason.Text = _appointment.Reason;
+
+                if (_doctorList?.Count > 0)
+                {
+                    cbDoctors.SelectedItem = _doctorList.Find(d => d.DoctorId == _appointment.DoctorId);
+                }
+            }
         }
 
         private DateTime CalculateNextAvailableTime(DateTime baseTime)
@@ -161,14 +175,16 @@ namespace CS6232_G2
 
         private bool IsFormValid()
         {
-            if (dtAppointmentDate.Value.Date < DateTime.Now.Date)
-            {
-                MessageBox.Show("Please choose a future date", "Invalid appointment date");
-                return false;
-            }
-            else if (dtAppointmentTime.Value.TimeOfDay < DateTime.Now.TimeOfDay)
+            DateTime apptointmentTime = dtAppointmentDate.Value.Date + dtAppointmentTime.Value.TimeOfDay;
+
+            if (apptointmentTime < DateTime.Now)
             {
                 MessageBox.Show("Please choose a future time", "Invalid appointment time");
+                return false;
+            }
+            else if (cbDoctors.SelectedItem == null)
+            {
+                MessageBox.Show("No doctor selected for the appointment", "Please choose a different time");
                 return false;
             }
             else if (!IsDoctorAvailability())
