@@ -38,6 +38,8 @@
             this.mnuNurse = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSearchPatient = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNewAppointment = new System.Windows.Forms.ToolStripMenuItem();
+           
+            
             this.flowLayoutPanel1.SuspendLayout();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
@@ -126,6 +128,7 @@
             // 
             // mnuSearchPatient
             // 
+          
             this.mnuSearchPatient.Name = "mnuSearchPatient";
             this.mnuSearchPatient.Size = new System.Drawing.Size(180, 22);
             this.mnuSearchPatient.Text = "Search Patient";
@@ -137,6 +140,7 @@
             this.mnuNewAppointment.Text = "New Appointment";
             this.mnuNewAppointment.Click += new System.EventHandler(this.mnuNewAppointment_Click);
             // 
+           
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +174,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuNewAppointment;
         private System.Windows.Forms.LinkLabel lnkLogout;
         private System.Windows.Forms.Button button1;
+        
     }
 }
 
