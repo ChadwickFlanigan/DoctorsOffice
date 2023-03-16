@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.searchTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.searchLabel = new System.Windows.Forms.Label();
             this.dobRadioButton = new System.Windows.Forms.RadioButton();
             this.firstLastNameRadioButton = new System.Windows.Forms.RadioButton();
             this.dobLastnameradioButton = new System.Windows.Forms.RadioButton();
             this.clearButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
-            this.dobTextBox = new System.Windows.Forms.TextBox();
-            this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.patientLabel = new System.Windows.Forms.Label();
             this.patientLinkLabel = new System.Windows.Forms.LinkLabel();
             this.patientDetailsLabel = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.searchTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,19 +51,19 @@
             this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.searchTableLayoutPanel.Controls.Add(this.firstNameTextBox, 0, 4);
             this.searchTableLayoutPanel.Controls.Add(this.searchLabel, 0, 0);
-            this.searchTableLayoutPanel.Controls.Add(this.dobRadioButton, 0, 1);
-            this.searchTableLayoutPanel.Controls.Add(this.firstLastNameRadioButton, 0, 2);
-            this.searchTableLayoutPanel.Controls.Add(this.dobLastnameradioButton, 0, 3);
-            this.searchTableLayoutPanel.Controls.Add(this.clearButton, 1, 1);
-            this.searchTableLayoutPanel.Controls.Add(this.searchButton, 1, 2);
-            this.searchTableLayoutPanel.Controls.Add(this.dobTextBox, 2, 4);
-            this.searchTableLayoutPanel.Controls.Add(this.lastNameTextBox, 1, 4);
-            this.searchTableLayoutPanel.Controls.Add(this.patientLabel, 2, 5);
-            this.searchTableLayoutPanel.Controls.Add(this.patientLinkLabel, 0, 5);
             this.searchTableLayoutPanel.Controls.Add(this.patientDetailsLabel, 0, 6);
             this.searchTableLayoutPanel.Controls.Add(this.button2, 1, 8);
+            this.searchTableLayoutPanel.Controls.Add(this.firstLastNameRadioButton, 0, 1);
+            this.searchTableLayoutPanel.Controls.Add(this.dobRadioButton, 1, 1);
+            this.searchTableLayoutPanel.Controls.Add(this.dobLastnameradioButton, 2, 1);
+            this.searchTableLayoutPanel.Controls.Add(this.firstNameTextBox, 0, 2);
+            this.searchTableLayoutPanel.Controls.Add(this.lastNameTextBox, 2, 2);
+            this.searchTableLayoutPanel.Controls.Add(this.patientLinkLabel, 0, 5);
+            this.searchTableLayoutPanel.Controls.Add(this.patientLabel, 2, 5);
+            this.searchTableLayoutPanel.Controls.Add(this.searchButton, 2, 4);
+            this.searchTableLayoutPanel.Controls.Add(this.clearButton, 2, 3);
+            this.searchTableLayoutPanel.Controls.Add(this.dateTimePicker1, 1, 4);
             this.searchTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.searchTableLayoutPanel.Name = "searchTableLayoutPanel";
@@ -79,7 +79,15 @@
             this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
             this.searchTableLayoutPanel.Size = new System.Drawing.Size(526, 376);
             this.searchTableLayoutPanel.TabIndex = 0;
-            this.searchTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchTableLayoutPanel_Paint);
+            
+            // 
+            // firstNameTextBox
+            // 
+            this.firstNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.firstNameTextBox.Location = new System.Drawing.Point(3, 53);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(204, 20);
+            this.firstNameTextBox.TabIndex = 7;
             // 
             // searchLabel
             // 
@@ -97,9 +105,9 @@
             this.dobRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dobRadioButton.AutoSize = true;
             this.dobRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dobRadioButton.Location = new System.Drawing.Point(3, 24);
+            this.dobRadioButton.Location = new System.Drawing.Point(213, 24);
             this.dobRadioButton.Name = "dobRadioButton";
-            this.dobRadioButton.Size = new System.Drawing.Size(204, 17);
+            this.dobRadioButton.Size = new System.Drawing.Size(151, 17);
             this.dobRadioButton.TabIndex = 1;
             this.dobRadioButton.TabStop = true;
             this.dobRadioButton.Text = "Date of Birth";
@@ -110,7 +118,7 @@
             this.firstLastNameRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.firstLastNameRadioButton.AutoSize = true;
             this.firstLastNameRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstLastNameRadioButton.Location = new System.Drawing.Point(3, 54);
+            this.firstLastNameRadioButton.Location = new System.Drawing.Point(3, 24);
             this.firstLastNameRadioButton.Name = "firstLastNameRadioButton";
             this.firstLastNameRadioButton.Size = new System.Drawing.Size(204, 17);
             this.firstLastNameRadioButton.TabIndex = 2;
@@ -123,9 +131,9 @@
             this.dobLastnameradioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dobLastnameradioButton.AutoSize = true;
             this.dobLastnameradioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dobLastnameradioButton.Location = new System.Drawing.Point(3, 84);
+            this.dobLastnameradioButton.Location = new System.Drawing.Point(370, 24);
             this.dobLastnameradioButton.Name = "dobLastnameradioButton";
-            this.dobLastnameradioButton.Size = new System.Drawing.Size(204, 17);
+            this.dobLastnameradioButton.Size = new System.Drawing.Size(153, 17);
             this.dobLastnameradioButton.TabIndex = 3;
             this.dobLastnameradioButton.TabStop = true;
             this.dobLastnameradioButton.Text = "Date of Birth and Last name";
@@ -135,9 +143,9 @@
             // 
             this.clearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearButton.Location = new System.Drawing.Point(213, 21);
+            this.clearButton.Location = new System.Drawing.Point(370, 81);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(151, 23);
+            this.clearButton.Size = new System.Drawing.Size(153, 23);
             this.clearButton.TabIndex = 4;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -146,36 +154,20 @@
             // 
             this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(213, 51);
+            this.searchButton.Location = new System.Drawing.Point(370, 115);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(151, 23);
+            this.searchButton.Size = new System.Drawing.Size(153, 23);
             this.searchButton.TabIndex = 5;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
             // 
-            // dobTextBox
-            // 
-            this.dobTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dobTextBox.Location = new System.Drawing.Point(370, 116);
-            this.dobTextBox.Name = "dobTextBox";
-            this.dobTextBox.Size = new System.Drawing.Size(153, 20);
-            this.dobTextBox.TabIndex = 6;
-            // 
-            // firstNameTextBox
-            // 
-            this.firstNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.firstNameTextBox.Location = new System.Drawing.Point(3, 116);
-            this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(204, 20);
-            this.firstNameTextBox.TabIndex = 7;
-            // 
             // lastNameTextBox
             // 
             this.lastNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lastNameTextBox.Location = new System.Drawing.Point(213, 116);
+            this.lastNameTextBox.Location = new System.Drawing.Point(370, 53);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(151, 20);
-            this.lastNameTextBox.TabIndex = 8;
+            this.lastNameTextBox.Size = new System.Drawing.Size(153, 20);
+            this.lastNameTextBox.TabIndex = 6;
             // 
             // patientLabel
             // 
@@ -222,6 +214,14 @@
             this.button2.Text = "Add Appointment";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(213, 111);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
+            this.dateTimePicker1.TabIndex = 14;
+          
+            // 
             // SearchPatientUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -245,11 +245,11 @@
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox firstNameTextBox;
-        private System.Windows.Forms.TextBox dobTextBox;
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.Label patientLabel;
         private System.Windows.Forms.LinkLabel patientLinkLabel;
         private System.Windows.Forms.Label patientDetailsLabel;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

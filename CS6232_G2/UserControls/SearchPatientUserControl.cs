@@ -17,9 +17,6 @@ namespace CS6232_G2.UserControls
             InitializeComponent();
         }
 
-        private void searchTableLayoutPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+  
     }
 }
