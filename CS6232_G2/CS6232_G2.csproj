@@ -47,8 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\UserController.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
+    <Compile Include="DAL\UserDAL.cs" />
+    <Compile Include="Model\Gender.cs" />
     <Compile Include="Model\Login.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="UserControls\SearchPatientUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
