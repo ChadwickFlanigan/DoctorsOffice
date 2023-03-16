@@ -2,6 +2,7 @@
 using CS6232_G2.Model;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace CS6232_G2.UserControls
@@ -115,6 +116,7 @@ namespace CS6232_G2.UserControls
                     user.Phone = phone;
                     user.Zipcode = zip;
                     this._userController.Add(user);
+                    this.lblMessage.ForeColor = Color.Black;
                     this.lblMessage.Text = "The patient has been registered.";
                 }
             }

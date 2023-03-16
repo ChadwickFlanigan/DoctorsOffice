@@ -356,9 +356,8 @@
             this.lblLastNameError.Location = new System.Drawing.Point(353, 38);
             this.lblLastNameError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblLastNameError.Name = "lblLastNameError";
-            this.lblLastNameError.Size = new System.Drawing.Size(35, 17);
+            this.lblLastNameError.Size = new System.Drawing.Size(0, 17);
             this.lblLastNameError.TabIndex = 25;
-            this.lblLastNameError.Text = "test";
             // 
             // lblFirstNameError
             // 
@@ -368,9 +367,8 @@
             this.lblFirstNameError.Location = new System.Drawing.Point(353, 68);
             this.lblFirstNameError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblFirstNameError.Name = "lblFirstNameError";
-            this.lblFirstNameError.Size = new System.Drawing.Size(35, 17);
+            this.lblFirstNameError.Size = new System.Drawing.Size(0, 17);
             this.lblFirstNameError.TabIndex = 26;
-            this.lblFirstNameError.Text = "test";
             // 
             // lblDateOfBirthError
             // 
@@ -380,9 +378,8 @@
             this.lblDateOfBirthError.Location = new System.Drawing.Point(353, 98);
             this.lblDateOfBirthError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblDateOfBirthError.Name = "lblDateOfBirthError";
-            this.lblDateOfBirthError.Size = new System.Drawing.Size(35, 17);
+            this.lblDateOfBirthError.Size = new System.Drawing.Size(0, 17);
             this.lblDateOfBirthError.TabIndex = 27;
-            this.lblDateOfBirthError.Text = "test";
             // 
             // lblSSNError
             // 
@@ -392,9 +389,8 @@
             this.lblSSNError.Location = new System.Drawing.Point(353, 128);
             this.lblSSNError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblSSNError.Name = "lblSSNError";
-            this.lblSSNError.Size = new System.Drawing.Size(35, 17);
+            this.lblSSNError.Size = new System.Drawing.Size(0, 17);
             this.lblSSNError.TabIndex = 28;
-            this.lblSSNError.Text = "test";
             // 
             // lblGenderError
             // 
@@ -404,9 +400,8 @@
             this.lblGenderError.Location = new System.Drawing.Point(353, 158);
             this.lblGenderError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblGenderError.Name = "lblGenderError";
-            this.lblGenderError.Size = new System.Drawing.Size(35, 17);
+            this.lblGenderError.Size = new System.Drawing.Size(0, 17);
             this.lblGenderError.TabIndex = 29;
-            this.lblGenderError.Text = "test";
             // 
             // lblStreetNumberError
             // 
@@ -416,9 +411,8 @@
             this.lblStreetNumberError.Location = new System.Drawing.Point(353, 188);
             this.lblStreetNumberError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblStreetNumberError.Name = "lblStreetNumberError";
-            this.lblStreetNumberError.Size = new System.Drawing.Size(35, 17);
+            this.lblStreetNumberError.Size = new System.Drawing.Size(0, 17);
             this.lblStreetNumberError.TabIndex = 30;
-            this.lblStreetNumberError.Text = "test";
             // 
             // lblCityError
             // 
@@ -428,9 +422,8 @@
             this.lblCityError.Location = new System.Drawing.Point(353, 218);
             this.lblCityError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblCityError.Name = "lblCityError";
-            this.lblCityError.Size = new System.Drawing.Size(35, 17);
+            this.lblCityError.Size = new System.Drawing.Size(0, 17);
             this.lblCityError.TabIndex = 31;
-            this.lblCityError.Text = "test";
             // 
             // lblStateError
             // 
@@ -440,9 +433,8 @@
             this.lblStateError.Location = new System.Drawing.Point(353, 248);
             this.lblStateError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblStateError.Name = "lblStateError";
-            this.lblStateError.Size = new System.Drawing.Size(35, 17);
+            this.lblStateError.Size = new System.Drawing.Size(0, 17);
             this.lblStateError.TabIndex = 32;
-            this.lblStateError.Text = "test";
             // 
             // lblCountryError
             // 
@@ -452,9 +444,8 @@
             this.lblCountryError.Location = new System.Drawing.Point(353, 278);
             this.lblCountryError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblCountryError.Name = "lblCountryError";
-            this.lblCountryError.Size = new System.Drawing.Size(35, 17);
+            this.lblCountryError.Size = new System.Drawing.Size(0, 17);
             this.lblCountryError.TabIndex = 33;
-            this.lblCountryError.Text = "test";
             // 
             // lblPhoneError
             // 
@@ -464,9 +455,8 @@
             this.lblPhoneError.Location = new System.Drawing.Point(353, 308);
             this.lblPhoneError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblPhoneError.Name = "lblPhoneError";
-            this.lblPhoneError.Size = new System.Drawing.Size(35, 17);
+            this.lblPhoneError.Size = new System.Drawing.Size(0, 17);
             this.lblPhoneError.TabIndex = 34;
-            this.lblPhoneError.Text = "test";
             // 
             // lblZipcodeError
             // 
@@ -476,9 +466,8 @@
             this.lblZipcodeError.Location = new System.Drawing.Point(353, 338);
             this.lblZipcodeError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblZipcodeError.Name = "lblZipcodeError";
-            this.lblZipcodeError.Size = new System.Drawing.Size(35, 17);
+            this.lblZipcodeError.Size = new System.Drawing.Size(0, 17);
             this.lblZipcodeError.TabIndex = 35;
-            this.lblZipcodeError.Text = "test";
             // 
             // lblMessage
             // 
@@ -488,9 +477,8 @@
             this.lblMessage.Location = new System.Drawing.Point(353, 368);
             this.lblMessage.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(35, 17);
+            this.lblMessage.Size = new System.Drawing.Size(0, 17);
             this.lblMessage.TabIndex = 36;
-            this.lblMessage.Text = "test";
             // 
             // dtpDateOfBirth
             // 
