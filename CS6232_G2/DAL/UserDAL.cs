@@ -5,10 +5,14 @@ namespace CS6232_G2.DAL
 {
     internal class UserDAL
     {
+        /// <summary>
+        /// The DAL for interacting with the Users table
+        /// </summary>
+        /// <param name="user"></param>
         public void AddUser(User user)
         {
             string insertStatement =
-                "INSERT INTO Incidents (lastName, firstName, dob, ssn, gender, streetNumber, city, state, country, phone, zipcode) " +
+                "INSERT INTO Users (lastName, firstName, dob, ssn, gender, streetNumber, city, state, country, phone, zipcode) " +
                 "VALUES (@lastName, @firstName, @dob, @ssn, @gender, @streetNumber, @city, @state, @country, @phone, @zipcode) ";
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {

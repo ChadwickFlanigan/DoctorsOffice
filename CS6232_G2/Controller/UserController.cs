@@ -3,7 +3,10 @@ using CS6232_G2.Model;
 
 namespace CS6232_G2.Controller
 {
-    internal class UserController
+    /// <summary>
+    /// The controller for the UserDAL
+    /// </summary>
+    public class UserController
     {
         private UserDAL _userDBDAL;
 
