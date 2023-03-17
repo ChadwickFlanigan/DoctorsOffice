@@ -15,9 +15,9 @@ namespace CS6232_G2.Controller
             _patientDBDAL= new PatientDAL();
         }
 
-        public void Add(Patient patient)
+        public void Add(User user)
         {
-            _patientDBDAL.AddPatient(patient);
+            _patientDBDAL.AddPatient(user);
         }
     }
 }

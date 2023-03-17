@@ -3,10 +3,13 @@ using CS6232_G2.Model;
 
 namespace CS6232_G2.DAL
 {
-    internal class UserDAL
+    /// <summary>
+    /// The DAL for interacting with the Users table
+    /// </summary>
+    public class UserDAL
     {
         /// <summary>
-        /// The DAL for interacting with the Users table
+        /// Adds a new user to the database
         /// </summary>
         /// <param name="user"></param>
         public void AddUser(User user)

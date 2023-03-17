@@ -10,6 +10,7 @@ namespace CS6232_G2.UserControls
     public partial class RegisterPatientUserControl : UserControl
     {
         private UserController _userController;
+        private PatientController _patientController;
 
         public RegisterPatientUserControl()
         {
@@ -115,7 +116,7 @@ namespace CS6232_G2.UserControls
                     user.State = state;
                     user.Phone = phone;
                     user.Zipcode = zip;
-                    this._userController.Add(user);
+                    this._patientController.Add(user);
                     this.lblMessage.ForeColor = Color.Black;
                     this.lblMessage.Text = "The patient has been registered.";
                 }
