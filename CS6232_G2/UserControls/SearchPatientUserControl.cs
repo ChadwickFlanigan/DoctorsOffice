@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,8 @@ namespace CS6232_G2.UserControls
     public partial class SearchPatientUserControl : UserControl
     {
        private readonly SearchController _searchController;
+        private readonly AppointmentController _appointmentController;
+        private Appointment _appointment;
         private List<Appointment> patients;
         public SearchPatientUserControl()
         {
@@ -59,24 +62,44 @@ namespace CS6232_G2.UserControls
         {
             string fname = firstNameTextBox.Text;
             string lname = lastNameTextBox.Text;
+
             if (firstNameTextBox.Enabled && lastNameTextBox.Enabled)
             {
-               patients = _searchController.GetPatientByFirstAndLastName(fname,lname);
+                if(string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname))
+                {
+                    MessageBox.Show("Please enter  patient first and last name", "Patient name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                patients = _searchController.GetPatientByFirstAndLastName(fname,lname);
                 if (patients.Count == 0)
                 {
                     MessageBox.Show("No patient found with the name");
                 }
+                
               appointmentDataGridView.DataSource = patients;
             }
             if (dateTimePicker.Enabled)
             {
-
+               /// patients = _searchController.GetPatientByDateOfBirth();
             }
             if(dateTimePicker.Enabled && lastNameTextBox.Enabled)
             {
 
             }
+            patientname();
         }
+        private void patientname()
+        {
+            appointmentDataGridView.DataSource = patients;
+            if(appointmentDataGridView.SelectedRows.Count > 0)
+            {
+                _appointment = _appointmentController.GetAppointmentByName(_appointment.AppointmentId);
+                ///patientLinkLabel , patient name to be visible to edit
+            }
+        }
+        private void patientLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
 
+        }
     }
 }

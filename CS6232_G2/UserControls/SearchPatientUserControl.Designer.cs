@@ -32,11 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchPatientUserControl));
             this.searchTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.appointmentDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.searchLabel = new System.Windows.Forms.Label();
             this.patientDetailsLabel = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -66,11 +61,16 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.appointmentBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingNavigator)).BeginInit();
             this.appointmentBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // searchTableLayoutPanel
@@ -130,35 +130,6 @@
             this.appointmentDataGridView.Name = "appointmentDataGridView";
             this.appointmentDataGridView.Size = new System.Drawing.Size(536, 148);
             this.appointmentDataGridView.TabIndex = 18;
-          
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "PatientId";
-            this.dataGridViewTextBoxColumn2.HeaderText = "PatientId";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "DoctorId";
-            this.dataGridViewTextBoxColumn4.HeaderText = "DoctorId";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "AppointmentTime";
-            this.dataGridViewTextBoxColumn5.HeaderText = "AppointmentTime";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Reason";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Reason";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // appointmentBindingSource
-            // 
-            this.appointmentBindingSource.DataSource = typeof(CS6232_G2.Model.Appointment);
             // 
             // searchLabel
             // 
@@ -246,7 +217,9 @@
             this.patientLinkLabel.Size = new System.Drawing.Size(372, 16);
             this.patientLinkLabel.TabIndex = 10;
             this.patientLinkLabel.TabStop = true;
-            this.patientLinkLabel.Text = "testlater-patient name";
+            this.patientLinkLabel.Text = "12";
+            this.patientLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.patientLinkLabel_LinkClicked);
+            this.patientLinkLabel.BindingContextChanged += new System.EventHandler(this.searchButton_Click);
             // 
             // patientLabel
             // 
@@ -463,6 +436,34 @@
             this.appointmentBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.appointmentBindingNavigatorSaveItem.Text = "Save Data";
             // 
+            // appointmentBindingSource
+            // 
+            this.appointmentBindingSource.DataSource = typeof(CS6232_G2.Model.Appointment);
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "PatientId";
+            this.dataGridViewTextBoxColumn2.HeaderText = "PatientId";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "DoctorId";
+            this.dataGridViewTextBoxColumn4.HeaderText = "DoctorId";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "AppointmentTime";
+            this.dataGridViewTextBoxColumn5.HeaderText = "AppointmentTime";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Reason";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Reason";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
             // SearchPatientUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -474,10 +475,10 @@
             this.searchTableLayoutPanel.ResumeLayout(false);
             this.searchTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingNavigator)).EndInit();
             this.appointmentBindingNavigator.ResumeLayout(false);
             this.appointmentBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
