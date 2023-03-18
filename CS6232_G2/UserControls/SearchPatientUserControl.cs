@@ -19,6 +19,8 @@ namespace CS6232_G2.UserControls
         private readonly AppointmentController _appointmentController;
         private Appointment _appointment;
         private List<Appointment> patients;
+        private DateTime dateOfBirth;
+
         public SearchPatientUserControl()
         {
             InitializeComponent();
@@ -80,7 +82,15 @@ namespace CS6232_G2.UserControls
             }
             if (dateTimePicker.Enabled)
             {
-               /// patients = _searchController.GetPatientByDateOfBirth();
+                
+                DateTime dob = Convert.ToDateTime(dateTimePicker.Value).Date;
+                this.patients = this._searchController.GetPatientsByDOB(dob);
+
+                if (patients.Count == 0)
+                {
+                    MessageBox.Show("No patient found with the date");
+                }
+                appointmentDataGridView.DataSource = patients;
             }
             if(dateTimePicker.Enabled && lastNameTextBox.Enabled)
             {
@@ -97,9 +107,6 @@ namespace CS6232_G2.UserControls
                 ///patientLinkLabel , patient name to be visible to edit
             }
         }
-        private void patientLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
+ 
     }
 }

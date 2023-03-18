@@ -62,10 +62,10 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.appointmentBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingNavigator)).BeginInit();
@@ -218,7 +218,6 @@
             this.patientLinkLabel.TabIndex = 10;
             this.patientLinkLabel.TabStop = true;
             this.patientLinkLabel.Text = "12";
-            this.patientLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.patientLinkLabel_LinkClicked);
             this.patientLinkLabel.BindingContextChanged += new System.EventHandler(this.searchButton_Click);
             // 
             // patientLabel
@@ -440,17 +439,11 @@
             // 
             this.appointmentBindingSource.DataSource = typeof(CS6232_G2.Model.Appointment);
             // 
-            // dataGridViewTextBoxColumn2
+            // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "PatientId";
-            this.dataGridViewTextBoxColumn2.HeaderText = "PatientId";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "DoctorId";
-            this.dataGridViewTextBoxColumn4.HeaderText = "DoctorId";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Reason";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Reason";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -458,11 +451,17 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "AppointmentTime";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // dataGridViewTextBoxColumn6
+            // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Reason";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Reason";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "DoctorId";
+            this.dataGridViewTextBoxColumn4.HeaderText = "DoctorId";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "PatientId";
+            this.dataGridViewTextBoxColumn2.HeaderText = "PatientId";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // SearchPatientUserControl
             // 
@@ -512,15 +511,15 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton appointmentBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.Label fLabel;
         private System.Windows.Forms.Label lLabel;
         private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }

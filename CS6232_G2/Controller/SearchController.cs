@@ -19,5 +19,13 @@ namespace CS6232_G2.Controller
         {
             return _searchDAL.GetPatientListByFirstAndLastName(fname, lname);
         }
+        public List<Appointment> GetPatientsByDOB(DateTime dob)
+        {
+            if (dob == DateTime.MinValue || dob == null)
+            {
+                throw new ArgumentNullException("Date of birth cannot be null");
+            }
+            return _searchDAL.GetPatientsByDOB(dob); ;
+        }
     }
 }
