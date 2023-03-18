@@ -15,22 +15,22 @@ namespace CS6232_G2.DAL
     public class SearchDAL
     {
       
-        public List<Appointment> GetPatientListByFirstAndLastName(string fname, string lname)
+        public List<Appointment> GetPatientListByFirstAndLastName(string firstName, string lastName)
         {
             List<Appointment> patientsdetails = new List<Appointment>();
             
 
             string selectStatement = "SELECT doctorId,patientId,appointmentTime ,reasonsForVisit, firstName, lastName " +
-                "FROM Appointments a inner join users u on u.userId = a.appoinmentId " +
-                "Where fname = @firstName And lname =@lastName";
+                "FROM Appointments a inner join users u on u.userId = a.appointmentId " +
+                "Where firstName = @firstName And lastName =@lastName";
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {
                 connection.Open();
 
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
-                    selectCommand.Parameters.AddWithValue("@firstName", fname);
-                    selectCommand.Parameters.AddWithValue("@lastName", lname);
+                    selectCommand.Parameters.AddWithValue("@firstName", firstName);
+                    selectCommand.Parameters.AddWithValue("@lastName", lastName);
 
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
