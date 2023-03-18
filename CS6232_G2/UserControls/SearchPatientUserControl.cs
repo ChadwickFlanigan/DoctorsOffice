@@ -1,4 +1,5 @@
 ﻿using CS6232_G2.Controller;
+using CS6232_G2.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,12 @@ namespace CS6232_G2.UserControls
     public partial class SearchPatientUserControl : UserControl
     {
        private readonly SearchController _searchController;
+        private List<Appointment> patients;
         public SearchPatientUserControl()
         {
             InitializeComponent();
             _searchController = new SearchController();
+            patients = new List<Appointment>();
         }
 
         private void firstLastNameRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -58,7 +61,12 @@ namespace CS6232_G2.UserControls
             string lname = lastNameTextBox.Text;
             if (firstNameTextBox.Enabled && lastNameTextBox.Enabled)
             {
-                _searchController.GetPatientByFirstAndLastName(fname,lname);
+               patients = _searchController.GetPatientByFirstAndLastName(fname,lname);
+                if (patients.Count == 0)
+                {
+                    MessageBox.Show("No patient found with the name");
+                }
+              appointmentDataGridView.DataSource = patients;
             }
             if (dateTimePicker.Enabled)
             {
