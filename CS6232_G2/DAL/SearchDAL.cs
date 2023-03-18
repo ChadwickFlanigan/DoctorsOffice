@@ -89,5 +89,41 @@ namespace CS6232_G2.DAL
             }
             return patientsdetails;
         }
+        public List<Appointment> GetPatientsByDOBAndLastName(DateTime dob, string lastName)
+        {
+            List<Appointment> patientsdetails = new List<Appointment>();
+            string selectStatement = "SELECT doctorId,patientId,appointmentTime ,reasonsForVisit, dob, lastName " +
+                "FROM Appointments a inner join users u on u.userId = a.appointmentId " +
+                "Where dob = @dob And lastName =@lastName";
+            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@dob", dob);
+                    selectCommand.Parameters.AddWithValue("@lastName", lastName);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Appointment patients = new Appointment();
+                            {
+                                patients.DoctorId = Convert.ToInt32(reader["doctorId"]);
+                                patients.AppointmentTime = Convert.ToDateTime(reader["appointmentTime"]);
+                                patients.PatientId = Convert.ToInt32(reader["patientId"]);
+                                patients.Reason = reader["reasonsForVisit"].ToString();
+
+                                patientsdetails.Add(patients);
+                            };
+
+                        }
+                    }
+                }
+            }
+            return patientsdetails;
+        }
+        
     }
 }
