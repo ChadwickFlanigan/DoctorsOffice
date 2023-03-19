@@ -1,5 +1,5 @@
-﻿using System.Data.SqlClient;
-using CS6232_G2.Model;
+﻿using CS6232_G2.Model;
+using System.Data.SqlClient;
 
 namespace CS6232_G2.DAL
 {

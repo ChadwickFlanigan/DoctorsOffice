@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace CS6232_G2
 {
+    /// <summary>
+    /// Appointments form used to view/edit an appointment
+    /// </summary>
     public partial class AppointmentForm : Form
     {
         private DateTime _lastTimeValue;

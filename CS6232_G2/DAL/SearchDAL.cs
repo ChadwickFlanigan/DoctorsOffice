@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
-
 namespace CS6232_G2.DAL
 {
     public class SearchDAL
