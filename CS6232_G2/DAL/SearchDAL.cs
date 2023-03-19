@@ -6,10 +6,8 @@ using System.Data.SqlClient;
 
 namespace CS6232_G2.DAL
 {
-
     public class SearchDAL
     {
-
         public List<Appointment> GetPatientListByFirstAndLastName(string firstName, string lastName)
         {
             List<Appointment> patientsdetails = new List<Appointment>();

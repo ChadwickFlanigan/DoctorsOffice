@@ -8,7 +8,7 @@ namespace CS6232_G2.UserControls
 {
     public partial class SearchPatientUserControl : UserControl
     {
-       private readonly SearchController _searchController;
+        private readonly SearchController _searchController;
         private readonly AppointmentController _appointmentController;
         private Appointment _appointment;
         private List<Appointment> patients;
@@ -53,20 +53,19 @@ namespace CS6232_G2.UserControls
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-
-            firstNameTextBox.Text ="";
-            lastNameTextBox.Text="";
+            firstNameTextBox.Text = "";
+            lastNameTextBox.Text= "";
             dateTimePicker.Value= DateTime.Now;
-           
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
             string fname = firstNameTextBox.Text;
             string lname = lastNameTextBox.Text;
+
             try
             {
-                if (firstNameTextBox.Enabled && lastNameTextBox.Enabled)
+                if (firstLastNameRadioButton.Checked)
                 {
                     if (string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname))
                     {
@@ -81,8 +80,7 @@ namespace CS6232_G2.UserControls
 
                     appointmentDataGridView.DataSource = patients;
                 }
-
-                else if (dateTimePicker.Enabled && lastNameTextBox.Enabled)
+                else if (dobRadioButton.Checked)
                 {
                     if (string.IsNullOrEmpty(lname))
                     {
@@ -90,7 +88,7 @@ namespace CS6232_G2.UserControls
                         return;
                     }
                     DateTime dob = Convert.ToDateTime(dateTimePicker.Value).Date;
-                    this.patients = this._searchController.GetPatientsByDOBAndLastName(dob, lname);
+                    patients = _searchController.GetPatientsByDOBAndLastName(dob, lname);
 
                     if (patients.Count == 0)
                     {
@@ -98,11 +96,10 @@ namespace CS6232_G2.UserControls
                     }
                     appointmentDataGridView.DataSource = patients;
                 }
-                else if (dateTimePicker.Enabled)
+                else if (dobLastnameradioButton.Checked)
                 {
-
                     DateTime dob = Convert.ToDateTime(dateTimePicker.Value).Date;
-                    this.patients = this._searchController.GetPatientsByDOB(dob);
+                    patients = _searchController.GetPatientsByDOB(dob);
 
                     if (patients.Count == 0)
                     {
@@ -110,24 +107,24 @@ namespace CS6232_G2.UserControls
                     }
                     appointmentDataGridView.DataSource = patients;
                 }
-             
+
+                patientname();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
-           
-            patientname();
         }
         private void patientname()
         {
             appointmentDataGridView.DataSource = patients;
-            if(appointmentDataGridView.SelectedRows.Count > 0)
+
+            if (appointmentDataGridView.SelectedRows.Count > 0)
             {
-                _appointment = _appointmentController.GetAppointmentByName(_appointment.AppointmentId);
+                _appointment = _appointmentController.GetAppointmentById(_appointment.AppointmentId);
                 ///patientLinkLabel , patient name to be visible to edit
             }
         }
- 
+
     }
 }

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchPatientUserControl));
             this.searchTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.appointmentDataGridView = new System.Windows.Forms.DataGridView();
             this.searchLabel = new System.Windows.Forms.Label();
             this.patientDetailsLabel = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -62,15 +61,16 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.appointmentBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentDataGridView = new System.Windows.Forms.DataGridView();
             this.searchTableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingNavigator)).BeginInit();
             this.appointmentBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // searchTableLayoutPanel
@@ -113,23 +113,6 @@
             this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.searchTableLayoutPanel.Size = new System.Drawing.Size(542, 386);
             this.searchTableLayoutPanel.TabIndex = 0;
-            // 
-            // appointmentDataGridView
-            // 
-            this.appointmentDataGridView.AutoGenerateColumns = false;
-            this.appointmentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.appointmentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            this.searchTableLayoutPanel.SetColumnSpan(this.appointmentDataGridView, 3);
-            this.appointmentDataGridView.DataSource = this.appointmentBindingSource;
-            this.appointmentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.appointmentDataGridView.Location = new System.Drawing.Point(3, 203);
-            this.appointmentDataGridView.Name = "appointmentDataGridView";
-            this.appointmentDataGridView.Size = new System.Drawing.Size(536, 148);
-            this.appointmentDataGridView.TabIndex = 18;
             // 
             // searchLabel
             // 
@@ -258,10 +241,11 @@
             // 
             // dateTimePicker
             // 
+            this.dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker.Enabled = false;
-            this.dateTimePicker.Location = new System.Drawing.Point(192, 112);
+            this.dateTimePicker.Location = new System.Drawing.Point(192, 118);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(151, 20);
+            this.dateTimePicker.Size = new System.Drawing.Size(183, 20);
             this.dateTimePicker.TabIndex = 6;
             // 
             // lastNameTextBox
@@ -441,29 +425,56 @@
             // 
             this.appointmentBindingSource.DataSource = typeof(CS6232_G2.Model.Appointment);
             // 
-            // dataGridViewTextBoxColumn2
+            // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "PatientId";
-            this.dataGridViewTextBoxColumn2.HeaderText = "PatientId";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "DoctorId";
-            this.dataGridViewTextBoxColumn4.HeaderText = "DoctorId";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Reason";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Reason";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "AppointmentTime";
             this.dataGridViewTextBoxColumn5.HeaderText = "AppointmentTime";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn6
+            // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Reason";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Reason";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "DoctorId";
+            this.dataGridViewTextBoxColumn4.HeaderText = "DoctorId";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "PatientId";
+            this.dataGridViewTextBoxColumn2.HeaderText = "PatientId";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // appointmentDataGridView
+            // 
+            this.appointmentDataGridView.AllowUserToAddRows = false;
+            this.appointmentDataGridView.AllowUserToDeleteRows = false;
+            this.appointmentDataGridView.AllowUserToOrderColumns = true;
+            this.appointmentDataGridView.AllowUserToResizeColumns = false;
+            this.appointmentDataGridView.AutoGenerateColumns = false;
+            this.appointmentDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.appointmentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.appointmentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+            this.searchTableLayoutPanel.SetColumnSpan(this.appointmentDataGridView, 3);
+            this.appointmentDataGridView.DataSource = this.appointmentBindingSource;
+            this.appointmentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.appointmentDataGridView.Location = new System.Drawing.Point(3, 203);
+            this.appointmentDataGridView.Name = "appointmentDataGridView";
+            this.appointmentDataGridView.ReadOnly = true;
+            this.appointmentDataGridView.Size = new System.Drawing.Size(536, 148);
+            this.appointmentDataGridView.TabIndex = 18;
             // 
             // SearchPatientUserControl
             // 
@@ -475,11 +486,11 @@
             this.Size = new System.Drawing.Size(542, 386);
             this.searchTableLayoutPanel.ResumeLayout(false);
             this.searchTableLayoutPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingNavigator)).EndInit();
             this.appointmentBindingNavigator.ResumeLayout(false);
             this.appointmentBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -498,7 +509,6 @@
         private System.Windows.Forms.LinkLabel patientLinkLabel;
         private System.Windows.Forms.Label patientDetailsLabel;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView appointmentDataGridView;
         private System.Windows.Forms.BindingSource appointmentBindingSource;
         private System.Windows.Forms.BindingNavigator appointmentBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
@@ -519,6 +529,7 @@
         private System.Windows.Forms.Label fLabel;
         private System.Windows.Forms.Label lLabel;
         private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.DataGridView appointmentDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;

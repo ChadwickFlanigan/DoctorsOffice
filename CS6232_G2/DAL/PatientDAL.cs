@@ -1,5 +1,4 @@
 ﻿using CS6232_G2.Model;
-using System;
 using System.Data.SqlClient;
 
 namespace CS6232_G2.DAL
@@ -118,7 +117,7 @@ namespace CS6232_G2.DAL
             int userId = 0;
             string selectStatement =
                         "SELECT userId " +
-                        "JOIN Patients p " +
+                        "FROM Patients p " +
                         "WHERE patientId = @patientId";
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {

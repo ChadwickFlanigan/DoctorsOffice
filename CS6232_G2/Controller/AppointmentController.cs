@@ -49,9 +49,5 @@ namespace CS6232_G2.Controller
         {
             return _appointmentDAL.GetAppointmentById(appointmentId);
         }
-        public Appointment GetAppointmentByName(int appointmentId)
-        {
-            return _appointmentDAL.GetAppointmentByName(appointmentId);
-        }
     }
 }
