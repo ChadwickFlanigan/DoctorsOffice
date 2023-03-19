@@ -29,6 +29,7 @@ namespace CS6232_G2.UserControls
             searchButton.Enabled = true;
             clearButton.Enabled = true;
             appointmentDataGridView.DataSource=null;
+            clear();
         }
 
         private void dobRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -39,6 +40,7 @@ namespace CS6232_G2.UserControls
             searchButton.Enabled = true;
             clearButton.Enabled = true;
             appointmentDataGridView.DataSource=null;
+            clear();
         }
 
         private void dobLastnameradioButton_CheckedChanged(object sender, EventArgs e)
@@ -49,13 +51,17 @@ namespace CS6232_G2.UserControls
             searchButton.Enabled = true;
             clearButton.Enabled = true;
             appointmentDataGridView.DataSource=null;
+            clear();
         }
-
-        private void clearButton_Click(object sender, EventArgs e)
+        private void clear()
         {
             firstNameTextBox.Text = "";
             lastNameTextBox.Text= "";
             dateTimePicker.Value= DateTime.Now;
+        }
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            clear();
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -80,7 +86,7 @@ namespace CS6232_G2.UserControls
 
                     appointmentDataGridView.DataSource = patients;
                 }
-                else if (dobRadioButton.Checked)
+                else if (dobLastnameradioButton.Checked)
                 {
                     if (string.IsNullOrEmpty(lname))
                     {
@@ -96,7 +102,7 @@ namespace CS6232_G2.UserControls
                     }
                     appointmentDataGridView.DataSource = patients;
                 }
-                else if (dobLastnameradioButton.Checked)
+                else if (dobRadioButton.Checked)
                 {
                     DateTime dob = Convert.ToDateTime(dateTimePicker.Value).Date;
                     patients = _searchController.GetPatientsByDOB(dob);
