@@ -35,5 +35,46 @@ namespace CS6232_G2.DAL
                 insertCommand.ExecuteReader();
             }
         }
+
+        /// <summary>
+        /// Returns the user details for the given id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public User GetUserDetailsByID(int id)
+        {
+            User user = new User();
+            string selectStatement =
+                        "SELECT lastName, firstName, dob, ssn, gender, streetNumber, city, state, country, phone, zipcode " +
+                        "FROM Users " +
+                        "WHERE userId = @userID";
+            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@userId", id);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            user.LastName = reader["lastName"].ToString();
+                            user.FirstName = reader["firstName"].ToString();
+                            user.DOB = reader["dob"].ToString();
+                            user.SSN = reader["ssn"].ToString();
+                            user.Gender = reader["gender"].ToString();
+                            user.StreetNumber = reader["streetNumber"].ToString();
+                            user.City = reader["city"].ToString();
+                            user.State = reader["state"].ToString();
+                            user.Country = reader["country"].ToString();
+                            user.Phone = reader["phone"].ToString();
+                            user.Zipcode = reader["zipcode"].ToString();
+                        }
+                    }
+                }
+            }
+            return user;
+        }
     }
 }
