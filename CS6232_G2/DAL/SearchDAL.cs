@@ -2,12 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace CS6232_G2.DAL
 {
@@ -21,7 +16,7 @@ namespace CS6232_G2.DAL
 
 
             string selectStatement = "SELECT doctorId,patientId,appointmentTime ,reasonsForVisit, firstName, lastName " +
-                "FROM Appointments a inner join users u on u.userId = a.appointmentId " +
+                "FROM Appointments a inner join users u on u.userId = a.patientId " +
                 "Where firstName = @firstName And lastName =@lastName";
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {
@@ -58,7 +53,7 @@ namespace CS6232_G2.DAL
         {
             List<Appointment> patientsdetails = new List<Appointment>();
             string selectStatement = "SELECT doctorId,patientId,appointmentTime ,reasonsForVisit, dob " +
-               "FROM Appointments a inner join users u on u.userId = a.appointmentId " +
+               "FROM Appointments a inner join users u on u.userId = a.patientId " +
                "Where dob = @dob ";
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {
@@ -93,7 +88,7 @@ namespace CS6232_G2.DAL
         {
             List<Appointment> patientsdetails = new List<Appointment>();
             string selectStatement = "SELECT doctorId,patientId,appointmentTime ,reasonsForVisit, dob, lastName " +
-                "FROM Appointments a inner join users u on u.userId = a.appointmentId " +
+                "FROM Appointments a inner join users u on u.userId = a.patientId " +
                 "Where dob = @dob And lastName =@lastName";
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {
