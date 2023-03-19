@@ -116,5 +116,39 @@ namespace CS6232_G2.DAL
 
             return appointment;
         }
+
+        public Appointment GetAppointmentByName(int appointmentId)
+        {
+            Appointment appointment = null;
+
+            string selectStatement = "SELECT [appointmentId],[doctorId],[patientId],[appointmentTime] ,[reasonsForVisit], u.firstName + ' ' + u.lastName as patientName " +
+                "FROM [Appointments] a left join users u on u.userId = a.patientId " +
+                "Where appointmentId = @appointmentId";
+
+            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@appointmentId", appointmentId);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            appointment = new Appointment
+                            {
+                              
+                                PatientName = reader["patientName"].ToString(),
+                               
+                            };
+                        }
+                    }
+                }
+            }
+
+            return appointment;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace CS6232_G2.Model
 {
@@ -13,5 +14,10 @@ namespace CS6232_G2.Model
         public int DoctorId { get; set; }
         public DateTime AppointmentTime { get; set; }
         public string Reason { get; set; }
+
+        public static implicit operator LinkLabel(Appointment v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
