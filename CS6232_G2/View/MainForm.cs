@@ -77,7 +77,13 @@ namespace CS6232_G2
 
         private void button1_Click(object sender, System.EventArgs e)
         {
-            Appointment appointment = new AppointmentController().GetAppointmentById(4);
+            Appointment appointment = new AppointmentController().GetAppointmentById(20);
+            Appointment appointmentJohn = new Appointment()
+            {
+                PatientId = 2,
+                PatientName = "John Dane"
+            };
+
             AppointmentForm appointmentForm = new AppointmentForm(appointment);
             appointmentForm.ShowDialog();
         }

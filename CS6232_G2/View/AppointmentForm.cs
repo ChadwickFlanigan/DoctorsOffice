@@ -15,10 +15,12 @@ namespace CS6232_G2
         private AppointmentController _appointmentController;
         private Appointment _appointment;
         private List<Doctor> _doctorList;
+        private bool _isFormEditable;
 
         /// <summary>
         /// Constructor to draw the ui components and initialize the controller
         /// </summary>
+        /// <param name="appointment">At minimum requires patientId and patientName</param>
         public AppointmentForm(Appointment appointment)
         {
             InitializeComponent();
@@ -45,6 +47,7 @@ namespace CS6232_G2
 
             BindDoctors();
             BindAppointmentValues();
+            SetFormEditState();
         }
 
         private void BindDoctors()
@@ -67,17 +70,8 @@ namespace CS6232_G2
 
             if (_appointment.AppointmentId > 0)
             {
-                //try
-                //{
-                //    _appointment = _appointmentController.GetAppointmentById(_appointment.AppointmentId);
-                //}
-                //catch (Exception ex)
-                //{
-                //    MessageBox.Show(ex.Message, ex.GetType().ToString());
-                //}
-
-                dtAppointmentDate.Value = _appointment.AppointmentTime;
-                dtAppointmentTime.Value = _appointment.AppointmentTime;
+                dtAppointmentDate.Value = _appointment.AppointmentTime.Value;
+                dtAppointmentTime.Value = _appointment.AppointmentTime.Value;
                 txtReason.Text = _appointment.Reason;
 
                 if (_doctorList?.Count > 0)
@@ -85,6 +79,17 @@ namespace CS6232_G2
                     cbDoctors.SelectedItem = _doctorList.Find(d => d.DoctorId == _appointment.DoctorId);
                 }
             }
+        }
+
+        private void SetFormEditState()
+        {
+            _isFormEditable = _appointment.AppointmentTime == null || _appointment.AppointmentTime > DateTime.Now.AddDays(1);
+
+            cbDoctors.Enabled = _isFormEditable;
+            dtAppointmentDate.Enabled = _isFormEditable;
+            dtAppointmentTime.Enabled = _isFormEditable;
+            txtReason.Enabled = _isFormEditable;
+            btnSave.Enabled = _isFormEditable;
         }
 
         private DateTime CalculateNextAvailableTime(DateTime baseTime)
@@ -162,6 +167,7 @@ namespace CS6232_G2
                 {
                     if (_appointmentController.SaveAppointment(_appointment))
                     {
+                        SetFormEditState();
                         MessageBox.Show("Appointment has been saved", "Save");
                     }
                     else
@@ -178,9 +184,9 @@ namespace CS6232_G2
 
         private bool IsFormValid()
         {
-            DateTime apptointmentTime = dtAppointmentDate.Value.Date + dtAppointmentTime.Value.TimeOfDay;
+            DateTime appointmentTime = dtAppointmentDate.Value.Date + dtAppointmentTime.Value.TimeOfDay;
 
-            if (apptointmentTime < DateTime.Now)
+            if (appointmentTime < DateTime.Now)
             {
                 MessageBox.Show("Please choose a future time", "Invalid appointment time");
                 return false;
@@ -190,24 +196,34 @@ namespace CS6232_G2
                 MessageBox.Show("No doctor selected for the appointment", "Please choose a different time");
                 return false;
             }
-            else if (!IsDoctorAvailability())
+            else if (!IsDoctorAvailability(appointmentTime))
             {
                 MessageBox.Show("Doctor is not available", "Please choose a different time");
                 return false;
             }
             else if (txtReason.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Pleasae enter a reason for the visit", "Reason is required");
+                MessageBox.Show("Please enter a reason for the visit", "Reason is required");
                 return false;
             }
 
             return true;
         }
 
-        private bool IsDoctorAvailability()
+        private bool IsDoctorAvailability(DateTime appointmentTime)
         {
-            // validate if the doctor is book
-            return true;
+            try
+            {
+                Doctor selectedDoctor = (Doctor)cbDoctors.SelectedItem;
+                int doctorId = selectedDoctor.DoctorId;
+
+                return _appointmentController.IsDoctorAvailable(doctorId, appointmentTime);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                return false;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

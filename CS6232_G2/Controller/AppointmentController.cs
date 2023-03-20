@@ -49,5 +49,17 @@ namespace CS6232_G2.Controller
         {
             return _appointmentDAL.GetAppointmentById(appointmentId);
         }
+
+        /// <summary>
+        /// Checks if the doctor is booked at the given time or not
+        /// </summary>
+        /// <param name="doctorId"></param>
+        /// <param name="appointmentTime"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public bool IsDoctorAvailable(int doctorId, DateTime appointmentTime)
+        {
+            return _appointmentDAL.IsDoctorAvailable(doctorId, appointmentTime);
+        }
     }
 }
