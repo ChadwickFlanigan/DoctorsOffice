@@ -1,5 +1,6 @@
 ﻿using CS6232_G2.Controller;
 using CS6232_G2.Model;
+using CS6232_G2.View;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,20 +9,87 @@ using System.Windows.Forms;
 namespace CS6232_G2.UserControls
 {
     /// <summary>
-    /// The user control for registering a new patient
+    /// The user control for editing an existing patient
     /// </summary>
-    public partial class RegisterPatientUserControl : UserControl
+    public partial class EditPatientUserControl : UserControl
     {
-        private UserController _userController;
-        private PatientController _patientController;
+        User _loadedUser;
+        PatientController _patientController;
+        UserController _userController;
+        NurseForm _nurseForm;
 
-        public RegisterPatientUserControl()
+        /// <summary>
+        /// The contructor for the EditPatientUserControl
+        /// </summary>
+        public EditPatientUserControl(NurseForm nurseForm)
         {
-            InitializeComponent();
+            _loadedUser = new User();
+            _patientController = new PatientController();
             _userController = new UserController();
+            _nurseForm = nurseForm;
+            InitializeComponent();
         }
 
-        private void btnRegister_Click(object sender, System.EventArgs e)
+        private void LoadPatientDetails()
+        {
+            _loadedUser = _userController.GetUserById(_patientController.GetPatientToEdit().UserId);
+            tbLastName.Text = _loadedUser.LastName;
+            tbFirstName.Text = _loadedUser.FirstName;
+            dtpDateOfBirth.Value = _loadedUser.DOB;
+            tbSSN.Text = _loadedUser.SSN;
+
+            if (_loadedUser.Gender == "1")
+            {
+                cbGender.SelectedIndex = 0;
+            } else
+            {
+                cbGender.SelectedIndex = 1;
+            }
+
+            tbStreetNumber.Text = _loadedUser.StreetNumber;
+            tbCity.Text = _loadedUser.City;
+            tbState.Text = _loadedUser.State;
+            tbCountry.Text = _loadedUser.Country;
+            tbPhone.Text = _loadedUser.Phone;
+            tbZipcode.Text = _loadedUser.Zipcode;
+        }
+
+        private void LoadComboBox()
+        {
+            try
+            {
+                List<Gender> genderList = new List<Gender>();               
+                Gender male = new Gender();
+                Gender female = new Gender();
+                male.Name = "Male";
+                male.Id = "M";
+                female.Name = "Female";
+                female.Id = "F";
+                genderList.Add(male);
+                genderList.Add(female);
+                cbGender.DataSource = genderList;
+                cbGender.DisplayMember = "Name";
+                cbGender.ValueMember = "Id";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void EditPatientUserControl_Load(object sender, System.EventArgs e)
+        {
+            LoadComboBox();
+            LoadPatientDetails();
+        }
+
+        private void btnBack_Click(object sender, System.EventArgs e)
+        {
+            this.Visible = false;
+            this._nurseForm.Visible = true;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
             {
@@ -113,12 +181,22 @@ namespace CS6232_G2.UserControls
                     user.DOB = dtpDateOfBirth.Value;
                     user.SSN = ssn;
                     user.Gender = cbGender.SelectedValue.ToString();
-                    user.StreetNumber= streetNumber;
+                    user.StreetNumber = streetNumber;
                     user.City = city;
                     user.State = state;
                     user.Phone = phone;
                     user.Zipcode = zip;
-                    this._patientController.Add(user);
+                    if (user.FirstName == _loadedUser.FirstName && user.LastName == _loadedUser.LastName 
+                        && user.DOB == _loadedUser.DOB && user.SSN == _loadedUser.SSN
+                        && user.Gender == _loadedUser.Gender && user.StreetNumber == _loadedUser.StreetNumber
+                        && user.City == _loadedUser.City && user.State == _loadedUser.State
+                        && user.Phone == _loadedUser.Phone && user.Zipcode == _loadedUser.Zipcode)
+                    {
+                        this.lblMessage.ForeColor = Color.Red;
+                        this.lblMessage.Text = "No changes have been made.";
+                        return;
+                    }
+                    this._patientController.UpdatePatient(user, _loadedUser);
                     this.lblMessage.ForeColor = Color.Black;
                     this.lblMessage.Text = "The patient has been registered.";
                 }
@@ -128,34 +206,6 @@ namespace CS6232_G2.UserControls
                 MessageBox.Show("The input is invalid." + Environment.NewLine + ex.Message,
                 "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void LoadComboBox()
-        {
-            try
-            {
-                List<Gender> genderList = new List<Gender>();
-                Gender male = new Gender();
-                Gender female = new Gender();
-                male.Name = "Male";
-                male.Id = "M";
-                female.Name = "Female";
-                female.Id = "F";
-                genderList.Add(male);
-                genderList.Add(female);
-                cbGender.DataSource = genderList;
-                cbGender.DisplayMember = "Name";
-                cbGender.ValueMember = "Id";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-        }
-
-        private void RegisterPatientUserControl_Load(object sender, EventArgs e)
-        {
-            LoadComboBox();
         }
     }
 }

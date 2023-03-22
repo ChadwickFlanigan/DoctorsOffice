@@ -1,7 +1,9 @@
 ﻿using CS6232_G2.Controller;
 using CS6232_G2.Model;
+using CS6232_G2.View;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace CS6232_G2.UserControls
@@ -10,6 +12,7 @@ namespace CS6232_G2.UserControls
     {
         private readonly SearchController _searchController;
         private readonly AppointmentController _appointmentController;
+        private readonly PatientController _patientController;
         private Appointment _appointment;
         private List<Appointment> patients;
         private DateTime dob;
@@ -18,6 +21,8 @@ namespace CS6232_G2.UserControls
         {
             InitializeComponent();
             _searchController = new SearchController();
+            _appointmentController = new AppointmentController();
+            _patientController = new PatientController();
             patients = new List<Appointment>();
         }
 
@@ -126,5 +131,14 @@ namespace CS6232_G2.UserControls
             }
         }
 
+        private void patientLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            using (EditPatientForm _editForm = new EditPatientForm())
+            {
+                _patientController.SetPatientToEdit(_patientController.GetPatientByPatientId(int.Parse(appointmentDataGridView.SelectedCells[0].Value.ToString())));
+                Hide();
+                _editForm.ShowDialog();
+            }    
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace CS6232_G2.Model
+﻿using System;
+
+namespace CS6232_G2.Model
 {
     /// <summary>
     /// The model class for the user table
@@ -7,7 +9,7 @@
     {
         public string LastName { get; set; }
         public string FirstName { get; set; }
-        public string DOB { get; set; }
+        public DateTime DOB { get; set; }
         public string SSN { get; set; }
         public string Gender { get; set; }
         public string StreetNumber { get; set; }

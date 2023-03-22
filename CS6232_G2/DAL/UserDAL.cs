@@ -1,4 +1,5 @@
 ﻿using CS6232_G2.Model;
+using System;
 using System.Data.SqlClient;
 
 namespace CS6232_G2.DAL
@@ -61,7 +62,7 @@ namespace CS6232_G2.DAL
                         {
                             user.LastName = reader["lastName"].ToString();
                             user.FirstName = reader["firstName"].ToString();
-                            user.DOB = reader["dob"].ToString();
+                            user.DOB = (DateTime)reader["dob"];
                             user.SSN = reader["ssn"].ToString();
                             user.Gender = reader["gender"].ToString();
                             user.StreetNumber = reader["streetNumber"].ToString();

@@ -8,7 +8,25 @@ namespace CS6232_G2.DAL
     /// </summary>
     public class PatientDAL
     {
-        Patient patientToEdit;
+        private static Patient patientToEdit;
+
+        /// <summary>
+        /// Returns the patient to be edited
+        /// </summary>
+        /// <returns></returns>
+        public Patient GetPatientToEdit()
+        {
+            return patientToEdit;
+        }
+
+        /// <summary>
+        /// sets the patient to be edited
+        /// </summary>
+        /// <returns></returns>
+        public void SetPatientToEdit(Patient patient)
+        {
+            patientToEdit = patient;
+        }
 
         /// <summary>
         /// Adds a new patient to the database
@@ -48,7 +66,7 @@ namespace CS6232_G2.DAL
         /// Updates a user data in the database relating to the patient
         /// </summary>
         /// <param name="user"></param>
-        public void UpdatePatient(User user, User oldUser)
+        public bool UpdatePatient(User user, User oldUser)
         {
             string insertStatement =
                 "UPDATE Users SET " +
@@ -103,18 +121,26 @@ namespace CS6232_G2.DAL
                 insertCommand.Parameters.AddWithValue("@oldPhone", oldUser.Phone);
                 insertCommand.Parameters.AddWithValue("@oldZipcode", oldUser.Zipcode);
 
-                insertCommand.ExecuteReader();
+                int count = insertCommand.ExecuteNonQuery();
+                if (count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 
         /// <summary>
-        /// Returns the userId associated with the given patientId
+        /// Returns the Patient associated with the given patientId
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public int GetUserIdByPatientId(int id)
+        public Patient GetPatientByPatientId(int id)
         {
-            int userId = 0;
+            Patient patient = new Patient();
             string selectStatement =
                         "SELECT userId " +
                         "FROM Patients p " +
@@ -130,12 +156,12 @@ namespace CS6232_G2.DAL
                     {
                         while (reader.Read())
                         {
-                            userId = int.Parse(reader["userId"].ToString());
+                            patient.UserId = int.Parse(reader["userId"].ToString());
                         }
                     }
                 }
             }
-            return userId;
+            return patient;
         }
     }
 }

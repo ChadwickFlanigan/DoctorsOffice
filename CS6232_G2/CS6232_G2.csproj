@@ -58,6 +58,12 @@
     <Compile Include="Model\Login.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="UserControls\EditPatientUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\EditPatientUserControl.Designer.cs">
+      <DependentUpon>EditPatientUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\SearchPatientUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -81,6 +87,12 @@
     <Compile Include="DAL\G2ProjectConnectionString.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
+    <Compile Include="View\EditPatientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EditPatientForm.Designer.cs">
+      <DependentUpon>EditPatientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +113,9 @@
     <Compile Include="View\NurseForm.Designer.cs">
       <DependentUpon>NurseForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\EditPatientUserControl.resx">
+      <DependentUpon>EditPatientUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\RegisterPatientUserControl.resx">
       <DependentUpon>RegisterPatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +134,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\EditPatientForm.resx">
+      <DependentUpon>EditPatientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
