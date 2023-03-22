@@ -202,6 +202,7 @@
             this.dtAppointmentTime.ShowUpDown = true;
             this.dtAppointmentTime.Size = new System.Drawing.Size(514, 31);
             this.dtAppointmentTime.TabIndex = 3;
+            this.dtAppointmentTime.ValueChanged += new System.EventHandler(this.dtAppointmentTime_ValueChanged);
             // 
             // AppointmentForm
             // 

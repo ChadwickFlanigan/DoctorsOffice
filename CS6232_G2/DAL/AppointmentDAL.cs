@@ -47,8 +47,8 @@ namespace CS6232_G2.DAL
         public bool SaveAppointment(Appointment appointment)
         {
             string query = appointment.AppointmentId <= 0 ?
-                "Insert into Appointments(patientId, doctorId, appointmentTime, reasonsForVisit)" +
-                "Values(@patientId, @doctorId, @appointmentTime, @reason)"
+                "Insert into Appointments(patientId, doctorId, appointmentTime, reasonsForVisit) " +
+                "Values(@patientId, @doctorId, @appointmentTime, @reason) "
                 :
                 "Update Appointments " +
                 "Set doctorId = @doctorId, appointmentTime = @appointmentTime, reasonsForVisit = @reason " +
@@ -60,9 +60,11 @@ namespace CS6232_G2.DAL
 
                 using (SqlCommand saveCommand = new SqlCommand(query, connection))
                 {
+                    DateTime appointmentTime = appointment.AppointmentTime.Value.AddSeconds(appointment.AppointmentTime.Value.Second * -1);
+                    
                     saveCommand.Parameters.AddWithValue("@patientId", appointment.PatientId);
                     saveCommand.Parameters.AddWithValue("@doctorId", appointment.DoctorId);
-                    saveCommand.Parameters.AddWithValue("@appointmentTime", appointment.AppointmentTime);
+                    saveCommand.Parameters.AddWithValue("@appointmentTime", appointmentTime);
                     saveCommand.Parameters.AddWithValue("@reason", appointment.Reason);
 
                     if (appointment.AppointmentId > 0)
@@ -70,7 +72,8 @@ namespace CS6232_G2.DAL
                         saveCommand.Parameters.AddWithValue("@appointmentId", appointment.AppointmentId);
                     }
 
-                    return saveCommand.ExecuteNonQuery() > 0;
+                    int rowsAffected = saveCommand.ExecuteNonQuery();
+                    return rowsAffected > 0;
                 }
             }
         }
@@ -115,6 +118,35 @@ namespace CS6232_G2.DAL
             }
 
             return appointment;
+        }
+
+        /// <summary>
+        /// Looks for the appointment date and time and determine if the doctor is already booked
+        /// </summary>
+        /// <param name="doctorId"></param>
+        /// <param name="appointmentTime"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public bool IsDoctorAvailable(int doctorId, DateTime appointmentTime)
+        {
+            string selectStatement = "SELECT count(*) AppointmentsCount " +
+                "FROM [Appointments] " +
+                "Where doctorId = @doctorId and appointmentTime = @appointmentTime";
+
+            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@doctorId", doctorId);
+                    selectCommand.Parameters.AddWithValue("@appointmentTime", appointmentTime.ToString("yyyy-MM-dd HH:mm"));
+
+                    var numberOfAppointments = Convert.ToInt32(selectCommand.ExecuteScalar());
+
+                    return numberOfAppointments > 0 ? false : true;
+                }
+            }
         }
     }
 }
