@@ -16,12 +16,12 @@ namespace CS6232_G2.UserControls
         User _loadedUser;
         PatientController _patientController;
         UserController _userController;
-        NurseForm _nurseForm;
+        SearchPatientForm _nurseForm;
 
         /// <summary>
         /// The contructor for the EditPatientUserControl
         /// </summary>
-        public EditPatientUserControl(NurseForm nurseForm)
+        public EditPatientUserControl(SearchPatientForm nurseForm)
         {
             _loadedUser = new User();
             _patientController = new PatientController();

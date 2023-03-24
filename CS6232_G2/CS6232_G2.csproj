@@ -107,11 +107,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\NurseForm.cs">
+    <Compile Include="View\SearchPatientForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\NurseForm.Designer.cs">
-      <DependentUpon>NurseForm.cs</DependentUpon>
+    <Compile Include="View\SearchPatientForm.Designer.cs">
+      <DependentUpon>SearchPatientForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\PatientAppointments.cs">
       <SubType>Form</SubType>
@@ -149,8 +149,8 @@
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\NurseForm.resx">
-      <DependentUpon>NurseForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\SearchPatientForm.resx">
+      <DependentUpon>SearchPatientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PatientAppointments.resx">
       <DependentUpon>PatientAppointments.cs</DependentUpon>

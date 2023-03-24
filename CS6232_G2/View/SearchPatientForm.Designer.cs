@@ -1,6 +1,6 @@
 ﻿namespace CS6232_G2.View
 {
-    partial class NurseForm
+    partial class SearchPatientForm
     {
         /// <summary>
         /// Required designer variable.
@@ -118,7 +118,7 @@
             // 
             this.btnViewPatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnViewPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewPatient.Location = new System.Drawing.Point(283, 423);
+            this.btnViewPatient.Location = new System.Drawing.Point(3, 423);
             this.btnViewPatient.Name = "btnViewPatient";
             this.btnViewPatient.Size = new System.Drawing.Size(274, 20);
             this.btnViewPatient.TabIndex = 13;
@@ -187,7 +187,6 @@
             this.searchTableLayoutPanel.Controls.Add(this.appointmentDataGridView, 0, 7);
             this.searchTableLayoutPanel.Controls.Add(this.searchLabel, 0, 0);
             this.searchTableLayoutPanel.Controls.Add(this.patientDetailsLabel, 0, 6);
-            this.searchTableLayoutPanel.Controls.Add(this.btnViewPatient, 1, 8);
             this.searchTableLayoutPanel.Controls.Add(this.firstLastNameRadioButton, 0, 1);
             this.searchTableLayoutPanel.Controls.Add(this.dobRadioButton, 1, 1);
             this.searchTableLayoutPanel.Controls.Add(this.dobLastnameradioButton, 2, 1);
@@ -201,6 +200,7 @@
             this.searchTableLayoutPanel.Controls.Add(this.lLabel, 0, 3);
             this.searchTableLayoutPanel.Controls.Add(this.dateLabel, 0, 4);
             this.searchTableLayoutPanel.Controls.Add(this.btnAddPatient, 2, 8);
+            this.searchTableLayoutPanel.Controls.Add(this.btnViewPatient, 0, 8);
             this.searchTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.searchTableLayoutPanel.Name = "searchTableLayoutPanel";

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace CS6232_G2.View
 {
-    public partial class NurseForm : Form
+    public partial class SearchPatientForm : Form
     {
         private readonly SearchController _searchController;
         private readonly AppointmentController _appointmentController;
@@ -15,7 +15,7 @@ namespace CS6232_G2.View
         private List<Patient> _patients;
         private DateTime dob;
 
-        public NurseForm()
+        public SearchPatientForm()
         {
             InitializeComponent();
             _searchController = new SearchController();
@@ -125,6 +125,7 @@ namespace CS6232_G2.View
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
+
         private void patientname()
         {
             appointmentDataGridView.DataSource = _patients;
