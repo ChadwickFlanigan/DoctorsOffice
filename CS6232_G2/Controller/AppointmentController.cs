@@ -61,5 +61,15 @@ namespace CS6232_G2.Controller
         {
             return _appointmentDAL.IsDoctorAvailable(doctorId, appointmentTime);
         }
+
+        /// <summary>
+        /// Returns a list of appointments for the given patientId
+        /// </summary>
+        /// <param name="patientId"></param>
+        /// <returns></returns>
+        public List<Appointment> GetPatientAppointments(int patientId)
+        {
+            return _appointmentDAL.GetPatientAppointments(patientId);
+        }
     }
 }

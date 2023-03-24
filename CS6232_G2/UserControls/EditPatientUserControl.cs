@@ -32,7 +32,7 @@ namespace CS6232_G2.UserControls
 
         private void LoadPatientDetails()
         {
-            _loadedUser = _userController.GetUserById(_patientController.GetPatientToEdit().UserId);
+            _loadedUser = _userController.GetUserById(1);
             tbLastName.Text = _loadedUser.LastName;
             tbFirstName.Text = _loadedUser.FirstName;
             dtpDateOfBirth.Value = _loadedUser.DOB;

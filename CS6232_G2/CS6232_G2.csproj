@@ -113,6 +113,12 @@
     <Compile Include="View\NurseForm.Designer.cs">
       <DependentUpon>NurseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\PatientAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PatientAppointments.Designer.cs">
+      <DependentUpon>PatientAppointments.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="UserControls\EditPatientUserControl.resx">
       <DependentUpon>EditPatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NurseForm.resx">
       <DependentUpon>NurseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PatientAppointments.resx">
+      <DependentUpon>PatientAppointments.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -61,7 +61,7 @@ namespace CS6232_G2.DAL
                 using (SqlCommand saveCommand = new SqlCommand(query, connection))
                 {
                     DateTime appointmentTime = appointment.AppointmentTime.Value.AddSeconds(appointment.AppointmentTime.Value.Second * -1);
-                    
+
                     saveCommand.Parameters.AddWithValue("@patientId", appointment.PatientId);
                     saveCommand.Parameters.AddWithValue("@doctorId", appointment.DoctorId);
                     saveCommand.Parameters.AddWithValue("@appointmentTime", appointmentTime);
@@ -147,6 +147,53 @@ namespace CS6232_G2.DAL
                     return numberOfAppointments > 0 ? false : true;
                 }
             }
+        }
+
+        public List<Appointment> GetPatientAppointments(int patientId)
+        {
+            List<Appointment> appointments = new List<Appointment>();
+
+            string selectStatement = @"select AppointmentId, patientId, appointmentTime, reasonsForVisit, body.firstName + ' ' + body.lastName PatientName, 
+                                       u.firstName  + ' '  + u.lastName as DoctorName
+                                    From (
+	                                    SELECT a.appointmentId, appointmentTime, a.patientId, reasonsForVisit, firstName , lastName, a.doctorId
+	                                    FROM Appointments a 
+	                                    left join Patients p on p.patientId= a.patientId
+	                                    left join users u on p.userId = u.userId
+	                                    where a.patientId = @patientId
+                                    ) body
+                                    left join Doctors d on body.doctorId = d.DoctorId
+                                    left join users u on u.userId = d.userId";
+
+            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@patientId", patientId);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Appointment appointment = new Appointment
+                            {
+                                AppointmentTime = Convert.ToDateTime(reader["appointmentTime"]),
+                                PatientName = reader["patientName"].ToString(),
+                                Reason = reader["reasonsForVisit"].ToString(),
+                                AppointmentId = Convert.ToInt32(reader["AppointmentId"]),
+                                PatientId = Convert.ToInt32(reader["patientId"]),
+                                DoctorName = reader["DoctorName"].ToString()
+                            };
+
+                            appointments.Add(appointment);
+                        }
+                    }
+                }
+            }
+
+            return appointments;
         }
     }
 }

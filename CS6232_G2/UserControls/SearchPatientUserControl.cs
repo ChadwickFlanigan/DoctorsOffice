@@ -3,7 +3,6 @@ using CS6232_G2.Model;
 using CS6232_G2.View;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace CS6232_G2.UserControls
@@ -14,7 +13,7 @@ namespace CS6232_G2.UserControls
         private readonly AppointmentController _appointmentController;
         private readonly PatientController _patientController;
         private Appointment _appointment;
-        private List<Appointment> patients;
+        private List<Patient> _patients;
         private DateTime dob;
 
         public SearchPatientUserControl()
@@ -23,7 +22,8 @@ namespace CS6232_G2.UserControls
             _searchController = new SearchController();
             _appointmentController = new AppointmentController();
             _patientController = new PatientController();
-            patients = new List<Appointment>();
+            _patients = new List<Patient>();
+            appointmentDataGridView.AutoGenerateColumns = false;
         }
 
         private void firstLastNameRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace CS6232_G2.UserControls
             dateTimePicker.Enabled = false;
             searchButton.Enabled = true;
             clearButton.Enabled = true;
-            appointmentDataGridView.DataSource=null;
+            appointmentDataGridView.DataSource = null;
             clear();
         }
 
@@ -44,7 +44,7 @@ namespace CS6232_G2.UserControls
             lastNameTextBox.Enabled = false;
             searchButton.Enabled = true;
             clearButton.Enabled = true;
-            appointmentDataGridView.DataSource=null;
+            appointmentDataGridView.DataSource = null;
             clear();
         }
 
@@ -55,14 +55,14 @@ namespace CS6232_G2.UserControls
             firstNameTextBox.Enabled = false;
             searchButton.Enabled = true;
             clearButton.Enabled = true;
-            appointmentDataGridView.DataSource=null;
+            appointmentDataGridView.DataSource = null;
             clear();
         }
         private void clear()
         {
             firstNameTextBox.Text = "";
-            lastNameTextBox.Text= "";
-            dateTimePicker.Value= DateTime.Now;
+            lastNameTextBox.Text = "";
+            dateTimePicker.Value = DateTime.Now;
         }
         private void clearButton_Click(object sender, EventArgs e)
         {
@@ -83,13 +83,13 @@ namespace CS6232_G2.UserControls
                         MessageBox.Show("Please enter  patient first and last name", "Patient name", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    patients = _searchController.GetPatientByFirstAndLastName(fname, lname);
-                    if (patients.Count == 0)
+                    _patients = _searchController.GetPatientByFirstAndLastName(fname, lname);
+                    if (_patients.Count == 0)
                     {
                         MessageBox.Show("No patient found with the name");
                     }
 
-                    appointmentDataGridView.DataSource = patients;
+                    appointmentDataGridView.DataSource = _patients;
                 }
                 else if (dobLastnameradioButton.Checked)
                 {
@@ -99,24 +99,24 @@ namespace CS6232_G2.UserControls
                         return;
                     }
                     DateTime dob = Convert.ToDateTime(dateTimePicker.Value).Date;
-                    patients = _searchController.GetPatientsByDOBAndLastName(dob, lname);
+                    _patients = _searchController.GetPatientsByDOBAndLastName(dob, lname);
 
-                    if (patients.Count == 0)
+                    if (_patients.Count == 0)
                     {
                         MessageBox.Show("No patient found with the date");
                     }
-                    appointmentDataGridView.DataSource = patients;
+                    appointmentDataGridView.DataSource = _patients;
                 }
                 else if (dobRadioButton.Checked)
                 {
                     DateTime dob = Convert.ToDateTime(dateTimePicker.Value).Date;
-                    patients = _searchController.GetPatientsByDOB(dob);
+                    _patients = _searchController.GetPatientsByDOB(dob);
 
-                    if (patients.Count == 0)
+                    if (_patients.Count == 0)
                     {
                         MessageBox.Show("No patient found with the date");
                     }
-                    appointmentDataGridView.DataSource = patients;
+                    appointmentDataGridView.DataSource = _patients;
                 }
 
                 patientname();
@@ -128,7 +128,7 @@ namespace CS6232_G2.UserControls
         }
         private void patientname()
         {
-            appointmentDataGridView.DataSource = patients;
+            appointmentDataGridView.DataSource = _patients;
 
             if (appointmentDataGridView.SelectedRows.Count > 0)
             {
@@ -137,14 +137,9 @@ namespace CS6232_G2.UserControls
             }
         }
 
-        private void patientLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void btnViewPatient_Click(object sender, EventArgs e)
         {
-            using (EditPatientForm _editForm = new EditPatientForm())
-            {
-                _patientController.SetPatientToEdit(_patientController.GetPatientByPatientId(int.Parse(appointmentDataGridView.SelectedCells[0].Value.ToString())));
-                Hide();
-                _editForm.ShowDialog();
-            }    
+
         }
     }
 }

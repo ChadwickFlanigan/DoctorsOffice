@@ -35,5 +35,14 @@ namespace CS6232_G2.Controller
         {
             return _userDBDAL.GetUserDetailsByID(id);
         }
+
+        /// <summary>
+        /// Gets the details for the user with the given id
+        /// </summary>
+        /// <param name="id"></param>
+        public Patient GetUserFullNameById(int id)
+        {
+            return _userDBDAL.GetUserFullNameById(id);
+        }
     }
 }

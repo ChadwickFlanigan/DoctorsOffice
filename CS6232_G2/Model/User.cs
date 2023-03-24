@@ -7,6 +7,7 @@ namespace CS6232_G2.Model
     /// </summary>
     public class User
     {
+        public int UserId { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public DateTime DOB { get; set; }

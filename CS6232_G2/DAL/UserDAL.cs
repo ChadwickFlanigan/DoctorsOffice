@@ -42,6 +42,40 @@ namespace CS6232_G2.DAL
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        public Patient GetUserFullNameById(int id)
+        {
+            Patient user = new Patient();
+            string selectStatement =
+                        "SELECT p.PatientId, lastName, firstName " +
+                        "FROM users u left join Patients p on u.userId = p.userId " +
+                        "WHERE u.userId = @userID";
+            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@userId", id);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            user.PatientId = Convert.ToInt32(reader["patientId"]);
+                            user.LastName = reader["lastName"].ToString();
+                            user.FirstName = reader["firstName"].ToString();
+                        }
+                    }
+                }
+            }
+
+            return user;
+        }
+
+        /// <summary>
+        /// Returns the user details for the given id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public User GetUserDetailsByID(int id)
         {
             User user = new User();

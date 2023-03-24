@@ -11,24 +11,6 @@ namespace CS6232_G2.Controller
         private PatientDAL _patientDBDAL;
 
         /// <summary>
-        /// Returns the patient to be edited
-        /// </summary>
-        /// <returns></returns>
-        public Patient GetPatientToEdit()
-        {
-            return _patientDBDAL.GetPatientToEdit();
-        }
-
-        /// <summary>
-        /// Sets the patient to be edited
-        /// </summary>
-        /// <returns></returns>
-        public void SetPatientToEdit(Patient patient)
-        {
-            _patientDBDAL.SetPatientToEdit(patient);
-        }
-
-        /// <summary>
         /// The constructor for the PatientController
         /// </summary>
         public PatientController()

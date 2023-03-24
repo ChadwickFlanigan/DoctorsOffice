@@ -3,8 +3,8 @@
     /// <summary>
     /// The model class for the patient table
     /// </summary>
-    public class Patient
+    public class Patient : User
     {
-        public int UserId { get; set; }
+        public int PatientId { get; set; }
     }
 }
