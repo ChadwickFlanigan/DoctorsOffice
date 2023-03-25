@@ -50,6 +50,8 @@
             this.lLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
             this.btnAddPatient = new System.Windows.Forms.Button();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lnkLogout = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDataGridView)).BeginInit();
             this.searchTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -201,6 +203,8 @@
             this.searchTableLayoutPanel.Controls.Add(this.dateLabel, 0, 4);
             this.searchTableLayoutPanel.Controls.Add(this.btnAddPatient, 2, 8);
             this.searchTableLayoutPanel.Controls.Add(this.btnViewPatient, 0, 8);
+            this.searchTableLayoutPanel.Controls.Add(this.lblUsername, 2, 0);
+            this.searchTableLayoutPanel.Controls.Add(this.lnkLogout, 1, 0);
             this.searchTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.searchTableLayoutPanel.Name = "searchTableLayoutPanel";
@@ -323,17 +327,42 @@
             this.btnAddPatient.TabIndex = 13;
             this.btnAddPatient.Text = "Add Patient";
             this.btnAddPatient.UseVisualStyleBackColor = true;
-            this.btnAddPatient.Click += new System.EventHandler(this.btnViewPatient_Click);
+            this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
             // 
-            // NurseForm
+            // lblUsername
+            // 
+            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Assertive;
+            this.lblUsername.Location = new System.Drawing.Point(742, 0);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(55, 13);
+            this.lblUsername.TabIndex = 19;
+            this.lblUsername.Text = "Username";
+            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lnkLogout
+            // 
+            this.lnkLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkLogout.AutoSize = true;
+            this.lnkLogout.Location = new System.Drawing.Point(517, 0);
+            this.lnkLogout.Name = "lnkLogout";
+            this.lnkLogout.Size = new System.Drawing.Size(40, 13);
+            this.lnkLogout.TabIndex = 20;
+            this.lnkLogout.TabStop = true;
+            this.lnkLogout.Text = "Logout";
+            this.lnkLogout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLogout_LinkClicked);
+            // 
+            // SearchPatientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.searchTableLayoutPanel);
-            this.Name = "NurseForm";
+            this.Name = "SearchPatientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NurseForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SearchPatient_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDataGridView)).EndInit();
             this.searchTableLayoutPanel.ResumeLayout(false);
             this.searchTableLayoutPanel.PerformLayout();
@@ -364,5 +393,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colLastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDOB;
         private System.Windows.Forms.Button btnAddPatient;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.LinkLabel lnkLogout;
     }
 }

@@ -76,6 +76,12 @@
     <Compile Include="UserControls\RegisterPatientUserControl.Designer.cs">
       <DependentUpon>RegisterPatientUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AdministratorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdministratorForm.Designer.cs">
+      <DependentUpon>AdministratorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AppointmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\RegisterPatientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RegisterPatientForm.Designer.cs">
+      <DependentUpon>RegisterPatientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\SearchPatientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +140,9 @@
     <EmbeddedResource Include="UserControls\SearchPatientUserControl.resx">
       <DependentUpon>SearchPatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\AdministratorForm.resx">
+      <DependentUpon>AdministratorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AppointmentForm.resx">
       <DependentUpon>AppointmentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RegisterPatientForm.resx">
+      <DependentUpon>RegisterPatientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SearchPatientForm.resx">
       <DependentUpon>SearchPatientForm.cs</DependentUpon>

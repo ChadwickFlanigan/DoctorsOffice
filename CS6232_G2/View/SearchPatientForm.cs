@@ -14,15 +14,42 @@ namespace CS6232_G2.View
         private Appointment _appointment;
         private List<Patient> _patients;
         private DateTime dob;
+        private bool loggedOut;
+        private readonly LoginForm _loginForm;
 
-        public SearchPatientForm()
+        public SearchPatientForm(LoginForm loginForm)
         {
             InitializeComponent();
+            _loginForm = loginForm;
             _searchController = new SearchController();
             _appointmentController = new AppointmentController();
             _patientController = new PatientController();
             _patients = new List<Patient>();
             appointmentDataGridView.AutoGenerateColumns = false;
+        }
+
+        /// <summary>
+        /// Sets the label username
+        /// </summary>
+        /// <param name="username"></param>
+        public void SetUsername(Login login)
+        {
+            lblUsername.Text = login.Username;
+        }
+
+        private void lnkLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            loggedOut = true;
+            _loginForm.Logout();
+            Close();
+        }
+
+        private void SearchPatient_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!loggedOut)
+            {
+                Application.Exit();
+            }
         }
 
         private void firstLastNameRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -157,6 +184,14 @@ namespace CS6232_G2.View
             else
             {
                 MessageBox.Show("Please select only 1 row");
+            }
+        }
+
+        private void btnAddPatient_Click(object sender, EventArgs e)
+        {
+            using (RegisterPatientForm patientRegistration = new RegisterPatientForm())
+            {
+                patientRegistration.ShowDialog();
             }
         }
     }

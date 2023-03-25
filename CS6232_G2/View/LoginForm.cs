@@ -40,12 +40,19 @@ namespace CS6232_G2.View
 
                 _login = _loginController.CheckIfLoginIsValid(_login);
 
-                if (_login.AdministratorId > 0 || _login.NurseId > 0)
+                if (_login.AdministratorId > 0)
                 {
-                    MainForm _mainForm = new MainForm(this);
-                    _mainForm.SetUsername(_login);
+                    AdministratorForm _adminForm = new AdministratorForm(this);
+                    _adminForm.SetUsername(_login);
                     Hide();
-                    _mainForm.Show();
+                    _adminForm.Show();
+                }
+                else if (_login.NurseId > 0)
+                {
+                    SearchPatientForm _searchPatientForm = new SearchPatientForm(this);
+                    _searchPatientForm.SetUsername(_login);
+                    Hide();
+                    _searchPatientForm.Show();
                 }
                 else
                 {
@@ -89,6 +96,7 @@ namespace CS6232_G2.View
             txtPassword.Clear();
             Show();
             txtUsername.Focus();
+            _login = new Login();
         }
     }
 }
