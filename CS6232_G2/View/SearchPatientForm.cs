@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace CS6232_G2.View
 {
+    /// <summary>
+    /// Search patient appoinment by first name,last name and dob
+    /// </summary>
     public partial class SearchPatientForm : Form
     {
         private readonly SearchController _searchController;
@@ -16,7 +19,9 @@ namespace CS6232_G2.View
         private DateTime dob;
         private bool loggedOut;
         private readonly LoginForm _loginForm;
-
+        /// <summary>
+        /// The constructor for the SearchPatientForm, which initializes and sets up the components of the form
+        /// </summary>
         public SearchPatientForm(LoginForm loginForm)
         {
             InitializeComponent();

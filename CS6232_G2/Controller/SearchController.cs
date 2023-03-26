@@ -23,14 +23,19 @@ namespace CS6232_G2.Controller
         /// <summary>
         /// Searches the users with firstname and lastname
         /// </summary>
-        /// <param name="fname"></param>
-        /// <param name="lname"></param>
-        /// <returns></returns>
+        /// <param name="fname">first name</param>
+        /// <param name="lname">last name</param>
+        /// <returns> user by first and last name</returns>
         public List<Patient> GetPatientByFirstAndLastName(string fname, string lname)
         {
             return _searchDAL.GetPatientListByFirstAndLastName(fname, lname);
         }
-
+        /// <summary>
+        /// Search user by date of birth
+        /// </summary>
+        /// <param name="dob"> date of birth</param>
+        /// <returns> user by date of birth</returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public List<Patient> GetPatientsByDOB(DateTime dob)
         {
             if (dob == DateTime.MinValue || dob == null)
@@ -39,7 +44,13 @@ namespace CS6232_G2.Controller
             }
             return _searchDAL.GetPatientsByDOB(dob);
         }
-
+        /// <summary>
+        /// Search user by date of birth and last name
+        /// </summary>
+        /// <param name="dob">date of birth</param>
+        /// <param name="lname">last name</param>
+        /// <returns>user by dob and last name</returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public List<Patient> GetPatientsByDOBAndLastName(DateTime dob, string lname)
         {
             if (dob == DateTime.MinValue || dob == null)

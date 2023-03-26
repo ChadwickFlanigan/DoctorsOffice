@@ -5,8 +5,17 @@ using System.Data.SqlClient;
 
 namespace CS6232_G2.DAL
 {
+    /// <summary>
+    /// SearchDAL class to access the patient
+    /// </summary>
     public class SearchDAL
     {
+        /// <summary>
+        /// Get patient list by patient first and last name
+        /// </summary>
+        /// <param name="firstName">first name</param>
+        /// <param name="lastName">last name</param>
+        /// <returns>patient</returns>
         public List<Patient> GetPatientListByFirstAndLastName(string firstName, string lastName)
         {
             List<Patient> patientsdetails = new List<Patient>();
@@ -43,7 +52,11 @@ namespace CS6232_G2.DAL
 
             return patientsdetails;
         }
-
+        /// <summary>
+        /// Get patient by patient date of birth
+        /// </summary>
+        /// <param name="dob">date of birth</param>
+        /// <returns>patient</returns>
         public List<Patient> GetPatientsByDOB(DateTime dob)
         {
             List<Patient> patientsdetails = new List<Patient>();
@@ -78,6 +91,12 @@ namespace CS6232_G2.DAL
             }
             return patientsdetails;
         }
+        /// <summary>
+        /// Get patient by date of birth and last name
+        /// </summary>
+        /// <param name="dob">date of birth</param>
+        /// <param name="lastName">last name</param>
+        /// <returns>patient</returns>
         public List<Patient> GetPatientsByDOBAndLastName(DateTime dob, string lastName)
         {
             List<Patient> patientsdetails = new List<Patient>();

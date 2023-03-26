@@ -5,8 +5,15 @@ using System.Data.SqlClient;
 
 namespace CS6232_G2.DAL
 {
+    /// <summary>
+    /// AppointmentDAL to access the doctor
+    /// </summary>
     public class AppointmentDAL
     {
+        /// <summary>
+        /// Get all doctor id and name
+        /// </summary>
+        /// <returns>doctor</returns>
         public List<Doctor> GetAllDoctors()
         {
             List<Doctor> doctors = new List<Doctor>();
@@ -148,7 +155,11 @@ namespace CS6232_G2.DAL
                 }
             }
         }
-
+        /// <summary>
+        /// Get patient appoinment list by patient id
+        /// </summary>
+        /// <param name="patientId"> patient id</param>
+        /// <returns>patient</returns>
         public List<Appointment> GetPatientAppointments(int patientId)
         {
             List<Appointment> appointments = new List<Appointment>();
