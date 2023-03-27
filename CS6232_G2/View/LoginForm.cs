@@ -22,8 +22,8 @@ namespace CS6232_G2.View
             _loginController = new LoginController();
             _login = new Login();
 
-            txtUsername.Text = "johnsmith";
-            txtPassword.Text = "password123";
+            txtUsername.Text = "hansmuller";
+            txtPassword.Text = "mypassword";
         }
 
         /// <summary>

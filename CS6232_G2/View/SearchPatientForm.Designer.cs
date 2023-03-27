@@ -71,6 +71,7 @@
             this.searchTableLayoutPanel.SetColumnSpan(this.appointmentDataGridView, 3);
             this.appointmentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.appointmentDataGridView.Location = new System.Drawing.Point(3, 240);
+            this.appointmentDataGridView.MultiSelect = false;
             this.appointmentDataGridView.Name = "appointmentDataGridView";
             this.appointmentDataGridView.ReadOnly = true;
             this.appointmentDataGridView.Size = new System.Drawing.Size(794, 174);
@@ -120,9 +121,9 @@
             // 
             this.btnViewPatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnViewPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewPatient.Location = new System.Drawing.Point(3, 423);
+            this.btnViewPatient.Location = new System.Drawing.Point(3, 420);
             this.btnViewPatient.Name = "btnViewPatient";
-            this.btnViewPatient.Size = new System.Drawing.Size(274, 20);
+            this.btnViewPatient.Size = new System.Drawing.Size(274, 27);
             this.btnViewPatient.TabIndex = 13;
             this.btnViewPatient.Text = "View Patient";
             this.btnViewPatient.UseVisualStyleBackColor = true;
@@ -321,9 +322,9 @@
             // 
             this.btnAddPatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPatient.Location = new System.Drawing.Point(563, 423);
+            this.btnAddPatient.Location = new System.Drawing.Point(563, 420);
             this.btnAddPatient.Name = "btnAddPatient";
-            this.btnAddPatient.Size = new System.Drawing.Size(234, 20);
+            this.btnAddPatient.Size = new System.Drawing.Size(234, 27);
             this.btnAddPatient.TabIndex = 13;
             this.btnAddPatient.Text = "Add Patient";
             this.btnAddPatient.UseVisualStyleBackColor = true;

@@ -29,18 +29,19 @@
         private void InitializeComponent()
         {
             this.tblLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.dgAppointments = new System.Windows.Forms.DataGridView();
-            this.AppointmentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReasonsForVisit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DoctorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPatientName = new System.Windows.Forms.Label();
+            this.btnEditPatient = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnViewAppointment = new System.Windows.Forms.Button();
-            this.btnEditPatient = new System.Windows.Forms.Button();
             this.btnAddAppointment = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.DoctorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReasonsForVisit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppointmentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgAppointments = new System.Windows.Forms.DataGridView();
             this.tblLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAppointments)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAppointments)).BeginInit();
             this.SuspendLayout();
             // 
             // tblLayout
@@ -61,44 +62,6 @@
             this.tblLayout.Size = new System.Drawing.Size(800, 450);
             this.tblLayout.TabIndex = 0;
             // 
-            // dgAppointments
-            // 
-            this.dgAppointments.AllowUserToAddRows = false;
-            this.dgAppointments.AllowUserToDeleteRows = false;
-            this.dgAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAppointments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.AppointmentTime,
-            this.ReasonsForVisit,
-            this.DoctorName});
-            this.dgAppointments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgAppointments.Location = new System.Drawing.Point(3, 70);
-            this.dgAppointments.Name = "dgAppointments";
-            this.dgAppointments.ReadOnly = true;
-            this.dgAppointments.Size = new System.Drawing.Size(594, 377);
-            this.dgAppointments.TabIndex = 0;
-            // 
-            // AppointmentTime
-            // 
-            this.AppointmentTime.DataPropertyName = "AppointmentTime";
-            this.AppointmentTime.HeaderText = "Appointment Time";
-            this.AppointmentTime.Name = "AppointmentTime";
-            this.AppointmentTime.ReadOnly = true;
-            // 
-            // ReasonsForVisit
-            // 
-            this.ReasonsForVisit.DataPropertyName = "Reason";
-            this.ReasonsForVisit.HeaderText = "Reason";
-            this.ReasonsForVisit.Name = "ReasonsForVisit";
-            this.ReasonsForVisit.ReadOnly = true;
-            // 
-            // DoctorName
-            // 
-            this.DoctorName.DataPropertyName = "DoctorName";
-            this.DoctorName.HeaderText = "Doctor";
-            this.DoctorName.Name = "DoctorName";
-            this.DoctorName.ReadOnly = true;
-            // 
             // lblPatientName
             // 
             this.lblPatientName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -110,10 +73,23 @@
             this.lblPatientName.TabIndex = 1;
             this.lblPatientName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnEditPatient
+            // 
+            this.btnEditPatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditPatient.Location = new System.Drawing.Point(603, 14);
+            this.btnEditPatient.Name = "btnEditPatient";
+            this.btnEditPatient.Size = new System.Drawing.Size(194, 39);
+            this.btnEditPatient.TabIndex = 3;
+            this.btnEditPatient.Text = "Edit Patient";
+            this.btnEditPatient.UseVisualStyleBackColor = true;
+            this.btnEditPatient.Click += new System.EventHandler(this.btnEditPatient_Click);
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnViewAppointment);
             this.flowLayoutPanel1.Controls.Add(this.btnAddAppointment);
+            this.flowLayoutPanel1.Controls.Add(this.btnClose);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(603, 70);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -132,18 +108,6 @@
             this.btnViewAppointment.UseVisualStyleBackColor = true;
             this.btnViewAppointment.Click += new System.EventHandler(this.btnViewAppointment_Click);
             // 
-            // btnEditPatient
-            // 
-            this.btnEditPatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditPatient.Location = new System.Drawing.Point(603, 14);
-            this.btnEditPatient.Name = "btnEditPatient";
-            this.btnEditPatient.Size = new System.Drawing.Size(194, 39);
-            this.btnEditPatient.TabIndex = 3;
-            this.btnEditPatient.Text = "Edit Patient";
-            this.btnEditPatient.UseVisualStyleBackColor = true;
-            this.btnEditPatient.Click += new System.EventHandler(this.btnEditPatient_Click);
-            // 
             // btnAddAppointment
             // 
             this.btnAddAppointment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -155,6 +119,58 @@
             this.btnAddAppointment.Text = "Add Appointment";
             this.btnAddAppointment.UseVisualStyleBackColor = true;
             this.btnAddAppointment.Click += new System.EventHandler(this.btnAddAppointment_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(3, 93);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(191, 39);
+            this.btnClose.TabIndex = 6;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // DoctorName
+            // 
+            this.DoctorName.DataPropertyName = "DoctorName";
+            this.DoctorName.HeaderText = "Doctor";
+            this.DoctorName.Name = "DoctorName";
+            this.DoctorName.ReadOnly = true;
+            // 
+            // ReasonsForVisit
+            // 
+            this.ReasonsForVisit.DataPropertyName = "Reason";
+            this.ReasonsForVisit.HeaderText = "Reason";
+            this.ReasonsForVisit.Name = "ReasonsForVisit";
+            this.ReasonsForVisit.ReadOnly = true;
+            // 
+            // AppointmentTime
+            // 
+            this.AppointmentTime.DataPropertyName = "AppointmentTime";
+            this.AppointmentTime.HeaderText = "Appointment Time";
+            this.AppointmentTime.Name = "AppointmentTime";
+            this.AppointmentTime.ReadOnly = true;
+            // 
+            // dgAppointments
+            // 
+            this.dgAppointments.AllowUserToAddRows = false;
+            this.dgAppointments.AllowUserToDeleteRows = false;
+            this.dgAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAppointments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AppointmentTime,
+            this.ReasonsForVisit,
+            this.DoctorName});
+            this.dgAppointments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgAppointments.Location = new System.Drawing.Point(3, 70);
+            this.dgAppointments.MultiSelect = false;
+            this.dgAppointments.Name = "dgAppointments";
+            this.dgAppointments.ReadOnly = true;
+            this.dgAppointments.Size = new System.Drawing.Size(594, 377);
+            this.dgAppointments.TabIndex = 0;
+            this.dgAppointments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAppointments_CellClick);
             // 
             // PatientAppointments
             // 
@@ -168,8 +184,8 @@
             this.Load += new System.EventHandler(this.PatientAppointments_Load);
             this.tblLayout.ResumeLayout(false);
             this.tblLayout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAppointments)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgAppointments)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -177,14 +193,15 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tblLayout;
-        private System.Windows.Forms.DataGridView dgAppointments;
         private System.Windows.Forms.Label lblPatientName;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnEditPatient;
         private System.Windows.Forms.Button btnViewAppointment;
+        private System.Windows.Forms.Button btnAddAppointment;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.DataGridView dgAppointments;
         private System.Windows.Forms.DataGridViewTextBoxColumn AppointmentTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReasonsForVisit;
         private System.Windows.Forms.DataGridViewTextBoxColumn DoctorName;
-        private System.Windows.Forms.Button btnAddAppointment;
     }
 }

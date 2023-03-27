@@ -2,6 +2,7 @@
 using CS6232_G2.Model;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace CS6232_G2
@@ -42,8 +43,12 @@ namespace CS6232_G2
 
             DateTime newAvailableTime = CalculateNextAvailableTime(DateTime.Now);
             _lastTimeValue = newAvailableTime;
-            dtAppointmentDate.MinDate = newAvailableTime;
-            dtAppointmentTime.MinDate = newAvailableTime;
+
+            if (_appointment.AppointmentId == 0 || _appointment.AppointmentTime > DateTime.Now)
+            {
+                dtAppointmentDate.MinDate = newAvailableTime;
+                dtAppointmentTime.MinDate = newAvailableTime;
+            }
 
             BindDoctors();
             BindAppointmentValues();
@@ -152,8 +157,10 @@ namespace CS6232_G2
             dtAppointmentTime.Value = newValue;
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
+            lblMessage.Text = string.Empty;
+
             if (IsFormValid())
             {
                 Doctor selectedDoctor = (Doctor)cbDoctors.SelectedItem;
@@ -168,11 +175,12 @@ namespace CS6232_G2
                     if (_appointmentController.SaveAppointment(_appointment))
                     {
                         SetFormEditState();
-                        MessageBox.Show("Appointment has been saved", "Save");
+                        lblMessage.ForeColor = Color.Black;
+                        lblMessage.Text = "Appointment has been saved";
                     }
                     else
                     {
-                        MessageBox.Show("Failed to save appointment, re-open page and try again", "Unable to save");
+                        lblMessage.Text = "Failed to save appointment, re-open page and try again";
                     }
                 }
                 catch (Exception ex)
@@ -184,26 +192,27 @@ namespace CS6232_G2
 
         private bool IsFormValid()
         {
+            lblMessage.ForeColor = Color.Red;
             DateTime appointmentTime = dtAppointmentDate.Value.Date + dtAppointmentTime.Value.TimeOfDay;
 
             if (appointmentTime < DateTime.Now)
             {
-                MessageBox.Show("Please choose a future time", "Invalid appointment time");
+                lblMessage.Text = "Please choose a future time";
                 return false;
             }
             else if (cbDoctors.SelectedItem == null)
             {
-                MessageBox.Show("No doctor selected for the appointment", "Please choose a different time");
+                lblMessage.Text = "No doctor selected for the appointment";
                 return false;
             }
             else if (!IsDoctorAvailability(appointmentTime))
             {
-                MessageBox.Show("Doctor is not available", "Please choose a different time");
+                lblMessage.Text = "Doctor is not available";
                 return false;
             }
             else if (txtReason.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Please enter a reason for the visit", "Reason is required");
+                lblMessage.Text = "Please enter a reason for the visit";
                 return false;
             }
 
@@ -217,7 +226,7 @@ namespace CS6232_G2
                 Doctor selectedDoctor = (Doctor)cbDoctors.SelectedItem;
                 int doctorId = selectedDoctor.DoctorId;
 
-                return _appointmentController.IsDoctorAvailable(doctorId, appointmentTime);
+                return _appointmentController.IsDoctorAvailable(doctorId, appointmentTime, _appointment.AppointmentId);
             }
             catch (Exception ex)
             {

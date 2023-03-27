@@ -162,11 +162,9 @@ namespace CS6232_G2.View
         {
             appointmentDataGridView.DataSource = _patients;
 
-            if (appointmentDataGridView.SelectedRows.Count > 0)
+            if (appointmentDataGridView.Rows.Count > 0)
             {
-                _appointment = _appointmentController.GetAppointmentById(_appointment.AppointmentId);
-                appointmentDataGridView.Rows[0].Selected = false;
-                ///patientLinkLabel , patient name to be visible to edit
+                appointmentDataGridView.Rows[0].Selected = true;
             }
         }
 
@@ -179,7 +177,8 @@ namespace CS6232_G2.View
         {
             if (appointmentDataGridView.SelectedRows.Count == 1)
             {
-                int userId = Convert.ToInt32(appointmentDataGridView.SelectedRows[0].Cells[0].Value);
+                var selectedPatient = (Patient)appointmentDataGridView.SelectedRows[0].DataBoundItem;
+                int userId = selectedPatient.UserId;
 
                 using (PatientAppointments patientAppointments = new PatientAppointments(userId))
                 {

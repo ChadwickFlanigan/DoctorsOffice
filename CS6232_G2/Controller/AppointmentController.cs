@@ -57,9 +57,9 @@ namespace CS6232_G2.Controller
         /// <param name="appointmentTime"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public bool IsDoctorAvailable(int doctorId, DateTime appointmentTime)
+        public bool IsDoctorAvailable(int doctorId, DateTime appointmentTime, int appointmentId)
         {
-            return _appointmentDAL.IsDoctorAvailable(doctorId, appointmentTime);
+            return _appointmentDAL.IsDoctorAvailable(doctorId, appointmentTime, appointmentId);
         }
 
         /// <summary>

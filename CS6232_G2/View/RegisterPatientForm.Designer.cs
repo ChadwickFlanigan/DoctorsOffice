@@ -286,6 +286,7 @@
             // tbSSN
             // 
             this.tbSSN.Location = new System.Drawing.Point(223, 131);
+            this.tbSSN.MaxLength = 9;
             this.tbSSN.Name = "tbSSN";
             this.tbSSN.Size = new System.Drawing.Size(169, 20);
             this.tbSSN.TabIndex = 14;
@@ -528,6 +529,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tlpRegisterPatient);
             this.Name = "RegisterPatientForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterPatientForm";
             this.Load += new System.EventHandler(this.RegisterPatientForm_Load);
             this.tlpRegisterPatient.ResumeLayout(false);
