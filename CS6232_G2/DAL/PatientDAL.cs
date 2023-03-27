@@ -71,35 +71,35 @@ namespace CS6232_G2.DAL
             string insertStatement =
                 "UPDATE Users SET " +
                 "lastName = @lastName, " +
-                "firstName = @firstName " +
-                "dob = @dob " +
-                "ssn = @ssn " +
-                "gender = @gender " +
-                "streetNumber = @streetNumber " +
-                "city = @city " +
-                "state = @state " +
-                "country = @country " +
-                "phone = @phone " +
+                "firstName = @firstName, " +
+                "dob = @dob, " +
+                "ssn = @ssn, " +
+                "gender = @gender, " +
+                "streetNumber = @streetNumber, " +
+                "city = @city, " +
+                "state = @state, " +
+                "country = @country, " +
+                "phone = @phone, " +
                 "zipcode = @zipcode " +
                 "WHERE userId = @oldUserId " +
-                "lastName = @oldlastName, " +
-                "firstName = @oldfirstName " +
-                "dob = @olddob " +
-                "ssn = @oldssn " +
-                "gender = @oldgender " +
-                "streetNumber = @oldstreetNumber " +
-                "city = @oldcity " +
-                "state = @oldstate " +
-                "country = @oldcountry " +
-                "phone = @oldphone " +
-                "zipcode = @oldzipcode ";
+                "AND lastName = @oldLastName " +
+                "AND firstName = @oldFirstName " +
+                "AND dob = @oldDob " +
+                "AND ssn = @oldSsn " +
+                "AND gender = @oldGender " +
+                "AND streetNumber = @oldStreetNumber " +
+                "AND city = @oldCity " +
+                "AND state = @oldState " +
+                "AND country = @oldCountry " +
+                "AND phone = @oldPhone " +
+                "AND zipcode = @oldZipcode ";
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {
                 connection.Open();
                 SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
                 insertCommand.Parameters.AddWithValue("@lastName", user.LastName);
                 insertCommand.Parameters.AddWithValue("@firstName", user.FirstName);
-                insertCommand.Parameters.AddWithValue("@dob", user.DOB);
+                insertCommand.Parameters.AddWithValue("@dob", user.DOB.ToShortDateString());
                 insertCommand.Parameters.AddWithValue("@ssn", user.SSN);
                 insertCommand.Parameters.AddWithValue("@gender", user.Gender);
                 insertCommand.Parameters.AddWithValue("@streetNumber", user.StreetNumber);
@@ -109,9 +109,10 @@ namespace CS6232_G2.DAL
                 insertCommand.Parameters.AddWithValue("@phone", user.Phone);
                 insertCommand.Parameters.AddWithValue("@zipcode", user.Zipcode);
 
+                insertCommand.Parameters.AddWithValue("@oldUserId", oldUser.UserId);
                 insertCommand.Parameters.AddWithValue("@oldLastName", oldUser.LastName);
                 insertCommand.Parameters.AddWithValue("@oldFirstName", oldUser.FirstName);
-                insertCommand.Parameters.AddWithValue("@oldDob", oldUser.DOB);
+                insertCommand.Parameters.AddWithValue("@oldDob", oldUser.DOB.ToShortDateString());
                 insertCommand.Parameters.AddWithValue("@oldSsn", oldUser.SSN);
                 insertCommand.Parameters.AddWithValue("@oldGender", oldUser.Gender);
                 insertCommand.Parameters.AddWithValue("@oldStreetNumber", oldUser.StreetNumber);

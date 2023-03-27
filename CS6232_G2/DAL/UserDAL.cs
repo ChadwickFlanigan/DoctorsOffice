@@ -80,7 +80,7 @@ namespace CS6232_G2.DAL
         {
             User user = new User();
             string selectStatement =
-                        "SELECT lastName, firstName, dob, ssn, gender, streetNumber, city, state, country, phone, zipcode " +
+                        "SELECT userId, lastName, firstName, dob, ssn, gender, streetNumber, city, state, country, phone, zipcode " +
                         "FROM Users " +
                         "WHERE userId = @userID";
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
@@ -94,6 +94,7 @@ namespace CS6232_G2.DAL
                     {
                         while (reader.Read())
                         {
+                            user.UserId = int.Parse(reader["userId"].ToString());
                             user.LastName = reader["lastName"].ToString();
                             user.FirstName = reader["firstName"].ToString();
                             user.DOB = (DateTime)reader["dob"];

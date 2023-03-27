@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using static System.Windows.Forms.AxHost;
 
 namespace CS6232_G2.View
 {
@@ -20,6 +19,7 @@ namespace CS6232_G2.View
         {
             InitializeComponent();
             _userController = new UserController();
+            _patientController = new PatientController();
         }
 
         private void btnRegister_Click(object sender, System.EventArgs e)
@@ -57,7 +57,7 @@ namespace CS6232_G2.View
                 if (ssn == null || ssn == "" || ssn.Length != 9 || !int.TryParse(this.tbSSN.Text, out i))
                 {
                     ssnValid = false;
-                    lblSSNError.Text = "Please enter a valid nine diget number";
+                    lblSSNError.Text = "Please enter a valid nine diget social security number";
                 }
 
                 string streetNumber = this.tbStreetNumber.Text;
@@ -89,17 +89,17 @@ namespace CS6232_G2.View
                 }
 
                 string phone = this.tbPhone.Text;
-                if (phone == null || phone == "")
+                if (phone == null || phone == "" || phone.Length < 10 || phone.Length > 13)
                 {
                     phoneValid = false;
-                    lblCountryError.Text = "Please enter a valid phone number";
+                    lblPhoneError.Text = "Please enter a valid phone number";
                 }
 
                 string zip = this.tbZipcode.Text;
-                if (zip == null || zip == "")
+                if (zip == null || zip == "" || zip.Length != 5 || !int.TryParse(this.tbZipcode.Text, out i))
                 {
                     zipcodeValid = false;
-                    lblZipcodeError.Text = "Please enter a valid zip code";
+                    lblZipcodeError.Text = "Please enter a valid five digit zip code";
                 }
 
                 if (!lastNameValid || !firstNameValid || !dobValid || !ssnValid || !genderValid || !streetNumberValid || !cityValid || !stateValid || !countryValid || !phoneValid || !zipcodeValid)
@@ -132,6 +132,60 @@ namespace CS6232_G2.View
             }
         }
 
+        private void LastNameTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblLastNameError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
+        private void FirstNameTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblFirstNameError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
+        private void SSNTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblSSNError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
+        private void StreetNumberTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblStreetNumberError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
+        private void CityTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblCityError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
+        private void StateTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblStateError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
+        private void PhoneTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblPhoneError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
+        private void ZipcodeTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblZipcodeError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
+        private void CountryTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblCountryError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
         private void LoadComboBox()
         {
             try
@@ -155,11 +209,6 @@ namespace CS6232_G2.View
             }
         }
 
-        private void RegisterPatientUserControl_Load(object sender, EventArgs e)
-        {
-            LoadComboBox();
-        }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             Close();
@@ -176,6 +225,11 @@ namespace CS6232_G2.View
             tbCountry.Text = string.Empty;
             tbPhone.Text = string.Empty;
             tbZipcode.Text = string.Empty;
+        }
+
+        private void RegisterPatientForm_Load(object sender, EventArgs e)
+        {
+            LoadComboBox();
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.tlpRegisterPatient = new System.Windows.Forms.TableLayoutPanel();
+            this.btnBack = new System.Windows.Forms.Button();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblDateOfBirth = new System.Windows.Forms.Label();
@@ -66,16 +67,15 @@
             this.lblMessage = new System.Windows.Forms.Label();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.cbGender = new System.Windows.Forms.ComboBox();
-            this.btnBack = new System.Windows.Forms.Button();
             this.tlpRegisterPatient.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpRegisterPatient
             // 
             this.tlpRegisterPatient.ColumnCount = 3;
-            this.tlpRegisterPatient.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpRegisterPatient.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpRegisterPatient.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpRegisterPatient.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.50808F));
+            this.tlpRegisterPatient.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.5081F));
+            this.tlpRegisterPatient.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.98381F));
             this.tlpRegisterPatient.Controls.Add(this.btnBack, 0, 13);
             this.tlpRegisterPatient.Controls.Add(this.lblLastName, 0, 1);
             this.tlpRegisterPatient.Controls.Add(this.lblFirstName, 0, 2);
@@ -118,7 +118,7 @@
             this.tlpRegisterPatient.Location = new System.Drawing.Point(0, 0);
             this.tlpRegisterPatient.Name = "tlpRegisterPatient";
             this.tlpRegisterPatient.RowCount = 14;
-            this.tlpRegisterPatient.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.140373F));
+            this.tlpRegisterPatient.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.140375F));
             this.tlpRegisterPatient.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.14323F));
             this.tlpRegisterPatient.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.14323F));
             this.tlpRegisterPatient.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.14323F));
@@ -131,9 +131,20 @@
             this.tlpRegisterPatient.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.14323F));
             this.tlpRegisterPatient.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.14323F));
             this.tlpRegisterPatient.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.14323F));
-            this.tlpRegisterPatient.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.140868F));
+            this.tlpRegisterPatient.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.140867F));
             this.tlpRegisterPatient.Size = new System.Drawing.Size(800, 450);
             this.tlpRegisterPatient.TabIndex = 1;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBack.Location = new System.Drawing.Point(3, 419);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(214, 28);
+            this.btnBack.TabIndex = 40;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // lblLastName
             // 
@@ -258,73 +269,82 @@
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(269, 35);
+            this.tbLastName.Location = new System.Drawing.Point(223, 35);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(169, 20);
             this.tbLastName.TabIndex = 11;
+            this.tbLastName.TextChanged += new System.EventHandler(this.LastNameTextBox_TextBoxChanged);
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(269, 67);
+            this.tbFirstName.Location = new System.Drawing.Point(223, 67);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(169, 20);
             this.tbFirstName.TabIndex = 12;
+            this.tbFirstName.TextChanged += new System.EventHandler(this.FirstNameTextBox_TextBoxChanged);
             // 
             // tbSSN
             // 
-            this.tbSSN.Location = new System.Drawing.Point(269, 131);
+            this.tbSSN.Location = new System.Drawing.Point(223, 131);
             this.tbSSN.Name = "tbSSN";
             this.tbSSN.Size = new System.Drawing.Size(169, 20);
             this.tbSSN.TabIndex = 14;
+            this.tbSSN.TextChanged += new System.EventHandler(this.SSNTextBox_TextBoxChanged);
             // 
             // tbStreetNumber
             // 
-            this.tbStreetNumber.Location = new System.Drawing.Point(269, 195);
+            this.tbStreetNumber.Location = new System.Drawing.Point(223, 195);
             this.tbStreetNumber.Name = "tbStreetNumber";
             this.tbStreetNumber.Size = new System.Drawing.Size(169, 20);
             this.tbStreetNumber.TabIndex = 16;
+            this.tbStreetNumber.TextChanged += new System.EventHandler(this.StreetNumberTextBox_TextBoxChanged);
             // 
             // tbCity
             // 
-            this.tbCity.Location = new System.Drawing.Point(269, 227);
+            this.tbCity.Location = new System.Drawing.Point(223, 227);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(169, 20);
             this.tbCity.TabIndex = 17;
+            this.tbCity.TextChanged += new System.EventHandler(this.CityTextBox_TextBoxChanged);
             // 
             // tbState
             // 
-            this.tbState.Location = new System.Drawing.Point(269, 259);
+            this.tbState.Location = new System.Drawing.Point(223, 259);
             this.tbState.Name = "tbState";
             this.tbState.Size = new System.Drawing.Size(169, 20);
             this.tbState.TabIndex = 18;
+            this.tbState.TextChanged += new System.EventHandler(this.StateTextBox_TextBoxChanged);
             // 
             // tbCountry
             // 
-            this.tbCountry.Location = new System.Drawing.Point(269, 291);
+            this.tbCountry.Location = new System.Drawing.Point(223, 291);
             this.tbCountry.Name = "tbCountry";
             this.tbCountry.Size = new System.Drawing.Size(169, 20);
             this.tbCountry.TabIndex = 19;
+            this.tbCountry.TextChanged += new System.EventHandler(this.CountryTextBox_TextBoxChanged);
             // 
             // tbPhone
             // 
-            this.tbPhone.Location = new System.Drawing.Point(269, 323);
+            this.tbPhone.Location = new System.Drawing.Point(223, 323);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(169, 20);
             this.tbPhone.TabIndex = 20;
+            this.tbPhone.TextChanged += new System.EventHandler(this.PhoneTextBox_TextBoxChanged);
             // 
             // tbZipcode
             // 
-            this.tbZipcode.Location = new System.Drawing.Point(269, 355);
+            this.tbZipcode.Location = new System.Drawing.Point(223, 355);
             this.tbZipcode.Name = "tbZipcode";
             this.tbZipcode.Size = new System.Drawing.Size(169, 20);
             this.tbZipcode.TabIndex = 21;
+            this.tbZipcode.TextChanged += new System.EventHandler(this.ZipcodeTextBox_TextBoxChanged);
             // 
             // btnClear
             // 
             this.btnClear.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnClear.Location = new System.Drawing.Point(3, 387);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(260, 26);
+            this.btnClear.Size = new System.Drawing.Size(214, 26);
             this.btnClear.TabIndex = 22;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -333,18 +353,19 @@
             // btnRegister
             // 
             this.btnRegister.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRegister.Location = new System.Drawing.Point(269, 387);
+            this.btnRegister.Location = new System.Drawing.Point(223, 387);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(260, 26);
+            this.btnRegister.Size = new System.Drawing.Size(214, 26);
             this.btnRegister.TabIndex = 23;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // lblRegisterUserControlTitle
             // 
             this.lblRegisterUserControlTitle.AutoSize = true;
             this.lblRegisterUserControlTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblRegisterUserControlTitle.Location = new System.Drawing.Point(269, 8);
+            this.lblRegisterUserControlTitle.Location = new System.Drawing.Point(223, 8);
             this.lblRegisterUserControlTitle.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblRegisterUserControlTitle.Name = "lblRegisterUserControlTitle";
             this.lblRegisterUserControlTitle.Size = new System.Drawing.Size(118, 16);
@@ -354,138 +375,138 @@
             // lblLastNameError
             // 
             this.lblLastNameError.AutoSize = true;
-            this.lblLastNameError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblLastNameError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblLastNameError.ForeColor = System.Drawing.Color.Red;
-            this.lblLastNameError.Location = new System.Drawing.Point(535, 40);
+            this.lblLastNameError.Location = new System.Drawing.Point(443, 40);
             this.lblLastNameError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblLastNameError.Name = "lblLastNameError";
-            this.lblLastNameError.Size = new System.Drawing.Size(0, 17);
+            this.lblLastNameError.Size = new System.Drawing.Size(0, 13);
             this.lblLastNameError.TabIndex = 25;
             // 
             // lblFirstNameError
             // 
             this.lblFirstNameError.AutoSize = true;
-            this.lblFirstNameError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblFirstNameError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblFirstNameError.ForeColor = System.Drawing.Color.Red;
-            this.lblFirstNameError.Location = new System.Drawing.Point(535, 72);
+            this.lblFirstNameError.Location = new System.Drawing.Point(443, 72);
             this.lblFirstNameError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblFirstNameError.Name = "lblFirstNameError";
-            this.lblFirstNameError.Size = new System.Drawing.Size(0, 17);
+            this.lblFirstNameError.Size = new System.Drawing.Size(0, 13);
             this.lblFirstNameError.TabIndex = 26;
             // 
             // lblDateOfBirthError
             // 
             this.lblDateOfBirthError.AutoSize = true;
-            this.lblDateOfBirthError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblDateOfBirthError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblDateOfBirthError.ForeColor = System.Drawing.Color.Red;
-            this.lblDateOfBirthError.Location = new System.Drawing.Point(535, 104);
+            this.lblDateOfBirthError.Location = new System.Drawing.Point(443, 104);
             this.lblDateOfBirthError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblDateOfBirthError.Name = "lblDateOfBirthError";
-            this.lblDateOfBirthError.Size = new System.Drawing.Size(0, 17);
+            this.lblDateOfBirthError.Size = new System.Drawing.Size(0, 13);
             this.lblDateOfBirthError.TabIndex = 27;
             // 
             // lblSSNError
             // 
             this.lblSSNError.AutoSize = true;
-            this.lblSSNError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblSSNError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblSSNError.ForeColor = System.Drawing.Color.Red;
-            this.lblSSNError.Location = new System.Drawing.Point(535, 136);
+            this.lblSSNError.Location = new System.Drawing.Point(443, 136);
             this.lblSSNError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblSSNError.Name = "lblSSNError";
-            this.lblSSNError.Size = new System.Drawing.Size(0, 17);
+            this.lblSSNError.Size = new System.Drawing.Size(0, 13);
             this.lblSSNError.TabIndex = 28;
             // 
             // lblGenderError
             // 
             this.lblGenderError.AutoSize = true;
-            this.lblGenderError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblGenderError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblGenderError.ForeColor = System.Drawing.Color.Red;
-            this.lblGenderError.Location = new System.Drawing.Point(535, 168);
+            this.lblGenderError.Location = new System.Drawing.Point(443, 168);
             this.lblGenderError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblGenderError.Name = "lblGenderError";
-            this.lblGenderError.Size = new System.Drawing.Size(0, 17);
+            this.lblGenderError.Size = new System.Drawing.Size(0, 13);
             this.lblGenderError.TabIndex = 29;
             // 
             // lblStreetNumberError
             // 
             this.lblStreetNumberError.AutoSize = true;
-            this.lblStreetNumberError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblStreetNumberError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblStreetNumberError.ForeColor = System.Drawing.Color.Red;
-            this.lblStreetNumberError.Location = new System.Drawing.Point(535, 200);
+            this.lblStreetNumberError.Location = new System.Drawing.Point(443, 200);
             this.lblStreetNumberError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblStreetNumberError.Name = "lblStreetNumberError";
-            this.lblStreetNumberError.Size = new System.Drawing.Size(0, 17);
+            this.lblStreetNumberError.Size = new System.Drawing.Size(0, 13);
             this.lblStreetNumberError.TabIndex = 30;
             // 
             // lblCityError
             // 
             this.lblCityError.AutoSize = true;
-            this.lblCityError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblCityError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblCityError.ForeColor = System.Drawing.Color.Red;
-            this.lblCityError.Location = new System.Drawing.Point(535, 232);
+            this.lblCityError.Location = new System.Drawing.Point(443, 232);
             this.lblCityError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblCityError.Name = "lblCityError";
-            this.lblCityError.Size = new System.Drawing.Size(0, 17);
+            this.lblCityError.Size = new System.Drawing.Size(0, 13);
             this.lblCityError.TabIndex = 31;
             // 
             // lblStateError
             // 
             this.lblStateError.AutoSize = true;
-            this.lblStateError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblStateError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblStateError.ForeColor = System.Drawing.Color.Red;
-            this.lblStateError.Location = new System.Drawing.Point(535, 264);
+            this.lblStateError.Location = new System.Drawing.Point(443, 264);
             this.lblStateError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblStateError.Name = "lblStateError";
-            this.lblStateError.Size = new System.Drawing.Size(0, 17);
+            this.lblStateError.Size = new System.Drawing.Size(0, 13);
             this.lblStateError.TabIndex = 32;
             // 
             // lblCountryError
             // 
             this.lblCountryError.AutoSize = true;
-            this.lblCountryError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblCountryError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblCountryError.ForeColor = System.Drawing.Color.Red;
-            this.lblCountryError.Location = new System.Drawing.Point(535, 296);
+            this.lblCountryError.Location = new System.Drawing.Point(443, 296);
             this.lblCountryError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblCountryError.Name = "lblCountryError";
-            this.lblCountryError.Size = new System.Drawing.Size(0, 17);
+            this.lblCountryError.Size = new System.Drawing.Size(0, 13);
             this.lblCountryError.TabIndex = 33;
             // 
             // lblPhoneError
             // 
             this.lblPhoneError.AutoSize = true;
-            this.lblPhoneError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblPhoneError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblPhoneError.ForeColor = System.Drawing.Color.Red;
-            this.lblPhoneError.Location = new System.Drawing.Point(535, 328);
+            this.lblPhoneError.Location = new System.Drawing.Point(443, 328);
             this.lblPhoneError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblPhoneError.Name = "lblPhoneError";
-            this.lblPhoneError.Size = new System.Drawing.Size(0, 17);
+            this.lblPhoneError.Size = new System.Drawing.Size(0, 13);
             this.lblPhoneError.TabIndex = 34;
             // 
             // lblZipcodeError
             // 
             this.lblZipcodeError.AutoSize = true;
-            this.lblZipcodeError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblZipcodeError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblZipcodeError.ForeColor = System.Drawing.Color.Red;
-            this.lblZipcodeError.Location = new System.Drawing.Point(535, 360);
+            this.lblZipcodeError.Location = new System.Drawing.Point(443, 360);
             this.lblZipcodeError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblZipcodeError.Name = "lblZipcodeError";
-            this.lblZipcodeError.Size = new System.Drawing.Size(0, 17);
+            this.lblZipcodeError.Size = new System.Drawing.Size(0, 13);
             this.lblZipcodeError.TabIndex = 35;
             // 
             // lblMessage
             // 
             this.lblMessage.AutoSize = true;
-            this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblMessage.Location = new System.Drawing.Point(535, 392);
+            this.lblMessage.Location = new System.Drawing.Point(443, 392);
             this.lblMessage.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(0, 17);
+            this.lblMessage.Size = new System.Drawing.Size(0, 13);
             this.lblMessage.TabIndex = 36;
             // 
             // dtpDateOfBirth
             // 
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(269, 99);
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(223, 99);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(169, 20);
             this.dtpDateOfBirth.TabIndex = 37;
@@ -493,22 +514,12 @@
             // 
             // cbGender
             // 
+            this.cbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGender.FormattingEnabled = true;
-            this.cbGender.Location = new System.Drawing.Point(269, 163);
+            this.cbGender.Location = new System.Drawing.Point(223, 163);
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(169, 21);
             this.cbGender.TabIndex = 39;
-            // 
-            // btnBack
-            // 
-            this.btnBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBack.Location = new System.Drawing.Point(3, 419);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(260, 28);
-            this.btnBack.TabIndex = 40;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // RegisterPatientForm
             // 
@@ -518,6 +529,7 @@
             this.Controls.Add(this.tlpRegisterPatient);
             this.Name = "RegisterPatientForm";
             this.Text = "RegisterPatientForm";
+            this.Load += new System.EventHandler(this.RegisterPatientForm_Load);
             this.tlpRegisterPatient.ResumeLayout(false);
             this.tlpRegisterPatient.PerformLayout();
             this.ResumeLayout(false);

@@ -34,7 +34,7 @@ namespace CS6232_G2.View
             dtpDateOfBirth.Value = _loadedUser.DOB;
             tbSSN.Text = _loadedUser.SSN;
 
-            if (_loadedUser.Gender == "1")
+            if (_loadedUser.Gender == "M")
             {
                 cbGender.SelectedIndex = 0;
             }
@@ -120,7 +120,7 @@ namespace CS6232_G2.View
                 if (ssn == null || ssn == "" || ssn.Length != 9 || !int.TryParse(this.tbSSN.Text, out i))
                 {
                     ssnValid = false;
-                    lblSSNError.Text = "Please enter a valid nine diget number";
+                    lblSSNError.Text = "Please enter a valid nine diget social security number";
                 }
 
                 string streetNumber = this.tbStreetNumber.Text;
@@ -152,17 +152,17 @@ namespace CS6232_G2.View
                 }
 
                 string phone = this.tbPhone.Text;
-                if (phone == null || phone == "")
+                if (phone == null || phone == "" || phone.Length < 10 || phone.Length > 13)
                 {
                     phoneValid = false;
-                    lblCountryError.Text = "Please enter a valid phone number";
+                    lblPhoneError.Text = "Please enter a valid phone number";
                 }
 
                 string zip = this.tbZipcode.Text;
-                if (zip == null || zip == "")
+                if (zip == null || zip == "" || zip.Length != 5 || !int.TryParse(this.tbZipcode.Text, out i))
                 {
                     zipcodeValid = false;
-                    lblZipcodeError.Text = "Please enter a valid zip code";
+                    lblZipcodeError.Text = "Please enter a valid five digit zip code";
                 }
 
                 if (!lastNameValid || !firstNameValid || !dobValid || !ssnValid || !genderValid || !streetNumberValid || !cityValid || !stateValid || !countryValid || !phoneValid || !zipcodeValid)
@@ -174,7 +174,7 @@ namespace CS6232_G2.View
                     User user = new User();
                     user.FirstName = firstName;
                     user.LastName = lastName;
-                    user.DOB = dtpDateOfBirth.Value;
+                    user.DOB = (DateTime)dtpDateOfBirth.Value;
                     user.SSN = ssn;
                     user.Gender = cbGender.SelectedValue.ToString();
                     user.StreetNumber = streetNumber;
@@ -182,6 +182,7 @@ namespace CS6232_G2.View
                     user.State = state;
                     user.Phone = phone;
                     user.Zipcode = zip;
+                    user.Country = country;
                     if (user.FirstName == _loadedUser.FirstName && user.LastName == _loadedUser.LastName
                         && user.DOB == _loadedUser.DOB && user.SSN == _loadedUser.SSN
                         && user.Gender == _loadedUser.Gender && user.StreetNumber == _loadedUser.StreetNumber
@@ -192,9 +193,14 @@ namespace CS6232_G2.View
                         this.lblMessage.Text = "No changes have been made.";
                         return;
                     }
-                    this._patientController.UpdatePatient(user, _loadedUser);
+                    if (!this._patientController.UpdatePatient(user, _loadedUser))
+                    {
+                        this.lblMessage.ForeColor = Color.Red;
+                        this.lblMessage.Text = "The patient's information has changed, please reload.";
+                        return;
+                    }
                     this.lblMessage.ForeColor = Color.Black;
-                    this.lblMessage.Text = "The patient has been registered.";
+                    this.lblMessage.Text = "The patient has been updated.";
                 }
             }
             catch (Exception ex)
@@ -202,6 +208,60 @@ namespace CS6232_G2.View
                 MessageBox.Show("The input is invalid." + Environment.NewLine + ex.Message,
                 "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void LastNameTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblLastNameError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
+        private void FirstNameTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblFirstNameError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
+        private void SSNTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblSSNError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
+        private void StreetNumberTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblStreetNumberError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
+        private void CityTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblCityError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
+        private void StateTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblStateError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
+        private void PhoneTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblPhoneError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
+        private void ZipcodeTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblZipcodeError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
+        }
+
+        private void CountryTextBox_TextBoxChanged(object sender, EventArgs e)
+        {
+            lblCountryError.Text = string.Empty;
+            lblMessage.Text = string.Empty;
         }
     }
 }
