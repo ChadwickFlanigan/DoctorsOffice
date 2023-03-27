@@ -36,7 +36,12 @@ namespace CS6232_G2.Controller
         {
             return _patientDBDAL.GetPatientByPatientId(id);
         }
-
+        /// <summary>
+        /// represent boolean value for update patient
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="oldUser"></param>
+        /// <returns></returns>
         public bool UpdatePatient(User user, User oldUser)
         {
             return _patientDBDAL.UpdatePatient(user, oldUser);
