@@ -531,6 +531,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tlpRegisterPatient);
             this.Name = "RegisterPatientForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterPatientForm";
             this.Load += new System.EventHandler(this.RegisterPatientForm_Load);
             this.tlpRegisterPatient.ResumeLayout(false);

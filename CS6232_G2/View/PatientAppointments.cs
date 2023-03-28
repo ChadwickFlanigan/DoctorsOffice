@@ -37,10 +37,27 @@ namespace CS6232_G2.View
                 _user = _userController.GetUserFullNameById(_userId);
                 lblPatientName.Text = $"{_user.FirstName} {_user.LastName}";
 
+                GetPatientAppointments();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void GetPatientAppointments()
+        {
+            try
+            {
                 _appointments = _appointmentController.GetPatientAppointments(_user.PatientId);
 
                 lblPatientName.Text = _appointments.FirstOrDefault().PatientName;
                 dgAppointments.DataSource = _appointments;
+
+                if (dgAppointments.Rows.Count > 0)
+                {
+                    dgAppointments.Rows[0].Selected = true;
+                }
             }
             catch (Exception ex)
             {
@@ -58,9 +75,7 @@ namespace CS6232_G2.View
 
         private void btnViewAppointment_Click(object sender, EventArgs e)
         {
-            int appointmentId = 1;
-
-            Appointment appointment = new AppointmentController().GetAppointmentById(appointmentId);
+            Appointment appointment = (Appointment)dgAppointments.SelectedRows[0].DataBoundItem;
 
             using (AppointmentForm appointmentForm = new AppointmentForm(appointment))
             {
@@ -76,8 +91,22 @@ namespace CS6232_G2.View
                 PatientName = $"{_user.FirstName} {_user.LastName}"
             };
 
-            AppointmentForm appointmentForm = new AppointmentForm(newAppointment);
-            appointmentForm.ShowDialog();
+            using (AppointmentForm appointmentForm = new AppointmentForm(newAppointment))
+            {
+                appointmentForm.ShowDialog();
+            }
+
+            GetPatientAppointments();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void dgAppointments_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgAppointments.Rows[e.RowIndex].Selected = true;
         }
     }
 }

@@ -58,12 +58,6 @@
     <Compile Include="Model\Login.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="UserControls\SearchPatientUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\SearchPatientUserControl.Designer.cs">
-      <DependentUpon>SearchPatientUserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\AdministratorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,9 +113,6 @@
     <Compile Include="View\PatientAppointments.Designer.cs">
       <DependentUpon>PatientAppointments.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControls\SearchPatientUserControl.resx">
-      <DependentUpon>SearchPatientUserControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\AdministratorForm.resx">
       <DependentUpon>AdministratorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\DataSources\" />
+    <Folder Include="UserControls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

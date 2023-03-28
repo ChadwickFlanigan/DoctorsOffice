@@ -134,11 +134,16 @@ namespace CS6232_G2.DAL
         /// <param name="appointmentTime"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public bool IsDoctorAvailable(int doctorId, DateTime appointmentTime)
+        public bool IsDoctorAvailable(int doctorId, DateTime appointmentTime, int appointmentId)
         {
             string selectStatement = "SELECT count(*) AppointmentsCount " +
                 "FROM [Appointments] " +
-                "Where doctorId = @doctorId and appointmentTime = @appointmentTime";
+                "Where doctorId = @doctorId and appointmentTime = @appointmentTime ";
+
+            if (appointmentId > 0)
+            {
+                selectStatement += " and appointmentId <> @appointmentId";
+            }
 
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {
@@ -148,6 +153,11 @@ namespace CS6232_G2.DAL
                 {
                     selectCommand.Parameters.AddWithValue("@doctorId", doctorId);
                     selectCommand.Parameters.AddWithValue("@appointmentTime", appointmentTime.ToString("yyyy-MM-dd HH:mm"));
+
+                    if (appointmentId > 0)
+                    {
+                        selectCommand.Parameters.AddWithValue("@appointmentId", appointmentId);
+                    }
 
                     var numberOfAppointments = Convert.ToInt32(selectCommand.ExecuteScalar());
 
@@ -165,7 +175,7 @@ namespace CS6232_G2.DAL
             List<Appointment> appointments = new List<Appointment>();
 
             string selectStatement = @"select AppointmentId, patientId, appointmentTime, reasonsForVisit, body.firstName + ' ' + body.lastName PatientName, 
-                                       u.firstName  + ' '  + u.lastName as DoctorName
+                                       u.firstName  + ' '  + u.lastName as DoctorName, body.DoctorId
                                     From (
 	                                    SELECT a.appointmentId, appointmentTime, a.patientId, reasonsForVisit, firstName , lastName, a.doctorId
 	                                    FROM Appointments a 
@@ -195,7 +205,8 @@ namespace CS6232_G2.DAL
                                 Reason = reader["reasonsForVisit"].ToString(),
                                 AppointmentId = Convert.ToInt32(reader["AppointmentId"]),
                                 PatientId = Convert.ToInt32(reader["patientId"]),
-                                DoctorName = reader["DoctorName"].ToString()
+                                DoctorName = reader["DoctorName"].ToString(),
+                                DoctorId= Convert.ToInt32(reader["DoctorId"])
                             };
 
                             appointments.Add(appointment);
