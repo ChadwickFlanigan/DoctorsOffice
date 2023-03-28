@@ -11,6 +11,7 @@ namespace CS6232_G2.View
     public partial class LoginForm : Form
     {
         private LoginController _loginController;
+        private UserController _userController;
         private Login _login;
 
         /// <summary>
@@ -20,10 +21,8 @@ namespace CS6232_G2.View
         {
             InitializeComponent();
             _loginController = new LoginController();
+            _userController = new UserController();
             _login = new Login();
-
-            txtUsername.Text = "johnsmith";
-            txtPassword.Text = "password123";
         }
 
         /// <summary>
@@ -43,14 +42,14 @@ namespace CS6232_G2.View
                 if (_login.AdministratorId > 0)
                 {
                     AdministratorForm _adminForm = new AdministratorForm(this);
-                    _adminForm.SetUsername(_login);
+                    _adminForm.SetUsername(_login, _userController.GetUserAdminByLogin(_login));
                     Hide();
                     _adminForm.Show();
                 }
                 else if (_login.NurseId > 0)
                 {
                     SearchPatientForm _searchPatientForm = new SearchPatientForm(this);
-                    _searchPatientForm.SetUsername(_login);
+                    _searchPatientForm.SetUsername(_login, _userController.GetUserNurseByLogin(_login));
                     Hide();
                     _searchPatientForm.Show();
                 }

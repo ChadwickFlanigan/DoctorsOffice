@@ -44,5 +44,25 @@ namespace CS6232_G2.Controller
         {
             return _userDBDAL.GetUserFullNameById(id);
         }
+
+        /// <summary>
+        /// Returns the details of a given nurse login
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns></returns>
+        public User GetUserNurseByLogin(Login login)
+        {
+            return _userDBDAL.GetUserNurseByLogin(login);
+        }
+
+        /// <summary>
+        /// Returns the details of a given administrator login
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns></returns>
+        public User GetUserAdminByLogin(Login login)
+        {
+            return _userDBDAL.GetUserAdminByLogin(login);
+        }
     }
 }

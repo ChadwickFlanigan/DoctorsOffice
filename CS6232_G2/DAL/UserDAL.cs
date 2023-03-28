@@ -112,5 +112,91 @@ namespace CS6232_G2.DAL
             }
             return user;
         }
+
+        /// <summary>
+        /// Returns the user details for a nurse based on a login
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns></returns>
+        public User GetUserNurseByLogin(Login login)
+        {
+            User user = new User();
+            string selectStatement =
+                        "SELECT u.userId as IdOfUser, lastName, firstName, dob, ssn, gender, streetNumber, city, state, country, phone, zipcode " +
+                        "FROM Users u " +
+                        "JOIN Nurses n on n.userId = u.userId " +
+                        "WHERE n.userId = @userID";
+            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@userId", login.UserId);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            user.UserId = int.Parse(reader["IdOfUser"].ToString());
+                            user.LastName = reader["lastName"].ToString();
+                            user.FirstName = reader["firstName"].ToString();
+                            user.DOB = (DateTime)reader["dob"];
+                            user.SSN = reader["ssn"].ToString();
+                            user.Gender = reader["gender"].ToString();
+                            user.StreetNumber = reader["streetNumber"].ToString();
+                            user.City = reader["city"].ToString();
+                            user.State = reader["state"].ToString();
+                            user.Country = reader["country"].ToString();
+                            user.Phone = reader["phone"].ToString();
+                            user.Zipcode = reader["zipcode"].ToString();
+                        }
+                    }
+                }
+            }
+            return user;
+        }
+
+        /// <summary>
+        /// Returns the user details for an administrator based on a login
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns></returns>
+        public User GetUserAdminByLogin(Login login)
+        {
+            User user = new User();
+            string selectStatement =
+                        "SELECT u.userId as IdOfUser, lastName, firstName, dob, ssn, gender, streetNumber, city, state, country, phone, zipcode " +
+                        "FROM Users u " +
+                        "JOIN Administrators a on a.personId = u.userId " +
+                        "WHERE a.personId = @userID";
+            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@userId", login.UserId);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            user.UserId = int.Parse(reader["IdOfUser"].ToString());
+                            user.LastName = reader["lastName"].ToString();
+                            user.FirstName = reader["firstName"].ToString();
+                            user.DOB = (DateTime)reader["dob"];
+                            user.SSN = reader["ssn"].ToString();
+                            user.Gender = reader["gender"].ToString();
+                            user.StreetNumber = reader["streetNumber"].ToString();
+                            user.City = reader["city"].ToString();
+                            user.State = reader["state"].ToString();
+                            user.Country = reader["country"].ToString();
+                            user.Phone = reader["phone"].ToString();
+                            user.Zipcode = reader["zipcode"].ToString();
+                        }
+                    }
+                }
+            }
+            return user;
+        }
     }
 }

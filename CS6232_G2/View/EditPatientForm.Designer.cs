@@ -258,7 +258,7 @@
             this.tbLastName.Location = new System.Drawing.Point(241, 37);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(169, 20);
-            this.tbLastName.TabIndex = 11;
+            this.tbLastName.TabIndex = 0;
             this.tbLastName.TextChanged += new System.EventHandler(this.LastNameTextBox_TextBoxChanged);
             // 
             // tbFirstName
@@ -266,15 +266,16 @@
             this.tbFirstName.Location = new System.Drawing.Point(241, 71);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(169, 20);
-            this.tbFirstName.TabIndex = 12;
+            this.tbFirstName.TabIndex = 1;
             this.tbFirstName.TextChanged += new System.EventHandler(this.FirstNameTextBox_TextBoxChanged);
             // 
             // tbSSN
             // 
             this.tbSSN.Location = new System.Drawing.Point(241, 139);
+            this.tbSSN.MaxLength = 9;
             this.tbSSN.Name = "tbSSN";
             this.tbSSN.Size = new System.Drawing.Size(169, 20);
-            this.tbSSN.TabIndex = 14;
+            this.tbSSN.TabIndex = 3;
             this.tbSSN.TextChanged += new System.EventHandler(this.SSNTextBox_TextBoxChanged);
             // 
             // tbStreetNumber
@@ -282,7 +283,7 @@
             this.tbStreetNumber.Location = new System.Drawing.Point(241, 207);
             this.tbStreetNumber.Name = "tbStreetNumber";
             this.tbStreetNumber.Size = new System.Drawing.Size(169, 20);
-            this.tbStreetNumber.TabIndex = 16;
+            this.tbStreetNumber.TabIndex = 5;
             this.tbStreetNumber.TextChanged += new System.EventHandler(this.StreetNumberTextBox_TextBoxChanged);
             // 
             // tbCity
@@ -290,7 +291,7 @@
             this.tbCity.Location = new System.Drawing.Point(241, 241);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(169, 20);
-            this.tbCity.TabIndex = 17;
+            this.tbCity.TabIndex = 6;
             this.tbCity.TextChanged += new System.EventHandler(this.CityTextBox_TextBoxChanged);
             // 
             // tbState
@@ -298,7 +299,7 @@
             this.tbState.Location = new System.Drawing.Point(241, 275);
             this.tbState.Name = "tbState";
             this.tbState.Size = new System.Drawing.Size(169, 20);
-            this.tbState.TabIndex = 18;
+            this.tbState.TabIndex = 7;
             this.tbState.TextChanged += new System.EventHandler(this.StateTextBox_TextBoxChanged);
             // 
             // tbCountry
@@ -306,23 +307,25 @@
             this.tbCountry.Location = new System.Drawing.Point(241, 309);
             this.tbCountry.Name = "tbCountry";
             this.tbCountry.Size = new System.Drawing.Size(169, 20);
-            this.tbCountry.TabIndex = 19;
+            this.tbCountry.TabIndex = 8;
             this.tbCountry.TextChanged += new System.EventHandler(this.CountryTextBox_TextBoxChanged);
             // 
             // tbPhone
             // 
             this.tbPhone.Location = new System.Drawing.Point(241, 343);
+            this.tbPhone.MaxLength = 13;
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(169, 20);
-            this.tbPhone.TabIndex = 20;
+            this.tbPhone.TabIndex = 9;
             this.tbPhone.TextChanged += new System.EventHandler(this.PhoneTextBox_TextBoxChanged);
             // 
             // tbZipcode
             // 
             this.tbZipcode.Location = new System.Drawing.Point(241, 377);
+            this.tbZipcode.MaxLength = 5;
             this.tbZipcode.Name = "tbZipcode";
             this.tbZipcode.Size = new System.Drawing.Size(169, 20);
-            this.tbZipcode.TabIndex = 21;
+            this.tbZipcode.TabIndex = 10;
             this.tbZipcode.TextChanged += new System.EventHandler(this.ZipcodeTextBox_TextBoxChanged);
             // 
             // btnBack
@@ -331,7 +334,7 @@
             this.btnBack.Location = new System.Drawing.Point(3, 411);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(232, 36);
-            this.btnBack.TabIndex = 22;
+            this.btnBack.TabIndex = 11;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -342,7 +345,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(241, 411);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(232, 36);
-            this.btnUpdate.TabIndex = 23;
+            this.btnUpdate.TabIndex = 12;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -495,7 +498,7 @@
             this.dtpDateOfBirth.Location = new System.Drawing.Point(241, 105);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(169, 20);
-            this.dtpDateOfBirth.TabIndex = 37;
+            this.dtpDateOfBirth.TabIndex = 2;
             this.dtpDateOfBirth.Value = new System.DateTime(2023, 3, 15, 20, 49, 26, 0);
             // 
             // cbGender
@@ -505,7 +508,7 @@
             this.cbGender.Location = new System.Drawing.Point(241, 173);
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(169, 21);
-            this.cbGender.TabIndex = 39;
+            this.cbGender.TabIndex = 4;
             // 
             // EditPatientForm
             // 

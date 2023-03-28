@@ -32,6 +32,7 @@
             this.lblAdministrator = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lnkLogout = new System.Windows.Forms.LinkLabel();
+            this.lblName = new System.Windows.Forms.Label();
             this.searchTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,21 +45,21 @@
             this.searchTableLayoutPanel.Controls.Add(this.lblAdministrator, 0, 0);
             this.searchTableLayoutPanel.Controls.Add(this.lblUsername, 2, 0);
             this.searchTableLayoutPanel.Controls.Add(this.lnkLogout, 1, 0);
+            this.searchTableLayoutPanel.Controls.Add(this.lblName, 2, 1);
             this.searchTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.searchTableLayoutPanel.Name = "searchTableLayoutPanel";
-            this.searchTableLayoutPanel.RowCount = 9;
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.searchTableLayoutPanel.RowCount = 10;
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.619048F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.619048F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.619048F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.523809F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.571428F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.09524F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
             this.searchTableLayoutPanel.Size = new System.Drawing.Size(800, 450);
             this.searchTableLayoutPanel.TabIndex = 2;
             // 
@@ -67,7 +68,7 @@
             this.lblAdministrator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAdministrator.AutoSize = true;
             this.lblAdministrator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdministrator.Location = new System.Drawing.Point(3, 3);
+            this.lblAdministrator.Location = new System.Drawing.Point(3, 2);
             this.lblAdministrator.Name = "lblAdministrator";
             this.lblAdministrator.Size = new System.Drawing.Size(274, 16);
             this.lblAdministrator.TabIndex = 0;
@@ -97,6 +98,18 @@
             this.lnkLogout.Text = "Logout";
             this.lnkLogout.Click += new System.EventHandler(this.lnkLogout_Click);
             // 
+            // lblName
+            // 
+            this.lblName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblName.AutoSize = true;
+            this.lblName.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Assertive;
+            this.lblName.Location = new System.Drawing.Point(742, 21);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(55, 13);
+            this.lblName.TabIndex = 22;
+            this.lblName.Text = "Username";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AdministratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -105,9 +118,9 @@
             this.Controls.Add(this.searchTableLayoutPanel);
             this.Name = "AdministratorForm";
             this.Text = "AdministratorForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdministratorForm_FormClosing);
             this.searchTableLayoutPanel.ResumeLayout(false);
             this.searchTableLayoutPanel.PerformLayout();
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdministratorForm_FormClosing);
             this.ResumeLayout(false);
 
         }
@@ -118,5 +131,6 @@
         private System.Windows.Forms.Label lblAdministrator;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.LinkLabel lnkLogout;
+        private System.Windows.Forms.Label lblName;
     }
 }
