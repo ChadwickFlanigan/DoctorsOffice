@@ -16,3 +16,10 @@ Chadwick Flanigan (cflanig1@my.westga.edu)
 
 # Product Owner
 -John Owens
+
+# Logins for Nurses (username, password)
+- 'hansmuller', 'mypassword'
+- 'jaeeunpark', '1234567890'
+
+# Logins for Admins (username, password)
+- 'johnsmith', 'password123'
