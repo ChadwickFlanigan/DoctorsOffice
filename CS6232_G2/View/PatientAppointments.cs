@@ -51,7 +51,8 @@ namespace CS6232_G2.View
             {
                 _appointments = _appointmentController.GetPatientAppointments(_user.PatientId);
 
-                lblPatientName.Text = _appointments.FirstOrDefault().PatientName;
+                lblPatientName.Text = $"{_user.FirstName} {_user.LastName}";
+
                 dgAppointments.DataSource = _appointments;
 
                 if (dgAppointments.Rows.Count > 0)
@@ -81,6 +82,8 @@ namespace CS6232_G2.View
             {
                 appointmentForm.ShowDialog();
             }
+
+            dgAppointments.Refresh();
         }
 
         private void btnAddAppointment_Click(object sender, EventArgs e)

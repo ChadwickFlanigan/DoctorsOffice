@@ -30,8 +30,6 @@
         {
             this.tlpRegisterPatient = new System.Windows.Forms.TableLayoutPanel();
             this.btnBack = new System.Windows.Forms.Button();
-            this.lblLastName = new System.Windows.Forms.Label();
-            this.lblFirstName = new System.Windows.Forms.Label();
             this.lblDateOfBirth = new System.Windows.Forms.Label();
             this.lblSSN = new System.Windows.Forms.Label();
             this.lblGender = new System.Windows.Forms.Label();
@@ -41,8 +39,6 @@
             this.lblCountry = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblZipcode = new System.Windows.Forms.Label();
-            this.tbLastName = new System.Windows.Forms.TextBox();
-            this.tbFirstName = new System.Windows.Forms.TextBox();
             this.tbSSN = new System.Windows.Forms.TextBox();
             this.tbStreetNumber = new System.Windows.Forms.TextBox();
             this.tbCity = new System.Windows.Forms.TextBox();
@@ -53,8 +49,6 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.lblRegisterUserControlTitle = new System.Windows.Forms.Label();
-            this.lblLastNameError = new System.Windows.Forms.Label();
-            this.lblFirstNameError = new System.Windows.Forms.Label();
             this.lblDateOfBirthError = new System.Windows.Forms.Label();
             this.lblSSNError = new System.Windows.Forms.Label();
             this.lblGenderError = new System.Windows.Forms.Label();
@@ -67,6 +61,12 @@
             this.lblMessage = new System.Windows.Forms.Label();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.cbGender = new System.Windows.Forms.ComboBox();
+            this.tbLastName = new System.Windows.Forms.TextBox();
+            this.tbFirstName = new System.Windows.Forms.TextBox();
+            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblLastNameError = new System.Windows.Forms.Label();
+            this.lblFirstNameError = new System.Windows.Forms.Label();
             this.tlpRegisterPatient.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,28 +145,6 @@
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // lblLastName
-            // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastName.Location = new System.Drawing.Point(6, 73);
-            this.lblLastName.Margin = new System.Windows.Forms.Padding(6, 9, 3, 0);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(72, 16);
-            this.lblLastName.TabIndex = 0;
-            this.lblLastName.Text = "Last Name";
-            // 
-            // lblFirstName
-            // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.Location = new System.Drawing.Point(6, 41);
-            this.lblFirstName.Margin = new System.Windows.Forms.Padding(6, 9, 3, 0);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(72, 16);
-            this.lblFirstName.TabIndex = 1;
-            this.lblFirstName.Text = "First Name";
             // 
             // lblDateOfBirth
             // 
@@ -267,22 +245,6 @@
             this.lblZipcode.TabIndex = 10;
             this.lblZipcode.Text = "Zipcode";
             // 
-            // tbLastName
-            // 
-            this.tbLastName.Location = new System.Drawing.Point(223, 67);
-            this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(169, 20);
-            this.tbLastName.TabIndex = 0;
-            this.tbLastName.TextChanged += new System.EventHandler(this.LastNameTextBox_TextBoxChanged);
-            // 
-            // tbFirstName
-            // 
-            this.tbFirstName.Location = new System.Drawing.Point(223, 35);
-            this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(169, 20);
-            this.tbFirstName.TabIndex = 1;
-            this.tbFirstName.TextChanged += new System.EventHandler(this.FirstNameTextBox_TextBoxChanged);
-            // 
             // tbSSN
             // 
             this.tbSSN.Location = new System.Drawing.Point(223, 131);
@@ -374,28 +336,6 @@
             this.lblRegisterUserControlTitle.Size = new System.Drawing.Size(118, 16);
             this.lblRegisterUserControlTitle.TabIndex = 24;
             this.lblRegisterUserControlTitle.Text = "Register Patient";
-            // 
-            // lblLastNameError
-            // 
-            this.lblLastNameError.AutoSize = true;
-            this.lblLastNameError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblLastNameError.ForeColor = System.Drawing.Color.Red;
-            this.lblLastNameError.Location = new System.Drawing.Point(443, 72);
-            this.lblLastNameError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
-            this.lblLastNameError.Name = "lblLastNameError";
-            this.lblLastNameError.Size = new System.Drawing.Size(0, 13);
-            this.lblLastNameError.TabIndex = 25;
-            // 
-            // lblFirstNameError
-            // 
-            this.lblFirstNameError.AutoSize = true;
-            this.lblFirstNameError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblFirstNameError.ForeColor = System.Drawing.Color.Red;
-            this.lblFirstNameError.Location = new System.Drawing.Point(443, 40);
-            this.lblFirstNameError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
-            this.lblFirstNameError.Name = "lblFirstNameError";
-            this.lblFirstNameError.Size = new System.Drawing.Size(0, 13);
-            this.lblFirstNameError.TabIndex = 26;
             // 
             // lblDateOfBirthError
             // 
@@ -523,6 +463,66 @@
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(169, 21);
             this.cbGender.TabIndex = 4;
+            // 
+            // tbLastName
+            // 
+            this.tbLastName.Location = new System.Drawing.Point(223, 67);
+            this.tbLastName.Name = "tbLastName";
+            this.tbLastName.Size = new System.Drawing.Size(169, 20);
+            this.tbLastName.TabIndex = 1;
+            this.tbLastName.TextChanged += new System.EventHandler(this.LastNameTextBox_TextBoxChanged);
+            // 
+            // tbFirstName
+            // 
+            this.tbFirstName.Location = new System.Drawing.Point(223, 35);
+            this.tbFirstName.Name = "tbFirstName";
+            this.tbFirstName.Size = new System.Drawing.Size(169, 20);
+            this.tbFirstName.TabIndex = 0;
+            this.tbFirstName.TextChanged += new System.EventHandler(this.FirstNameTextBox_TextBoxChanged);
+            // 
+            // lblLastName
+            // 
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastName.Location = new System.Drawing.Point(6, 73);
+            this.lblLastName.Margin = new System.Windows.Forms.Padding(6, 9, 3, 0);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(72, 16);
+            this.lblLastName.TabIndex = 0;
+            this.lblLastName.Text = "Last Name";
+            // 
+            // lblFirstName
+            // 
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirstName.Location = new System.Drawing.Point(6, 41);
+            this.lblFirstName.Margin = new System.Windows.Forms.Padding(6, 9, 3, 0);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(72, 16);
+            this.lblFirstName.TabIndex = 1;
+            this.lblFirstName.Text = "First Name";
+            // 
+            // lblLastNameError
+            // 
+            this.lblLastNameError.AutoSize = true;
+            this.lblLastNameError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.lblLastNameError.ForeColor = System.Drawing.Color.Red;
+            this.lblLastNameError.Location = new System.Drawing.Point(443, 72);
+            this.lblLastNameError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.lblLastNameError.Name = "lblLastNameError";
+            this.lblLastNameError.Size = new System.Drawing.Size(0, 13);
+            this.lblLastNameError.TabIndex = 25;
+            // 
+            // lblFirstNameError
+            // 
+            this.lblFirstNameError.AutoSize = true;
+            this.lblFirstNameError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.lblFirstNameError.ForeColor = System.Drawing.Color.Red;
+            this.lblFirstNameError.Location = new System.Drawing.Point(443, 40);
+            this.lblFirstNameError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.lblFirstNameError.Name = "lblFirstNameError";
+            this.lblFirstNameError.Size = new System.Drawing.Size(0, 13);
+            this.lblFirstNameError.TabIndex = 26;
             // 
             // RegisterPatientForm
             // 

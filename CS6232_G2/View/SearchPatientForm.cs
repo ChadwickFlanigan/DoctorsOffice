@@ -12,11 +12,7 @@ namespace CS6232_G2.View
     public partial class SearchPatientForm : Form
     {
         private readonly SearchController _searchController;
-        private readonly AppointmentController _appointmentController;
-        private readonly PatientController _patientController;
-        private Appointment _appointment;
         private List<Patient> _patients;
-        private DateTime dob;
         private bool loggedOut;
         private readonly LoginForm _loginForm;
         /// <summary>
@@ -27,8 +23,6 @@ namespace CS6232_G2.View
             InitializeComponent();
             _loginForm = loginForm;
             _searchController = new SearchController();
-            _appointmentController = new AppointmentController();
-            _patientController = new PatientController();
             _patients = new List<Patient>();
             appointmentDataGridView.AutoGenerateColumns = false;
         }

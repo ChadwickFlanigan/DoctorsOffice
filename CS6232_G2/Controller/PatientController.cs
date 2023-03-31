@@ -28,15 +28,6 @@ namespace CS6232_G2.Controller
         }
 
         /// <summary>
-        /// Returns the patient associated with the given patientId
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public Patient GetPatientByPatientId(int id)
-        {
-            return _patientDBDAL.GetPatientByPatientId(id);
-        }
-        /// <summary>
         /// represent boolean value for update patient
         /// </summary>
         /// <param name="user"></param>
