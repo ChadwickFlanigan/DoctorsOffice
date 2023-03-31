@@ -152,10 +152,10 @@ namespace CS6232_G2.View
                 }
 
                 string phone = this.tbPhone.Text;
-                if (phone == null || phone == "" || phone.Length < 10 || phone.Length > 13)
+                if (phone == null || phone == "" || phone.Length != 10 || !int.TryParse(this.tbPhone.Text, out i))
                 {
                     phoneValid = false;
-                    lblPhoneError.Text = "Please enter a valid phone number";
+                    lblPhoneError.Text = "Please enter a valid phone number without dashes";
                 }
 
                 string zip = this.tbZipcode.Text;

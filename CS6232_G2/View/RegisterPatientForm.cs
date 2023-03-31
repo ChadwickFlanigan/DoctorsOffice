@@ -89,10 +89,10 @@ namespace CS6232_G2.View
                 }
 
                 string phone = this.tbPhone.Text;
-                if (phone == null || phone == "" || phone.Length < 10 || phone.Length > 13)
+                if (phone == null || phone == "" || phone.Length != 10 || !int.TryParse(this.tbPhone.Text, out i))
                 {
                     phoneValid = false;
-                    lblPhoneError.Text = "Please enter a valid phone number";
+                    lblPhoneError.Text = "Please enter a valid phone number without dashes";
                 }
 
                 string zip = this.tbZipcode.Text;
@@ -123,6 +123,7 @@ namespace CS6232_G2.View
                     this._patientController.Add(user);
                     this.lblMessage.ForeColor = Color.Black;
                     this.lblMessage.Text = "The patient has been registered.";
+                    Clear();
                 }
             }
             catch (Exception ex)
@@ -214,17 +215,22 @@ namespace CS6232_G2.View
             Close();
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        private void Clear()
         {
-            tbFirstName.Text= string.Empty;
-            tbLastName.Text= string.Empty;
-            tbSSN.Text= string.Empty;
-            tbStreetNumber.Text= string.Empty;
+            tbFirstName.Text = string.Empty;
+            tbLastName.Text = string.Empty;
+            tbSSN.Text = string.Empty;
+            tbStreetNumber.Text = string.Empty;
             tbCity.Text = string.Empty;
             tbState.Text = string.Empty;
             tbCountry.Text = string.Empty;
             tbPhone.Text = string.Empty;
             tbZipcode.Text = string.Empty;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            Clear();
         }
 
         private void RegisterPatientForm_Load(object sender, EventArgs e)

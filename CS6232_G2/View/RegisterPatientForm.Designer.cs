@@ -77,8 +77,6 @@
             this.tlpRegisterPatient.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.5081F));
             this.tlpRegisterPatient.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.98381F));
             this.tlpRegisterPatient.Controls.Add(this.btnBack, 0, 13);
-            this.tlpRegisterPatient.Controls.Add(this.lblLastName, 0, 1);
-            this.tlpRegisterPatient.Controls.Add(this.lblFirstName, 0, 2);
             this.tlpRegisterPatient.Controls.Add(this.lblDateOfBirth, 0, 3);
             this.tlpRegisterPatient.Controls.Add(this.lblSSN, 0, 4);
             this.tlpRegisterPatient.Controls.Add(this.lblGender, 0, 5);
@@ -88,8 +86,6 @@
             this.tlpRegisterPatient.Controls.Add(this.lblCountry, 0, 9);
             this.tlpRegisterPatient.Controls.Add(this.lblPhone, 0, 10);
             this.tlpRegisterPatient.Controls.Add(this.lblZipcode, 0, 11);
-            this.tlpRegisterPatient.Controls.Add(this.tbLastName, 1, 1);
-            this.tlpRegisterPatient.Controls.Add(this.tbFirstName, 1, 2);
             this.tlpRegisterPatient.Controls.Add(this.tbSSN, 1, 4);
             this.tlpRegisterPatient.Controls.Add(this.tbStreetNumber, 1, 6);
             this.tlpRegisterPatient.Controls.Add(this.tbCity, 1, 7);
@@ -100,8 +96,6 @@
             this.tlpRegisterPatient.Controls.Add(this.btnClear, 0, 12);
             this.tlpRegisterPatient.Controls.Add(this.btnRegister, 1, 12);
             this.tlpRegisterPatient.Controls.Add(this.lblRegisterUserControlTitle, 1, 0);
-            this.tlpRegisterPatient.Controls.Add(this.lblLastNameError, 2, 1);
-            this.tlpRegisterPatient.Controls.Add(this.lblFirstNameError, 2, 2);
             this.tlpRegisterPatient.Controls.Add(this.lblDateOfBirthError, 2, 3);
             this.tlpRegisterPatient.Controls.Add(this.lblSSNError, 2, 4);
             this.tlpRegisterPatient.Controls.Add(this.lblGenderError, 2, 5);
@@ -114,6 +108,12 @@
             this.tlpRegisterPatient.Controls.Add(this.lblMessage, 2, 12);
             this.tlpRegisterPatient.Controls.Add(this.dtpDateOfBirth, 1, 3);
             this.tlpRegisterPatient.Controls.Add(this.cbGender, 1, 5);
+            this.tlpRegisterPatient.Controls.Add(this.tbLastName, 1, 2);
+            this.tlpRegisterPatient.Controls.Add(this.tbFirstName, 1, 1);
+            this.tlpRegisterPatient.Controls.Add(this.lblLastName, 0, 2);
+            this.tlpRegisterPatient.Controls.Add(this.lblFirstName, 0, 1);
+            this.tlpRegisterPatient.Controls.Add(this.lblLastNameError, 2, 2);
+            this.tlpRegisterPatient.Controls.Add(this.lblFirstNameError, 2, 1);
             this.tlpRegisterPatient.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpRegisterPatient.Location = new System.Drawing.Point(0, 0);
             this.tlpRegisterPatient.Name = "tlpRegisterPatient";
@@ -150,7 +150,7 @@
             // 
             this.lblLastName.AutoSize = true;
             this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastName.Location = new System.Drawing.Point(6, 41);
+            this.lblLastName.Location = new System.Drawing.Point(6, 73);
             this.lblLastName.Margin = new System.Windows.Forms.Padding(6, 9, 3, 0);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(72, 16);
@@ -161,7 +161,7 @@
             // 
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.Location = new System.Drawing.Point(6, 73);
+            this.lblFirstName.Location = new System.Drawing.Point(6, 41);
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(6, 9, 3, 0);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(72, 16);
@@ -269,7 +269,7 @@
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(223, 35);
+            this.tbLastName.Location = new System.Drawing.Point(223, 67);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(169, 20);
             this.tbLastName.TabIndex = 0;
@@ -277,7 +277,7 @@
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(223, 67);
+            this.tbFirstName.Location = new System.Drawing.Point(223, 35);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(169, 20);
             this.tbFirstName.TabIndex = 1;
@@ -380,7 +380,7 @@
             this.lblLastNameError.AutoSize = true;
             this.lblLastNameError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblLastNameError.ForeColor = System.Drawing.Color.Red;
-            this.lblLastNameError.Location = new System.Drawing.Point(443, 40);
+            this.lblLastNameError.Location = new System.Drawing.Point(443, 72);
             this.lblLastNameError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblLastNameError.Name = "lblLastNameError";
             this.lblLastNameError.Size = new System.Drawing.Size(0, 13);
@@ -391,7 +391,7 @@
             this.lblFirstNameError.AutoSize = true;
             this.lblFirstNameError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblFirstNameError.ForeColor = System.Drawing.Color.Red;
-            this.lblFirstNameError.Location = new System.Drawing.Point(443, 72);
+            this.lblFirstNameError.Location = new System.Drawing.Point(443, 40);
             this.lblFirstNameError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblFirstNameError.Name = "lblFirstNameError";
             this.lblFirstNameError.Size = new System.Drawing.Size(0, 13);
