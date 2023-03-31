@@ -50,7 +50,7 @@ namespace CS6232_G2.View
             tbCity.Text = _loadedUser.City;
             tbState.Text = _loadedUser.State;
             tbCountry.Text = _loadedUser.Country;
-            tbPhone.Text = _loadedUser.Phone;
+            tbPhone.Text = _loadedUser.Phone.Trim();
             tbZipcode.Text = _loadedUser.Zipcode;
         }
 
@@ -191,7 +191,7 @@ namespace CS6232_G2.View
                         && user.DOB == _loadedUser.DOB && user.SSN == _loadedUser.SSN
                         && user.Gender == _loadedUser.Gender && user.StreetNumber == _loadedUser.StreetNumber
                         && user.City == _loadedUser.City && user.State == _loadedUser.State
-                        && user.Phone == _loadedUser.Phone && user.Zipcode == _loadedUser.Zipcode)
+                        && user.Phone?.Trim() == _loadedUser.Phone?.Trim() && user.Zipcode == _loadedUser.Zipcode)
                     {
                         this.lblMessage.ForeColor = Color.Red;
                         this.lblMessage.Text = "No changes have been made.";

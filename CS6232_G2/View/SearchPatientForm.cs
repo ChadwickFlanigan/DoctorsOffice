@@ -173,7 +173,10 @@ namespace CS6232_G2.View
 
         private void appointmentDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            appointmentDataGridView.Rows[e.RowIndex].Selected = true;
+            if (e.RowIndex >= 0)
+            {
+                appointmentDataGridView.Rows[e.RowIndex].Selected = true;
+            }
         }
 
         private void btnViewPatient_Click(object sender, EventArgs e)

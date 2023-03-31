@@ -71,10 +71,11 @@
             this.colDOB});
             this.searchTableLayoutPanel.SetColumnSpan(this.appointmentDataGridView, 3);
             this.appointmentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.appointmentDataGridView.Location = new System.Drawing.Point(3, 240);
+            this.appointmentDataGridView.Location = new System.Drawing.Point(3, 248);
             this.appointmentDataGridView.MultiSelect = false;
             this.appointmentDataGridView.Name = "appointmentDataGridView";
             this.appointmentDataGridView.ReadOnly = true;
+            this.appointmentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.appointmentDataGridView.Size = new System.Drawing.Size(794, 165);
             this.appointmentDataGridView.TabIndex = 18;
             this.appointmentDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.appointmentDataGridView_CellClick);
@@ -122,7 +123,7 @@
             // 
             this.btnViewPatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnViewPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewPatient.Location = new System.Drawing.Point(3, 420);
+            this.btnViewPatient.Location = new System.Drawing.Point(3, 419);
             this.btnViewPatient.Name = "btnViewPatient";
             this.btnViewPatient.Size = new System.Drawing.Size(274, 27);
             this.btnViewPatient.TabIndex = 13;
@@ -323,7 +324,7 @@
             // 
             this.btnAddPatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPatient.Location = new System.Drawing.Point(563, 420);
+            this.btnAddPatient.Location = new System.Drawing.Point(563, 419);
             this.btnAddPatient.Name = "btnAddPatient";
             this.btnAddPatient.Size = new System.Drawing.Size(234, 27);
             this.btnAddPatient.TabIndex = 13;

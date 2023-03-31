@@ -109,7 +109,10 @@ namespace CS6232_G2.View
 
         private void dgAppointments_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            dgAppointments.Rows[e.RowIndex].Selected = true;
+            if (e.RowIndex >= 0)
+            {
+                dgAppointments.Rows[e.RowIndex].Selected = true;
+            }
         }
     }
 }

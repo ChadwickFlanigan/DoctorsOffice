@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.tblLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.dgAppointments = new System.Windows.Forms.DataGridView();
+            this.AppointmentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReasonsForVisit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DoctorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPatientName = new System.Windows.Forms.Label();
             this.btnEditPatient = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnViewAppointment = new System.Windows.Forms.Button();
             this.btnAddAppointment = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.DoctorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReasonsForVisit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AppointmentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgAppointments = new System.Windows.Forms.DataGridView();
             this.tblLayout.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAppointments)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tblLayout
@@ -61,6 +61,47 @@
             this.tblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
             this.tblLayout.Size = new System.Drawing.Size(800, 450);
             this.tblLayout.TabIndex = 0;
+            // 
+            // dgAppointments
+            // 
+            this.dgAppointments.AllowUserToAddRows = false;
+            this.dgAppointments.AllowUserToDeleteRows = false;
+            this.dgAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAppointments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AppointmentTime,
+            this.ReasonsForVisit,
+            this.DoctorName});
+            this.dgAppointments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgAppointments.Location = new System.Drawing.Point(3, 70);
+            this.dgAppointments.MultiSelect = false;
+            this.dgAppointments.Name = "dgAppointments";
+            this.dgAppointments.ReadOnly = true;
+            this.dgAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgAppointments.Size = new System.Drawing.Size(594, 377);
+            this.dgAppointments.TabIndex = 0;
+            this.dgAppointments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAppointments_CellClick);
+            // 
+            // AppointmentTime
+            // 
+            this.AppointmentTime.DataPropertyName = "AppointmentTime";
+            this.AppointmentTime.HeaderText = "Appointment Time";
+            this.AppointmentTime.Name = "AppointmentTime";
+            this.AppointmentTime.ReadOnly = true;
+            // 
+            // ReasonsForVisit
+            // 
+            this.ReasonsForVisit.DataPropertyName = "Reason";
+            this.ReasonsForVisit.HeaderText = "Reason";
+            this.ReasonsForVisit.Name = "ReasonsForVisit";
+            this.ReasonsForVisit.ReadOnly = true;
+            // 
+            // DoctorName
+            // 
+            this.DoctorName.DataPropertyName = "DoctorName";
+            this.DoctorName.HeaderText = "Doctor";
+            this.DoctorName.Name = "DoctorName";
+            this.DoctorName.ReadOnly = true;
             // 
             // lblPatientName
             // 
@@ -132,46 +173,6 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // DoctorName
-            // 
-            this.DoctorName.DataPropertyName = "DoctorName";
-            this.DoctorName.HeaderText = "Doctor";
-            this.DoctorName.Name = "DoctorName";
-            this.DoctorName.ReadOnly = true;
-            // 
-            // ReasonsForVisit
-            // 
-            this.ReasonsForVisit.DataPropertyName = "Reason";
-            this.ReasonsForVisit.HeaderText = "Reason";
-            this.ReasonsForVisit.Name = "ReasonsForVisit";
-            this.ReasonsForVisit.ReadOnly = true;
-            // 
-            // AppointmentTime
-            // 
-            this.AppointmentTime.DataPropertyName = "AppointmentTime";
-            this.AppointmentTime.HeaderText = "Appointment Time";
-            this.AppointmentTime.Name = "AppointmentTime";
-            this.AppointmentTime.ReadOnly = true;
-            // 
-            // dgAppointments
-            // 
-            this.dgAppointments.AllowUserToAddRows = false;
-            this.dgAppointments.AllowUserToDeleteRows = false;
-            this.dgAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAppointments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.AppointmentTime,
-            this.ReasonsForVisit,
-            this.DoctorName});
-            this.dgAppointments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgAppointments.Location = new System.Drawing.Point(3, 70);
-            this.dgAppointments.MultiSelect = false;
-            this.dgAppointments.Name = "dgAppointments";
-            this.dgAppointments.ReadOnly = true;
-            this.dgAppointments.Size = new System.Drawing.Size(594, 377);
-            this.dgAppointments.TabIndex = 0;
-            this.dgAppointments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAppointments_CellClick);
-            // 
             // PatientAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,8 +185,8 @@
             this.Load += new System.EventHandler(this.PatientAppointments_Load);
             this.tblLayout.ResumeLayout(false);
             this.tblLayout.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgAppointments)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
