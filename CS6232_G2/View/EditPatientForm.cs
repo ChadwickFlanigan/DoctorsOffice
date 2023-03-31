@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace CS6232_G2.View
 {
+    /// <summary>
+    /// The form for editing an existing patient
+    /// </summary>
     public partial class EditPatientForm : Form
     {
         private User _loadedUser;
@@ -151,8 +154,9 @@ namespace CS6232_G2.View
                     lblCountryError.Text = "Please enter a valid country";
                 }
 
+                long l = 0;
                 string phone = this.tbPhone.Text;
-                if (phone == null || phone == "" || phone.Length != 10 || !int.TryParse(this.tbPhone.Text, out i))
+                if (phone == null || phone == "" || phone.Length != 10 || !long.TryParse(this.tbPhone.Text, out l))
                 {
                     phoneValid = false;
                     lblPhoneError.Text = "Please enter a valid phone number without dashes";

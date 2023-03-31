@@ -12,13 +12,14 @@ namespace CS6232_G2.View
     /// </summary>
     public partial class RegisterPatientForm : Form
     {
-        private UserController _userController;
         private PatientController _patientController;
 
+        /// <summary>
+        /// The constructor for the RegisterPatientForm
+        /// </summary>
         public RegisterPatientForm()
         {
             InitializeComponent();
-            _userController = new UserController();
             _patientController = new PatientController();
         }
 
@@ -88,8 +89,9 @@ namespace CS6232_G2.View
                     lblCountryError.Text = "Please enter a valid country";
                 }
 
-                string phone = this.tbPhone.Text;
-                if (phone == null || phone == "" || phone.Length != 10 || !int.TryParse(this.tbPhone.Text, out i))
+                long l = 0;
+                string phone = this.tbPhone.Text;               
+                if (phone == null || phone == "" || phone.Length != 10 || !long.TryParse(this.tbPhone.Text, out l))
                 {
                     phoneValid = false;
                     lblPhoneError.Text = "Please enter a valid phone number without dashes";
@@ -122,8 +124,8 @@ namespace CS6232_G2.View
                     user.Country = country;
                     this._patientController.Add(user);
                     this.lblMessage.ForeColor = Color.Black;
-                    this.lblMessage.Text = "The patient has been registered.";
                     Clear();
+                    this.lblMessage.Text = "The patient has been registered.";               
                 }
             }
             catch (Exception ex)
@@ -226,6 +228,8 @@ namespace CS6232_G2.View
             tbCountry.Text = string.Empty;
             tbPhone.Text = string.Empty;
             tbZipcode.Text = string.Empty;
+
+            cbGender.SelectedIndex = 0;
         }
 
         private void btnClear_Click(object sender, EventArgs e)

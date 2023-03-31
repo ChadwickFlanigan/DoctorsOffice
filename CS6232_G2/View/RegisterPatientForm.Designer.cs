@@ -272,7 +272,7 @@
             this.tbLastName.Location = new System.Drawing.Point(223, 67);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(169, 20);
-            this.tbLastName.TabIndex = 0;
+            this.tbLastName.TabIndex = 1;
             this.tbLastName.TextChanged += new System.EventHandler(this.LastNameTextBox_TextBoxChanged);
             // 
             // tbFirstName
@@ -280,7 +280,7 @@
             this.tbFirstName.Location = new System.Drawing.Point(223, 35);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(169, 20);
-            this.tbFirstName.TabIndex = 1;
+            this.tbFirstName.TabIndex = 0;
             this.tbFirstName.TextChanged += new System.EventHandler(this.FirstNameTextBox_TextBoxChanged);
             // 
             // tbSSN
