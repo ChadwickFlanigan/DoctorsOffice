@@ -255,7 +255,7 @@
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(241, 37);
+            this.tbLastName.Location = new System.Drawing.Point(223, 37);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(169, 20);
             this.tbLastName.TabIndex = 0;
@@ -263,7 +263,7 @@
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(241, 71);
+            this.tbFirstName.Location = new System.Drawing.Point(223, 71);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(169, 20);
             this.tbFirstName.TabIndex = 1;
@@ -271,7 +271,7 @@
             // 
             // tbSSN
             // 
-            this.tbSSN.Location = new System.Drawing.Point(241, 139);
+            this.tbSSN.Location = new System.Drawing.Point(223, 139);
             this.tbSSN.MaxLength = 9;
             this.tbSSN.Name = "tbSSN";
             this.tbSSN.Size = new System.Drawing.Size(169, 20);
@@ -280,7 +280,7 @@
             // 
             // tbStreetNumber
             // 
-            this.tbStreetNumber.Location = new System.Drawing.Point(241, 207);
+            this.tbStreetNumber.Location = new System.Drawing.Point(223, 207);
             this.tbStreetNumber.Name = "tbStreetNumber";
             this.tbStreetNumber.Size = new System.Drawing.Size(169, 20);
             this.tbStreetNumber.TabIndex = 5;
@@ -288,7 +288,7 @@
             // 
             // tbCity
             // 
-            this.tbCity.Location = new System.Drawing.Point(241, 241);
+            this.tbCity.Location = new System.Drawing.Point(223, 241);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(169, 20);
             this.tbCity.TabIndex = 6;
@@ -296,7 +296,7 @@
             // 
             // tbState
             // 
-            this.tbState.Location = new System.Drawing.Point(241, 275);
+            this.tbState.Location = new System.Drawing.Point(223, 275);
             this.tbState.Name = "tbState";
             this.tbState.Size = new System.Drawing.Size(169, 20);
             this.tbState.TabIndex = 7;
@@ -304,7 +304,7 @@
             // 
             // tbCountry
             // 
-            this.tbCountry.Location = new System.Drawing.Point(241, 309);
+            this.tbCountry.Location = new System.Drawing.Point(223, 309);
             this.tbCountry.Name = "tbCountry";
             this.tbCountry.Size = new System.Drawing.Size(169, 20);
             this.tbCountry.TabIndex = 8;
@@ -312,8 +312,8 @@
             // 
             // tbPhone
             // 
-            this.tbPhone.Location = new System.Drawing.Point(241, 343);
-            this.tbPhone.MaxLength = 13;
+            this.tbPhone.Location = new System.Drawing.Point(223, 343);
+            this.tbPhone.MaxLength = 10;
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(169, 20);
             this.tbPhone.TabIndex = 9;
@@ -321,7 +321,7 @@
             // 
             // tbZipcode
             // 
-            this.tbZipcode.Location = new System.Drawing.Point(241, 377);
+            this.tbZipcode.Location = new System.Drawing.Point(223, 377);
             this.tbZipcode.MaxLength = 5;
             this.tbZipcode.Name = "tbZipcode";
             this.tbZipcode.Size = new System.Drawing.Size(169, 20);
@@ -333,7 +333,7 @@
             this.btnBack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnBack.Location = new System.Drawing.Point(3, 411);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(232, 36);
+            this.btnBack.Size = new System.Drawing.Size(214, 36);
             this.btnBack.TabIndex = 11;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -342,9 +342,9 @@
             // btnUpdate
             // 
             this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnUpdate.Location = new System.Drawing.Point(241, 411);
+            this.btnUpdate.Location = new System.Drawing.Point(223, 411);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(232, 36);
+            this.btnUpdate.Size = new System.Drawing.Size(214, 36);
             this.btnUpdate.TabIndex = 12;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -354,7 +354,7 @@
             // 
             this.lblEditUserControlTitle.AutoSize = true;
             this.lblEditUserControlTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblEditUserControlTitle.Location = new System.Drawing.Point(241, 8);
+            this.lblEditUserControlTitle.Location = new System.Drawing.Point(223, 8);
             this.lblEditUserControlTitle.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblEditUserControlTitle.Name = "lblEditUserControlTitle";
             this.lblEditUserControlTitle.Size = new System.Drawing.Size(86, 16);
@@ -366,7 +366,7 @@
             this.lblLastNameError.AutoSize = true;
             this.lblLastNameError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblLastNameError.ForeColor = System.Drawing.Color.Red;
-            this.lblLastNameError.Location = new System.Drawing.Point(479, 42);
+            this.lblLastNameError.Location = new System.Drawing.Point(443, 42);
             this.lblLastNameError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblLastNameError.Name = "lblLastNameError";
             this.lblLastNameError.Size = new System.Drawing.Size(0, 13);
@@ -377,7 +377,7 @@
             this.lblFirstNameError.AutoSize = true;
             this.lblFirstNameError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblFirstNameError.ForeColor = System.Drawing.Color.Red;
-            this.lblFirstNameError.Location = new System.Drawing.Point(479, 76);
+            this.lblFirstNameError.Location = new System.Drawing.Point(443, 76);
             this.lblFirstNameError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblFirstNameError.Name = "lblFirstNameError";
             this.lblFirstNameError.Size = new System.Drawing.Size(0, 13);
@@ -388,7 +388,7 @@
             this.lblDateOfBirthError.AutoSize = true;
             this.lblDateOfBirthError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblDateOfBirthError.ForeColor = System.Drawing.Color.Red;
-            this.lblDateOfBirthError.Location = new System.Drawing.Point(479, 110);
+            this.lblDateOfBirthError.Location = new System.Drawing.Point(443, 110);
             this.lblDateOfBirthError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblDateOfBirthError.Name = "lblDateOfBirthError";
             this.lblDateOfBirthError.Size = new System.Drawing.Size(0, 13);
@@ -399,7 +399,7 @@
             this.lblSSNError.AutoSize = true;
             this.lblSSNError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblSSNError.ForeColor = System.Drawing.Color.Red;
-            this.lblSSNError.Location = new System.Drawing.Point(479, 144);
+            this.lblSSNError.Location = new System.Drawing.Point(443, 144);
             this.lblSSNError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblSSNError.Name = "lblSSNError";
             this.lblSSNError.Size = new System.Drawing.Size(0, 13);
@@ -410,7 +410,7 @@
             this.lblGenderError.AutoSize = true;
             this.lblGenderError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblGenderError.ForeColor = System.Drawing.Color.Red;
-            this.lblGenderError.Location = new System.Drawing.Point(479, 178);
+            this.lblGenderError.Location = new System.Drawing.Point(443, 178);
             this.lblGenderError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblGenderError.Name = "lblGenderError";
             this.lblGenderError.Size = new System.Drawing.Size(0, 13);
@@ -421,7 +421,7 @@
             this.lblStreetNumberError.AutoSize = true;
             this.lblStreetNumberError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblStreetNumberError.ForeColor = System.Drawing.Color.Red;
-            this.lblStreetNumberError.Location = new System.Drawing.Point(479, 212);
+            this.lblStreetNumberError.Location = new System.Drawing.Point(443, 212);
             this.lblStreetNumberError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblStreetNumberError.Name = "lblStreetNumberError";
             this.lblStreetNumberError.Size = new System.Drawing.Size(0, 13);
@@ -432,7 +432,7 @@
             this.lblCityError.AutoSize = true;
             this.lblCityError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblCityError.ForeColor = System.Drawing.Color.Red;
-            this.lblCityError.Location = new System.Drawing.Point(479, 246);
+            this.lblCityError.Location = new System.Drawing.Point(443, 246);
             this.lblCityError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblCityError.Name = "lblCityError";
             this.lblCityError.Size = new System.Drawing.Size(0, 13);
@@ -443,7 +443,7 @@
             this.lblStateError.AutoSize = true;
             this.lblStateError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblStateError.ForeColor = System.Drawing.Color.Red;
-            this.lblStateError.Location = new System.Drawing.Point(479, 280);
+            this.lblStateError.Location = new System.Drawing.Point(443, 280);
             this.lblStateError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblStateError.Name = "lblStateError";
             this.lblStateError.Size = new System.Drawing.Size(0, 13);
@@ -454,7 +454,7 @@
             this.lblCountryError.AutoSize = true;
             this.lblCountryError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblCountryError.ForeColor = System.Drawing.Color.Red;
-            this.lblCountryError.Location = new System.Drawing.Point(479, 314);
+            this.lblCountryError.Location = new System.Drawing.Point(443, 314);
             this.lblCountryError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblCountryError.Name = "lblCountryError";
             this.lblCountryError.Size = new System.Drawing.Size(0, 13);
@@ -465,7 +465,7 @@
             this.lblPhoneError.AutoSize = true;
             this.lblPhoneError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblPhoneError.ForeColor = System.Drawing.Color.Red;
-            this.lblPhoneError.Location = new System.Drawing.Point(479, 348);
+            this.lblPhoneError.Location = new System.Drawing.Point(443, 348);
             this.lblPhoneError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblPhoneError.Name = "lblPhoneError";
             this.lblPhoneError.Size = new System.Drawing.Size(0, 13);
@@ -476,7 +476,7 @@
             this.lblZipcodeError.AutoSize = true;
             this.lblZipcodeError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lblZipcodeError.ForeColor = System.Drawing.Color.Red;
-            this.lblZipcodeError.Location = new System.Drawing.Point(479, 382);
+            this.lblZipcodeError.Location = new System.Drawing.Point(443, 382);
             this.lblZipcodeError.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblZipcodeError.Name = "lblZipcodeError";
             this.lblZipcodeError.Size = new System.Drawing.Size(0, 13);
@@ -487,7 +487,7 @@
             this.lblMessage.AutoSize = true;
             this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblMessage.Location = new System.Drawing.Point(479, 416);
+            this.lblMessage.Location = new System.Drawing.Point(443, 416);
             this.lblMessage.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(0, 17);
@@ -495,7 +495,7 @@
             // 
             // dtpDateOfBirth
             // 
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(241, 105);
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(223, 105);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(169, 20);
             this.dtpDateOfBirth.TabIndex = 2;
@@ -505,7 +505,7 @@
             // 
             this.cbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGender.FormattingEnabled = true;
-            this.cbGender.Location = new System.Drawing.Point(241, 173);
+            this.cbGender.Location = new System.Drawing.Point(223, 173);
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(169, 21);
             this.cbGender.TabIndex = 4;

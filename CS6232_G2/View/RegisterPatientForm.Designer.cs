@@ -327,7 +327,7 @@
             // tbPhone
             // 
             this.tbPhone.Location = new System.Drawing.Point(223, 323);
-            this.tbPhone.MaxLength = 13;
+            this.tbPhone.MaxLength = 10;
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(169, 20);
             this.tbPhone.TabIndex = 9;
