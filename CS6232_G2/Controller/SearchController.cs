@@ -19,7 +19,7 @@ namespace CS6232_G2.Controller
         {
             _searchDAL = new SearchDAL();
         }
-        
+
         /// <summary>
         /// Searches the users with firstname and lastname
         /// </summary>
@@ -58,6 +58,18 @@ namespace CS6232_G2.Controller
                 throw new ArgumentNullException("Date of birth cannot be null");
             }
             return _searchDAL.GetPatientsByDOBAndLastName(dob, lname);
+        }
+
+        /// <summary>
+        /// Searches the databae with the firstname,lastname, and dob
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="dob"></param>
+        /// <returns></returns>
+        public List<Nurse> GetNurseByCriteria(string firstName, string lastName, DateTime? dob)
+        {
+            return _searchDAL.GetNurseByCriteria(firstName, lastName, dob);
         }
     }
 }

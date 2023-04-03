@@ -33,7 +33,13 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.lnkLogout = new System.Windows.Forms.LinkLabel();
             this.lblName = new System.Windows.Forms.Label();
+            this.tabAdmin = new System.Windows.Forms.TabControl();
+            this.tabNurses = new System.Windows.Forms.TabPage();
+            this.tabStats = new System.Windows.Forms.TabPage();
+            this.ucSearchNurse1 = new CS6232_G2.UserControls.ucSearchNurse();
             this.searchTableLayoutPanel.SuspendLayout();
+            this.tabAdmin.SuspendLayout();
+            this.tabNurses.SuspendLayout();
             this.SuspendLayout();
             // 
             // searchTableLayoutPanel
@@ -46,20 +52,21 @@
             this.searchTableLayoutPanel.Controls.Add(this.lblUsername, 2, 0);
             this.searchTableLayoutPanel.Controls.Add(this.lnkLogout, 1, 0);
             this.searchTableLayoutPanel.Controls.Add(this.lblName, 2, 1);
+            this.searchTableLayoutPanel.Controls.Add(this.tabAdmin, 0, 2);
             this.searchTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.searchTableLayoutPanel.Name = "searchTableLayoutPanel";
-            this.searchTableLayoutPanel.RowCount = 10;
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.619048F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.619048F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.619048F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.523809F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.571428F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.09524F));
-            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.searchTableLayoutPanel.RowCount = 3;
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.75F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.75F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.5F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.searchTableLayoutPanel.Size = new System.Drawing.Size(800, 450);
             this.searchTableLayoutPanel.TabIndex = 2;
             // 
@@ -110,6 +117,47 @@
             this.lblName.Text = "Username";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tabAdmin
+            // 
+            this.searchTableLayoutPanel.SetColumnSpan(this.tabAdmin, 3);
+            this.tabAdmin.Controls.Add(this.tabNurses);
+            this.tabAdmin.Controls.Add(this.tabStats);
+            this.tabAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabAdmin.Location = new System.Drawing.Point(3, 45);
+            this.tabAdmin.Name = "tabAdmin";
+            this.tabAdmin.SelectedIndex = 0;
+            this.tabAdmin.Size = new System.Drawing.Size(794, 402);
+            this.tabAdmin.TabIndex = 23;
+            // 
+            // tabNurses
+            // 
+            this.tabNurses.Controls.Add(this.ucSearchNurse1);
+            this.tabNurses.Location = new System.Drawing.Point(4, 22);
+            this.tabNurses.Name = "tabNurses";
+            this.tabNurses.Padding = new System.Windows.Forms.Padding(3);
+            this.tabNurses.Size = new System.Drawing.Size(786, 376);
+            this.tabNurses.TabIndex = 0;
+            this.tabNurses.Text = "Nurses";
+            this.tabNurses.UseVisualStyleBackColor = true;
+            // 
+            // tabStats
+            // 
+            this.tabStats.Location = new System.Drawing.Point(4, 22);
+            this.tabStats.Name = "tabStats";
+            this.tabStats.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStats.Size = new System.Drawing.Size(786, 376);
+            this.tabStats.TabIndex = 1;
+            this.tabStats.Text = "Stats";
+            this.tabStats.UseVisualStyleBackColor = true;
+            // 
+            // ucSearchNurse1
+            // 
+            this.ucSearchNurse1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucSearchNurse1.Location = new System.Drawing.Point(3, 3);
+            this.ucSearchNurse1.Name = "ucSearchNurse1";
+            this.ucSearchNurse1.Size = new System.Drawing.Size(780, 370);
+            this.ucSearchNurse1.TabIndex = 0;
+            // 
             // AdministratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -117,11 +165,13 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.searchTableLayoutPanel);
             this.Name = "AdministratorForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdministratorForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdministratorForm_FormClosing);
             this.searchTableLayoutPanel.ResumeLayout(false);
             this.searchTableLayoutPanel.PerformLayout();
+            this.tabAdmin.ResumeLayout(false);
+            this.tabNurses.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -133,5 +183,9 @@
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.LinkLabel lnkLogout;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.TabControl tabAdmin;
+        private System.Windows.Forms.TabPage tabNurses;
+        private System.Windows.Forms.TabPage tabStats;
+        private UserControls.ucSearchNurse ucSearchNurse1;
     }
 }
