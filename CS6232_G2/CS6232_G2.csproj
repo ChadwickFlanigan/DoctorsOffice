@@ -54,6 +54,7 @@
     <Compile Include="DAL\PatientDAL.cs" />
     <Compile Include="DAL\SearchDAL.cs" />
     <Compile Include="DAL\UserDAL.cs" />
+    <Compile Include="Helper\EncryptionHelper.cs" />
     <Compile Include="Model\Gender.cs" />
     <Compile Include="Model\Login.cs" />
     <Compile Include="Model\Patient.cs" />

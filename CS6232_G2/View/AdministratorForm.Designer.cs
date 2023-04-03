@@ -117,6 +117,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.searchTableLayoutPanel);
             this.Name = "AdministratorForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AdministratorForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdministratorForm_FormClosing);
             this.searchTableLayoutPanel.ResumeLayout(false);

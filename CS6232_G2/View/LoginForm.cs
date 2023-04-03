@@ -1,4 +1,5 @@
 ﻿using CS6232_G2.Controller;
+using CS6232_G2.Helper;
 using CS6232_G2.Model;
 using System;
 using System.Windows.Forms;
@@ -23,6 +24,9 @@ namespace CS6232_G2.View
             _loginController = new LoginController();
             _userController = new UserController();
             _login = new Login();
+
+            txtUsername.Text = "hansmuller";
+            txtPassword.Text = "mypassword";
         }
 
         /// <summary>
@@ -35,7 +39,7 @@ namespace CS6232_G2.View
             try
             {
                 _login.Username = txtUsername.Text.Trim();
-                _login.Password = txtPassword.Text.Trim();
+                _login.Password = EncryptionHelper.EncryptString(_login.Password);
 
                 _login = _loginController.CheckIfLoginIsValid(_login);
 
