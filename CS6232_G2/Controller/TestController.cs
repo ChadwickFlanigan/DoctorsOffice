@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CS6232_G2.Model
+namespace CS6232_G2.Controller
 {
-    public class Tests
+    internal class TestController
     {
-        public int TestCode { get; set; }
-        public string TestName { get; set; }
     }
 }
