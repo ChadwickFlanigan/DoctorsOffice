@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoutineCheckup));
             this.routineTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.testDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.testBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fDiagnosesTextBox = new System.Windows.Forms.TextBox();
             this.iDiagnosisTextBox = new System.Windows.Forms.TextBox();
             this.symptomsLabel = new System.Windows.Forms.Label();
@@ -49,7 +55,6 @@
             this.idiagnosisLabel = new System.Windows.Forms.Label();
             this.symptomsTextBox = new System.Windows.Forms.TextBox();
             this.fDiagnosesLabel = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.selectLabTestComboBox = new System.Windows.Forms.ComboBox();
             this.addTestButton = new System.Windows.Forms.Button();
             this.removeTestButton = new System.Windows.Forms.Button();
@@ -57,8 +62,24 @@
             this.saveVisitButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.testBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.testBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.routineTableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testBindingNavigator)).BeginInit();
+            this.testBindingNavigator.SuspendLayout();
             this.SuspendLayout();
             // 
             // routineTableLayoutPanel
@@ -67,6 +88,7 @@
             this.routineTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.routineTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.routineTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.routineTableLayoutPanel.Controls.Add(this.testDataGridView, 0, 9);
             this.routineTableLayoutPanel.Controls.Add(this.fDiagnosesTextBox, 1, 8);
             this.routineTableLayoutPanel.Controls.Add(this.iDiagnosisTextBox, 1, 7);
             this.routineTableLayoutPanel.Controls.Add(this.symptomsLabel, 0, 6);
@@ -87,7 +109,6 @@
             this.routineTableLayoutPanel.Controls.Add(this.idiagnosisLabel, 0, 7);
             this.routineTableLayoutPanel.Controls.Add(this.symptomsTextBox, 1, 6);
             this.routineTableLayoutPanel.Controls.Add(this.fDiagnosesLabel, 0, 8);
-            this.routineTableLayoutPanel.Controls.Add(this.dataGridView1, 0, 9);
             this.routineTableLayoutPanel.Controls.Add(this.selectLabTestComboBox, 2, 9);
             this.routineTableLayoutPanel.Controls.Add(this.addTestButton, 2, 10);
             this.routineTableLayoutPanel.Controls.Add(this.removeTestButton, 2, 11);
@@ -114,23 +135,57 @@
             this.routineTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.routineTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.routineTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.routineTableLayoutPanel.Size = new System.Drawing.Size(656, 475);
+            this.routineTableLayoutPanel.Size = new System.Drawing.Size(672, 477);
             this.routineTableLayoutPanel.TabIndex = 0;
+            // 
+            // testDataGridView
+            // 
+            this.testDataGridView.AutoGenerateColumns = false;
+            this.testDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.testDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.testDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            this.routineTableLayoutPanel.SetColumnSpan(this.testDataGridView, 2);
+            this.testDataGridView.DataSource = this.testBindingSource;
+            this.testDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.testDataGridView.Location = new System.Drawing.Point(3, 210);
+            this.testDataGridView.Name = "testDataGridView";
+            this.routineTableLayoutPanel.SetRowSpan(this.testDataGridView, 4);
+            this.testDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.testDataGridView.Size = new System.Drawing.Size(464, 182);
+            this.testDataGridView.TabIndex = 27;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "TestCode";
+            this.dataGridViewTextBoxColumn1.HeaderText = "TestCode";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "TestName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "TestName";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // testBindingSource
+            // 
+            this.testBindingSource.DataSource = typeof(CS6232_G2.Model.Test);
             // 
             // fDiagnosesTextBox
             // 
             this.fDiagnosesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.fDiagnosesTextBox.Location = new System.Drawing.Point(134, 187);
+            this.fDiagnosesTextBox.Location = new System.Drawing.Point(137, 187);
             this.fDiagnosesTextBox.Name = "fDiagnosesTextBox";
-            this.fDiagnosesTextBox.Size = new System.Drawing.Size(322, 20);
+            this.fDiagnosesTextBox.Size = new System.Drawing.Size(330, 20);
             this.fDiagnosesTextBox.TabIndex = 9;
             // 
             // iDiagnosisTextBox
             // 
             this.iDiagnosisTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.iDiagnosisTextBox.Location = new System.Drawing.Point(134, 164);
+            this.iDiagnosisTextBox.Location = new System.Drawing.Point(137, 164);
             this.iDiagnosisTextBox.Name = "iDiagnosisTextBox";
-            this.iDiagnosisTextBox.Size = new System.Drawing.Size(322, 20);
+            this.iDiagnosisTextBox.Size = new System.Drawing.Size(330, 20);
             this.iDiagnosisTextBox.TabIndex = 8;
             // 
             // symptomsLabel
@@ -140,7 +195,7 @@
             this.symptomsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.symptomsLabel.Location = new System.Drawing.Point(3, 143);
             this.symptomsLabel.Name = "symptomsLabel";
-            this.symptomsLabel.Size = new System.Drawing.Size(125, 13);
+            this.symptomsLabel.Size = new System.Drawing.Size(128, 13);
             this.symptomsLabel.TabIndex = 18;
             this.symptomsLabel.Text = "Symptoms:";
             this.symptomsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -152,7 +207,7 @@
             this.pulseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pulseLabel.Location = new System.Drawing.Point(3, 120);
             this.pulseLabel.Name = "pulseLabel";
-            this.pulseLabel.Size = new System.Drawing.Size(125, 13);
+            this.pulseLabel.Size = new System.Drawing.Size(128, 13);
             this.pulseLabel.TabIndex = 16;
             this.pulseLabel.Text = "Pulse:";
             this.pulseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -164,7 +219,7 @@
             this.tempLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tempLabel.Location = new System.Drawing.Point(3, 97);
             this.tempLabel.Name = "tempLabel";
-            this.tempLabel.Size = new System.Drawing.Size(125, 13);
+            this.tempLabel.Size = new System.Drawing.Size(128, 13);
             this.tempLabel.TabIndex = 12;
             this.tempLabel.Text = "Body Temprature:";
             this.tempLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -176,7 +231,7 @@
             this.diaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.diaLabel.Location = new System.Drawing.Point(3, 69);
             this.diaLabel.Name = "diaLabel";
-            this.diaLabel.Size = new System.Drawing.Size(125, 23);
+            this.diaLabel.Size = new System.Drawing.Size(128, 23);
             this.diaLabel.TabIndex = 11;
             this.diaLabel.Text = "BP diastolic:";
             this.diaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -184,9 +239,9 @@
             // sysTextBox
             // 
             this.sysTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.sysTextBox.Location = new System.Drawing.Point(134, 49);
+            this.sysTextBox.Location = new System.Drawing.Point(137, 49);
             this.sysTextBox.Name = "sysTextBox";
-            this.sysTextBox.Size = new System.Drawing.Size(322, 20);
+            this.sysTextBox.Size = new System.Drawing.Size(330, 20);
             this.sysTextBox.TabIndex = 3;
             this.sysTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sysTextBox_KeyPress);
             // 
@@ -197,7 +252,7 @@
             this.sysLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sysLabel.Location = new System.Drawing.Point(3, 46);
             this.sysLabel.Name = "sysLabel";
-            this.sysLabel.Size = new System.Drawing.Size(125, 23);
+            this.sysLabel.Size = new System.Drawing.Size(128, 23);
             this.sysLabel.TabIndex = 6;
             this.sysLabel.Text = "BP systolic:";
             this.sysLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -206,18 +261,18 @@
             // 
             this.poundLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.poundLabel.AutoSize = true;
-            this.poundLabel.Location = new System.Drawing.Point(462, 28);
+            this.poundLabel.Location = new System.Drawing.Point(473, 28);
             this.poundLabel.Name = "poundLabel";
-            this.poundLabel.Size = new System.Drawing.Size(191, 13);
+            this.poundLabel.Size = new System.Drawing.Size(196, 13);
             this.poundLabel.TabIndex = 5;
             this.poundLabel.Text = "pound";
             // 
             // weightTextBox
             // 
             this.weightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.weightTextBox.Location = new System.Drawing.Point(134, 26);
+            this.weightTextBox.Location = new System.Drawing.Point(137, 26);
             this.weightTextBox.Name = "weightTextBox";
-            this.weightTextBox.Size = new System.Drawing.Size(322, 20);
+            this.weightTextBox.Size = new System.Drawing.Size(330, 20);
             this.weightTextBox.TabIndex = 2;
             this.weightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.weightTextBox_KeyPress);
             // 
@@ -228,7 +283,7 @@
             this.weightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.weightLabel.Location = new System.Drawing.Point(3, 28);
             this.weightLabel.Name = "weightLabel";
-            this.weightLabel.Size = new System.Drawing.Size(125, 13);
+            this.weightLabel.Size = new System.Drawing.Size(128, 13);
             this.weightLabel.TabIndex = 3;
             this.weightLabel.Text = "Weight:";
             this.weightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -240,7 +295,7 @@
             this.heightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.heightLabel.Location = new System.Drawing.Point(3, 0);
             this.heightLabel.Name = "heightLabel";
-            this.heightLabel.Size = new System.Drawing.Size(125, 23);
+            this.heightLabel.Size = new System.Drawing.Size(128, 23);
             this.heightLabel.TabIndex = 0;
             this.heightLabel.Text = "Height:";
             this.heightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -248,9 +303,9 @@
             // heightTextBox
             // 
             this.heightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.heightTextBox.Location = new System.Drawing.Point(134, 3);
+            this.heightTextBox.Location = new System.Drawing.Point(137, 3);
             this.heightTextBox.Name = "heightTextBox";
-            this.heightTextBox.Size = new System.Drawing.Size(322, 20);
+            this.heightTextBox.Size = new System.Drawing.Size(330, 20);
             this.heightTextBox.TabIndex = 1;
             this.heightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.heightTextBox_KeyPress);
             // 
@@ -258,36 +313,36 @@
             // 
             this.inchLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.inchLabel.AutoSize = true;
-            this.inchLabel.Location = new System.Drawing.Point(462, 5);
+            this.inchLabel.Location = new System.Drawing.Point(473, 5);
             this.inchLabel.Name = "inchLabel";
-            this.inchLabel.Size = new System.Drawing.Size(191, 13);
+            this.inchLabel.Size = new System.Drawing.Size(196, 13);
             this.inchLabel.TabIndex = 2;
             this.inchLabel.Text = "inches";
             // 
             // diaTextBox
             // 
             this.diaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.diaTextBox.Location = new System.Drawing.Point(134, 72);
+            this.diaTextBox.Location = new System.Drawing.Point(137, 72);
             this.diaTextBox.Name = "diaTextBox";
-            this.diaTextBox.Size = new System.Drawing.Size(322, 20);
+            this.diaTextBox.Size = new System.Drawing.Size(330, 20);
             this.diaTextBox.TabIndex = 4;
             this.diaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.diaTextBox_KeyPress);
             // 
             // tempTextBox
             // 
             this.tempTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tempTextBox.Location = new System.Drawing.Point(134, 95);
+            this.tempTextBox.Location = new System.Drawing.Point(137, 95);
             this.tempTextBox.Name = "tempTextBox";
-            this.tempTextBox.Size = new System.Drawing.Size(322, 20);
+            this.tempTextBox.Size = new System.Drawing.Size(330, 20);
             this.tempTextBox.TabIndex = 5;
             this.tempTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tempTextBox_KeyPress);
             // 
             // pulseTextBox
             // 
             this.pulseTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pulseTextBox.Location = new System.Drawing.Point(134, 118);
+            this.pulseTextBox.Location = new System.Drawing.Point(137, 118);
             this.pulseTextBox.Name = "pulseTextBox";
-            this.pulseTextBox.Size = new System.Drawing.Size(322, 20);
+            this.pulseTextBox.Size = new System.Drawing.Size(330, 20);
             this.pulseTextBox.TabIndex = 6;
             this.pulseTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pulseTextBox_KeyPress);
             // 
@@ -298,7 +353,7 @@
             this.idiagnosisLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idiagnosisLabel.Location = new System.Drawing.Point(3, 166);
             this.idiagnosisLabel.Name = "idiagnosisLabel";
-            this.idiagnosisLabel.Size = new System.Drawing.Size(125, 13);
+            this.idiagnosisLabel.Size = new System.Drawing.Size(128, 13);
             this.idiagnosisLabel.TabIndex = 19;
             this.idiagnosisLabel.Text = "Initial Diagnosis:";
             this.idiagnosisLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -306,9 +361,9 @@
             // symptomsTextBox
             // 
             this.symptomsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.symptomsTextBox.Location = new System.Drawing.Point(134, 141);
+            this.symptomsTextBox.Location = new System.Drawing.Point(137, 141);
             this.symptomsTextBox.Name = "symptomsTextBox";
-            this.symptomsTextBox.Size = new System.Drawing.Size(322, 20);
+            this.symptomsTextBox.Size = new System.Drawing.Size(330, 20);
             this.symptomsTextBox.TabIndex = 7;
             // 
             // fDiagnosesLabel
@@ -318,28 +373,18 @@
             this.fDiagnosesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fDiagnosesLabel.Location = new System.Drawing.Point(3, 189);
             this.fDiagnosesLabel.Name = "fDiagnosesLabel";
-            this.fDiagnosesLabel.Size = new System.Drawing.Size(125, 13);
+            this.fDiagnosesLabel.Size = new System.Drawing.Size(128, 13);
             this.fDiagnosesLabel.TabIndex = 20;
             this.fDiagnosesLabel.Text = "Final Diagnoses:";
             this.fDiagnosesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.routineTableLayoutPanel.SetColumnSpan(this.dataGridView1, 2);
-            this.dataGridView1.Location = new System.Drawing.Point(3, 210);
-            this.dataGridView1.Name = "dataGridView1";
-            this.routineTableLayoutPanel.SetRowSpan(this.dataGridView1, 4);
-            this.dataGridView1.Size = new System.Drawing.Size(453, 182);
-            this.dataGridView1.TabIndex = 21;
             // 
             // selectLabTestComboBox
             // 
             this.selectLabTestComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.selectLabTestComboBox.FormattingEnabled = true;
-            this.selectLabTestComboBox.Location = new System.Drawing.Point(462, 220);
+            this.selectLabTestComboBox.Location = new System.Drawing.Point(473, 220);
             this.selectLabTestComboBox.Name = "selectLabTestComboBox";
-            this.selectLabTestComboBox.Size = new System.Drawing.Size(191, 21);
+            this.selectLabTestComboBox.Size = new System.Drawing.Size(196, 21);
             this.selectLabTestComboBox.TabIndex = 10;
             this.selectLabTestComboBox.Text = "Select Lab Test";
             // 
@@ -347,31 +392,33 @@
             // 
             this.addTestButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.addTestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addTestButton.Location = new System.Drawing.Point(462, 266);
+            this.addTestButton.Location = new System.Drawing.Point(473, 266);
             this.addTestButton.Name = "addTestButton";
-            this.addTestButton.Size = new System.Drawing.Size(191, 23);
+            this.addTestButton.Size = new System.Drawing.Size(196, 23);
             this.addTestButton.TabIndex = 11;
             this.addTestButton.Text = "Add Test";
             this.addTestButton.UseVisualStyleBackColor = true;
+            this.addTestButton.Click += new System.EventHandler(this.addTestButton_Click);
             // 
             // removeTestButton
             // 
             this.removeTestButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.removeTestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeTestButton.Location = new System.Drawing.Point(462, 313);
+            this.removeTestButton.Location = new System.Drawing.Point(473, 313);
             this.removeTestButton.Name = "removeTestButton";
-            this.removeTestButton.Size = new System.Drawing.Size(191, 23);
+            this.removeTestButton.Size = new System.Drawing.Size(196, 23);
             this.removeTestButton.TabIndex = 12;
             this.removeTestButton.Text = "Remove Selected Test";
             this.removeTestButton.UseVisualStyleBackColor = true;
+            this.removeTestButton.Click += new System.EventHandler(this.removeTestButton_Click);
             // 
             // submitLabOrderButton
             // 
             this.submitLabOrderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.submitLabOrderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitLabOrderButton.Location = new System.Drawing.Point(462, 360);
+            this.submitLabOrderButton.Location = new System.Drawing.Point(473, 360);
             this.submitLabOrderButton.Name = "submitLabOrderButton";
-            this.submitLabOrderButton.Size = new System.Drawing.Size(191, 23);
+            this.submitLabOrderButton.Size = new System.Drawing.Size(196, 23);
             this.submitLabOrderButton.TabIndex = 13;
             this.submitLabOrderButton.Text = "Submit Lab Order";
             this.submitLabOrderButton.UseVisualStyleBackColor = true;
@@ -380,9 +427,9 @@
             // 
             this.saveVisitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.saveVisitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveVisitButton.Location = new System.Drawing.Point(134, 407);
+            this.saveVisitButton.Location = new System.Drawing.Point(137, 407);
             this.saveVisitButton.Name = "saveVisitButton";
-            this.saveVisitButton.Size = new System.Drawing.Size(322, 23);
+            this.saveVisitButton.Size = new System.Drawing.Size(330, 23);
             this.saveVisitButton.TabIndex = 14;
             this.saveVisitButton.Text = "Save Visit";
             this.saveVisitButton.UseVisualStyleBackColor = true;
@@ -392,9 +439,9 @@
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(462, 407);
+            this.cancelButton.Location = new System.Drawing.Point(473, 407);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(191, 23);
+            this.cancelButton.Size = new System.Drawing.Size(196, 23);
             this.cancelButton.TabIndex = 15;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -403,23 +450,155 @@
             // 
             this.errorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.errorLabel.AutoSize = true;
-            this.errorLabel.Location = new System.Drawing.Point(134, 452);
+            this.errorLabel.Location = new System.Drawing.Point(137, 453);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(322, 13);
+            this.errorLabel.Size = new System.Drawing.Size(330, 13);
             this.errorLabel.TabIndex = 22;
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            // 
+            // testBindingNavigatorSaveItem
+            // 
+            this.testBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.testBindingNavigatorSaveItem.Enabled = false;
+            this.testBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("testBindingNavigatorSaveItem.Image")));
+            this.testBindingNavigatorSaveItem.Name = "testBindingNavigatorSaveItem";
+            this.testBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.testBindingNavigatorSaveItem.Text = "Save Data";
+            // 
+            // testBindingNavigator
+            // 
+            this.testBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.testBindingNavigator.BindingSource = this.testBindingSource;
+            this.testBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.testBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.testBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.bindingNavigatorAddNewItem,
+            this.bindingNavigatorDeleteItem,
+            this.testBindingNavigatorSaveItem});
+            this.testBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.testBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.testBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.testBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.testBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.testBindingNavigator.Name = "testBindingNavigator";
+            this.testBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.testBindingNavigator.Size = new System.Drawing.Size(672, 25);
+            this.testBindingNavigator.TabIndex = 1;
+            this.testBindingNavigator.Text = "bindingNavigator1";
             // 
             // RoutineCheckup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 475);
+            this.ClientSize = new System.Drawing.Size(672, 477);
+            this.Controls.Add(this.testBindingNavigator);
             this.Controls.Add(this.routineTableLayoutPanel);
             this.Name = "RoutineCheckup";
             this.Text = "RoutineCheckup";
+            this.Load += new System.EventHandler(this.RoutineCheckup_Load);
             this.routineTableLayoutPanel.ResumeLayout(false);
             this.routineTableLayoutPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testBindingNavigator)).EndInit();
+            this.testBindingNavigator.ResumeLayout(false);
+            this.testBindingNavigator.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -446,7 +625,6 @@
         private System.Windows.Forms.TextBox fDiagnosesTextBox;
         private System.Windows.Forms.TextBox iDiagnosisTextBox;
         private System.Windows.Forms.TextBox symptomsTextBox;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox selectLabTestComboBox;
         private System.Windows.Forms.Button addTestButton;
         private System.Windows.Forms.Button removeTestButton;
@@ -454,5 +632,22 @@
         private System.Windows.Forms.Button saveVisitButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.DataGridView testDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.BindingSource testBindingSource;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
+        private System.Windows.Forms.ToolStripButton testBindingNavigatorSaveItem;
+        private System.Windows.Forms.BindingNavigator testBindingNavigator;
     }
 }
