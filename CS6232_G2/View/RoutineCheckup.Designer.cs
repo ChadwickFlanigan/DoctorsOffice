@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.routineTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.fDiagnosesTextBox = new System.Windows.Forms.TextBox();
+            this.iDiagnosisTextBox = new System.Windows.Forms.TextBox();
+            this.symptomsLabel = new System.Windows.Forms.Label();
+            this.pulseLabel = new System.Windows.Forms.Label();
+            this.tempLabel = new System.Windows.Forms.Label();
+            this.diaLabel = new System.Windows.Forms.Label();
+            this.sysTextBox = new System.Windows.Forms.TextBox();
+            this.sysLabel = new System.Windows.Forms.Label();
+            this.poundLabel = new System.Windows.Forms.Label();
+            this.weightTextBox = new System.Windows.Forms.TextBox();
+            this.weightLabel = new System.Windows.Forms.Label();
             this.heightLabel = new System.Windows.Forms.Label();
             this.heightTextBox = new System.Windows.Forms.TextBox();
             this.inchLabel = new System.Windows.Forms.Label();
-            this.weightLabel = new System.Windows.Forms.Label();
-            this.weightTextBox = new System.Windows.Forms.TextBox();
-            this.poundLabel = new System.Windows.Forms.Label();
-            this.sysLabel = new System.Windows.Forms.Label();
-            this.sysTextBox = new System.Windows.Forms.TextBox();
             this.diaTextBox = new System.Windows.Forms.TextBox();
-            this.pulseTextBox = new System.Windows.Forms.TextBox();
             this.tempTextBox = new System.Windows.Forms.TextBox();
-            this.diaLabel = new System.Windows.Forms.Label();
-            this.tempLabel = new System.Windows.Forms.Label();
-            this.pulseLabel = new System.Windows.Forms.Label();
-            this.symptomsLabel = new System.Windows.Forms.Label();
+            this.pulseTextBox = new System.Windows.Forms.TextBox();
             this.idiagnosisLabel = new System.Windows.Forms.Label();
-            this.fDiagnosesLabel = new System.Windows.Forms.Label();
             this.symptomsTextBox = new System.Windows.Forms.TextBox();
-            this.iDiagnosisTextBox = new System.Windows.Forms.TextBox();
-            this.fdiagnosesTextBox = new System.Windows.Forms.TextBox();
+            this.fDiagnosesLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.selectLabTestComboBox = new System.Windows.Forms.ComboBox();
             this.addTestButton = new System.Windows.Forms.Button();
@@ -56,6 +56,7 @@
             this.submitLabOrderButton = new System.Windows.Forms.Button();
             this.saveVisitButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.routineTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -66,7 +67,7 @@
             this.routineTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.routineTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.routineTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.routineTableLayoutPanel.Controls.Add(this.fdiagnosesTextBox, 1, 8);
+            this.routineTableLayoutPanel.Controls.Add(this.fDiagnosesTextBox, 1, 8);
             this.routineTableLayoutPanel.Controls.Add(this.iDiagnosisTextBox, 1, 7);
             this.routineTableLayoutPanel.Controls.Add(this.symptomsLabel, 0, 6);
             this.routineTableLayoutPanel.Controls.Add(this.pulseLabel, 0, 5);
@@ -93,6 +94,7 @@
             this.routineTableLayoutPanel.Controls.Add(this.submitLabOrderButton, 2, 12);
             this.routineTableLayoutPanel.Controls.Add(this.saveVisitButton, 1, 13);
             this.routineTableLayoutPanel.Controls.Add(this.cancelButton, 2, 13);
+            this.routineTableLayoutPanel.Controls.Add(this.errorLabel, 1, 14);
             this.routineTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.routineTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.routineTableLayoutPanel.Name = "routineTableLayoutPanel";
@@ -114,7 +116,122 @@
             this.routineTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.routineTableLayoutPanel.Size = new System.Drawing.Size(656, 475);
             this.routineTableLayoutPanel.TabIndex = 0;
-            this.routineTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.routineTableLayoutPanel_Paint);
+            // 
+            // fDiagnosesTextBox
+            // 
+            this.fDiagnosesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.fDiagnosesTextBox.Location = new System.Drawing.Point(134, 187);
+            this.fDiagnosesTextBox.Name = "fDiagnosesTextBox";
+            this.fDiagnosesTextBox.Size = new System.Drawing.Size(322, 20);
+            this.fDiagnosesTextBox.TabIndex = 9;
+            // 
+            // iDiagnosisTextBox
+            // 
+            this.iDiagnosisTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.iDiagnosisTextBox.Location = new System.Drawing.Point(134, 164);
+            this.iDiagnosisTextBox.Name = "iDiagnosisTextBox";
+            this.iDiagnosisTextBox.Size = new System.Drawing.Size(322, 20);
+            this.iDiagnosisTextBox.TabIndex = 8;
+            // 
+            // symptomsLabel
+            // 
+            this.symptomsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.symptomsLabel.AutoSize = true;
+            this.symptomsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.symptomsLabel.Location = new System.Drawing.Point(3, 143);
+            this.symptomsLabel.Name = "symptomsLabel";
+            this.symptomsLabel.Size = new System.Drawing.Size(125, 13);
+            this.symptomsLabel.TabIndex = 18;
+            this.symptomsLabel.Text = "Symptoms:";
+            this.symptomsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pulseLabel
+            // 
+            this.pulseLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pulseLabel.AutoSize = true;
+            this.pulseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pulseLabel.Location = new System.Drawing.Point(3, 120);
+            this.pulseLabel.Name = "pulseLabel";
+            this.pulseLabel.Size = new System.Drawing.Size(125, 13);
+            this.pulseLabel.TabIndex = 16;
+            this.pulseLabel.Text = "Pulse:";
+            this.pulseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tempLabel
+            // 
+            this.tempLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tempLabel.AutoSize = true;
+            this.tempLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tempLabel.Location = new System.Drawing.Point(3, 97);
+            this.tempLabel.Name = "tempLabel";
+            this.tempLabel.Size = new System.Drawing.Size(125, 13);
+            this.tempLabel.TabIndex = 12;
+            this.tempLabel.Text = "Body Temprature:";
+            this.tempLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // diaLabel
+            // 
+            this.diaLabel.AutoSize = true;
+            this.diaLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.diaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.diaLabel.Location = new System.Drawing.Point(3, 69);
+            this.diaLabel.Name = "diaLabel";
+            this.diaLabel.Size = new System.Drawing.Size(125, 23);
+            this.diaLabel.TabIndex = 11;
+            this.diaLabel.Text = "BP diastolic:";
+            this.diaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // sysTextBox
+            // 
+            this.sysTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.sysTextBox.Location = new System.Drawing.Point(134, 49);
+            this.sysTextBox.Name = "sysTextBox";
+            this.sysTextBox.Size = new System.Drawing.Size(322, 20);
+            this.sysTextBox.TabIndex = 3;
+            this.sysTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sysTextBox_KeyPress);
+            // 
+            // sysLabel
+            // 
+            this.sysLabel.AutoSize = true;
+            this.sysLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sysLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sysLabel.Location = new System.Drawing.Point(3, 46);
+            this.sysLabel.Name = "sysLabel";
+            this.sysLabel.Size = new System.Drawing.Size(125, 23);
+            this.sysLabel.TabIndex = 6;
+            this.sysLabel.Text = "BP systolic:";
+            this.sysLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // poundLabel
+            // 
+            this.poundLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.poundLabel.AutoSize = true;
+            this.poundLabel.Location = new System.Drawing.Point(462, 28);
+            this.poundLabel.Name = "poundLabel";
+            this.poundLabel.Size = new System.Drawing.Size(191, 13);
+            this.poundLabel.TabIndex = 5;
+            this.poundLabel.Text = "pound";
+            // 
+            // weightTextBox
+            // 
+            this.weightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.weightTextBox.Location = new System.Drawing.Point(134, 26);
+            this.weightTextBox.Name = "weightTextBox";
+            this.weightTextBox.Size = new System.Drawing.Size(322, 20);
+            this.weightTextBox.TabIndex = 2;
+            this.weightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.weightTextBox_KeyPress);
+            // 
+            // weightLabel
+            // 
+            this.weightLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.weightLabel.AutoSize = true;
+            this.weightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weightLabel.Location = new System.Drawing.Point(3, 28);
+            this.weightLabel.Name = "weightLabel";
+            this.weightLabel.Size = new System.Drawing.Size(125, 13);
+            this.weightLabel.TabIndex = 3;
+            this.weightLabel.Text = "Weight:";
+            this.weightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // heightLabel
             // 
@@ -135,6 +252,7 @@
             this.heightTextBox.Name = "heightTextBox";
             this.heightTextBox.Size = new System.Drawing.Size(322, 20);
             this.heightTextBox.TabIndex = 1;
+            this.heightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.heightTextBox_KeyPress);
             // 
             // inchLabel
             // 
@@ -145,57 +263,6 @@
             this.inchLabel.Size = new System.Drawing.Size(191, 13);
             this.inchLabel.TabIndex = 2;
             this.inchLabel.Text = "inches";
-            this.inchLabel.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // weightLabel
-            // 
-            this.weightLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.weightLabel.AutoSize = true;
-            this.weightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightLabel.Location = new System.Drawing.Point(3, 28);
-            this.weightLabel.Name = "weightLabel";
-            this.weightLabel.Size = new System.Drawing.Size(125, 13);
-            this.weightLabel.TabIndex = 3;
-            this.weightLabel.Text = "Weight:";
-            this.weightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // weightTextBox
-            // 
-            this.weightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.weightTextBox.Location = new System.Drawing.Point(134, 26);
-            this.weightTextBox.Name = "weightTextBox";
-            this.weightTextBox.Size = new System.Drawing.Size(322, 20);
-            this.weightTextBox.TabIndex = 2;
-            // 
-            // poundLabel
-            // 
-            this.poundLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.poundLabel.AutoSize = true;
-            this.poundLabel.Location = new System.Drawing.Point(462, 28);
-            this.poundLabel.Name = "poundLabel";
-            this.poundLabel.Size = new System.Drawing.Size(191, 13);
-            this.poundLabel.TabIndex = 5;
-            this.poundLabel.Text = "pound";
-            // 
-            // sysLabel
-            // 
-            this.sysLabel.AutoSize = true;
-            this.sysLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sysLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sysLabel.Location = new System.Drawing.Point(3, 46);
-            this.sysLabel.Name = "sysLabel";
-            this.sysLabel.Size = new System.Drawing.Size(125, 23);
-            this.sysLabel.TabIndex = 6;
-            this.sysLabel.Text = "BP systolic:";
-            this.sysLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // sysTextBox
-            // 
-            this.sysTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.sysTextBox.Location = new System.Drawing.Point(134, 49);
-            this.sysTextBox.Name = "sysTextBox";
-            this.sysTextBox.Size = new System.Drawing.Size(322, 20);
-            this.sysTextBox.TabIndex = 3;
             // 
             // diaTextBox
             // 
@@ -204,14 +271,7 @@
             this.diaTextBox.Name = "diaTextBox";
             this.diaTextBox.Size = new System.Drawing.Size(322, 20);
             this.diaTextBox.TabIndex = 4;
-            // 
-            // pulseTextBox
-            // 
-            this.pulseTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pulseTextBox.Location = new System.Drawing.Point(134, 118);
-            this.pulseTextBox.Name = "pulseTextBox";
-            this.pulseTextBox.Size = new System.Drawing.Size(322, 20);
-            this.pulseTextBox.TabIndex = 6;
+            this.diaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.diaTextBox_KeyPress);
             // 
             // tempTextBox
             // 
@@ -220,54 +280,16 @@
             this.tempTextBox.Name = "tempTextBox";
             this.tempTextBox.Size = new System.Drawing.Size(322, 20);
             this.tempTextBox.TabIndex = 5;
+            this.tempTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tempTextBox_KeyPress);
             // 
-            // diaLabel
+            // pulseTextBox
             // 
-            this.diaLabel.AutoSize = true;
-            this.diaLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.diaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.diaLabel.Location = new System.Drawing.Point(3, 69);
-            this.diaLabel.Name = "diaLabel";
-            this.diaLabel.Size = new System.Drawing.Size(125, 23);
-            this.diaLabel.TabIndex = 11;
-            this.diaLabel.Text = "BP diastolic:";
-            this.diaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tempLabel
-            // 
-            this.tempLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tempLabel.AutoSize = true;
-            this.tempLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tempLabel.Location = new System.Drawing.Point(3, 97);
-            this.tempLabel.Name = "tempLabel";
-            this.tempLabel.Size = new System.Drawing.Size(125, 13);
-            this.tempLabel.TabIndex = 12;
-            this.tempLabel.Text = "Body Temprature:";
-            this.tempLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pulseLabel
-            // 
-            this.pulseLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pulseLabel.AutoSize = true;
-            this.pulseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pulseLabel.Location = new System.Drawing.Point(3, 120);
-            this.pulseLabel.Name = "pulseLabel";
-            this.pulseLabel.Size = new System.Drawing.Size(125, 13);
-            this.pulseLabel.TabIndex = 16;
-            this.pulseLabel.Text = "Pulse:";
-            this.pulseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // symptomsLabel
-            // 
-            this.symptomsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.symptomsLabel.AutoSize = true;
-            this.symptomsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.symptomsLabel.Location = new System.Drawing.Point(3, 143);
-            this.symptomsLabel.Name = "symptomsLabel";
-            this.symptomsLabel.Size = new System.Drawing.Size(125, 13);
-            this.symptomsLabel.TabIndex = 18;
-            this.symptomsLabel.Text = "Symptoms:";
-            this.symptomsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pulseTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pulseTextBox.Location = new System.Drawing.Point(134, 118);
+            this.pulseTextBox.Name = "pulseTextBox";
+            this.pulseTextBox.Size = new System.Drawing.Size(322, 20);
+            this.pulseTextBox.TabIndex = 6;
+            this.pulseTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pulseTextBox_KeyPress);
             // 
             // idiagnosisLabel
             // 
@@ -280,7 +302,14 @@
             this.idiagnosisLabel.TabIndex = 19;
             this.idiagnosisLabel.Text = "Initial Diagnosis:";
             this.idiagnosisLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.idiagnosisLabel.Click += new System.EventHandler(this.label12_Click);
+            // 
+            // symptomsTextBox
+            // 
+            this.symptomsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.symptomsTextBox.Location = new System.Drawing.Point(134, 141);
+            this.symptomsTextBox.Name = "symptomsTextBox";
+            this.symptomsTextBox.Size = new System.Drawing.Size(322, 20);
+            this.symptomsTextBox.TabIndex = 7;
             // 
             // fDiagnosesLabel
             // 
@@ -293,30 +322,6 @@
             this.fDiagnosesLabel.TabIndex = 20;
             this.fDiagnosesLabel.Text = "Final Diagnoses:";
             this.fDiagnosesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // symptomsTextBox
-            // 
-            this.symptomsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.symptomsTextBox.Location = new System.Drawing.Point(134, 141);
-            this.symptomsTextBox.Name = "symptomsTextBox";
-            this.symptomsTextBox.Size = new System.Drawing.Size(322, 20);
-            this.symptomsTextBox.TabIndex = 7;
-            // 
-            // iDiagnosisTextBox
-            // 
-            this.iDiagnosisTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.iDiagnosisTextBox.Location = new System.Drawing.Point(134, 164);
-            this.iDiagnosisTextBox.Name = "iDiagnosisTextBox";
-            this.iDiagnosisTextBox.Size = new System.Drawing.Size(322, 20);
-            this.iDiagnosisTextBox.TabIndex = 8;
-            // 
-            // fdiagnosesTextBox
-            // 
-            this.fdiagnosesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.fdiagnosesTextBox.Location = new System.Drawing.Point(134, 187);
-            this.fdiagnosesTextBox.Name = "fdiagnosesTextBox";
-            this.fdiagnosesTextBox.Size = new System.Drawing.Size(322, 20);
-            this.fdiagnosesTextBox.TabIndex = 9;
             // 
             // dataGridView1
             // 
@@ -381,6 +386,7 @@
             this.saveVisitButton.TabIndex = 14;
             this.saveVisitButton.Text = "Save Visit";
             this.saveVisitButton.UseVisualStyleBackColor = true;
+            this.saveVisitButton.Click += new System.EventHandler(this.saveVisitButton_Click);
             // 
             // cancelButton
             // 
@@ -392,6 +398,15 @@
             this.cancelButton.TabIndex = 15;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            // 
+            // errorLabel
+            // 
+            this.errorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.Location = new System.Drawing.Point(134, 452);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(322, 13);
+            this.errorLabel.TabIndex = 22;
             // 
             // RoutineCheckup
             // 
@@ -428,7 +443,7 @@
         private System.Windows.Forms.TextBox diaTextBox;
         private System.Windows.Forms.TextBox tempTextBox;
         private System.Windows.Forms.TextBox pulseTextBox;
-        private System.Windows.Forms.TextBox fdiagnosesTextBox;
+        private System.Windows.Forms.TextBox fDiagnosesTextBox;
         private System.Windows.Forms.TextBox iDiagnosisTextBox;
         private System.Windows.Forms.TextBox symptomsTextBox;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -438,5 +453,6 @@
         private System.Windows.Forms.Button submitLabOrderButton;
         private System.Windows.Forms.Button saveVisitButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label errorLabel;
     }
 }

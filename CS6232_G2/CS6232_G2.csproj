@@ -47,11 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\RoutineCheckController.cs" />
     <Compile Include="Controller\SearchController.cs" />
     <Compile Include="Controller\PatientController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
     <Compile Include="DAL\PatientDAL.cs" />
+    <Compile Include="DAL\RoutineCheckDAL.cs" />
     <Compile Include="DAL\SearchDAL.cs" />
     <Compile Include="DAL\UserDAL.cs" />
     <Compile Include="Helper\EncryptionHelper.cs" />
