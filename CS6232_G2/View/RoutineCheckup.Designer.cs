@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoutineCheckup));
             this.routineTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.testDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.testBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fDiagnosesTextBox = new System.Windows.Forms.TextBox();
             this.iDiagnosisTextBox = new System.Windows.Forms.TextBox();
             this.symptomsLabel = new System.Windows.Forms.Label();
@@ -58,7 +62,6 @@
             this.saveVisitButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
-            this.testDataGridView = new System.Windows.Forms.DataGridView();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -72,14 +75,11 @@
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.testBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.testBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.testBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.routineTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.testDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testBindingNavigator)).BeginInit();
             this.testBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.testBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // routineTableLayoutPanel
@@ -137,6 +137,40 @@
             this.routineTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.routineTableLayoutPanel.Size = new System.Drawing.Size(672, 477);
             this.routineTableLayoutPanel.TabIndex = 0;
+            // 
+            // testDataGridView
+            // 
+            this.testDataGridView.AutoGenerateColumns = false;
+            this.testDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.testDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.testDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            this.routineTableLayoutPanel.SetColumnSpan(this.testDataGridView, 2);
+            this.testDataGridView.DataSource = this.testBindingSource;
+            this.testDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.testDataGridView.Location = new System.Drawing.Point(3, 210);
+            this.testDataGridView.Name = "testDataGridView";
+            this.routineTableLayoutPanel.SetRowSpan(this.testDataGridView, 4);
+            this.testDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.testDataGridView.Size = new System.Drawing.Size(464, 182);
+            this.testDataGridView.TabIndex = 27;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "TestCode";
+            this.dataGridViewTextBoxColumn1.HeaderText = "TestCode";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "TestName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "TestName";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // testBindingSource
+            // 
+            this.testBindingSource.DataSource = typeof(CS6232_G2.Model.Test);
             // 
             // fDiagnosesTextBox
             // 
@@ -421,24 +455,6 @@
             this.errorLabel.Size = new System.Drawing.Size(330, 13);
             this.errorLabel.TabIndex = 22;
             // 
-            // testDataGridView
-            // 
-            this.testDataGridView.AutoGenerateColumns = false;
-            this.testDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.testDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.testDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
-            this.routineTableLayoutPanel.SetColumnSpan(this.testDataGridView, 2);
-            this.testDataGridView.DataSource = this.testBindingSource;
-            this.testDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.testDataGridView.Location = new System.Drawing.Point(3, 210);
-            this.testDataGridView.Name = "testDataGridView";
-            this.routineTableLayoutPanel.SetRowSpan(this.testDataGridView, 4);
-            this.testDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.testDataGridView.Size = new System.Drawing.Size(464, 182);
-            this.testDataGridView.TabIndex = 27;
-            // 
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -564,22 +580,6 @@
             this.testBindingNavigator.TabIndex = 1;
             this.testBindingNavigator.Text = "bindingNavigator1";
             // 
-            // testBindingSource
-            // 
-            this.testBindingSource.DataSource = typeof(CS6232_G2.Model.Test);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "TestCode";
-            this.dataGridViewTextBoxColumn1.HeaderText = "TestCode";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "TestName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "TestName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
             // RoutineCheckup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -593,10 +593,10 @@
             this.routineTableLayoutPanel.ResumeLayout(false);
             this.routineTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.testDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testBindingNavigator)).EndInit();
             this.testBindingNavigator.ResumeLayout(false);
             this.testBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.testBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
