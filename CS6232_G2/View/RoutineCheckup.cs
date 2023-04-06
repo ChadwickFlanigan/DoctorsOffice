@@ -1,14 +1,9 @@
 ﻿using CS6232_G2.Controller;
 using CS6232_G2.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace CS6232_G2.View
 {
@@ -96,13 +91,13 @@ namespace CS6232_G2.View
 
             if (symptomsTextBox.Text.Length > 254)
             {
-                DialogResult dialogResult = MessageBox.Show("only 254 letters are allowed for symptoms. Would you like to trim to 254?",
+                DialogResult dialogResult = MessageBox.Show("only 150 letters are allowed for symptoms. Would you like to trim to 150?",
                     "The symptoms description is too big!", MessageBoxButtons.YesNo);
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    newVisit.Symptoms = symptomsTextBox.Text.Substring(0, 253);
-                    symptomsTextBox.Text = symptomsTextBox.Text.Substring(0, 253);
+                    newVisit.Symptoms = symptomsTextBox.Text.Substring(0, 149);
+                    symptomsTextBox.Text = symptomsTextBox.Text.Substring(0, 149);
                 }
                 else
                 {
@@ -118,15 +113,15 @@ namespace CS6232_G2.View
                 newVisit.Symptoms = symptomsTextBox.Text;
             }
 
-            if (iDiagnosisTextBox.Text.Length > 254)
+            if (iDiagnosisTextBox.Text.Length > 45)
             {
-                DialogResult dialogResult = MessageBox.Show("only 254 letters are allowed for initial diagnosis. Would you like to trim to 254?",
+                DialogResult dialogResult = MessageBox.Show("only 45 letters are allowed for initial diagnosis. Would you like to trim to 45?",
                     "The description is too long!", MessageBoxButtons.YesNo);
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    newVisit.InitialDiagnosis = iDiagnosisTextBox.Text.Substring(0, 253);
-                    iDiagnosisTextBox.Text = iDiagnosisTextBox.Text.Substring(0, 253);
+                    newVisit.InitialDiagnosis = iDiagnosisTextBox.Text.Substring(0, 44);
+                    iDiagnosisTextBox.Text = iDiagnosisTextBox.Text.Substring(0, 44);
                 }
                 else
                 {
@@ -142,15 +137,15 @@ namespace CS6232_G2.View
                 newVisit.InitialDiagnosis = iDiagnosisTextBox.Text;
             }
 
-            if (fDiagnosesTextBox.Text.Length > 254)
+            if (fDiagnosesTextBox.Text.Length > 45)
             {
-                DialogResult dialogResult = MessageBox.Show("only 254 letters are allowed for final diagnosis. Would you like to trim to 254?",
+                DialogResult dialogResult = MessageBox.Show("only 44 letters are allowed for final diagnosis. Would you like to trim to 45?",
                     "The description is too long!", MessageBoxButtons.YesNo);
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    newVisit.FinalDiagnosis = fDiagnosesTextBox.Text.Substring(0, 253);
-                    fDiagnosesTextBox.Text = fDiagnosesTextBox.Text.Substring(0, 253);
+                    newVisit.FinalDiagnosis = fDiagnosesTextBox.Text.Substring(0, 44);
+                    fDiagnosesTextBox.Text = fDiagnosesTextBox.Text.Substring(0, 44);
                 }
                 else
                 {
@@ -189,24 +184,49 @@ namespace CS6232_G2.View
                 errorLabel.Text = ex.Message;
             }
         }
-
-        private void heightTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void HandleDecimalInput(System.Windows.Forms.TextBox textBox, KeyPressEventArgs e, int maxIntegerDigits, int maxDecimalDigits)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            // Check if the key is a valid numeric key (0-9), decimal point symbol ('.'), or Backspace key
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
                 MessageBox.Show("Please enter only numbers.");
             }
+            else
+            {
+                string text = textBox.Text;
+
+                if (e.KeyChar == '.' && text.Contains('.'))
+                {
+                    e.Handled = true;
+                    MessageBox.Show("Please enter only one decimal point.");
+                }
+                else if (text.IndexOf('.') != -1 && text.Substring(text.IndexOf('.')).Length > maxDecimalDigits && e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                    MessageBox.Show($"Please enter a maximum of {maxDecimalDigits} decimal places.");
+                }
+                else if (text.IndexOf('.') == -1 && text.Length >= maxIntegerDigits && e.KeyChar != '.' && e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                    MessageBox.Show($"Please enter a maximum of {maxIntegerDigits} digits before the decimal point.");
+                }
+                else if (text.IndexOf('.') != -1 && text.IndexOf('.') > maxIntegerDigits && e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                    MessageBox.Show($"Please enter a maximum of {maxIntegerDigits} digits before the decimal point.");
+                }
+            }
+        }
+
+        private void heightTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            HandleDecimalInput(heightTextBox, e, 3, 2);
         }
 
         private void weightTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-                MessageBox.Show("Please enter only numbers.");
-            }
-
+            HandleDecimalInput(weightTextBox, e, 3, 2);
         }
 
         private void sysTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -229,20 +249,25 @@ namespace CS6232_G2.View
 
         private void tempTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            HandleDecimalInput(tempTextBox, e, 3, 1);
+        }
+        private void HandleTextInput(System.Windows.Forms.TextBox textBox, KeyPressEventArgs e, int maxChars)
+        {
+            if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != '/' && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
-                MessageBox.Show("Please enter only numbers.");
+                MessageBox.Show("Only letters, digits, '-', and '/' are allowed.");
+            }
+            else if (textBox.Text.Length >= maxChars && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+                MessageBox.Show($"Please enter no more than {maxChars} characters.");
             }
         }
 
         private void pulseTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-                MessageBox.Show("Please enter only numbers.");
-            }
+            HandleTextInput(pulseTextBox, e, 5);
         }
 
         private void RoutineCheckup_Load(object sender, EventArgs e)
@@ -264,5 +289,5 @@ namespace CS6232_G2.View
             this.testBindingSource.RemoveAt(this.testDataGridView.SelectedRows.Count - 1);
         }
     }
-    }
+}
 
