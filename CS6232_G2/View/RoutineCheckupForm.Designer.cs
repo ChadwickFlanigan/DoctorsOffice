@@ -1,6 +1,6 @@
 ﻿namespace CS6232_G2.View
 {
-    partial class RoutineCheckup
+    partial class RoutineCheckupForm
     {
         /// <summary>
         /// Required designer variable.
@@ -57,6 +57,7 @@
             this.saveVisitButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.clearButton = new System.Windows.Forms.Button();
             this.routineTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -95,6 +96,7 @@
             this.routineTableLayoutPanel.Controls.Add(this.saveVisitButton, 1, 13);
             this.routineTableLayoutPanel.Controls.Add(this.cancelButton, 2, 13);
             this.routineTableLayoutPanel.Controls.Add(this.errorLabel, 1, 14);
+            this.routineTableLayoutPanel.Controls.Add(this.clearButton, 0, 13);
             this.routineTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.routineTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.routineTableLayoutPanel.Name = "routineTableLayoutPanel";
@@ -408,13 +410,25 @@
             this.errorLabel.Size = new System.Drawing.Size(322, 13);
             this.errorLabel.TabIndex = 22;
             // 
-            // RoutineCheckup
+            // clearButton
+            // 
+            this.clearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearButton.Location = new System.Drawing.Point(3, 407);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(125, 23);
+            this.clearButton.TabIndex = 16;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
+            // RoutineCheckupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 475);
             this.Controls.Add(this.routineTableLayoutPanel);
-            this.Name = "RoutineCheckup";
+            this.Name = "RoutineCheckupForm";
             this.Text = "RoutineCheckup";
             this.routineTableLayoutPanel.ResumeLayout(false);
             this.routineTableLayoutPanel.PerformLayout();
@@ -454,5 +468,6 @@
         private System.Windows.Forms.Button saveVisitButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Button clearButton;
     }
 }

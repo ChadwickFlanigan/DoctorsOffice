@@ -1,17 +1,18 @@
 ﻿using CS6232_G2.Controller;
 using CS6232_G2.Model;
 using System;
+using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
 
 namespace CS6232_G2.View
 {
-    public partial class RoutineCheckup : Form
+    public partial class RoutineCheckupForm : Form
     {
         private readonly RoutineCheckController _routineCheckController;
         private PatientVisit visit;
-        public RoutineCheckup()
+        public RoutineCheckupForm()
         {
             InitializeComponent();
             _routineCheckController = new RoutineCheckController();
@@ -74,15 +75,26 @@ namespace CS6232_G2.View
         {
             PatientVisit newVisit = new PatientVisit
             {
+                VisitDateAndTime = DateTime.Now,
                 Height = GetDecimal2(heightTextBox.Text, "height"),
                 Weight = GetDecimal2(weightTextBox.Text, "weight"),
                 Systolic = GetInt(sysTextBox.Text, "systolic number"),
                 Diastolic = GetInt(diaTextBox.Text, "diastolic number"),
                 Temperature = GetDecimal1(tempTextBox.Text, "temperature"),
-                Pulse = GetInt(pulseTextBox.Text, "pulse")
-            };
+                Pulse = GetInt(pulseTextBox.Text, "pulse"),
+              /*  VisitDateAndTime = DateTime.Now,
+                Height = 25,
+                Weight = 23,
+                Systolic = 12,  
+                Diastolic = 25,
+                Temperature = 123,
+                Pulse = 89,*/
+                NurseID = 5,
+                AppointmentID = 1,
+                AppointmentTime = new DateTime(2023, 3, 15, 10, 0, 0)
+        };
 
-            if (symptomsTextBox.Text.Length > 254)
+            if (symptomsTextBox.Text.Length > 150)
             {
                 DialogResult dialogResult = MessageBox.Show("only 150 letters are allowed for symptoms. Would you like to trim to 150?",
                     "The symptoms description is too big!", MessageBoxButtons.YesNo);
@@ -161,15 +173,15 @@ namespace CS6232_G2.View
         {
             try
             {
-                PatientVisit firstVisit = PatientVisit();
+                PatientVisit routineVisit = PatientVisit();
 
-                if (_routineCheckController.RoutineVisit(firstVisit))
+                if (_routineCheckController.RoutineVisit(routineVisit))
                 {
                     errorLabel.Text = "The checkup has been successfully entered";
                 }
                 else
                 {
-                    errorLabel.Text = "The checkup wasn't entered. There was an error.";
+                    errorLabel.Text = "The checkup wasn't entered properly. There was an error.";
                 }
             }
             catch (Exception ex)
@@ -177,6 +189,7 @@ namespace CS6232_G2.View
                 errorLabel.Text = ex.Message;
             }
         }
+        
         private void HandleDecimalInput(System.Windows.Forms.TextBox textBox, KeyPressEventArgs e, int maxIntegerDigits, int maxDecimalDigits)
         {
             // Check if the key is a valid numeric key (0-9), decimal point symbol ('.'), or Backspace key
@@ -246,7 +259,7 @@ namespace CS6232_G2.View
         }
         private void HandleTextInput(System.Windows.Forms.TextBox textBox, KeyPressEventArgs e, int maxChars)
         {
-            if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != '/' && e.KeyChar != (char)Keys.Back)
+            if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
                 MessageBox.Show("Only letters, digits, '-', and '/' are allowed.");
@@ -260,7 +273,24 @@ namespace CS6232_G2.View
 
         private void pulseTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            HandleTextInput(pulseTextBox, e, 5);
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                MessageBox.Show("Please enter only numbers.");
+            }
+        }
+        
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            heightTextBox.Text="";
+            weightTextBox.Text="";
+            sysTextBox.Text="";
+            diaTextBox.Text="";
+            tempTextBox.Text="";
+            pulseTextBox.Text="";
+            symptomsTextBox.Text="";
+            iDiagnosisTextBox.Text="";
+            fDiagnosesTextBox.Text="";
         }
     }
 }
