@@ -186,7 +186,12 @@ namespace CS6232_G2.View
                 var selectedPatient = (Patient)appointmentDataGridView.SelectedRows[0].DataBoundItem;
                 int userId = selectedPatient.UserId;
 
-                using (PatientAppointments patientAppointments = new PatientAppointments(userId))
+                //using (PatientAppointments patientAppointments = new PatientAppointments(userId))
+                //{
+                //    patientAppointments.ShowDialog();
+                //}
+
+                using (PatientTabsForm patientAppointments = new PatientTabsForm(userId))
                 {
                     patientAppointments.ShowDialog();
                 }

@@ -15,8 +15,8 @@ namespace CS6232_G2
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new LoginForm());
-            Application.Run(new RoutineCheckupForm());
-            //Application.Run(new SearchPatientForm());
+            Application.Run(new RoutineCheckup());
+            //Application.Run(new SearchPatientForm(new LoginForm()));
         }
     }
 }

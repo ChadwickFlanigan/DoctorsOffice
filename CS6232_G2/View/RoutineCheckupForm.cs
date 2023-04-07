@@ -1,7 +1,7 @@
 ﻿using CS6232_G2.Controller;
 using CS6232_G2.Model;
 using System;
-using System.Data;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -12,11 +12,18 @@ namespace CS6232_G2.View
     {
         private readonly RoutineCheckController _routineCheckController;
         private PatientVisit visit;
-        public RoutineCheckupForm()
+        private TestController _testController;
+        private List<Test> _tests;
+        private List<Test> _orderedTests;
+
+        public RoutineCheckup()
         {
             InitializeComponent();
             _routineCheckController = new RoutineCheckController();
             visit = new PatientVisit();
+            this._testController = new TestController();
+            this._orderedTests = new List<Test>();
+
         }
 
 
@@ -291,6 +298,25 @@ namespace CS6232_G2.View
             symptomsTextBox.Text="";
             iDiagnosisTextBox.Text="";
             fDiagnosesTextBox.Text="";
+        }
+
+        private void RoutineCheckup_Load(object sender, EventArgs e)
+        {
+            this._tests = this._testController.GetAllTests();
+            this.selectLabTestComboBox.DataSource = this._tests;
+            this.selectLabTestComboBox.DisplayMember = "TestName";
+            this.selectLabTestComboBox.SelectedIndex = 0;
+            this.testBindingSource.DataSource = this._orderedTests;
+        }
+
+        private void addTestButton_Click(object sender, EventArgs e)
+        {
+            this.testBindingSource.Add(this._tests[this.selectLabTestComboBox.SelectedIndex]);
+        }
+
+        private void removeTestButton_Click(object sender, EventArgs e)
+        {
+            this.testBindingSource.RemoveAt(this.testDataGridView.SelectedRows.Count - 1);
         }
     }
 }

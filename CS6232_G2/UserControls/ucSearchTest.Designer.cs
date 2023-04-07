@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvTests = new System.Windows.Forms.DataGridView();
             this.cbAppointments = new System.Windows.Forms.ComboBox();
             this.cbTests = new System.Windows.Forms.ComboBox();
             this.lblAppointments = new System.Windows.Forms.Label();
             this.lblTests = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTests)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -44,7 +44,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.dgvTests, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.cbAppointments, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.cbTests, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblAppointments, 0, 0);
@@ -60,15 +60,15 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(715, 400);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvTests
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableLayoutPanel1.SetColumnSpan(this.dataGridView1, 3);
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 109);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(709, 234);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvTests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableLayoutPanel1.SetColumnSpan(this.dgvTests, 3);
+            this.dgvTests.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTests.Location = new System.Drawing.Point(3, 109);
+            this.dgvTests.Name = "dgvTests";
+            this.dgvTests.Size = new System.Drawing.Size(709, 234);
+            this.dgvTests.TabIndex = 0;
             // 
             // cbAppointments
             // 
@@ -77,6 +77,7 @@
             this.cbAppointments.Name = "cbAppointments";
             this.cbAppointments.Size = new System.Drawing.Size(121, 21);
             this.cbAppointments.TabIndex = 1;
+            this.cbAppointments.SelectedIndexChanged += new System.EventHandler(this.cbAppointments_SelectedIndexChanged);
             // 
             // cbTests
             // 
@@ -85,6 +86,7 @@
             this.cbTests.Name = "cbTests";
             this.cbTests.Size = new System.Drawing.Size(121, 21);
             this.cbTests.TabIndex = 2;
+            this.cbTests.SelectedIndexChanged += new System.EventHandler(this.cbTests_SelectedIndexChanged);
             // 
             // lblAppointments
             // 
@@ -114,7 +116,7 @@
             this.Load += new System.EventHandler(this.ucSearchTest_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTests)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -122,7 +124,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvTests;
         private System.Windows.Forms.ComboBox cbAppointments;
         private System.Windows.Forms.ComboBox cbTests;
         private System.Windows.Forms.Label lblAppointments;
