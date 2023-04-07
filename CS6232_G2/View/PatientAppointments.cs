@@ -76,14 +76,17 @@ namespace CS6232_G2.View
 
         private void btnViewAppointment_Click(object sender, EventArgs e)
         {
-            Appointment appointment = (Appointment)dgAppointments.SelectedRows[0].DataBoundItem;
-
-            using (AppointmentForm appointmentForm = new AppointmentForm(appointment))
+            if (dgAppointments.SelectedRows.Count > 0)
             {
-                appointmentForm.ShowDialog();
-            }
+                Appointment appointment = (Appointment)dgAppointments.SelectedRows[0].DataBoundItem;
 
-            dgAppointments.Refresh();
+                using (AppointmentForm appointmentForm = new AppointmentForm(appointment))
+                {
+                    appointmentForm.ShowDialog();
+                }
+
+                dgAppointments.Refresh();
+            }
         }
 
         private void btnAddAppointment_Click(object sender, EventArgs e)
