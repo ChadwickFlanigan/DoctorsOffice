@@ -30,9 +30,9 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvTests = new System.Windows.Forms.DataGridView();
-            this.cbAppointments = new System.Windows.Forms.ComboBox();
+            this.cbVisits = new System.Windows.Forms.ComboBox();
             this.cbTests = new System.Windows.Forms.ComboBox();
-            this.lblAppointments = new System.Windows.Forms.Label();
+            this.lblPatientVisits = new System.Windows.Forms.Label();
             this.lblTests = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTests)).BeginInit();
@@ -45,9 +45,9 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.Controls.Add(this.dgvTests, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.cbAppointments, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cbVisits, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.cbTests, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblAppointments, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblPatientVisits, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblTests, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -70,14 +70,14 @@
             this.dgvTests.Size = new System.Drawing.Size(709, 234);
             this.dgvTests.TabIndex = 0;
             // 
-            // cbAppointments
+            // cbVisits
             // 
-            this.cbAppointments.FormattingEnabled = true;
-            this.cbAppointments.Location = new System.Drawing.Point(3, 56);
-            this.cbAppointments.Name = "cbAppointments";
-            this.cbAppointments.Size = new System.Drawing.Size(121, 21);
-            this.cbAppointments.TabIndex = 1;
-            this.cbAppointments.SelectedIndexChanged += new System.EventHandler(this.cbAppointments_SelectedIndexChanged);
+            this.cbVisits.FormattingEnabled = true;
+            this.cbVisits.Location = new System.Drawing.Point(3, 56);
+            this.cbVisits.Name = "cbVisits";
+            this.cbVisits.Size = new System.Drawing.Size(121, 21);
+            this.cbVisits.TabIndex = 1;
+            this.cbVisits.SelectedIndexChanged += new System.EventHandler(this.cbAppointments_SelectedIndexChanged);
             // 
             // cbTests
             // 
@@ -88,14 +88,14 @@
             this.cbTests.TabIndex = 2;
             this.cbTests.SelectedIndexChanged += new System.EventHandler(this.cbTests_SelectedIndexChanged);
             // 
-            // lblAppointments
+            // lblPatientVisits
             // 
-            this.lblAppointments.AutoSize = true;
-            this.lblAppointments.Location = new System.Drawing.Point(3, 0);
-            this.lblAppointments.Name = "lblAppointments";
-            this.lblAppointments.Size = new System.Drawing.Size(70, 13);
-            this.lblAppointments.TabIndex = 3;
-            this.lblAppointments.Text = "appointments";
+            this.lblPatientVisits.AutoSize = true;
+            this.lblPatientVisits.Location = new System.Drawing.Point(3, 0);
+            this.lblPatientVisits.Name = "lblPatientVisits";
+            this.lblPatientVisits.Size = new System.Drawing.Size(30, 13);
+            this.lblPatientVisits.TabIndex = 3;
+            this.lblPatientVisits.Text = "visits";
             // 
             // lblTests
             // 
@@ -125,9 +125,9 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView dgvTests;
-        private System.Windows.Forms.ComboBox cbAppointments;
+        private System.Windows.Forms.ComboBox cbVisits;
         private System.Windows.Forms.ComboBox cbTests;
-        private System.Windows.Forms.Label lblAppointments;
+        private System.Windows.Forms.Label lblPatientVisits;
         private System.Windows.Forms.Label lblTests;
     }
 }

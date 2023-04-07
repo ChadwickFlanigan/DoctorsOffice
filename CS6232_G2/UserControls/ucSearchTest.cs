@@ -11,11 +11,13 @@ namespace CS6232_G2.UserControls
         Patient _patient;
         AppointmentController _appointmentController;
         TestController _testController;
+        LabTestController _labTestController;
         public ucSearchTest()
         {
             _patient = new Patient();
             _appointmentController = new AppointmentController();
             _testController = new TestController();
+            _labTestController = new LabTestController();
             InitializeComponent();
         }
 
@@ -38,9 +40,9 @@ namespace CS6232_G2.UserControls
             try
             {
                 List<Appointment> appointments = _appointmentController.GetPatientAppointments(_patient.PatientId);
-                cbAppointments.DataSource = appointments;
-                cbAppointments.DisplayMember = "AppointmentTime";
-                cbAppointments.ValueMember = "AppointmentId";
+                cbVisits.DataSource = appointments;
+                cbVisits.DisplayMember = "AppointmentTime";
+                cbVisits.ValueMember = "AppointmentId";
 
                 List<Test> tests = _testController.GetAllTests();
                 cbTests.DataSource = tests;
@@ -65,7 +67,7 @@ namespace CS6232_G2.UserControls
 
         private void UpdateDataGrid()
         {
-            dgvTests.DataSource = _testController.GetAllTests();
+            dgvTests.DataSource = _labTestController.GetLabTestByVistIdAndTestCode(int.Parse(cbVisits.SelectedValue.ToString()), int.Parse(cbTests.SelectedValue.ToString()));
         }
     }
 }

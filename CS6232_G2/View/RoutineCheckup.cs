@@ -1,5 +1,6 @@
 ﻿using CS6232_G2.Controller;
 using CS6232_G2.Model;
+using CS6232_G2.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace CS6232_G2.View
         private TestController _testController;
         private List<Test> _tests;
         private List<Test> _orderedTests;
+        private Nurse _nurse;
+        private NurseController _nurseController;
 
         public RoutineCheckup()
         {
@@ -23,7 +26,8 @@ namespace CS6232_G2.View
             visit = new PatientVisit();
             this._testController = new TestController();
             this._orderedTests = new List<Test>();
-
+            this._nurseController = new NurseController();
+            _nurse = _nurseController.GetNurseByLogin(LoginDAL.GetCurrentLogin());
         }
 
 

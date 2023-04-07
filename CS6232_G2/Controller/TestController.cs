@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CS6232_G2.DAL;
+using CS6232_G2.Model;
 using System.Collections.Generic;
 
 namespace CS6232_G2.Controller

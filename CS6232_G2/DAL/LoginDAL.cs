@@ -9,6 +9,26 @@ namespace CS6232_G2.DAL
     /// </summary>
     public class LoginDAL
     {
+        private static Login _currentLogin;
+
+        /// <summary>
+        /// Sets the current user logged in 
+        /// </summary>
+        /// <param name="login"></param>
+        public static void SetLogin(Login login)
+        {
+            _currentLogin = login;
+        }
+
+        /// <summary>
+        /// Returns the current user logged in 
+        /// </summary>
+        /// <returns></returns>
+        public static Login GetCurrentLogin()
+        {
+            return _currentLogin;
+        }
+
         /// <summary>
         /// Returns the login information associated with the given username and password
         /// </summary>

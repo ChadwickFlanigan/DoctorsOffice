@@ -1,4 +1,5 @@
 ﻿using CS6232_G2.Controller;
+using CS6232_G2.DAL;
 using CS6232_G2.Helper;
 using CS6232_G2.Model;
 using System;
@@ -47,6 +48,7 @@ namespace CS6232_G2.View
                 {
                     AdministratorForm _adminForm = new AdministratorForm(this);
                     _adminForm.SetUsername(_login, _userController.GetUserAdminByLogin(_login));
+                    LoginDAL.SetLogin(_login);
                     Hide();
                     _adminForm.Show();
                 }
@@ -54,6 +56,7 @@ namespace CS6232_G2.View
                 {
                     SearchPatientForm _searchPatientForm = new SearchPatientForm(this);
                     _searchPatientForm.SetUsername(_login, _userController.GetUserNurseByLogin(_login));
+                    LoginDAL.SetLogin(_login);
                     Hide();
                     _searchPatientForm.Show();
                 }

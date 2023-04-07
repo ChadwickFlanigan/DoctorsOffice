@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CS6232_G2.Model
 {
-    internal class LabTest
+    public class LabTest
     {
+        public int TestCode { get; set; }
+        public int PatientVisitId { get; set; }
+        public DateTime TestDateTime { get; set; }
+        public string result { get; set; }
+        public bool normal { get; set; }
     }
 }

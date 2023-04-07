@@ -1,25 +1,25 @@
 ﻿using CS6232_G2.Model;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace CS6232_G2.DAL
 {
     /// <summary>
-    /// The DAL for interacting with the Tests table
+    /// The DAL for interacting with the LabTests table
     /// </summary>
-    public class TestDAL
+    public class LabTestDAL
     {
         /// <summary>
         /// Returns all tests from the database
         /// </summary>
         /// <returns></returns>
-        public List<Test> GetAllTests()
+        public List<LabTest> GetLabTestByVistIdAndTestCode(int patientVisitId, int testCode)
         {
-            List<Test> tests = new List<Test>();
+            List<LabTest> tests = new List<LabTest>();
 
-            string selectStatement = "select testCode, testName " +
-                                     "from Tests";
+            string selectStatement = "select testDateTime, result, normal " +
+                                     "from LabTest" +
+                                     "where testCode = @testCode and patientVisitID = @patientVisitId";
 
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {
@@ -27,14 +27,16 @@ namespace CS6232_G2.DAL
 
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
+                    selectCommand.Parameters.AddWithValue("@testCode", testCode);
+                    selectCommand.Parameters.AddWithValue("@patientVisitId", patientVisitId);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            Test test = new Test
+                            LabTest test = new LabTest
                             {
-                                TestCode = Convert.ToInt32(reader["testCode"]),
-                                TestName = reader["testName"].ToString()
+                                //TestCode = Convert.ToInt32(reader["testCode"]),
+                                //TestName = reader["testName"].ToString()
                             };
                             tests.Add(test);
                         }
