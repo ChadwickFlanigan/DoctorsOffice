@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoutineCheckup));
             this.routineTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.testDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,8 +64,6 @@
             this.routineTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.testDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.testBindingNavigator)).BeginInit();
-            this.testBindingNavigator.SuspendLayout();
             this.SuspendLayout();
             // 
             // routineTableLayoutPanel
@@ -103,7 +100,6 @@
             this.routineTableLayoutPanel.Controls.Add(this.saveVisitButton, 1, 13);
             this.routineTableLayoutPanel.Controls.Add(this.cancelButton, 2, 13);
             this.routineTableLayoutPanel.Controls.Add(this.errorLabel, 1, 14);
-            this.routineTableLayoutPanel.Controls.Add(this.clearButton, 0, 13);
             this.routineTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.routineTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.routineTableLayoutPanel.Name = "routineTableLayoutPanel";
@@ -443,25 +439,21 @@
             this.errorLabel.Size = new System.Drawing.Size(330, 13);
             this.errorLabel.TabIndex = 22;
             // 
-            // RoutineCheckup
+            // RoutineCheckupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(672, 477);
-            this.Controls.Add(this.testBindingNavigator);
             this.Controls.Add(this.routineTableLayoutPanel);
             this.Name = "RoutineCheckupForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RoutineCheckup";
             this.Load += new System.EventHandler(this.RoutineCheckup_Load);
             this.routineTableLayoutPanel.ResumeLayout(false);
             this.routineTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.testDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.testBindingNavigator)).EndInit();
-            this.testBindingNavigator.ResumeLayout(false);
-            this.testBindingNavigator.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -495,5 +487,9 @@
         private System.Windows.Forms.Button saveVisitButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.DataGridView testDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.BindingSource testBindingSource;
     }
 }

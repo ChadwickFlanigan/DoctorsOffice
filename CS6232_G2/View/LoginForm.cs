@@ -26,8 +26,8 @@ namespace CS6232_G2.View
             _userController = new UserController();
             _login = new Login();
 
-            txtUsername.Text = "nurse";
-            txtPassword.Text = "nurse";
+            txtUsername.Text = "hansmuller";
+            txtPassword.Text = "mypassword";
         }
 
         /// <summary>
@@ -54,11 +54,14 @@ namespace CS6232_G2.View
                 }
                 else if (_login.NurseId > 0)
                 {
-                    SearchPatientForm _searchPatientForm = new SearchPatientForm(this);
-                    _searchPatientForm.SetUsername(_login, _userController.GetUserNurseByLogin(_login));
                     LoginDAL.SetLogin(_login);
+
+                    //SearchPatientForm _searchPatientForm = new SearchPatientForm(this);
+                    //_searchPatientForm.SetUsername(_login, _userController.GetUserNurseByLogin(_login));
                     Hide();
-                    _searchPatientForm.Show();
+                    //_searchPatientForm.Show();
+                    RoutineCheckupForm routineCheckupForm = new RoutineCheckupForm();
+                    routineCheckupForm.Show();
                 }
                 else
                 {

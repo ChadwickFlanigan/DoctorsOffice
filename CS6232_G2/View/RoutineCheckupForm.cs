@@ -1,6 +1,6 @@
 ﻿using CS6232_G2.Controller;
-using CS6232_G2.Model;
 using CS6232_G2.DAL;
+using CS6232_G2.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,18 +19,16 @@ namespace CS6232_G2.View
         private Nurse _nurse;
         private NurseController _nurseController;
 
-        public RoutineCheckup()
+        public RoutineCheckupForm()
         {
             InitializeComponent();
             _routineCheckController = new RoutineCheckController();
             visit = new PatientVisit();
-            this._testController = new TestController();
-            this._orderedTests = new List<Test>();
-            this._nurseController = new NurseController();
+            _testController = new TestController();
+            _orderedTests = new List<Test>();
+            _nurseController = new NurseController();
             _nurse = _nurseController.GetNurseByLogin(LoginDAL.GetCurrentLogin());
         }
-
-
 
         private decimal GetDecimal2(string number, string source)
         {
@@ -93,17 +91,17 @@ namespace CS6232_G2.View
                 Diastolic = GetInt(diaTextBox.Text, "diastolic number"),
                 Temperature = GetDecimal1(tempTextBox.Text, "temperature"),
                 Pulse = GetInt(pulseTextBox.Text, "pulse"),
-              /*  VisitDateAndTime = DateTime.Now,
-                Height = 25,
-                Weight = 23,
-                Systolic = 12,  
-                Diastolic = 25,
-                Temperature = 123,
-                Pulse = 89,*/
-                NurseID = 5,
+                /*  VisitDateAndTime = DateTime.Now,
+                  Height = 25,
+                  Weight = 23,
+                  Systolic = 12,  
+                  Diastolic = 25,
+                  Temperature = 123,
+                  Pulse = 89,*/
+                NurseID = _nurse.NurseId,
                 AppointmentID = 1,
                 AppointmentTime = new DateTime(2023, 3, 15, 10, 0, 0)
-        };
+            };
 
             if (symptomsTextBox.Text.Length > 150)
             {
@@ -200,7 +198,7 @@ namespace CS6232_G2.View
                 errorLabel.Text = ex.Message;
             }
         }
-        
+
         private void HandleDecimalInput(System.Windows.Forms.TextBox textBox, KeyPressEventArgs e, int maxIntegerDigits, int maxDecimalDigits)
         {
             // Check if the key is a valid numeric key (0-9), decimal point symbol ('.'), or Backspace key
@@ -290,37 +288,37 @@ namespace CS6232_G2.View
                 MessageBox.Show("Please enter only numbers.");
             }
         }
-        
+
         private void clearButton_Click(object sender, EventArgs e)
         {
-            heightTextBox.Text="";
-            weightTextBox.Text="";
-            sysTextBox.Text="";
-            diaTextBox.Text="";
-            tempTextBox.Text="";
-            pulseTextBox.Text="";
-            symptomsTextBox.Text="";
-            iDiagnosisTextBox.Text="";
-            fDiagnosesTextBox.Text="";
+            heightTextBox.Text = "";
+            weightTextBox.Text = "";
+            sysTextBox.Text = "";
+            diaTextBox.Text = "";
+            tempTextBox.Text = "";
+            pulseTextBox.Text = "";
+            symptomsTextBox.Text = "";
+            iDiagnosisTextBox.Text = "";
+            fDiagnosesTextBox.Text = "";
         }
 
         private void RoutineCheckup_Load(object sender, EventArgs e)
         {
-            this._tests = this._testController.GetAllTests();
-            this.selectLabTestComboBox.DataSource = this._tests;
-            this.selectLabTestComboBox.DisplayMember = "TestName";
-            this.selectLabTestComboBox.SelectedIndex = 0;
-            this.testBindingSource.DataSource = this._orderedTests;
+            _tests = this._testController.GetAllTests();
+            selectLabTestComboBox.DataSource = this._tests;
+            selectLabTestComboBox.DisplayMember = "TestName";
+            //selectLabTestComboBox.SelectedIndex = 0;
+            //testDataGridView.DataSource = this._orderedTests;
         }
 
         private void addTestButton_Click(object sender, EventArgs e)
         {
-            this.testBindingSource.Add(this._tests[this.selectLabTestComboBox.SelectedIndex]);
+            //this.testBindingSource.Add(this._tests[this.selectLabTestComboBox.SelectedIndex]);
         }
 
         private void removeTestButton_Click(object sender, EventArgs e)
         {
-            this.testBindingSource.RemoveAt(this.testDataGridView.SelectedRows.Count - 1);
+            //this.testBindingSource.RemoveAt(this.testDataGridView.SelectedRows.Count - 1);
         }
     }
 }

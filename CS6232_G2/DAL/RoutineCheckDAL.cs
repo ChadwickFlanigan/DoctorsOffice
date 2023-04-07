@@ -1,11 +1,6 @@
 ﻿using CS6232_G2.Model;
 using System;
-using System.Collections.Generic;
-using System.Data.Common;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CS6232_G2.DAL
 {
@@ -16,8 +11,8 @@ namespace CS6232_G2.DAL
             {
                 string insertStatement =
                     "INSERT INTO PatientVisits " +
-                    "(visitDateAndTime, appointmentTime, weight, bpSystolic, bpDiastolic, bodyTemperature, pulse, symptoms, initialDiagnosis, finalDiagnosis, nurseId, appointmentId) " +
-                    "VALUES (@visitDateAndTime, @appointmentTime, @weight, @bpSystolic, @bpDiastolic, @bodyTemperature, @pulse, @symptoms, @initialDiagnosis, @finalDiagnosis, @nurseId, @appointmentId);";
+                    "(visitDateAndTime, appointmentTime, weight, bpSystolic, bpDiastolic, bodyTemperature, pulse, symptoms, initialDiagnosis, finalDiagnosis, nurseId, appointmentId, height) " +
+                    "VALUES (@visitDateAndTime, @appointmentTime, @weight, @bpSystolic, @bpDiastolic, @bodyTemperature, @pulse, @symptoms, @initialDiagnosis, @finalDiagnosis, @nurseId, @appointmentId, @height);";
 
                 using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
                 {
@@ -36,8 +31,8 @@ namespace CS6232_G2.DAL
                         insertCommand.Parameters.Add("@appointmentId", System.Data.SqlDbType.Int);
                         insertCommand.Parameters["@appointmentId"].Value = visit.AppointmentID;
 
-                       // insertCommand.Parameters.Add("@height", System.Data.SqlDbType.Decimal);
-                       // insertCommand.Parameters["@height"].Value = visit.Height;
+                        insertCommand.Parameters.Add("@height", System.Data.SqlDbType.Decimal);
+                        insertCommand.Parameters["@height"].Value = visit.Height;
 
                         insertCommand.Parameters.Add("@weight", System.Data.SqlDbType.Decimal);
                         insertCommand.Parameters["@weight"].Value = visit.Weight;
