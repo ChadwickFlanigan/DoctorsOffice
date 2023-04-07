@@ -8,14 +8,14 @@ namespace CS6232_G2.Controller
     /// </summary>
     public class UserController
     {
-        private UserDAL _userDBDAL;
+        private UserDAL _userDAL;
 
         /// <summary>
         /// The contructor for the UserController
         /// </summary>
         public UserController()
         {
-            _userDBDAL= new UserDAL();
+            _userDAL= new UserDAL();
         }
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace CS6232_G2.Controller
         /// <param name="user"></param>
         public void Add(User user)
         {
-            _userDBDAL.AddUser(user);
+            _userDAL.AddUser(user);
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace CS6232_G2.Controller
         /// <param name="id"></param>
         public User GetUserById(int id)
         {
-            return _userDBDAL.GetUserDetailsByID(id);
+            return _userDAL.GetUserDetailsByID(id);
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace CS6232_G2.Controller
         /// <param name="id"></param>
         public Patient GetUserFullNameById(int id)
         {
-            return _userDBDAL.GetUserFullNameById(id);
+            return _userDAL.GetUserFullNameById(id);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace CS6232_G2.Controller
         /// <returns></returns>
         public User GetUserNurseByLogin(Login login)
         {
-            return _userDBDAL.GetUserNurseByLogin(login);
+            return _userDAL.GetUserNurseByLogin(login);
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace CS6232_G2.Controller
         /// <returns></returns>
         public User GetUserAdminByLogin(Login login)
         {
-            return _userDBDAL.GetUserAdminByLogin(login);
+            return _userDAL.GetUserAdminByLogin(login);
         }
     }
 }

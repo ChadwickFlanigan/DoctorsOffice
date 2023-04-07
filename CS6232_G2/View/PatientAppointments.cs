@@ -2,7 +2,6 @@
 using CS6232_G2.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace CS6232_G2.View
