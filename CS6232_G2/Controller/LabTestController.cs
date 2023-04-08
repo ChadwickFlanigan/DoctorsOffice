@@ -27,5 +27,14 @@ namespace CS6232_G2.Controller
         {
             return _labTestDAL.GetLabTestByVistIdAndTestCode(patientVisit, testCode);
         }
+
+        /// <summary>
+        /// method to insert a labtest into the datebase.
+        /// </summary>
+        /// <param name="labTest"> a LabTest object representing a Test ordered for a patient</param>
+        public void OrderLabTest(LabTest labTest)
+        {
+            this._labTestDAL.OrderLabTest(labTest);
+        }
     }
 }

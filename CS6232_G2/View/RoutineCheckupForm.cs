@@ -15,9 +15,10 @@ namespace CS6232_G2.View
         private PatientVisit visit;
         private TestController _testController;
         private List<Test> _tests;
-        private List<Test> _orderedTests;
+        private List<LabTest> _orderedTests;
         private Nurse _nurse;
         private NurseController _nurseController;
+        private LabTestController _labTestController;
 
         public RoutineCheckupForm()
         {
@@ -25,9 +26,10 @@ namespace CS6232_G2.View
             _routineCheckController = new RoutineCheckController();
             visit = new PatientVisit();
             _testController = new TestController();
-            _orderedTests = new List<Test>();
+            _orderedTests = new List<LabTest>();
             _nurseController = new NurseController();
             _nurse = _nurseController.GetNurseByLogin(LoginDAL.GetCurrentLogin());
+            _labTestController = new LabTestController();
         }
 
         private decimal GetDecimal2(string number, string source)
@@ -307,18 +309,77 @@ namespace CS6232_G2.View
             _tests = this._testController.GetAllTests();
             selectLabTestComboBox.DataSource = this._tests;
             selectLabTestComboBox.DisplayMember = "TestName";
-            //selectLabTestComboBox.SelectedIndex = 0;
-            //testDataGridView.DataSource = this._orderedTests;
+            selectLabTestComboBox.SelectedIndex = 0;
+            labTestBindingSource.DataSource = this._orderedTests;
+            this.testDataGridView.AutoGenerateColumns = true;
         }
 
         private void addTestButton_Click(object sender, EventArgs e)
         {
-            //this.testBindingSource.Add(this._tests[this.selectLabTestComboBox.SelectedIndex]);
+            this.errorLabel.Text = "";
+            LabTest newTest = new LabTest();
+
+            if (this.labTestBindingSource.List.Count == 0)
+            {
+                newTest.TestCode = this._tests[this.selectLabTestComboBox.SelectedIndex].TestCode;
+                newTest.PatientVisitId = this.visit.PatientVisitID;
+                this.labTestBindingSource.Add(newTest);
+                return;
+            }
+            for (int i = 0; i < this.labTestBindingSource.List.Count; i++)
+            {    
+                if (this._orderedTests[i].TestCode == this._tests[this.selectLabTestComboBox.SelectedIndex].TestCode)
+                {
+                    this.errorLabel.Text = "You may not order duplicate tests.";
+                    return;
+                }
+            }
+            newTest.TestCode = this._tests[this.selectLabTestComboBox.SelectedIndex].TestCode;
+            newTest.PatientVisitId = this.visit.PatientVisitID;
+            this.labTestBindingSource.Add(newTest);
         }
 
         private void removeTestButton_Click(object sender, EventArgs e)
         {
-            //this.testBindingSource.RemoveAt(this.testDataGridView.SelectedRows.Count - 1);
+            if (this.labTestBindingSource.List.Count > 0)
+            {
+                this.labTestBindingSource.RemoveCurrent();
+            }
+        }
+
+        private void testDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            this.errorLabel.Text = "Please enter a valid Datetime in YYYY-MM-DD format.";
+        }
+
+        private void submitLabOrderButton_Click(object sender, EventArgs e)
+        {
+            string labOrder = "";
+            foreach (LabTest labTest in this._orderedTests) {
+                foreach (Test test in this._tests)
+                {
+                    if (labTest.TestCode == test.TestCode)
+                    {
+                        labOrder += test.TestName + "\n";
+                    }
+                }
+            }
+            DialogResult result = MessageBox.Show("Are you sure you want to order these tests: \n" + labOrder, 
+                "Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+            {
+                this.addTestButton.Enabled = false;
+                this.removeTestButton.Enabled = false;
+                this.selectLabTestComboBox.Enabled = false;
+                foreach (LabTest test in this._orderedTests)
+                {
+                    _labTestController.OrderLabTest(test);
+                }
+            }
+            if (result == DialogResult.Cancel)
+            {
+
+            }
         }
     }
 }
