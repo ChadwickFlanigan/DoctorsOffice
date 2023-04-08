@@ -84,6 +84,12 @@
     <Compile Include="UserControls\ucSearchTest.Designer.cs">
       <DependentUpon>ucSearchTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\VisitsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\VisitsUserControl.Designer.cs">
+      <DependentUpon>VisitsUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AdministratorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucSearchTest.resx">
       <DependentUpon>ucSearchTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\VisitsUserControl.resx">
+      <DependentUpon>VisitsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdministratorForm.resx">
       <DependentUpon>AdministratorForm.cs</DependentUpon>
