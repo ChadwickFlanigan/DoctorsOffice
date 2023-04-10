@@ -12,9 +12,15 @@ namespace CS6232_G2.UserControls
 {
     public partial class VisitsUserControl : UserControl
     {
+        private 
         public VisitsUserControl()
         {
             InitializeComponent();
+        }
+
+        private void visitSearchButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

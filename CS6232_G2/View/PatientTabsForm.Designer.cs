@@ -33,7 +33,9 @@
             this.visits = new System.Windows.Forms.TabPage();
             this.labTests = new System.Windows.Forms.TabPage();
             this.ucSearchTest = new CS6232_G2.UserControls.ucSearchTest();
+            this.visitsUserControl = new CS6232_G2.UserControls.VisitsUserControl();
             this.tbPatientInfo.SuspendLayout();
+            this.visits.SuspendLayout();
             this.labTests.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +63,7 @@
             // 
             // visits
             // 
+            this.visits.Controls.Add(this.visitsUserControl);
             this.visits.Location = new System.Drawing.Point(4, 22);
             this.visits.Name = "visits";
             this.visits.Padding = new System.Windows.Forms.Padding(3);
@@ -87,6 +90,14 @@
             this.ucSearchTest.Size = new System.Drawing.Size(792, 424);
             this.ucSearchTest.TabIndex = 0;
             // 
+            // visitsUserControl
+            // 
+            this.visitsUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.visitsUserControl.Location = new System.Drawing.Point(3, 3);
+            this.visitsUserControl.Name = "visitsUserControl";
+            this.visitsUserControl.Size = new System.Drawing.Size(786, 418);
+            this.visitsUserControl.TabIndex = 0;
+            // 
             // PatientTabsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -97,6 +108,7 @@
             this.Text = "PatientTabsForm";
             this.Load += new System.EventHandler(this.PatientTabsForm_Load);
             this.tbPatientInfo.ResumeLayout(false);
+            this.visits.ResumeLayout(false);
             this.labTests.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -109,5 +121,6 @@
         private System.Windows.Forms.TabPage visits;
         private System.Windows.Forms.TabPage labTests;
         private UserControls.ucSearchTest ucSearchTest;
+        private UserControls.VisitsUserControl visitsUserControl;
     }
 }
