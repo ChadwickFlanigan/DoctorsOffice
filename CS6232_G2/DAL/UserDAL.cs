@@ -16,8 +16,8 @@ namespace CS6232_G2.DAL
         public void AddUser(User user)
         {
             string insertStatement =
-                "INSERT INTO Users (lastName, firstName, dob, ssn, gender, streetNumber, city, state, country, phone, zipcode) " +
-                "VALUES (@lastName, @firstName, @dob, @ssn, @gender, @streetNumber, @city, @state, @country, @phone, @zipcode) ";
+                "INSERT INTO Users (lastName, firstName, dob, ssn, gender, streetNumber, city, state, phone, zipcode) " +
+                "VALUES (@lastName, @firstName, @dob, @ssn, @gender, @streetNumber, @city, @state, @phone, @zipcode) ";
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {
                 connection.Open();
@@ -30,7 +30,6 @@ namespace CS6232_G2.DAL
                 insertCommand.Parameters.AddWithValue("@streetNumber", user.StreetNumber);
                 insertCommand.Parameters.AddWithValue("@city", user.City);
                 insertCommand.Parameters.AddWithValue("@state", user.State);
-                insertCommand.Parameters.AddWithValue("@country", user.Country);
                 insertCommand.Parameters.AddWithValue("@phone", user.Phone);
                 insertCommand.Parameters.AddWithValue("@zipcode", user.Zipcode);
                 insertCommand.ExecuteReader();
@@ -80,7 +79,7 @@ namespace CS6232_G2.DAL
         {
             User user = new User();
             string selectStatement =
-                        "SELECT userId, lastName, firstName, dob, ssn, gender, streetNumber, city, state, country, phone, zipcode " +
+                        "SELECT userId, lastName, firstName, dob, ssn, gender, streetNumber, city, state, phone, zipcode " +
                         "FROM Users " +
                         "WHERE userId = @userID";
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
@@ -103,7 +102,6 @@ namespace CS6232_G2.DAL
                             user.StreetNumber = reader["streetNumber"].ToString();
                             user.City = reader["city"].ToString();
                             user.State = reader["state"].ToString();
-                            user.Country = reader["country"].ToString();
                             user.Phone = reader["phone"].ToString();
                             user.Zipcode = reader["zipcode"].ToString();
                         }
@@ -122,7 +120,7 @@ namespace CS6232_G2.DAL
         {
             User user = new User();
             string selectStatement =
-                        "SELECT u.userId as IdOfUser, lastName, firstName, dob, ssn, gender, streetNumber, city, state, country, phone, zipcode " +
+                        "SELECT u.userId as IdOfUser, lastName, firstName, dob, ssn, gender, streetNumber, city, state, phone, zipcode " +
                         "FROM Users u " +
                         "JOIN Nurses n on n.userId = u.userId " +
                         "WHERE n.userId = @userID";
@@ -146,7 +144,6 @@ namespace CS6232_G2.DAL
                             user.StreetNumber = reader["streetNumber"].ToString();
                             user.City = reader["city"].ToString();
                             user.State = reader["state"].ToString();
-                            user.Country = reader["country"].ToString();
                             user.Phone = reader["phone"].ToString();
                             user.Zipcode = reader["zipcode"].ToString();
                         }
@@ -165,7 +162,7 @@ namespace CS6232_G2.DAL
         {
             User user = new User();
             string selectStatement =
-                        "SELECT u.userId as IdOfUser, lastName, firstName, dob, ssn, gender, streetNumber, city, state, country, phone, zipcode " +
+                        "SELECT u.userId as IdOfUser, lastName, firstName, dob, ssn, gender, streetNumber, city, state, phone, zipcode " +
                         "FROM Users u " +
                         "JOIN Administrators a on a.personId = u.userId " +
                         "WHERE a.personId = @userID";
@@ -189,7 +186,6 @@ namespace CS6232_G2.DAL
                             user.StreetNumber = reader["streetNumber"].ToString();
                             user.City = reader["city"].ToString();
                             user.State = reader["state"].ToString();
-                            user.Country = reader["country"].ToString();
                             user.Phone = reader["phone"].ToString();
                             user.Zipcode = reader["zipcode"].ToString();
                         }
