@@ -21,10 +21,10 @@ namespace CS6232_G2.DAL
 
             string selectStatement = @"select patientVisitID, visitDateAndTime, pv.appointmentTime, weight, bpSystolic, 
                                        bpDiastolic, bodyTemperature, pulse, symptoms, initialDiagnosis, finalDiagnosis, 
-                                       nurseId, appointmentId, height
+                                       nurseId, pv.appointmentId, height
                                        from PatientVisits pv
                                        join Appointments a
-                                       on pv.appointmentId, a.appointmentId
+                                       on pv.appointmentId = a.appointmentId
                                        where a.patientId = @patientId";
 
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
@@ -52,7 +52,7 @@ namespace CS6232_G2.DAL
                                 Symptoms = reader["symptoms"].ToString(),
                                 InitialDiagnosis = reader["initialDiagnosis"].ToString(),
                                 FinalDiagnosis = reader["finalDiagnosis"].ToString(),
-                                AppointmentID = Convert.ToInt32(reader["appointmentId"]),
+                                AppointmentID = Convert.ToInt32(reader["pv.appointmentId"]),
                                 NurseID = Convert.ToInt32(reader["nurseId"]),
                                 Height = decimal.Parse(reader["height"].ToString())
 

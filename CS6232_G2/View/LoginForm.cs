@@ -56,12 +56,12 @@ namespace CS6232_G2.View
                 {
                     LoginDAL.SetLogin(_login);
 
-                    //SearchPatientForm _searchPatientForm = new SearchPatientForm(this);
-                    //_searchPatientForm.SetUsername(_login, _userController.GetUserNurseByLogin(_login));
+                    SearchPatientForm _searchPatientForm = new SearchPatientForm(this);
+                    _searchPatientForm.SetUsername(_login, _userController.GetUserNurseByLogin(_login));
                     Hide();
-                    //_searchPatientForm.Show();
-                    RoutineCheckupForm routineCheckupForm = new RoutineCheckupForm();
-                    routineCheckupForm.Show();
+                    _searchPatientForm.Show();
+                    //RoutineCheckupForm routineCheckupForm = new RoutineCheckupForm();
+                    //routineCheckupForm.Show();
                 }
                 else
                 {

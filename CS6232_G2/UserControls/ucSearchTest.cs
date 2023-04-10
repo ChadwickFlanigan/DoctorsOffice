@@ -6,16 +6,25 @@ using System.Windows.Forms;
 
 namespace CS6232_G2.UserControls
 {
+    /// <summary>
+    /// The user control for searching for tests
+    /// </summary>
     public partial class ucSearchTest : UserControl
     {
         Patient _patient;
         AppointmentController _appointmentController;
+        PatientVisitController _patientVisitController;
         TestController _testController;
         LabTestController _labTestController;
+
+        /// <summary>
+        /// The constructor for the ucSearchTest
+        /// </summary>
         public ucSearchTest()
         {
             _patient = new Patient();
             _appointmentController = new AppointmentController();
+            _patientVisitController = new PatientVisitController();
             _testController = new TestController();
             _labTestController = new LabTestController();
             InitializeComponent();
@@ -39,10 +48,10 @@ namespace CS6232_G2.UserControls
         {
             try
             {
-                List<Appointment> appointments = _appointmentController.GetPatientAppointments(_patient.PatientId);
-                cbVisits.DataSource = appointments;
-                cbVisits.DisplayMember = "AppointmentTime";
-                cbVisits.ValueMember = "AppointmentId";
+                List<PatientVisit> patientVisits = _patientVisitController.GetPatientVisits(_patient.PatientId);
+                cbVisits.DataSource = patientVisits;
+                cbVisits.DisplayMember = "VisitDateAndTime";
+                cbVisits.ValueMember = "PatientVisitID";
 
                 List<Test> tests = _testController.GetAllTests();
                 cbTests.DataSource = tests;
