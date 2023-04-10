@@ -77,7 +77,7 @@
             this.visitsUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.visitsUserControl.Location = new System.Drawing.Point(3, 3);
             this.visitsUserControl.Name = "visitsUserControl";
-            this.visitsUserControl.Size = new System.Drawing.Size(786, 418);
+            this.visitsUserControl.Size = new System.Drawing.Size(186, 68);
             this.visitsUserControl.TabIndex = 0;
             // 
             // labTests
@@ -105,6 +105,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tbPatientInfo);
             this.Name = "PatientTabsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PatientTabsForm";
             this.Load += new System.EventHandler(this.PatientTabsForm_Load);
             this.tbPatientInfo.ResumeLayout(false);

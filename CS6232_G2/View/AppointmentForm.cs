@@ -12,7 +12,6 @@ namespace CS6232_G2
     /// </summary>
     public partial class AppointmentForm : Form
     {
-        private DateTime _lastTimeValue;
         private AppointmentController _appointmentController;
         private Appointment _appointment;
         private List<Doctor> _doctorList;
@@ -36,18 +35,19 @@ namespace CS6232_G2
                 MessageBox.Show("Invalid request, please select a patient first", "Invalid patient", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cbDoctors.Enabled = false;
                 dtAppointmentDate.Enabled = false;
-                dtAppointmentTime.Enabled = false;
+                numHours.Enabled = false;
+                numMinutes.Enabled = false;
                 txtReason.Enabled = false;
                 return;
             }
 
             DateTime newAvailableTime = CalculateNextAvailableTime(DateTime.Now);
-            _lastTimeValue = newAvailableTime;
 
-            if (_appointment.AppointmentId == 0 || _appointment.AppointmentTime > DateTime.Now)
+            if (_appointment.AppointmentId == 0)
             {
                 dtAppointmentDate.MinDate = newAvailableTime;
-                dtAppointmentTime.MinDate = newAvailableTime;
+                numHours.Value = newAvailableTime.Hour;
+                numMinutes.Value = newAvailableTime.Minute;
             }
 
             BindDoctors();
@@ -76,7 +76,9 @@ namespace CS6232_G2
             if (_appointment.AppointmentId > 0)
             {
                 dtAppointmentDate.Value = _appointment.AppointmentTime.Value;
-                dtAppointmentTime.Value = _appointment.AppointmentTime.Value;
+                numHours.Value = _appointment.AppointmentTime.Value.Hour;
+                numMinutes.Value = _appointment.AppointmentTime.Value.Minute;
+
                 txtReason.Text = _appointment.Reason;
 
                 if (_doctorList?.Count > 0)
@@ -92,7 +94,8 @@ namespace CS6232_G2
 
             cbDoctors.Enabled = _isFormEditable;
             dtAppointmentDate.Enabled = _isFormEditable;
-            dtAppointmentTime.Enabled = _isFormEditable;
+            numHours.Enabled = _isFormEditable;
+            numMinutes.Enabled = _isFormEditable;
             txtReason.Enabled = _isFormEditable;
             btnSave.Enabled = _isFormEditable;
         }
@@ -125,38 +128,6 @@ namespace CS6232_G2
             return nextAvailable;
         }
 
-        private void dtAppointmentTime_ValueChanged(object sender, EventArgs e)
-        {
-            if (_lastTimeValue == dtAppointmentTime.Value)
-            {
-                return;
-            }
-
-            TimeSpan elapsed = new TimeSpan(dtAppointmentTime.Value.Ticks - _lastTimeValue.Ticks);
-            int minuteIncrements = 0;
-
-            if (elapsed.TotalMinutes > 59)
-            {
-                _lastTimeValue = dtAppointmentTime.Value;
-                return;
-            }
-            else if (elapsed.TotalMinutes == 59)
-            {
-                minuteIncrements = _lastTimeValue < dtAppointmentTime.Value.AddHours(-1) ? 74 : -74;
-            }
-            else
-            {
-                minuteIncrements = _lastTimeValue < dtAppointmentTime.Value ? 14 : -14;
-            }
-
-            DateTime newValue = dtAppointmentTime.Value.AddMinutes(minuteIncrements);
-
-            newValue = newValue < dtAppointmentTime.MinDate ? dtAppointmentTime.MinDate : newValue;
-            newValue = CalculateNextAvailableTime(newValue);
-            _lastTimeValue = newValue;
-            dtAppointmentTime.Value = newValue;
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             lblMessage.Text = string.Empty;
@@ -167,7 +138,7 @@ namespace CS6232_G2
                 int doctorId = selectedDoctor.DoctorId;
 
                 _appointment.DoctorId = doctorId;
-                _appointment.AppointmentTime = dtAppointmentDate.Value.Date + dtAppointmentTime.Value.TimeOfDay;
+                _appointment.AppointmentTime = dtAppointmentDate.Value.Date + new TimeSpan(Convert.ToInt16(numHours.Value), Convert.ToInt16(numMinutes.Value), 0);
                 _appointment.Reason = txtReason.Text.Trim();
 
                 try
@@ -193,7 +164,7 @@ namespace CS6232_G2
         private bool IsFormValid()
         {
             lblMessage.ForeColor = Color.Red;
-            DateTime appointmentTime = dtAppointmentDate.Value.Date + dtAppointmentTime.Value.TimeOfDay;
+            DateTime appointmentTime = dtAppointmentDate.Value.Date + new TimeSpan(Convert.ToInt16(numHours.Value), Convert.ToInt16(numMinutes.Value), 0);
 
             if (appointmentTime < DateTime.Now)
             {
@@ -238,6 +209,16 @@ namespace CS6232_G2
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void numHours_ValueChanged(object sender, EventArgs e)
+        {
+            lblMessage.Text = string.Empty;
+        }
+
+        private void numMinutes_ValueChanged(object sender, EventArgs e)
+        {
+            lblMessage.Text = string.Empty;
         }
     }
 }
