@@ -31,9 +31,9 @@
             this.tbPatientInfo = new System.Windows.Forms.TabControl();
             this.appointments = new System.Windows.Forms.TabPage();
             this.visits = new System.Windows.Forms.TabPage();
+            this.visitsUserControl = new CS6232_G2.UserControls.VisitsUserControl();
             this.labTests = new System.Windows.Forms.TabPage();
             this.ucSearchTest = new CS6232_G2.UserControls.ucSearchTest();
-            this.visitsUserControl = new CS6232_G2.UserControls.VisitsUserControl();
             this.tbPatientInfo.SuspendLayout();
             this.visits.SuspendLayout();
             this.labTests.SuspendLayout();
@@ -72,6 +72,14 @@
             this.visits.Text = "Visits";
             this.visits.UseVisualStyleBackColor = true;
             // 
+            // visitsUserControl
+            // 
+            this.visitsUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.visitsUserControl.Location = new System.Drawing.Point(3, 3);
+            this.visitsUserControl.Name = "visitsUserControl";
+            this.visitsUserControl.Size = new System.Drawing.Size(786, 418);
+            this.visitsUserControl.TabIndex = 0;
+            // 
             // labTests
             // 
             this.labTests.Controls.Add(this.ucSearchTest);
@@ -89,14 +97,6 @@
             this.ucSearchTest.Name = "ucSearchTest";
             this.ucSearchTest.Size = new System.Drawing.Size(792, 424);
             this.ucSearchTest.TabIndex = 0;
-            // 
-            // visitsUserControl
-            // 
-            this.visitsUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.visitsUserControl.Location = new System.Drawing.Point(3, 3);
-            this.visitsUserControl.Name = "visitsUserControl";
-            this.visitsUserControl.Size = new System.Drawing.Size(786, 418);
-            this.visitsUserControl.TabIndex = 0;
             // 
             // PatientTabsForm
             // 

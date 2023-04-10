@@ -19,6 +19,7 @@ namespace CS6232_G2.View
         private void PatientTabsForm_Load(object sender, EventArgs e)
         {
             ucSearchTest.SetPatient(_userController.GetUserFullNameById(_patientId));
+            visitsUserControl.SetPatient(_userController.GetUserFullNameById(_patientId));
         }
     }
 }

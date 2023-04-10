@@ -20,11 +20,11 @@ namespace CS6232_G2.View
         private NurseController _nurseController;
         private LabTestController _labTestController;
 
-        public RoutineCheckupForm()
+        public RoutineCheckupForm(PatientVisit visit)
         {
             InitializeComponent();
             _routineCheckController = new RoutineCheckController();
-            visit = new PatientVisit();
+            this.visit = visit;
             _testController = new TestController();
             _orderedTests = new List<LabTest>();
             _nurseController = new NurseController();
@@ -362,6 +362,12 @@ namespace CS6232_G2.View
             {
 
             }
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

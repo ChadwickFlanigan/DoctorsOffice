@@ -11,6 +11,9 @@ namespace CS6232_G2.Controller
     {
         private PatientVisitDAL _patientVisitDAL;
 
+        /// <summary>
+        /// constructor for the PatientVisitController
+        /// </summary>
         public PatientVisitController() { 
             _patientVisitDAL= new PatientVisitDAL();
         }

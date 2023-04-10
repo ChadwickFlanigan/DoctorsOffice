@@ -49,7 +49,6 @@ namespace CS6232_G2.View
             tbStreetNumber.Text = _loadedUser.StreetNumber;
             tbCity.Text = _loadedUser.City;
             tbState.Text = _loadedUser.State;
-            tbCountry.Text = _loadedUser.Country;
             tbPhone.Text = _loadedUser.Phone.Trim();
             tbZipcode.Text = _loadedUser.Zipcode;
         }
@@ -100,7 +99,6 @@ namespace CS6232_G2.View
                 bool streetNumberValid = true;
                 bool cityValid = true;
                 bool stateValid = true;
-                bool countryValid = true;
                 bool phoneValid = true;
                 bool zipcodeValid = true;
 
@@ -147,13 +145,6 @@ namespace CS6232_G2.View
                     lblStateError.Text = "Please enter a valid state";
                 }
 
-                string country = this.tbCountry.Text;
-                if (country == null || country == "")
-                {
-                    countryValid = false;
-                    lblCountryError.Text = "Please enter a valid country";
-                }
-
                 long l = 0;
                 string phone = this.tbPhone.Text;
                 if (phone == null || phone == "" || phone.Length != 10 || !long.TryParse(this.tbPhone.Text, out l))
@@ -169,7 +160,7 @@ namespace CS6232_G2.View
                     lblZipcodeError.Text = "Please enter a valid five digit zip code";
                 }
 
-                if (!lastNameValid || !firstNameValid || !dobValid || !ssnValid || !genderValid || !streetNumberValid || !cityValid || !stateValid || !countryValid || !phoneValid || !zipcodeValid)
+                if (!lastNameValid || !firstNameValid || !dobValid || !ssnValid || !genderValid || !streetNumberValid || !cityValid || !stateValid || !phoneValid || !zipcodeValid)
                 {
                     return;
                 }
@@ -186,7 +177,6 @@ namespace CS6232_G2.View
                     user.State = state;
                     user.Phone = phone;
                     user.Zipcode = zip;
-                    user.Country = country;
                     if (user.FirstName == _loadedUser.FirstName && user.LastName == _loadedUser.LastName
                         && user.DOB == _loadedUser.DOB && user.SSN == _loadedUser.SSN
                         && user.Gender == _loadedUser.Gender && user.StreetNumber == _loadedUser.StreetNumber
