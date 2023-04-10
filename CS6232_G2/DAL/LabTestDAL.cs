@@ -1,6 +1,7 @@
 ﻿using CS6232_G2.Model;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CS6232_G2.DAL
 {
@@ -44,6 +45,29 @@ namespace CS6232_G2.DAL
                 }
             }
             return tests;
+        }
+
+        /// <summary>
+        /// method to insert a labtest into the datebase.
+        /// </summary>
+        /// <param name="labTest"> a LabTest object representing a Test ordered for a patient</param>
+        public void OrderLabTest(LabTest labTest)
+        {
+            string insertString = "INSERT INTO LabTest(testCode, patientVisitID) " +
+                                     "VALUES " +
+                                     "(@testCode, @patientVisitID);";
+            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand insertStatement = new SqlCommand(insertString, connection))
+                {
+                    insertStatement.Parameters.AddWithValue("@testCode", labTest.TestCode);
+                    insertStatement.Parameters.AddWithValue("@patientVisitID", labTest.PatientVisitId);
+
+                    insertStatement.ExecuteNonQuery();
+
+                }
+            }
         }
     }
 }
