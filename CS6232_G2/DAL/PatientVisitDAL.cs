@@ -19,13 +19,13 @@ namespace CS6232_G2.DAL
         {
             List<PatientVisit> patientVisits = new List<PatientVisit>();
 
-            string selectStatement = @"select patientVisitID, visitDateAndTime, pv.appointmentTime, weight, bpSystolic, 
+            string selectStatement = @"select patientVisitID, visitDateAndTime, pv.appointmentTime as time, weight, bpSystolic, 
                                        bpDiastolic, bodyTemperature, pulse, symptoms, initialDiagnosis, finalDiagnosis, 
-                                       nurseId, pv.appointmentId, height
+                                       nurseId, pv.appointmentId as Id, height
                                        from PatientVisits pv
                                        join Appointments a
                                        on pv.appointmentId = a.appointmentId
-                                       where a.patientId = @patientId";
+                                       where a.patientId = @patientId;";
 
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {
@@ -43,7 +43,7 @@ namespace CS6232_G2.DAL
                             {
                                 PatientVisitID = Convert.ToInt32(reader["patientVisitID"]),
                                 VisitDateAndTime = Convert.ToDateTime(reader["visitDateAndTime"]),
-                                AppointmentTime = Convert.ToDateTime(reader["pv.appointmentTime"]),
+                                AppointmentTime = Convert.ToDateTime(reader["time"]),
                                 Weight = decimal.Parse(reader["weight"].ToString()),
                                 Systolic = Convert.ToInt32(reader["bpSystolic"]),
                                 Diastolic = Convert.ToInt32(reader["bpDiastolic"]),
@@ -52,10 +52,9 @@ namespace CS6232_G2.DAL
                                 Symptoms = reader["symptoms"].ToString(),
                                 InitialDiagnosis = reader["initialDiagnosis"].ToString(),
                                 FinalDiagnosis = reader["finalDiagnosis"].ToString(),
-                                AppointmentID = Convert.ToInt32(reader["pv.appointmentId"]),
+                                AppointmentID = Convert.ToInt32(reader["Id"]),
                                 NurseID = Convert.ToInt32(reader["nurseId"]),
                                 Height = decimal.Parse(reader["height"].ToString())
-
                             };
 
                             patientVisits.Add(patientVisit);
