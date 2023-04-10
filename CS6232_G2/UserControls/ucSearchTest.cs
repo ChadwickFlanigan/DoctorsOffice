@@ -39,11 +39,6 @@ namespace CS6232_G2.UserControls
             _patient = patient;
         }
 
-        private void ucSearchTest_Load(object sender, EventArgs e)
-        {
-            PopulateComboBoxes();
-        }
-
         private void PopulateComboBoxes()
         {
             try
@@ -77,6 +72,11 @@ namespace CS6232_G2.UserControls
         private void UpdateDataGrid()
         {
             dgvTests.DataSource = _labTestController.GetLabTestByVistIdAndTestCode(int.Parse(cbVisits.SelectedValue.ToString()), int.Parse(cbTests.SelectedValue.ToString()));
+        }
+
+        private void ucSearchTest_Paint(object sender, PaintEventArgs e)
+        {
+            PopulateComboBoxes();
         }
     }
 }

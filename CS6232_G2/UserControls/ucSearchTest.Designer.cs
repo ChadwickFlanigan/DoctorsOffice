@@ -113,7 +113,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ucSearchTest";
             this.Size = new System.Drawing.Size(715, 400);
-            this.Load += new System.EventHandler(this.ucSearchTest_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.ucSearchTest_Paint);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTests)).EndInit();

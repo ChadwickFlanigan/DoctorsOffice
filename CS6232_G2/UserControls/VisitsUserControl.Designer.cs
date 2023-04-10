@@ -50,7 +50,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.13044F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.86956F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 176F));
             this.tableLayoutPanel1.Controls.Add(this.patientVisitDataGridView, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.visitLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker, 1, 0);
@@ -141,7 +141,7 @@
             // visitSearchButton
             // 
             this.visitSearchButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.visitSearchButton.Location = new System.Drawing.Point(507, 25);
+            this.visitSearchButton.Location = new System.Drawing.Point(506, 25);
             this.visitSearchButton.Name = "visitSearchButton";
             this.visitSearchButton.Size = new System.Drawing.Size(75, 23);
             this.visitSearchButton.TabIndex = 2;
@@ -152,7 +152,7 @@
             // viewVisitButton
             // 
             this.viewVisitButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.viewVisitButton.Location = new System.Drawing.Point(286, 418);
+            this.viewVisitButton.Location = new System.Drawing.Point(285, 418);
             this.viewVisitButton.Name = "viewVisitButton";
             this.viewVisitButton.Size = new System.Drawing.Size(129, 23);
             this.viewVisitButton.TabIndex = 4;
@@ -167,7 +167,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "VisitsUserControl";
             this.Size = new System.Drawing.Size(680, 463);
-            this.Load += new System.EventHandler(this.VisitsUserControl_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.VisitsUserControl_Paint);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientVisitDataGridView)).EndInit();
