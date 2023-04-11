@@ -1,7 +1,7 @@
 ﻿using CS6232_G2.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace CS6232_G2.DAL
 {
@@ -18,9 +18,9 @@ namespace CS6232_G2.DAL
         {
             List<LabTest> tests = new List<LabTest>();
 
-            string selectStatement = "select testDateTime, result, normal " +
-                                     "from LabTest" +
-                                     "where testCode = @testCode and patientVisitID = @patientVisitId";
+            string selectStatement = "select testCode, patientVisitID, testDateTime, result, normal " +
+                                     "from LabTest " +
+                                     "where testCode = @testCode and patientVisitID = @patientVisitId;";
 
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {
@@ -36,8 +36,11 @@ namespace CS6232_G2.DAL
                         {
                             LabTest test = new LabTest
                             {
-                                //TestCode = Convert.ToInt32(reader["testCode"]),
-                                //TestName = reader["testName"].ToString()
+                                TestCode = Convert.ToInt32(reader["testCode"]),
+                                PatientVisitId = Convert.ToInt32(reader["patientVisitID"]),
+                                TestDateTime = Convert.ToDateTime(reader["testDateTime"]),
+                                result = reader["result"].ToString(),
+                                normal = reader["normal"].ToString() == "1" || reader["normal"].ToString() == "True",
                             };
                             tests.Add(test);
                         }

@@ -66,17 +66,22 @@ namespace CS6232_G2.UserControls
 
         private void cbTests_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //UpdateDataGrid();
         }
 
         private void cbAppointments_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //UpdateDataGrid();
         }
 
         private void UpdateDataGrid()
         {
             dgvTests.DataSource = _labTestController.GetLabTestByVistIdAndTestCode(int.Parse(cbVisits.SelectedValue.ToString()), int.Parse(cbTests.SelectedValue.ToString()));
+        }
+
+        private void btnSearchTests_Click(object sender, EventArgs e)
+        {
+            UpdateDataGrid();
         }
     }
 }
