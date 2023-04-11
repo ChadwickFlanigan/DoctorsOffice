@@ -10,6 +10,10 @@ namespace CS6232_G2.DAL
     /// </summary>
     public class StateDAL
     {
+        /// <summary>
+        /// Returns all the states in the database
+        /// </summary>
+        /// <returns></returns>
         public List<State> GetAllStates()
         {
             List<State> states = new List<State>();
@@ -29,7 +33,7 @@ namespace CS6232_G2.DAL
                         {
                             State state = new State
                             {
-                                StateCode = Convert.ToInt32(reader["testCode"]),
+                                StateCode = reader["testCode"].ToString(),
                                 StateName = reader["testName"].ToString()
                             };
                             states.Add(state);

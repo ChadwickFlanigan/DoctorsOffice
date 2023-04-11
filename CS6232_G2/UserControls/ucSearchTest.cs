@@ -12,7 +12,6 @@ namespace CS6232_G2.UserControls
     public partial class ucSearchTest : UserControl
     {
         Patient _patient;
-        AppointmentController _appointmentController;
         PatientVisitController _patientVisitController;
         TestController _testController;
         LabTestController _labTestController;
@@ -23,7 +22,6 @@ namespace CS6232_G2.UserControls
         public ucSearchTest()
         {
             _patient = new Patient();
-            _appointmentController = new AppointmentController();
             _patientVisitController = new PatientVisitController();
             _testController = new TestController();
             _labTestController = new LabTestController();
@@ -57,18 +55,6 @@ namespace CS6232_G2.UserControls
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
-        }
-
-
-
-        private void cbTests_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //UpdateDataGrid();
-        }
-
-        private void cbAppointments_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //UpdateDataGrid();
         }
 
         private void UpdateDataGrid()

@@ -75,20 +75,6 @@ namespace CS6232_G2.View
                     lblCityError.Text = "Please enter a valid city";
                 }
 
-                string state = this.tbState.Text;
-                if (state == null || state == "")
-                {
-                    stateValid = false;
-                    lblStateError.Text = "Please enter a valid state";
-                }
-
-                string country = this.tbCountry.Text;
-                if (country == null || country == "")
-                {
-                    countryValid = false;
-                    lblCountryError.Text = "Please enter a valid country";
-                }
-
                 long l = 0;
                 string phone = this.tbPhone.Text;               
                 if (phone == null || phone == "" || phone.Length != 10 || !long.TryParse(this.tbPhone.Text, out l))
@@ -117,11 +103,10 @@ namespace CS6232_G2.View
                     user.SSN = ssn;
                     user.Gender = cbGender.SelectedValue.ToString();
                     user.StreetNumber = streetNumber;
+                    user.State = cbStates.SelectedValue.ToString();
                     user.City = city;
-                    user.State = state;
                     user.Phone = phone;
                     user.Zipcode = zip;
-                    user.Country = country;
                     this._patientController.Add(user);
                     this.lblMessage.ForeColor = Color.Black;
                     Clear();
@@ -183,12 +168,6 @@ namespace CS6232_G2.View
             lblMessage.Text = string.Empty;
         }
 
-        private void CountryTextBox_TextBoxChanged(object sender, EventArgs e)
-        {
-            lblCountryError.Text = string.Empty;
-            lblMessage.Text = string.Empty;
-        }
-
         private void LoadComboBox()
         {
             try
@@ -224,8 +203,6 @@ namespace CS6232_G2.View
             tbSSN.Text = string.Empty;
             tbStreetNumber.Text = string.Empty;
             tbCity.Text = string.Empty;
-            tbState.Text = string.Empty;
-            tbCountry.Text = string.Empty;
             tbPhone.Text = string.Empty;
             tbZipcode.Text = string.Empty;
 

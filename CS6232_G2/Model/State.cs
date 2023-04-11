@@ -5,7 +5,7 @@
     /// </summary>
     public class State
     {
-        public int StateCode { get; set; }
+        public string StateCode { get; set; }
         public string StateName { get; set; }
     }
 }

@@ -90,7 +90,6 @@
             this.cbTests.Name = "cbTests";
             this.cbTests.Size = new System.Drawing.Size(121, 21);
             this.cbTests.TabIndex = 2;
-            this.cbTests.SelectedIndexChanged += new System.EventHandler(this.cbTests_SelectedIndexChanged);
             // 
             // lblTests
             // 
@@ -130,7 +129,6 @@
             this.cbVisits.Name = "cbVisits";
             this.cbVisits.Size = new System.Drawing.Size(121, 21);
             this.cbVisits.TabIndex = 1;
-            this.cbVisits.SelectedIndexChanged += new System.EventHandler(this.cbAppointments_SelectedIndexChanged);
             // 
             // lblPatientVisits
             // 

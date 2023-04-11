@@ -15,6 +15,7 @@ namespace CS6232_G2.View
         private User _loadedUser;
         private PatientController _patientController;
         private UserController _userController;
+        private StateController _stateController;
         private int _userId;
 
         /// <summary>
@@ -25,6 +26,7 @@ namespace CS6232_G2.View
             _loadedUser = new User();
             _patientController = new PatientController();
             _userController = new UserController();
+            _stateController = new StateController();
             _userId = userId;
             InitializeComponent();
         }
@@ -46,9 +48,10 @@ namespace CS6232_G2.View
                 cbGender.SelectedIndex = 1;
             }
 
+            cbStates.SelectedValue = _loadedUser.State;
+
             tbStreetNumber.Text = _loadedUser.StreetNumber;
             tbCity.Text = _loadedUser.City;
-            tbState.Text = _loadedUser.State;
             tbPhone.Text = _loadedUser.Phone.Trim();
             tbZipcode.Text = _loadedUser.Zipcode;
         }
@@ -69,6 +72,10 @@ namespace CS6232_G2.View
                 cbGender.DataSource = genderList;
                 cbGender.DisplayMember = "Name";
                 cbGender.ValueMember = "Id";
+                List<State> states = _stateController.GetAllStates();
+                cbStates.DataSource= states;
+                cbStates.DisplayMember= "StateName";
+                cbStates.ValueMember = "StateCode";
             }
             catch (Exception ex)
             {
@@ -138,13 +145,6 @@ namespace CS6232_G2.View
                     lblCityError.Text = "Please enter a valid city";
                 }
 
-                string state = this.tbState.Text;
-                if (state == null || state == "")
-                {
-                    stateValid = false;
-                    lblStateError.Text = "Please enter a valid state";
-                }
-
                 long l = 0;
                 string phone = this.tbPhone.Text;
                 if (phone == null || phone == "" || phone.Length != 10 || !long.TryParse(this.tbPhone.Text, out l))
@@ -173,8 +173,8 @@ namespace CS6232_G2.View
                     user.SSN = ssn;
                     user.Gender = cbGender.SelectedValue.ToString();
                     user.StreetNumber = streetNumber;
+                    user.State = cbStates.SelectedValue.ToString();
                     user.City = city;
-                    user.State = state;
                     user.Phone = phone;
                     user.Zipcode = zip;
                     if (user.FirstName == _loadedUser.FirstName && user.LastName == _loadedUser.LastName
@@ -249,12 +249,6 @@ namespace CS6232_G2.View
         private void ZipcodeTextBox_TextBoxChanged(object sender, EventArgs e)
         {
             lblZipcodeError.Text = string.Empty;
-            lblMessage.Text = string.Empty;
-        }
-
-        private void CountryTextBox_TextBoxChanged(object sender, EventArgs e)
-        {
-            lblCountryError.Text = string.Empty;
             lblMessage.Text = string.Empty;
         }
     }
