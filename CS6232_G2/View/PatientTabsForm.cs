@@ -25,10 +25,9 @@ namespace CS6232_G2.View
         private void InititializeUserControls()
         {
             ucPatientAppointments.SetPatient(_patient);
+            ucSearchTest.SetPatient(_patient);
             //ucPatientAppointments appointments = new ucPatientAppointments();
             //appointments.SetPatient(_patient);
-
-            //ucSearchTest.SetPatient(patient);
             //visitsUserControl.SetPatient(patient);
         }
     }

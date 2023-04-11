@@ -59,24 +59,43 @@ namespace CS6232_G2.UserControls
             }
         }
 
+
+
         private void cbTests_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //UpdateDataGrid();
         }
 
         private void cbAppointments_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //UpdateDataGrid();
         }
 
         private void UpdateDataGrid()
         {
             dgvTests.DataSource = _labTestController.GetLabTestByVistIdAndTestCode(int.Parse(cbVisits.SelectedValue.ToString()), int.Parse(cbTests.SelectedValue.ToString()));
+            if (!string.IsNullOrEmpty(dgvTests.SelectedCells[3].Value.ToString()))
+            {
+                lblResult.Text = dgvTests.SelectedCells[3].Value.ToString();
+            }
         }
 
-        private void ucSearchTest_Paint(object sender, PaintEventArgs e)
+        private void btnSearchTests_Click(object sender, EventArgs e)
+        {
+            UpdateDataGrid();
+        }
+
+        private void ucSearchTest_Load(object sender, EventArgs e)
         {
             PopulateComboBoxes();
+        }
+
+        private void dgvTests_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(dgvTests.SelectedCells[3].Value.ToString()))
+            {
+                lblResult.Text = dgvTests.SelectedCells[3].Value.ToString();
+            }
         }
     }
 }

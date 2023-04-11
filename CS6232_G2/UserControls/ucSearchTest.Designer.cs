@@ -30,13 +30,13 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvTests = new System.Windows.Forms.DataGridView();
-            this.cbVisits = new System.Windows.Forms.ComboBox();
             this.cbTests = new System.Windows.Forms.ComboBox();
-            this.lblPatientVisits = new System.Windows.Forms.Label();
             this.lblTests = new System.Windows.Forms.Label();
             this.btnSearchTests = new System.Windows.Forms.Button();
             this.detailedResult = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.cbVisits = new System.Windows.Forms.ComboBox();
+            this.lblPatientVisits = new System.Windows.Forms.Label();
+            this.lblResult = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTests)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +55,7 @@
             this.tableLayoutPanel1.Controls.Add(this.detailedResult, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.cbVisits, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblPatientVisits, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lblResult, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -81,16 +81,7 @@
             this.dgvTests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTests.Size = new System.Drawing.Size(709, 234);
             this.dgvTests.TabIndex = 0;
-            // 
-            // cbVisits
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.cbVisits, 2);
-            this.cbVisits.FormattingEnabled = true;
-            this.cbVisits.Location = new System.Drawing.Point(3, 56);
-            this.cbVisits.Name = "cbVisits";
-            this.cbVisits.Size = new System.Drawing.Size(121, 21);
-            this.cbVisits.TabIndex = 1;
-            this.cbVisits.SelectedIndexChanged += new System.EventHandler(this.cbAppointments_SelectedIndexChanged);
+            this.dgvTests.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTests_CellContentClick);
             // 
             // cbTests
             // 
@@ -100,15 +91,6 @@
             this.cbTests.Size = new System.Drawing.Size(121, 21);
             this.cbTests.TabIndex = 2;
             this.cbTests.SelectedIndexChanged += new System.EventHandler(this.cbTests_SelectedIndexChanged);
-            // 
-            // lblPatientVisits
-            // 
-            this.lblPatientVisits.AutoSize = true;
-            this.lblPatientVisits.Location = new System.Drawing.Point(3, 0);
-            this.lblPatientVisits.Name = "lblPatientVisits";
-            this.lblPatientVisits.Size = new System.Drawing.Size(30, 13);
-            this.lblPatientVisits.TabIndex = 3;
-            this.lblPatientVisits.Text = "visits";
             // 
             // lblTests
             // 
@@ -140,17 +122,36 @@
             this.detailedResult.TabIndex = 6;
             this.detailedResult.Text = "Result:";
             // 
-            // label1
+            // cbVisits
             // 
-            this.label1.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label1, 3);
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(74, 356);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "label1";
+            this.tableLayoutPanel1.SetColumnSpan(this.cbVisits, 2);
+            this.cbVisits.FormattingEnabled = true;
+            this.cbVisits.Location = new System.Drawing.Point(3, 56);
+            this.cbVisits.Name = "cbVisits";
+            this.cbVisits.Size = new System.Drawing.Size(121, 21);
+            this.cbVisits.TabIndex = 1;
+            this.cbVisits.SelectedIndexChanged += new System.EventHandler(this.cbAppointments_SelectedIndexChanged);
+            // 
+            // lblPatientVisits
+            // 
+            this.lblPatientVisits.AutoSize = true;
+            this.lblPatientVisits.Location = new System.Drawing.Point(3, 0);
+            this.lblPatientVisits.Name = "lblPatientVisits";
+            this.lblPatientVisits.Size = new System.Drawing.Size(30, 13);
+            this.lblPatientVisits.TabIndex = 3;
+            this.lblPatientVisits.Text = "visits";
+            // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.lblResult, 3);
+            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResult.Location = new System.Drawing.Point(74, 356);
+            this.lblResult.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(46, 17);
+            this.lblResult.TabIndex = 7;
+            this.lblResult.Text = "label1";
             // 
             // ucSearchTest
             // 
@@ -159,7 +160,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ucSearchTest";
             this.Size = new System.Drawing.Size(715, 400);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.ucSearchTest_Paint);
+            this.Load += new System.EventHandler(this.ucSearchTest_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTests)).EndInit();
@@ -177,6 +178,6 @@
         private System.Windows.Forms.Label lblTests;
         private System.Windows.Forms.Button btnSearchTests;
         private System.Windows.Forms.Label detailedResult;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblResult;
     }
 }
