@@ -3,12 +3,6 @@ using CS6232_G2.Model;
 using CS6232_G2.View;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CS6232_G2.UserControls
@@ -50,12 +44,6 @@ namespace CS6232_G2.UserControls
             _patient = patient;
         }
 
-        private void VisitsUserControl_Load(object sender, EventArgs e)
-        {
-            this._visitList = this._visitController.GetPatientVisits(this._patient.PatientId);
-            this.patientVisitBindingSource.DataSource = _visitList;
-        }
-
         private void viewVisitButton_Click(object sender, EventArgs e)
         {
             if (this.patientVisitBindingSource.DataSource == this._filteredVisitList)
@@ -84,9 +72,12 @@ namespace CS6232_G2.UserControls
                     }
                 }
             }
-            
+        }
 
-            
+        private void VisitsUserControl_Paint(object sender, PaintEventArgs e)
+        {
+            this._visitList = this._visitController.GetPatientVisits(this._patient.PatientId);
+            this.patientVisitBindingSource.DataSource = _visitList;
         }
     }
 }

@@ -39,12 +39,19 @@
             this.cbDoctors = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtReason = new System.Windows.Forms.TextBox();
-            this.dtAppointmentTime = new System.Windows.Forms.DateTimePicker();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblMessage = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.flpAppointmentTime = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblHour = new System.Windows.Forms.Label();
+            this.numHours = new System.Windows.Forms.NumericUpDown();
+            this.lblMinute = new System.Windows.Forms.Label();
+            this.numMinutes = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.flpAppointmentTime.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numHours)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMinutes)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -62,8 +69,8 @@
             this.tableLayoutPanel1.Controls.Add(this.cbDoctors, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtReason, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.dtAppointmentTime, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.flpAppointmentTime, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -129,7 +136,7 @@
             this.btnClose.Location = new System.Drawing.Point(3, 391);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(161, 56);
-            this.btnClose.TabIndex = 6;
+            this.btnClose.TabIndex = 7;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnCancel_Click);
@@ -159,6 +166,7 @@
             // 
             this.cbDoctors.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbDoctors.DisplayMember = "DoctorName";
+            this.cbDoctors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDoctors.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDoctors.FormattingEnabled = true;
             this.cbDoctors.Location = new System.Drawing.Point(283, 86);
@@ -185,20 +193,7 @@
             this.txtReason.Multiline = true;
             this.txtReason.Name = "txtReason";
             this.txtReason.Size = new System.Drawing.Size(514, 67);
-            this.txtReason.TabIndex = 4;
-            // 
-            // dtAppointmentTime
-            // 
-            this.dtAppointmentTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtAppointmentTime.CustomFormat = "hh:mm";
-            this.dtAppointmentTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtAppointmentTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtAppointmentTime.Location = new System.Drawing.Point(283, 221);
-            this.dtAppointmentTime.Name = "dtAppointmentTime";
-            this.dtAppointmentTime.ShowUpDown = true;
-            this.dtAppointmentTime.Size = new System.Drawing.Size(514, 26);
-            this.dtAppointmentTime.TabIndex = 3;
-            this.dtAppointmentTime.ValueChanged += new System.EventHandler(this.dtAppointmentTime_ValueChanged);
+            this.txtReason.TabIndex = 5;
             // 
             // flowLayoutPanel1
             // 
@@ -226,10 +221,77 @@
             this.btnSave.Location = new System.Drawing.Point(344, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(161, 56);
-            this.btnSave.TabIndex = 5;
+            this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // flpAppointmentTime
+            // 
+            this.flpAppointmentTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.flpAppointmentTime.Controls.Add(this.lblHour);
+            this.flpAppointmentTime.Controls.Add(this.numHours);
+            this.flpAppointmentTime.Controls.Add(this.lblMinute);
+            this.flpAppointmentTime.Controls.Add(this.numMinutes);
+            this.flpAppointmentTime.Location = new System.Drawing.Point(283, 204);
+            this.flpAppointmentTime.Name = "flpAppointmentTime";
+            this.flpAppointmentTime.Size = new System.Drawing.Size(514, 61);
+            this.flpAppointmentTime.TabIndex = 9;
+            // 
+            // lblHour
+            // 
+            this.lblHour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblHour.AutoSize = true;
+            this.lblHour.Location = new System.Drawing.Point(3, 0);
+            this.lblHour.Name = "lblHour";
+            this.lblHour.Size = new System.Drawing.Size(69, 37);
+            this.lblHour.TabIndex = 2;
+            this.lblHour.Text = "Hour:";
+            this.lblHour.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // numHours
+            // 
+            this.numHours.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numHours.Location = new System.Drawing.Point(78, 3);
+            this.numHours.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.numHours.Name = "numHours";
+            this.numHours.Size = new System.Drawing.Size(120, 31);
+            this.numHours.TabIndex = 3;
+            this.numHours.ValueChanged += new System.EventHandler(this.numHours_ValueChanged);
+            // 
+            // lblMinute
+            // 
+            this.lblMinute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblMinute.AutoSize = true;
+            this.lblMinute.Location = new System.Drawing.Point(204, 0);
+            this.lblMinute.Name = "lblMinute";
+            this.lblMinute.Size = new System.Drawing.Size(90, 37);
+            this.lblMinute.TabIndex = 3;
+            this.lblMinute.Text = "Minute:";
+            this.lblMinute.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // numMinutes
+            // 
+            this.numMinutes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.numMinutes.Increment = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.numMinutes.Location = new System.Drawing.Point(300, 3);
+            this.numMinutes.Maximum = new decimal(new int[] {
+            45,
+            0,
+            0,
+            0});
+            this.numMinutes.Name = "numMinutes";
+            this.numMinutes.Size = new System.Drawing.Size(120, 31);
+            this.numMinutes.TabIndex = 4;
+            this.numMinutes.ValueChanged += new System.EventHandler(this.numMinutes_ValueChanged);
             // 
             // AppointmentForm
             // 
@@ -244,6 +306,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flpAppointmentTime.ResumeLayout(false);
+            this.flpAppointmentTime.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numHours)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMinutes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -261,9 +327,13 @@
         private System.Windows.Forms.ComboBox cbDoctors;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtReason;
-        private System.Windows.Forms.DateTimePicker dtAppointmentTime;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.FlowLayoutPanel flpAppointmentTime;
+        private System.Windows.Forms.Label lblHour;
+        private System.Windows.Forms.NumericUpDown numHours;
+        private System.Windows.Forms.Label lblMinute;
+        private System.Windows.Forms.NumericUpDown numMinutes;
     }
 }

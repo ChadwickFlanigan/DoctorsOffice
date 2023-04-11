@@ -1,25 +1,35 @@
-﻿using CS6232_G2.Controller;
-using System;
+﻿using CS6232_G2.Model;
+using CS6232_G2.UserControls;
 using System.Windows.Forms;
 
 namespace CS6232_G2.View
 {
+    /// <summary>
+    /// Patient tab form will host 3 tabs, 1 for patient appointments, another for test results and third is for visits
+    /// </summary>
     public partial class PatientTabsForm : Form
     {
-        UserController _userController;
-        int _patientId;
+        Patient _patient;
 
-        public PatientTabsForm(int userId)
+        /// <summary>
+        /// Constructor will initialize the tabs with the patient object sent
+        /// </summary>
+        /// <param name="patient"></param>
+        public PatientTabsForm(Patient patient)
         {
-            _patientId = userId;
-            _userController = new UserController();
             InitializeComponent();
+            _patient = patient;
+            InititializeUserControls();
         }
 
-        private void PatientTabsForm_Load(object sender, EventArgs e)
+        private void InititializeUserControls()
         {
-            ucSearchTest.SetPatient(_userController.GetUserFullNameById(_patientId));
-            visitsUserControl.SetPatient(_userController.GetUserFullNameById(_patientId));
+            ucPatientAppointments.SetPatient(_patient);
+            //ucPatientAppointments appointments = new ucPatientAppointments();
+            //appointments.SetPatient(_patient);
+
+            //ucSearchTest.SetPatient(patient);
+            //visitsUserControl.SetPatient(patient);
         }
     }
 }

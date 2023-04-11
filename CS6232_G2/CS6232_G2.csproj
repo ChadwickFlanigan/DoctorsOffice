@@ -77,6 +77,12 @@
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\Test.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="UserControls\ucPatientAppointments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucPatientAppointments.Designer.cs">
+      <DependentUpon>ucPatientAppointments.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucSearchNurse.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     <Compile Include="View\PatientAppointments.Designer.cs">
       <DependentUpon>PatientAppointments.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\ucPatientAppointments.resx">
+      <DependentUpon>ucPatientAppointments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucSearchNurse.resx">
       <DependentUpon>ucSearchNurse.cs</DependentUpon>
     </EmbeddedResource>
