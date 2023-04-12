@@ -38,6 +38,7 @@
             this.DoctorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPatientName = new System.Windows.Forms.Label();
             this.btnEditPatient = new System.Windows.Forms.Button();
+            this.routineCheckupButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.tblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAppointments)).BeginInit();
@@ -49,6 +50,7 @@
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.Controls.Add(this.btnViewAppointment);
             this.flowLayoutPanel1.Controls.Add(this.btnAddAppointment);
+            this.flowLayoutPanel1.Controls.Add(this.routineCheckupButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(544, 67);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -163,6 +165,19 @@
             this.btnEditPatient.UseVisualStyleBackColor = true;
             this.btnEditPatient.Click += new System.EventHandler(this.btnEditPatient_Click);
             // 
+            // routineCheckupButton
+            // 
+            this.routineCheckupButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.routineCheckupButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.routineCheckupButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.routineCheckupButton.Location = new System.Drawing.Point(3, 93);
+            this.routineCheckupButton.Name = "routineCheckupButton";
+            this.routineCheckupButton.Size = new System.Drawing.Size(170, 39);
+            this.routineCheckupButton.TabIndex = 6;
+            this.routineCheckupButton.Text = "Routine Check-Up";
+            this.routineCheckupButton.UseVisualStyleBackColor = true;
+            this.routineCheckupButton.Click += new System.EventHandler(this.routineCheckupButton_Click);
+            // 
             // ucPatientAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,5 +205,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DoctorName;
         private System.Windows.Forms.Label lblPatientName;
         private System.Windows.Forms.Button btnEditPatient;
+        private System.Windows.Forms.Button routineCheckupButton;
     }
 }

@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace CS6232_G2.View
 {
+    /// <summary>
+    /// Represents a form for conducting routine checkups.
+    /// </summary>
     public partial class RoutineCheckupForm : Form
     {
         private readonly RoutineCheckController _routineCheckController;
@@ -19,7 +22,9 @@ namespace CS6232_G2.View
         private Nurse _nurse;
         private NurseController _nurseController;
         private LabTestController _labTestController;
-
+        /// <summary>
+        /// Constructor to initialize the control
+        /// </summary>
         public RoutineCheckupForm(PatientVisit visit)
         {
             InitializeComponent();

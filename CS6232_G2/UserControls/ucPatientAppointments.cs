@@ -13,7 +13,9 @@ namespace CS6232_G2.UserControls
     public partial class ucPatientAppointments : UserControl
     {
         private Patient _user;
+        private PatientVisit _appoinment;
         private UserController _userController;
+        private RoutineCheckController _routineCheckController;
         private AppointmentController _appointmentController;
         private List<Appointment> _appointments = new List<Appointment>();
 
@@ -25,6 +27,7 @@ namespace CS6232_G2.UserControls
             InitializeComponent();
             _userController = new UserController();
             _appointmentController = new AppointmentController();
+            _routineCheckController= new RoutineCheckController();
             dgAppointments.AutoGenerateColumns = false;
         }
 
@@ -37,7 +40,11 @@ namespace CS6232_G2.UserControls
             _user = patient;
             InitializeAppointment();
         }
-
+        public void SetAppoinment( PatientVisit appoinment)
+        {
+            _appoinment = appoinment;
+            InitializeAppointment();
+        }
         private void InitializeAppointment()
         {
             try
@@ -85,9 +92,9 @@ namespace CS6232_G2.UserControls
             {
                 Appointment appointment = (Appointment)dgAppointments.SelectedRows[0].DataBoundItem;
 
-                using (AppointmentForm appointmentForm = new AppointmentForm(appointment))
+                using (AppointmentForm _appointmentForm = new AppointmentForm(appointment))
                 {
-                    appointmentForm.ShowDialog();
+                    _appointmentForm.ShowDialog();
                 }
 
                 dgAppointments.Refresh();
@@ -108,6 +115,27 @@ namespace CS6232_G2.UserControls
             }
 
             GetPatientAppointments();
+        }
+
+        private void routineCheckupButton_Click(object sender, EventArgs e)
+        {
+
+            PatientVisit selectedVisit = (PatientVisit)dgAppointments.SelectedRows[0].DataBoundItem;
+            PatientVisit checkup = new PatientVisit()
+            {
+                AppointmentTime= selectedVisit.AppointmentTime,
+            };
+            using (RoutineCheckupForm checkupForm = new RoutineCheckupForm(checkup))
+            {
+                this.Hide();
+                DialogResult result = checkupForm.ShowDialog();
+
+                if (result == DialogResult.Cancel)
+                {
+                    this.Show();
+                }
+            }
+
         }
     }
 }

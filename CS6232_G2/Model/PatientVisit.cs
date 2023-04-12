@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CS6232_G2.Model
 {
+    /// <summary>
+    /// Class representation of a patient visit in the database
+    /// </summary>
     public class PatientVisit
     {
         public int PatientVisitID { get; set; }

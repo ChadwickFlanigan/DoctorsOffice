@@ -4,8 +4,16 @@ using System.Data.SqlClient;
 
 namespace CS6232_G2.DAL
 {
+    /// <summary>
+    /// RoutineCheckDAL for routine checkup records.
+    /// </summary>
     public class RoutineCheckDAL
     {
+        /// <summary>
+        /// Records a routine visit for a patient.
+        /// </summary>
+        /// <param name="visit">The patient visit to record.</param>
+        /// <returns>True if the visit was successfully recorded, otherwise false.</returns>
         public bool RoutineVisit(PatientVisit visit)
         {
             {
@@ -58,7 +66,7 @@ namespace CS6232_G2.DAL
 
                         insertCommand.Parameters.Add("@finalDiagnosis", System.Data.SqlDbType.VarChar);
 
-                        if (String.IsNullOrEmpty(visit.FinalDiagnosis) || visit.FinalDiagnosis.Equals("None currently entered"))
+                        if (String.IsNullOrEmpty(visit.FinalDiagnosis) || visit.FinalDiagnosis.Equals("Nothing was currently entered"))
                         {
                             insertCommand.Parameters["@finalDiagnosis"].Value = DBNull.Value;
                         }
