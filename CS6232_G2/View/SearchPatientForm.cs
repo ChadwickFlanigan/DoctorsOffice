@@ -12,6 +12,8 @@ namespace CS6232_G2.View
     public partial class SearchPatientForm : Form
     {
         private readonly SearchController _searchController;
+        private readonly PatientController _patientController;
+        private readonly NurseController _nurseController;
         private List<Patient> _patients;
         private bool loggedOut;
         private readonly LoginForm _loginForm;
@@ -23,6 +25,8 @@ namespace CS6232_G2.View
             InitializeComponent();
             _loginForm = loginForm;
             _searchController = new SearchController();
+            _patientController = new PatientController();
+            _nurseController = new NurseController();
             _patients = new List<Patient>();
             appointmentDataGridView.AutoGenerateColumns = false;
         }

@@ -13,6 +13,7 @@ namespace CS6232_G2.View
     public partial class RegisterPatientForm : Form
     {
         private PatientController _patientController;
+        private StateController _stateController;
 
         /// <summary>
         /// The constructor for the RegisterPatientForm
@@ -21,6 +22,7 @@ namespace CS6232_G2.View
         {
             InitializeComponent();
             _patientController = new PatientController();
+            _stateController = new StateController();
         }
 
         private void btnRegister_Click(object sender, System.EventArgs e)
@@ -184,6 +186,10 @@ namespace CS6232_G2.View
                 cbGender.DataSource = genderList;
                 cbGender.DisplayMember = "Name";
                 cbGender.ValueMember = "Id";
+                List<State> states = _stateController.GetAllStates();
+                cbStates.DataSource = states;
+                cbStates.DisplayMember = "StateName";
+                cbStates.ValueMember = "StateCode";
             }
             catch (Exception ex)
             {

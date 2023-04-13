@@ -1,4 +1,5 @@
 ﻿using CS6232_G2.Model;
+using System;
 using System.Data.SqlClient;
 
 namespace CS6232_G2.DAL
@@ -26,6 +27,7 @@ namespace CS6232_G2.DAL
         public void SetPatientToEdit(Patient patient)
         {
             patientToEdit = patient;
+            
         }
 
         /// <summary>
@@ -34,6 +36,7 @@ namespace CS6232_G2.DAL
         /// <param name="user"></param>
         public void AddPatient(User user)
         {
+            int lastUser = 0;
             string insertStatement =
                 "BEGIN TRANSACTION " +
                 "DECLARE @LastId int; " +
@@ -46,19 +49,41 @@ namespace CS6232_G2.DAL
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {
                 connection.Open();
-                SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
-                insertCommand.Parameters.AddWithValue("@lastName", user.LastName);
-                insertCommand.Parameters.AddWithValue("@firstName", user.FirstName);
-                insertCommand.Parameters.AddWithValue("@dob", user.DOB);
-                insertCommand.Parameters.AddWithValue("@ssn", user.SSN);
-                insertCommand.Parameters.AddWithValue("@gender", user.Gender);
-                insertCommand.Parameters.AddWithValue("@streetNumber", user.StreetNumber);
-                insertCommand.Parameters.AddWithValue("@city", user.City);
-                insertCommand.Parameters.AddWithValue("@state", user.State);
-                insertCommand.Parameters.AddWithValue("@country", user.Country);
-                insertCommand.Parameters.AddWithValue("@phone", user.Phone);
-                insertCommand.Parameters.AddWithValue("@zipcode", user.Zipcode);
-                insertCommand.ExecuteReader();
+                SqlTransaction transaction = connection.BeginTransaction();
+                //SqlCommand declareLastInt = new SqlCommand("DECLARE @LastId int; ", connection, transaction);
+                
+                SqlCommand insertUserCommand = new SqlCommand("INSERT INTO Users (lastName, firstName, dob, ssn, gender, streetNumber, city, state, phone, zipcode) " +
+                "VALUES (@lastName, @firstName, @dob, @ssn, @gender, @streetNumber, @city, @state, @phone, @zipcode); " +
+                "SELECT scope_identity() as lastUserId; ", connection, transaction);
+                insertUserCommand.Parameters.AddWithValue("@lastName", user.LastName);
+                insertUserCommand.Parameters.AddWithValue("@firstName", user.FirstName);
+                insertUserCommand.Parameters.AddWithValue("@dob", user.DOB);
+                insertUserCommand.Parameters.AddWithValue("@ssn", user.SSN);
+                insertUserCommand.Parameters.AddWithValue("@gender", user.Gender);
+                insertUserCommand.Parameters.AddWithValue("@streetNumber", user.StreetNumber);
+                insertUserCommand.Parameters.AddWithValue("@city", user.City);
+                insertUserCommand.Parameters.AddWithValue("@state", user.State);
+                insertUserCommand.Parameters.AddWithValue("@phone", user.Phone);
+                insertUserCommand.Parameters.AddWithValue("@zipcode", user.Zipcode);
+                //insertUserCommand.ExecuteNonQuery();
+
+                //SqlCommand selectLastUser = new SqlCommand("SELECT userId FROM Users", connection, transaction);
+
+                lastUser = Convert.ToInt32(insertUserCommand.ExecuteScalar());
+
+                //SqlCommand selectLastUser = new SqlCommand("SELECT scope_identity() as lastId; ", connection, transaction);
+                //using (SqlDataReader reader = selectLastUser.ExecuteReader())
+                //{
+                //    while (reader.Read())
+                //    {
+                //        lastUser = int.Parse(reader["lastId"].ToString());
+                //    }
+                //}
+
+                SqlCommand insertPatientCommand = new SqlCommand("INSERT INTO Patients (UserId) " +
+                "Values (@LastId); ", connection, transaction);              
+                insertPatientCommand.Parameters.AddWithValue("@LastId", lastUser);
+                transaction.Commit();
             }
         }
 
@@ -78,7 +103,6 @@ namespace CS6232_G2.DAL
                 "streetNumber = @streetNumber, " +
                 "city = @city, " +
                 "state = @state, " +
-                "country = @country, " +
                 "phone = @phone, " +
                 "zipcode = @zipcode " +
                 "WHERE userId = @oldUserId " +
@@ -90,7 +114,6 @@ namespace CS6232_G2.DAL
                 "AND streetNumber = @oldStreetNumber " +
                 "AND city = @oldCity " +
                 "AND state = @oldState " +
-                "AND country = @oldCountry " +
                 "AND phone = @oldPhone " +
                 "AND zipcode = @oldZipcode ";
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
@@ -105,7 +128,6 @@ namespace CS6232_G2.DAL
                 insertCommand.Parameters.AddWithValue("@streetNumber", user.StreetNumber);
                 insertCommand.Parameters.AddWithValue("@city", user.City);
                 insertCommand.Parameters.AddWithValue("@state", user.State);
-                insertCommand.Parameters.AddWithValue("@country", user.Country);
                 insertCommand.Parameters.AddWithValue("@phone", user.Phone);
                 insertCommand.Parameters.AddWithValue("@zipcode", user.Zipcode);
 
@@ -118,7 +140,6 @@ namespace CS6232_G2.DAL
                 insertCommand.Parameters.AddWithValue("@oldStreetNumber", oldUser.StreetNumber);
                 insertCommand.Parameters.AddWithValue("@oldCity", oldUser.City);
                 insertCommand.Parameters.AddWithValue("@oldState", oldUser.State);
-                insertCommand.Parameters.AddWithValue("@oldCountry", oldUser.Country);
                 insertCommand.Parameters.AddWithValue("@oldPhone", oldUser.Phone);
                 insertCommand.Parameters.AddWithValue("@oldZipcode", oldUser.Zipcode);
 
