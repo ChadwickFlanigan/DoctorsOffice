@@ -27,7 +27,7 @@ namespace CS6232_G2.DAL
         public void SetPatientToEdit(Patient patient)
         {
             patientToEdit = patient;
-            
+
         }
 
         /// <summary>
@@ -36,25 +36,14 @@ namespace CS6232_G2.DAL
         /// <param name="user"></param>
         public void AddPatient(User user)
         {
-            int lastUser = 0;
-            string insertStatement =
-                "BEGIN TRANSACTION " +
-                "DECLARE @LastId int; " +
-                "INSERT INTO Users (lastName, firstName, dob, ssn, gender, streetNumber, city, state, country, phone, zipcode) " +
-                "VALUES (@lastName, @firstName, @dob, @ssn, @gender, @streetNumber, @city, @state, @country, @phone, @zipcode); " +
-                "SELECT @LastId = scope_identity(); " +
-                "INSERT INTO Patients (UserId) " +
-                "Values (@LastId); " +
-                "COMMIT";
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {
                 connection.Open();
                 SqlTransaction transaction = connection.BeginTransaction();
-                //SqlCommand declareLastInt = new SqlCommand("DECLARE @LastId int; ", connection, transaction);
-                
+
                 SqlCommand insertUserCommand = new SqlCommand("INSERT INTO Users (lastName, firstName, dob, ssn, gender, streetNumber, city, state, phone, zipcode) " +
-                "VALUES (@lastName, @firstName, @dob, @ssn, @gender, @streetNumber, @city, @state, @phone, @zipcode); " +
-                "SELECT scope_identity() as lastUserId; ", connection, transaction);
+                "VALUES (@lastName, @firstName, @dob, @ssn, @gender, @streetNumber, @city, @state, @phone, @zipcode) " +
+                "SELECT scope_identity() as lastUserId ", connection, transaction);
                 insertUserCommand.Parameters.AddWithValue("@lastName", user.LastName);
                 insertUserCommand.Parameters.AddWithValue("@firstName", user.FirstName);
                 insertUserCommand.Parameters.AddWithValue("@dob", user.DOB);
@@ -65,25 +54,23 @@ namespace CS6232_G2.DAL
                 insertUserCommand.Parameters.AddWithValue("@state", user.State);
                 insertUserCommand.Parameters.AddWithValue("@phone", user.Phone);
                 insertUserCommand.Parameters.AddWithValue("@zipcode", user.Zipcode);
-                //insertUserCommand.ExecuteNonQuery();
 
-                //SqlCommand selectLastUser = new SqlCommand("SELECT userId FROM Users", connection, transaction);
+                try
+                {
+                    var value = insertUserCommand.ExecuteScalar();
+                    int lastUser = Convert.ToInt32(value);
 
-                lastUser = Convert.ToInt32(insertUserCommand.ExecuteScalar());
-
-                //SqlCommand selectLastUser = new SqlCommand("SELECT scope_identity() as lastId; ", connection, transaction);
-                //using (SqlDataReader reader = selectLastUser.ExecuteReader())
-                //{
-                //    while (reader.Read())
-                //    {
-                //        lastUser = int.Parse(reader["lastId"].ToString());
-                //    }
-                //}
-
-                SqlCommand insertPatientCommand = new SqlCommand("INSERT INTO Patients (UserId) " +
-                "Values (@LastId); ", connection, transaction);              
-                insertPatientCommand.Parameters.AddWithValue("@LastId", lastUser);
-                transaction.Commit();
+                    SqlCommand insertPatientCommand = new SqlCommand("INSERT INTO Patients (UserId) " +
+                    "Values (@LastId); ", connection, transaction);
+                    insertPatientCommand.Parameters.AddWithValue("@LastId", lastUser);
+                    insertPatientCommand.ExecuteNonQuery();
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
             }
         }
 
