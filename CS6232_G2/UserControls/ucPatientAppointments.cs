@@ -13,7 +13,7 @@ namespace CS6232_G2.UserControls
     public partial class ucPatientAppointments : UserControl
     {
         private Patient _user;
-        private PatientVisit _appoinment;
+        private PatientVisit _patientCheckUp;
         private UserController _userController;
         private RoutineCheckController _routineCheckController;
         private AppointmentController _appointmentController;
@@ -42,7 +42,7 @@ namespace CS6232_G2.UserControls
         }
         public void SetAppoinment( PatientVisit appoinment)
         {
-            _appoinment = appoinment;
+            _patientCheckUp = appoinment;
             InitializeAppointment();
         }
         private void InitializeAppointment()
@@ -120,19 +120,14 @@ namespace CS6232_G2.UserControls
         private void routineCheckupButton_Click(object sender, EventArgs e)
         {
 
-            PatientVisit selectedVisit = (PatientVisit)dgAppointments.SelectedRows[0].DataBoundItem;
-            PatientVisit checkup = new PatientVisit()
+            if (dgAppointments.SelectedRows.Count > 0)
             {
-                AppointmentTime= selectedVisit.AppointmentTime,
-            };
-            using (RoutineCheckupForm checkupForm = new RoutineCheckupForm(checkup))
-            {
-                this.Hide();
-                DialogResult result = checkupForm.ShowDialog();
+                Appointment appointment = (Appointment)dgAppointments.SelectedRows[0].DataBoundItem;
 
-                if (result == DialogResult.Cancel)
+                using (RoutineCheckupForm checkupForm = new RoutineCheckupForm(appointment,_patientCheckUp.AppointmentTime, _patientCheckUp.AppointmentID))
                 {
-                    this.Show();
+                    checkupForm.ShowDialog();
+
                 }
             }
 

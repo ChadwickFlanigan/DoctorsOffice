@@ -22,19 +22,30 @@ namespace CS6232_G2.View
         private Nurse _nurse;
         private NurseController _nurseController;
         private LabTestController _labTestController;
+        private int appointmentID;
+        private DateTime appointmentTime;
+
+
+
         /// <summary>
         /// Constructor to initialize the control
         /// </summary>
-        public RoutineCheckupForm(PatientVisit visit)
+        public RoutineCheckupForm()
         {
             InitializeComponent();
             _routineCheckController = new RoutineCheckController();
-            this.visit = visit;
             _testController = new TestController();
             _orderedTests = new List<LabTest>();
             _nurseController = new NurseController();
             _nurse = _nurseController.GetNurseByLogin(LoginDAL.GetCurrentLogin());
             _labTestController = new LabTestController();
+        }
+
+        public RoutineCheckupForm(Appointment appointment, DateTime appointmentTime, int appointmentID)
+        {
+            InitializeComponent();
+            this.appointmentTime=appointmentTime;
+            this.appointmentID=appointmentID;
         }
 
         private decimal GetDecimal2(string number, string source)
