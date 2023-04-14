@@ -33,7 +33,7 @@ namespace CS6232_G2.DAL
                         {
                             State state = new State
                             {
-                                StateCode = reader["stateId"].ToString(),
+                                StateId = reader["stateId"].ToString(),
                                 StateName = reader["stateName"].ToString()
                             };
                             states.Add(state);

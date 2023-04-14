@@ -48,7 +48,7 @@ namespace CS6232_G2.View
                 cbGender.SelectedIndex = 1;
             }
 
-            cbStates.SelectedValue = _loadedUser.State;
+            cbStates.SelectedIndex = cbStates.FindString(_loadedUser.State.Trim());
 
             tbStreetNumber.Text = _loadedUser.StreetNumber;
             tbCity.Text = _loadedUser.City;
@@ -75,7 +75,7 @@ namespace CS6232_G2.View
                 List<State> states = _stateController.GetAllStates();
                 cbStates.DataSource= states;
                 cbStates.DisplayMember= "StateName";
-                cbStates.ValueMember = "StateCode";
+                cbStates.ValueMember = "StateId";
             }
             catch (Exception ex)
             {

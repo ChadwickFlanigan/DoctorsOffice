@@ -189,7 +189,7 @@ namespace CS6232_G2.View
                 List<State> states = _stateController.GetAllStates();
                 cbStates.DataSource = states;
                 cbStates.DisplayMember = "StateName";
-                cbStates.ValueMember = "StateCode";
+                cbStates.ValueMember = "StateId";
             }
             catch (Exception ex)
             {
