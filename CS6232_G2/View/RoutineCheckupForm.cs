@@ -24,13 +24,14 @@ namespace CS6232_G2.View
         private LabTestController _labTestController;
         private int appointmentID;
         private DateTime appointmentTime;
+        private PatientVisit selectedVisit;
 
 
 
         /// <summary>
         /// Constructor to initialize the control
         /// </summary>
-        public RoutineCheckupForm()
+        public RoutineCheckupForm(Appointment appointment)
         {
             InitializeComponent();
             _routineCheckController = new RoutineCheckController();
@@ -46,6 +47,11 @@ namespace CS6232_G2.View
             InitializeComponent();
             this.appointmentTime=appointmentTime;
             this.appointmentID=appointmentID;
+        }
+
+        public RoutineCheckupForm(PatientVisit selectedVisit)
+        {
+            this.selectedVisit=selectedVisit;
         }
 
         private decimal GetDecimal2(string number, string source)
@@ -110,8 +116,8 @@ namespace CS6232_G2.View
                 Temperature = GetDecimal1(tempTextBox.Text, "temperature"),
                 Pulse = GetInt(pulseTextBox.Text, "pulse"),
                 NurseID = _nurse.NurseId,
-                AppointmentID = 1,
-                AppointmentTime = new DateTime(2023, 3, 15, 10, 0, 0)
+              //  AppointmentID = 1,
+              //  AppointmentTime = new DateTime(2023, 3, 15, 10, 0, 0)
             };
 
             if (symptomsTextBox.Text.Length > 150)

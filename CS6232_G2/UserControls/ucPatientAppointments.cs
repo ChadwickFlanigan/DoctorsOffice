@@ -124,7 +124,7 @@ namespace CS6232_G2.UserControls
             {
                 Appointment appointment = (Appointment)dgAppointments.SelectedRows[0].DataBoundItem;
 
-                using (RoutineCheckupForm checkupForm = new RoutineCheckupForm(appointment,_patientCheckUp.AppointmentTime, _patientCheckUp.AppointmentID))
+                using (RoutineCheckupForm checkupForm = new RoutineCheckupForm(appointment))
                 {
                     checkupForm.ShowDialog();
 
