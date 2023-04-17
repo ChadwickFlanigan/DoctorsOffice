@@ -31,11 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.routineTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.testDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Normal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.labTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fDiagnosesTextBox = new System.Windows.Forms.TextBox();
             this.iDiagnosisTextBox = new System.Windows.Forms.TextBox();
             this.symptomsLabel = new System.Windows.Forms.Label();
@@ -64,6 +61,9 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
             this.lblSaveFirst = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.routineTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.testDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labTestBindingSource)).BeginInit();
@@ -151,19 +151,6 @@
             this.testDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.testDataGridView_DataError);
             this.testDataGridView.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.testDataGridView_RowLeave);
             // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "TestCode";
-            this.dataGridViewTextBoxColumn3.HeaderText = "TestCode";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "TestDateTime";
-            this.dataGridViewTextBoxColumn5.HeaderText = "TestDateTime";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
             // Result
             // 
             this.Result.DataPropertyName = "Result";
@@ -177,10 +164,6 @@
             this.Normal.Name = "Normal";
             this.Normal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Normal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // labTestBindingSource
-            // 
-            this.labTestBindingSource.DataSource = typeof(CS6232_G2.Model.LabTest);
             // 
             // fDiagnosesTextBox
             // 
@@ -482,6 +465,23 @@
             this.lblSaveFirst.TabIndex = 28;
             this.lblSaveFirst.Text = "Save Visit Before Adding Labs";
             this.lblSaveFirst.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "TestCode";
+            this.dataGridViewTextBoxColumn3.HeaderText = "TestCode";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "TestDateTime";
+            this.dataGridViewTextBoxColumn5.HeaderText = "TestDateTime";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // labTestBindingSource
+            // 
+            this.labTestBindingSource.DataSource = typeof(CS6232_G2.Model.LabTest);
             // 
             // RoutineCheckupForm
             // 

@@ -54,6 +54,10 @@ namespace CS6232_G2.DAL
                             {
                                 test.Normal = reader["normal"].ToString() == "1" ? true : false;
                             }
+                            else
+                            {
+                                test.Normal = false;
+                            }
                             tests.Add(test);
                         }
                     }
@@ -152,13 +156,17 @@ namespace CS6232_G2.DAL
                             {
                                 test.Normal = reader["normal"].ToString() == "1" ? true : false;
                             }
+                            else
+                            {
+                                test.Normal = false;
+                            }
 
                             tests.Add(test);
+                        }
                     }
                 }
             }
-        }
             return tests;
         }
-}
+    }
 }

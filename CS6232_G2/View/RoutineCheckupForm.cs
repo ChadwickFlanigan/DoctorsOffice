@@ -29,10 +29,7 @@ namespace CS6232_G2.View
         public RoutineCheckupForm(Appointment appointment)
         {
             InitializeComponent();
-            _patientVisitController = new PatientVisitController();
-            _testController = new TestController();
-            _nurseController = new NurseController();
-            _labTestController = new LabTestController();
+            InitializeControllers();
             _appointment = appointment;
 
             try
@@ -51,9 +48,18 @@ namespace CS6232_G2.View
         public RoutineCheckupForm(PatientVisit selectedVisit)
         {
             InitializeComponent();
-            _testController = new TestController();
+            InitializeControllers();
+
             this._selectedVisit = selectedVisit;
             InitializeForData();
+        }
+
+        private void InitializeControllers()
+        {
+            _patientVisitController = new PatientVisitController();
+            _testController = new TestController();
+            _nurseController = new NurseController();
+            _labTestController = new LabTestController();
         }
 
         private void InitializeForData()
@@ -131,6 +137,7 @@ namespace CS6232_G2.View
             addTestButton.Enabled = false;
             removeTestButton.Enabled = false;
             submitLabOrderButton.Enabled = false;
+            testDataGridView.Enabled = false;
         }
 
         private decimal GetDecimal2(string number, string source)
@@ -276,10 +283,24 @@ namespace CS6232_G2.View
 
         private void saveVisitButton_Click(object sender, EventArgs e)
         {
-            DialogResult confirmSave = MessageBox.Show("Once a final diagnosis is entered you cannot make any further changes, would you still like to save",
-                "Are you sure?", MessageBoxButtons.YesNo);
+            DialogResult confirmSave = DialogResult.None;
 
-            if (confirmSave.ToString().Equals("Yes", StringComparison.InvariantCultureIgnoreCase))
+            if (fDiagnosesTextBox.Text.Length > 0)
+            {
+                foreach (LabTest test in _orderedTests)
+                {
+                    if (string.IsNullOrEmpty(test.Result))
+                    {
+                        errorLabel.Text = "All lab results must be entered before adding your final result";
+                        return;
+                    }
+                }
+
+                confirmSave = MessageBox.Show("Once a final diagnosis is entered you cannot make any further changes, would you still like to save",
+                    "Are you sure?", MessageBoxButtons.YesNo);
+            }
+
+            if (fDiagnosesTextBox.Text.Length == 0 || (fDiagnosesTextBox.Text.Length > 0 && confirmSave.ToString().Equals("Yes", StringComparison.InvariantCultureIgnoreCase)))
             {
                 try
                 {
@@ -312,7 +333,6 @@ namespace CS6232_G2.View
 
         private void HandleDecimalInput(TextBox textBox, KeyPressEventArgs e, int maxIntegerDigits, int maxDecimalDigits)
         {
-            // Check if the key is a valid numeric key (0-9), decimal point symbol ('.'), or Backspace key
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
@@ -377,7 +397,6 @@ namespace CS6232_G2.View
         {
             HandleDecimalInput(tempTextBox, e, 3, 1);
         }
-
 
         private void pulseTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -487,10 +506,11 @@ namespace CS6232_G2.View
             if (e.RowIndex > -1)
             {
                 LabTest test = this._orderedTests[e.RowIndex];
-                test.TestDateTime = DateTime.Now;
-
-                if (test.Result != null && test.Result != "" && test.TestDateTime != null)
+                test.Normal = test.Normal ?? false;
+                if (!string.IsNullOrEmpty(test.Result) || test.Normal != null)
                 {
+                    test.TestDateTime = DateTime.Now;
+
                     try
                     {
                         this._labTestController.UpdateLabTestResults(test);
