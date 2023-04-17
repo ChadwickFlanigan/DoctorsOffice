@@ -135,7 +135,7 @@
             this.btnBack.Location = new System.Drawing.Point(3, 411);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(214, 36);
-            this.btnBack.TabIndex = 13;
+            this.btnBack.TabIndex = 11;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -259,7 +259,7 @@
             this.tbPhone.MaxLength = 10;
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(169, 20);
-            this.tbPhone.TabIndex = 9;
+            this.tbPhone.TabIndex = 8;
             this.tbPhone.TextChanged += new System.EventHandler(this.PhoneTextBox_TextBoxChanged);
             // 
             // tbZipcode
@@ -268,7 +268,7 @@
             this.tbZipcode.MaxLength = 5;
             this.tbZipcode.Name = "tbZipcode";
             this.tbZipcode.Size = new System.Drawing.Size(169, 20);
-            this.tbZipcode.TabIndex = 10;
+            this.tbZipcode.TabIndex = 9;
             this.tbZipcode.TextChanged += new System.EventHandler(this.ZipcodeTextBox_TextBoxChanged);
             // 
             // btnClear
@@ -277,7 +277,7 @@
             this.btnClear.Location = new System.Drawing.Point(3, 377);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(214, 28);
-            this.btnClear.TabIndex = 11;
+            this.btnClear.TabIndex = 12;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -288,7 +288,7 @@
             this.btnRegister.Location = new System.Drawing.Point(223, 377);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(214, 28);
-            this.btnRegister.TabIndex = 12;
+            this.btnRegister.TabIndex = 10;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -487,7 +487,7 @@
             this.cbStates.Location = new System.Drawing.Point(223, 275);
             this.cbStates.Name = "cbStates";
             this.cbStates.Size = new System.Drawing.Size(169, 21);
-            this.cbStates.TabIndex = 37;
+            this.cbStates.TabIndex = 7;
             // 
             // RegisterPatientForm
             // 
