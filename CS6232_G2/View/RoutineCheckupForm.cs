@@ -203,7 +203,8 @@ namespace CS6232_G2.View
                 Pulse = GetInt(pulseTextBox.Text, "pulse"),
                 NurseID = _nurse.NurseId,
                 AppointmentID = _appointment != null ? _appointment.AppointmentId : _selectedVisit.AppointmentID,
-                AppointmentTime = _appointment.AppointmentTime.HasValue ? _appointment.AppointmentTime.Value : _selectedVisit.AppointmentTime
+                AppointmentTime = _appointment.AppointmentTime.HasValue ? _appointment.AppointmentTime.Value : _selectedVisit.AppointmentTime,
+                PatientVisitID = _selectedVisit.PatientVisitID
             };
 
             if (symptomsTextBox.Text.Length > 150)
@@ -505,6 +506,8 @@ namespace CS6232_G2.View
         {
             if (e.RowIndex > -1)
             {
+                testDataGridView.EndEdit();
+
                 LabTest test = this._orderedTests[e.RowIndex];
                 test.Normal = test.Normal ?? false;
                 if (!string.IsNullOrEmpty(test.Result) && test.Normal != null)
@@ -514,6 +517,7 @@ namespace CS6232_G2.View
                     try
                     {
                         this._labTestController.UpdateLabTestResults(test);
+                        errorLabel.Text = "Row Updated";
                     }
                     catch (Exception ex)
                     {
@@ -521,6 +525,11 @@ namespace CS6232_G2.View
                     }
                 }
             }
+        }
+
+        private void testDataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            errorLabel.Text = string.Empty;
         }
     }
 }

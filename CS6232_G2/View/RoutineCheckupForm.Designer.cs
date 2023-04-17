@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.routineTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.testDataGridView = new System.Windows.Forms.DataGridView();
-            this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Normal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.fDiagnosesTextBox = new System.Windows.Forms.TextBox();
             this.iDiagnosisTextBox = new System.Windows.Forms.TextBox();
             this.symptomsLabel = new System.Windows.Forms.Label();
@@ -61,9 +59,11 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
             this.lblSaveFirst = new System.Windows.Forms.Label();
+            this.labTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Normal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.routineTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.testDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labTestBindingSource)).BeginInit();
@@ -149,21 +149,8 @@
             this.testDataGridView.Size = new System.Drawing.Size(475, 182);
             this.testDataGridView.TabIndex = 27;
             this.testDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.testDataGridView_DataError);
+            this.testDataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.testDataGridView_RowEnter);
             this.testDataGridView.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.testDataGridView_RowLeave);
-            // 
-            // Result
-            // 
-            this.Result.DataPropertyName = "Result";
-            this.Result.HeaderText = "Result";
-            this.Result.Name = "Result";
-            // 
-            // Normal
-            // 
-            this.Normal.DataPropertyName = "Normal";
-            this.Normal.HeaderText = "Normal";
-            this.Normal.Name = "Normal";
-            this.Normal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Normal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // fDiagnosesTextBox
             // 
@@ -468,6 +455,10 @@
             this.lblSaveFirst.Text = "Save Visit Before Adding Labs";
             this.lblSaveFirst.Visible = false;
             // 
+            // labTestBindingSource
+            // 
+            this.labTestBindingSource.DataSource = typeof(CS6232_G2.Model.LabTest);
+            // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "TestCode";
@@ -481,9 +472,19 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "TestDateTime";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // labTestBindingSource
+            // Result
             // 
-            this.labTestBindingSource.DataSource = typeof(CS6232_G2.Model.LabTest);
+            this.Result.DataPropertyName = "Result";
+            this.Result.HeaderText = "Result";
+            this.Result.Name = "Result";
+            // 
+            // Normal
+            // 
+            this.Normal.DataPropertyName = "Normal";
+            this.Normal.HeaderText = "Normal";
+            this.Normal.Name = "Normal";
+            this.Normal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Normal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // RoutineCheckupForm
             // 
@@ -539,10 +540,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.Label lblSaveFirst;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Result;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Normal;
-        private System.Windows.Forms.Label lblSaveFirst;
     }
 }

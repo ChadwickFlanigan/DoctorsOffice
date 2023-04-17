@@ -50,7 +50,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.13044F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.86956F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 178F));
             this.tableLayoutPanel1.Controls.Add(this.patientVisitDataGridView, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.visitLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker, 1, 0);
@@ -141,7 +141,7 @@
             // visitSearchButton
             // 
             this.visitSearchButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.visitSearchButton.Location = new System.Drawing.Point(505, 25);
+            this.visitSearchButton.Location = new System.Drawing.Point(504, 25);
             this.visitSearchButton.Name = "visitSearchButton";
             this.visitSearchButton.Size = new System.Drawing.Size(75, 23);
             this.visitSearchButton.TabIndex = 2;
