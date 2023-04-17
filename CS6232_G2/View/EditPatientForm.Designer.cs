@@ -245,7 +245,7 @@
             this.tbPhone.MaxLength = 10;
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(169, 20);
-            this.tbPhone.TabIndex = 9;
+            this.tbPhone.TabIndex = 8;
             this.tbPhone.TextChanged += new System.EventHandler(this.PhoneTextBox_TextBoxChanged);
             // 
             // tbZipcode
@@ -254,7 +254,7 @@
             this.tbZipcode.MaxLength = 5;
             this.tbZipcode.Name = "tbZipcode";
             this.tbZipcode.Size = new System.Drawing.Size(169, 20);
-            this.tbZipcode.TabIndex = 10;
+            this.tbZipcode.TabIndex = 9;
             this.tbZipcode.TextChanged += new System.EventHandler(this.ZipcodeTextBox_TextBoxChanged);
             // 
             // btnBack
@@ -274,7 +274,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(223, 410);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(214, 37);
-            this.btnUpdate.TabIndex = 12;
+            this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -473,7 +473,7 @@
             this.cbStates.Location = new System.Drawing.Point(223, 299);
             this.cbStates.Name = "cbStates";
             this.cbStates.Size = new System.Drawing.Size(169, 21);
-            this.cbStates.TabIndex = 37;
+            this.cbStates.TabIndex = 7;
             // 
             // EditPatientForm
             // 

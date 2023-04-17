@@ -50,7 +50,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.13044F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.86956F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 176F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
             this.tableLayoutPanel1.Controls.Add(this.patientVisitDataGridView, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.visitLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker, 1, 0);
@@ -86,7 +86,7 @@
             this.patientVisitDataGridView.ReadOnly = true;
             this.patientVisitDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.patientVisitDataGridView.Size = new System.Drawing.Size(674, 317);
-            this.patientVisitDataGridView.TabIndex = 4;
+            this.patientVisitDataGridView.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn13
             // 
@@ -124,7 +124,7 @@
             // 
             this.visitLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.visitLabel.AutoSize = true;
-            this.visitLabel.Location = new System.Drawing.Point(99, 30);
+            this.visitLabel.Location = new System.Drawing.Point(98, 30);
             this.visitLabel.Name = "visitLabel";
             this.visitLabel.Size = new System.Drawing.Size(95, 13);
             this.visitLabel.TabIndex = 0;
@@ -133,7 +133,7 @@
             // dateTimePicker
             // 
             this.dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dateTimePicker.Location = new System.Drawing.Point(200, 27);
+            this.dateTimePicker.Location = new System.Drawing.Point(199, 27);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker.TabIndex = 1;
@@ -141,7 +141,7 @@
             // visitSearchButton
             // 
             this.visitSearchButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.visitSearchButton.Location = new System.Drawing.Point(506, 25);
+            this.visitSearchButton.Location = new System.Drawing.Point(505, 25);
             this.visitSearchButton.Name = "visitSearchButton";
             this.visitSearchButton.Size = new System.Drawing.Size(75, 23);
             this.visitSearchButton.TabIndex = 2;
@@ -152,7 +152,7 @@
             // viewVisitButton
             // 
             this.viewVisitButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.viewVisitButton.Location = new System.Drawing.Point(285, 418);
+            this.viewVisitButton.Location = new System.Drawing.Point(284, 418);
             this.viewVisitButton.Name = "viewVisitButton";
             this.viewVisitButton.Size = new System.Drawing.Size(129, 23);
             this.viewVisitButton.TabIndex = 4;

@@ -41,13 +41,13 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.dtDOB = new System.Windows.Forms.DateTimePicker();
             this.dgNurses = new System.Windows.Forms.DataGridView();
-            this.btnViewNurse = new System.Windows.Forms.Button();
-            this.btnAddNurse = new System.Windows.Forms.Button();
-            this.lblError = new System.Windows.Forms.Label();
             this.NurseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnViewNurse = new System.Windows.Forms.Button();
+            this.btnAddNurse = new System.Windows.Forms.Button();
+            this.lblError = new System.Windows.Forms.Label();
             this.tblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgNurses)).BeginInit();
             this.SuspendLayout();
@@ -95,7 +95,7 @@
             this.radDOBAndLastName.Location = new System.Drawing.Point(431, 11);
             this.radDOBAndLastName.Name = "radDOBAndLastName";
             this.radDOBAndLastName.Size = new System.Drawing.Size(281, 17);
-            this.radDOBAndLastName.TabIndex = 31;
+            this.radDOBAndLastName.TabIndex = 2;
             this.radDOBAndLastName.Text = "Date of Birth and Last name";
             this.radDOBAndLastName.UseVisualStyleBackColor = true;
             this.radDOBAndLastName.CheckedChanged += new System.EventHandler(this.radDOBAndLastName_CheckedChanged);
@@ -108,7 +108,7 @@
             this.radDOB.Location = new System.Drawing.Point(217, 11);
             this.radDOB.Name = "radDOB";
             this.radDOB.Size = new System.Drawing.Size(208, 17);
-            this.radDOB.TabIndex = 30;
+            this.radDOB.TabIndex = 1;
             this.radDOB.Text = "Date of Birth";
             this.radDOB.UseVisualStyleBackColor = true;
             this.radDOB.CheckedChanged += new System.EventHandler(this.radDOB_CheckedChanged);
@@ -132,7 +132,7 @@
             this.radFullName.Location = new System.Drawing.Point(3, 11);
             this.radFullName.Name = "radFullName";
             this.radFullName.Size = new System.Drawing.Size(208, 17);
-            this.radFullName.TabIndex = 29;
+            this.radFullName.TabIndex = 0;
             this.radFullName.TabStop = true;
             this.radFullName.Text = "First name and Last name";
             this.radFullName.UseVisualStyleBackColor = true;
@@ -144,7 +144,7 @@
             this.txtFirstName.Location = new System.Drawing.Point(217, 50);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(208, 20);
-            this.txtFirstName.TabIndex = 0;
+            this.txtFirstName.TabIndex = 3;
             this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // txtLastName
@@ -153,7 +153,7 @@
             this.txtLastName.Location = new System.Drawing.Point(217, 90);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(208, 20);
-            this.txtLastName.TabIndex = 1;
+            this.txtLastName.TabIndex = 4;
             this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             // 
             // lblFirstName
@@ -182,7 +182,7 @@
             this.btnSearch.Location = new System.Drawing.Point(431, 128);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(281, 23);
-            this.btnSearch.TabIndex = 23;
+            this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -193,7 +193,7 @@
             this.btnClear.Location = new System.Drawing.Point(431, 88);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(281, 23);
-            this.btnClear.TabIndex = 22;
+            this.btnClear.TabIndex = 10;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -206,7 +206,7 @@
             this.dtDOB.Location = new System.Drawing.Point(217, 130);
             this.dtDOB.Name = "dtDOB";
             this.dtDOB.Size = new System.Drawing.Size(208, 20);
-            this.dtDOB.TabIndex = 25;
+            this.dtDOB.TabIndex = 5;
             this.dtDOB.ValueChanged += new System.EventHandler(this.dtDOB_ValueChanged);
             // 
             // dgNurses
@@ -227,38 +227,7 @@
             this.dgNurses.ReadOnly = true;
             this.dgNurses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgNurses.Size = new System.Drawing.Size(709, 194);
-            this.dgNurses.TabIndex = 26;
-            // 
-            // btnViewNurse
-            // 
-            this.btnViewNurse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnViewNurse.Location = new System.Drawing.Point(3, 368);
-            this.btnViewNurse.Name = "btnViewNurse";
-            this.btnViewNurse.Size = new System.Drawing.Size(208, 23);
-            this.btnViewNurse.TabIndex = 27;
-            this.btnViewNurse.Text = "View Nurse";
-            this.btnViewNurse.UseVisualStyleBackColor = true;
-            // 
-            // btnAddNurse
-            // 
-            this.btnAddNurse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddNurse.Location = new System.Drawing.Point(431, 368);
-            this.btnAddNurse.Name = "btnAddNurse";
-            this.btnAddNurse.Size = new System.Drawing.Size(281, 23);
-            this.btnAddNurse.TabIndex = 28;
-            this.btnAddNurse.Text = "Add Nurse";
-            this.btnAddNurse.UseVisualStyleBackColor = true;
-            // 
-            // lblError
-            // 
-            this.lblError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblError.AutoSize = true;
-            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(431, 52);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(281, 16);
-            this.lblError.TabIndex = 32;
+            this.dgNurses.TabIndex = 7;
             // 
             // NurseId
             // 
@@ -293,6 +262,37 @@
             this.IsActive.Name = "IsActive";
             this.IsActive.ReadOnly = true;
             this.IsActive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // btnViewNurse
+            // 
+            this.btnViewNurse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnViewNurse.Location = new System.Drawing.Point(3, 368);
+            this.btnViewNurse.Name = "btnViewNurse";
+            this.btnViewNurse.Size = new System.Drawing.Size(208, 23);
+            this.btnViewNurse.TabIndex = 8;
+            this.btnViewNurse.Text = "View Nurse";
+            this.btnViewNurse.UseVisualStyleBackColor = true;
+            // 
+            // btnAddNurse
+            // 
+            this.btnAddNurse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddNurse.Location = new System.Drawing.Point(431, 368);
+            this.btnAddNurse.Name = "btnAddNurse";
+            this.btnAddNurse.Size = new System.Drawing.Size(281, 23);
+            this.btnAddNurse.TabIndex = 9;
+            this.btnAddNurse.Text = "Add Nurse";
+            this.btnAddNurse.UseVisualStyleBackColor = true;
+            // 
+            // lblError
+            // 
+            this.lblError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(431, 52);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(281, 16);
+            this.lblError.TabIndex = 32;
             // 
             // ucSearchNurse
             // 
