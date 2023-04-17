@@ -81,7 +81,7 @@
             this.dgvTests.Name = "dgvTests";
             this.dgvTests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTests.Size = new System.Drawing.Size(709, 234);
-            this.dgvTests.TabIndex = 0;
+            this.dgvTests.TabIndex = 3;
             this.dgvTests.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTests_CellContentClick);
             // 
             // cbTests
@@ -91,14 +91,16 @@
             this.cbTests.Location = new System.Drawing.Point(239, 69);
             this.cbTests.Name = "cbTests";
             this.cbTests.Size = new System.Drawing.Size(233, 21);
-            this.cbTests.TabIndex = 2;
+            this.cbTests.TabIndex = 1;
             // 
             // lblTests
             // 
             this.lblTests.AutoSize = true;
-            this.lblTests.Location = new System.Drawing.Point(239, 0);
+            this.lblTests.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblTests.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblTests.Location = new System.Drawing.Point(239, 36);
             this.lblTests.Name = "lblTests";
-            this.lblTests.Size = new System.Drawing.Size(29, 13);
+            this.lblTests.Size = new System.Drawing.Size(233, 17);
             this.lblTests.TabIndex = 4;
             this.lblTests.Text = "tests";
             // 
@@ -108,7 +110,7 @@
             this.btnSearchTests.Location = new System.Drawing.Point(478, 68);
             this.btnSearchTests.Name = "btnSearchTests";
             this.btnSearchTests.Size = new System.Drawing.Size(234, 23);
-            this.btnSearchTests.TabIndex = 5;
+            this.btnSearchTests.TabIndex = 2;
             this.btnSearchTests.Text = "Search";
             this.btnSearchTests.UseVisualStyleBackColor = true;
             this.btnSearchTests.Click += new System.EventHandler(this.btnSearchTests_Click);
@@ -132,14 +134,16 @@
             this.cbVisits.Location = new System.Drawing.Point(3, 69);
             this.cbVisits.Name = "cbVisits";
             this.cbVisits.Size = new System.Drawing.Size(230, 21);
-            this.cbVisits.TabIndex = 1;
+            this.cbVisits.TabIndex = 0;
             // 
             // lblPatientVisits
             // 
             this.lblPatientVisits.AutoSize = true;
-            this.lblPatientVisits.Location = new System.Drawing.Point(3, 0);
+            this.lblPatientVisits.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblPatientVisits.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblPatientVisits.Location = new System.Drawing.Point(3, 36);
             this.lblPatientVisits.Name = "lblPatientVisits";
-            this.lblPatientVisits.Size = new System.Drawing.Size(30, 13);
+            this.lblPatientVisits.Size = new System.Drawing.Size(65, 17);
             this.lblPatientVisits.TabIndex = 3;
             this.lblPatientVisits.Text = "visits";
             // 
