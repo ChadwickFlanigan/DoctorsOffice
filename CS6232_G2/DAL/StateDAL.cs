@@ -18,7 +18,7 @@ namespace CS6232_G2.DAL
         {
             List<State> states = new List<State>();
 
-            string selectStatement = "select stateId, stateName " +
+            string selectStatement = "select stateCode, stateName " +
                                      "from States";
 
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
@@ -33,7 +33,7 @@ namespace CS6232_G2.DAL
                         {
                             State state = new State
                             {
-                                StateId = reader["stateId"].ToString(),
+                                StateCode = reader["stateCode"].ToString(),
                                 StateName = reader["stateName"].ToString()
                             };
                             states.Add(state);
