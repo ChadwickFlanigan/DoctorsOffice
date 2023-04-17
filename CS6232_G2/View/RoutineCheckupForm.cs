@@ -367,7 +367,7 @@ namespace CS6232_G2.View
 
         private void heightTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            HandleDecimalInput(heightTextBox, e, 3, 2);
+            HandleDecimalInput(heightTextBox, e, 1, 2);
         }
 
         private void weightTextBox_KeyPress(object sender, KeyPressEventArgs e)
