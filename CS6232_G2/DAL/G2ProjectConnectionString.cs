@@ -14,7 +14,6 @@ namespace CS6232_G2.DAL
         public static SqlConnection GetConnection()
         {
             string connectionString = "Data Source=localhost;Initial Catalog=CS6232-G2;Integrated Security=True";
-
             return new SqlConnection(connectionString);
         }
     }
