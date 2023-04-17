@@ -233,6 +233,7 @@
             // 
             this.sysTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.sysTextBox.Location = new System.Drawing.Point(140, 49);
+            this.sysTextBox.MaxLength = 3;
             this.sysTextBox.Name = "sysTextBox";
             this.sysTextBox.Size = new System.Drawing.Size(338, 20);
             this.sysTextBox.TabIndex = 3;
@@ -316,6 +317,7 @@
             // 
             this.diaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.diaTextBox.Location = new System.Drawing.Point(140, 72);
+            this.diaTextBox.MaxLength = 3;
             this.diaTextBox.Name = "diaTextBox";
             this.diaTextBox.Size = new System.Drawing.Size(338, 20);
             this.diaTextBox.TabIndex = 4;
