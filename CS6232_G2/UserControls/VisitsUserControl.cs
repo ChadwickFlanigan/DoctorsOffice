@@ -39,6 +39,10 @@ namespace CS6232_G2.UserControls
             }
 
         }
+        /// <summary>
+        /// public method to set the current patient the user is viewing
+        /// </summary>
+        /// <param name="patient">a patient object</param>
         public void SetPatient(Patient patient)
         {
             _patient = patient;
@@ -46,6 +50,11 @@ namespace CS6232_G2.UserControls
 
         private void viewVisitButton_Click(object sender, EventArgs e)
         {
+            if (this.patientVisitBindingSource.List.Count == 0)
+            {
+                DialogResult message = MessageBox.Show("There are no visits to view");
+                return;
+            }
             if (this.patientVisitBindingSource.DataSource == this._filteredVisitList)
             {
                 PatientVisit selectedVisit = this._filteredVisitList[this.patientVisitDataGridView.SelectedRows[0].Index];

@@ -36,5 +36,14 @@ namespace CS6232_G2.Controller
         {
             this._labTestDAL.OrderLabTest(labTest);
         }
+
+        /// <summary>
+        /// method called to update the results of a LabTest in the DB
+        /// </summary>
+        /// <param name="test">a LabTest object</param>
+        public void UpdateLabTestResults(LabTest test)
+        {
+            this._labTestDAL.UpdateLabTestResults(test);
+        }
     }
 }
