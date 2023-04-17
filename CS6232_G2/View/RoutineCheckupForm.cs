@@ -391,6 +391,16 @@ namespace CS6232_G2.View
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void testDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            LabTest test = this._orderedTests[e.RowIndex];
+
+            if (test.result != null && test.result != "" && test.TestDateTime != null)
+            {
+                this._labTestController.UpdateLabTestResults(test);
+            }
+        }
     }
 }
 

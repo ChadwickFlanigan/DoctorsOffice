@@ -148,6 +148,7 @@
             this.testDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.testDataGridView.Size = new System.Drawing.Size(475, 182);
             this.testDataGridView.TabIndex = 27;
+            this.testDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.testDataGridView_CellValueChanged);
             this.testDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.testDataGridView_DataError);
             // 
             // dataGridViewTextBoxColumn3

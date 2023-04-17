@@ -72,5 +72,31 @@ namespace CS6232_G2.DAL
                 }
             }
         }
+
+        /// <summary>
+        /// method called to update the results of a LabTest in the DB
+        /// </summary>
+        /// <param name="test">a LabTest object</param>
+        public void UpdateLabTestResults(LabTest test)
+        {
+            string updateString = "UPDATE LabTest " +
+                "SET testDateTime = @testDateTime, result = @result, normal = @normal " +
+                "WHERE testCode = @testCode AND patientVisitID = @patientVisitID;";
+
+            using (SqlConnection connetion = G2ProjectConnectionString.GetConnection())
+            {
+                connetion.Open();
+                using (SqlCommand updateStatement = new SqlCommand(updateString, connetion))
+                {
+                    updateStatement.Parameters.AddWithValue("@testDateTime", test.TestDateTime);
+                    updateStatement.Parameters.AddWithValue("@result", test.result);
+                    updateStatement.Parameters.AddWithValue("@normal", test.normal);
+                    updateStatement.Parameters.AddWithValue("@testCode", test.TestCode);
+                    updateStatement.Parameters.AddWithValue("@patientVisitID", test.PatientVisitId);
+
+                    updateStatement.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
