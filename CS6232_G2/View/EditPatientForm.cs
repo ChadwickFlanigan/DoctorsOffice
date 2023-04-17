@@ -51,10 +51,8 @@ namespace CS6232_G2.View
             cbStates.SelectedIndex = cbStates.FindString(_loadedUser.State.Trim());
 
             tbStreetNumber.Text = _loadedUser.StreetNumber;
-            tbCity.Text = _loadedUser.City;
-            string phoneText = _loadedUser.Phone.Trim();
-            phoneText.Replace("-", "");
-            tbPhone.Text = phoneText;
+            tbCity.Text = _loadedUser.City;         
+            tbPhone.Text = _loadedUser.Phone.Replace("-", "").Trim();
             tbZipcode.Text = _loadedUser.Zipcode;
         }
 
