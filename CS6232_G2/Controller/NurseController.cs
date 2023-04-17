@@ -1,5 +1,7 @@
 ﻿using CS6232_G2.DAL;
 using CS6232_G2.Model;
+using System;
+using System.Collections.Generic;
 
 namespace CS6232_G2.Controller
 {
@@ -25,6 +27,18 @@ namespace CS6232_G2.Controller
         public Nurse GetNurseByLogin(Login login)
         {
             return _nurseDAL.GetNurseByLogin(login);
+        }
+
+        /// <summary>
+        /// Searches the databae with the firstname,lastname, and dob
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="dob"></param>
+        /// <returns></returns>
+        public List<Nurse> GetNurseByCriteria(string firstName, string lastName, DateTime? dob)
+        {
+            return _nurseDAL.GetNurseByCriteria(firstName, lastName, dob);
         }
     }
 }

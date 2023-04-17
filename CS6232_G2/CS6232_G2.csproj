@@ -51,7 +51,6 @@
     <Compile Include="Controller\NurseController.cs" />
     <Compile Include="Controller\PatientVisitController.cs" />
     <Compile Include="Controller\RoutineCheckController.cs" />
-    <Compile Include="Controller\SearchController.cs" />
     <Compile Include="Controller\PatientController.cs" />
     <Compile Include="Controller\StateController.cs" />
     <Compile Include="Controller\TestController.cs" />
@@ -62,7 +61,6 @@
     <Compile Include="DAL\PatientDAL.cs" />
     <Compile Include="DAL\PatientVisitDAL.cs" />
     <Compile Include="DAL\RoutineCheckDAL.cs" />
-    <Compile Include="DAL\SearchDAL.cs" />
     <Compile Include="DAL\StateDAL.cs" />
     <Compile Include="DAL\TestDAL.cs" />
     <Compile Include="DAL\UserDAL.cs" />

@@ -11,9 +11,8 @@ namespace CS6232_G2.View
     /// </summary>
     public partial class SearchPatientForm : Form
     {
-        private readonly SearchController _searchController;
-        //private readonly PatientController _patientController;
-        //private readonly NurseController _nurseController;
+        private readonly PatientController _patientController;
+        private readonly NurseController _nurseController;
         private List<Patient> _patients;
         private bool loggedOut;
         private readonly LoginForm _loginForm;
@@ -24,9 +23,8 @@ namespace CS6232_G2.View
         {
             InitializeComponent();
             _loginForm = loginForm;
-            _searchController = new SearchController();
-            //_patientController = new PatientController();
-            //_nurseController = new NurseController();
+            _patientController = new PatientController();
+            _nurseController = new NurseController();
             _patients = new List<Patient>();
             appointmentDataGridView.AutoGenerateColumns = false;
         }
@@ -121,7 +119,7 @@ namespace CS6232_G2.View
                         MessageBox.Show("Please enter  patient first and last name", "Patient name", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    _patients = _searchController.GetPatientByFirstAndLastName(fname, lname);
+                    _patients = _patientController.GetPatientByFirstAndLastName(fname, lname);
                     if (_patients.Count == 0)
                     {
                         MessageBox.Show("No patient found with the name");
@@ -137,7 +135,7 @@ namespace CS6232_G2.View
                         return;
                     }
                     DateTime dob = Convert.ToDateTime(dateTimePicker.Value).Date;
-                    _patients = _searchController.GetPatientsByDOBAndLastName(dob, lname);
+                    _patients = _patientController.GetPatientsByDOBAndLastName(dob, lname);
 
                     if (_patients.Count == 0)
                     {
@@ -148,7 +146,7 @@ namespace CS6232_G2.View
                 else if (dobRadioButton.Checked)
                 {
                     DateTime dob = Convert.ToDateTime(dateTimePicker.Value).Date;
-                    _patients = _searchController.GetPatientsByDOB(dob);
+                    _patients = _patientController.GetPatientsByDOB(dob);
 
                     if (_patients.Count == 0)
                     {

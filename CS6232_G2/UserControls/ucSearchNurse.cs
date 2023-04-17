@@ -11,7 +11,7 @@ namespace CS6232_G2.UserControls
     /// </summary>
     public partial class ucSearchNurse : UserControl
     {
-        private SearchController _searchUserController;
+        private NurseController _nurseUserController;
 
         /// <summary>
         /// Initializes the component
@@ -19,7 +19,7 @@ namespace CS6232_G2.UserControls
         public ucSearchNurse()
         {
             InitializeComponent();
-            _searchUserController = new SearchController();
+            _nurseUserController = new NurseController();
             dgNurses.AutoGenerateColumns = false;
         }
 
@@ -91,7 +91,7 @@ namespace CS6232_G2.UserControls
             {
                 try
                 {
-                    List<Nurse> nurses = _searchUserController.GetNurseByCriteria(txtFirstName.Text.Trim(), txtLastName.Text.Trim(), dob);
+                    List<Nurse> nurses = _nurseUserController.GetNurseByCriteria(txtFirstName.Text.Trim(), txtLastName.Text.Trim(), dob);
                     dgNurses.DataSource = nurses;
 
                     if (nurses == null || nurses.Count == 0)
