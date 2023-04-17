@@ -507,7 +507,7 @@ namespace CS6232_G2.View
             {
                 LabTest test = this._orderedTests[e.RowIndex];
                 test.Normal = test.Normal ?? false;
-                if (!string.IsNullOrEmpty(test.Result) || test.Normal != null)
+                if (!string.IsNullOrEmpty(test.Result) && test.Normal != null)
                 {
                     test.TestDateTime = DateTime.Now;
 
