@@ -52,7 +52,9 @@ namespace CS6232_G2.View
 
             tbStreetNumber.Text = _loadedUser.StreetNumber;
             tbCity.Text = _loadedUser.City;
-            tbPhone.Text = _loadedUser.Phone.Trim();
+            string phoneText = _loadedUser.Phone.Trim();
+            phoneText.Replace("-", "");
+            tbPhone.Text = phoneText;
             tbZipcode.Text = _loadedUser.Zipcode;
         }
 
