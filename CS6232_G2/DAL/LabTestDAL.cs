@@ -52,7 +52,7 @@ namespace CS6232_G2.DAL
                             }
                             if (reader["normal"] != DBNull.Value)
                             {
-                                test.Normal = reader["normal"].ToString() == "1" ? true : false;
+                                test.Normal = Convert.ToBoolean(reader["normal"]);
                             }
                             else
                             {
@@ -154,7 +154,7 @@ namespace CS6232_G2.DAL
                             }
                             if (reader["normal"] != DBNull.Value)
                             {
-                                test.Normal = reader["normal"].ToString() == "1" ? true : false;
+                                test.Normal = Convert.ToBoolean(reader["normal"]);
                             }
                             else
                             {
