@@ -73,6 +73,7 @@
             this.dgvTests.AllowUserToDeleteRows = false;
             this.dgvTests.AllowUserToResizeColumns = false;
             this.dgvTests.AllowUserToResizeRows = false;
+            this.dgvTests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanel1.SetColumnSpan(this.dgvTests, 4);
             this.dgvTests.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -85,10 +86,11 @@
             // 
             // cbTests
             // 
+            this.cbTests.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbTests.FormattingEnabled = true;
-            this.cbTests.Location = new System.Drawing.Point(239, 56);
+            this.cbTests.Location = new System.Drawing.Point(239, 69);
             this.cbTests.Name = "cbTests";
-            this.cbTests.Size = new System.Drawing.Size(121, 21);
+            this.cbTests.Size = new System.Drawing.Size(233, 21);
             this.cbTests.TabIndex = 2;
             // 
             // lblTests
@@ -102,9 +104,10 @@
             // 
             // btnSearchTests
             // 
-            this.btnSearchTests.Location = new System.Drawing.Point(478, 56);
+            this.btnSearchTests.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearchTests.Location = new System.Drawing.Point(478, 68);
             this.btnSearchTests.Name = "btnSearchTests";
-            this.btnSearchTests.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchTests.Size = new System.Drawing.Size(234, 23);
             this.btnSearchTests.TabIndex = 5;
             this.btnSearchTests.Text = "Search";
             this.btnSearchTests.UseVisualStyleBackColor = true;
@@ -123,11 +126,12 @@
             // 
             // cbVisits
             // 
+            this.cbVisits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.cbVisits, 2);
             this.cbVisits.FormattingEnabled = true;
-            this.cbVisits.Location = new System.Drawing.Point(3, 56);
+            this.cbVisits.Location = new System.Drawing.Point(3, 69);
             this.cbVisits.Name = "cbVisits";
-            this.cbVisits.Size = new System.Drawing.Size(121, 21);
+            this.cbVisits.Size = new System.Drawing.Size(230, 21);
             this.cbVisits.TabIndex = 1;
             // 
             // lblPatientVisits
@@ -147,9 +151,8 @@
             this.lblResult.Location = new System.Drawing.Point(74, 356);
             this.lblResult.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(46, 17);
+            this.lblResult.Size = new System.Drawing.Size(0, 17);
             this.lblResult.TabIndex = 7;
-            this.lblResult.Text = "label1";
             // 
             // ucSearchTest
             // 

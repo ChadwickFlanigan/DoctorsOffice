@@ -26,7 +26,6 @@ namespace CS6232_G2.View
         {
             ucPatientAppointments.SetPatient(_patient);
             ucSearchTest.SetPatient(_patient);
-            //ucPatientAppointments appointments = new ucPatientAppointments();
             visitsUserControl.SetPatient(_patient);
         }
     }

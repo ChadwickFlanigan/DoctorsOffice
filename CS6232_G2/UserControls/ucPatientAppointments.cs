@@ -14,8 +14,6 @@ namespace CS6232_G2.UserControls
     {
         private Patient _user;
         private PatientVisit _patientCheckUp;
-        private UserController _userController;
-        private RoutineCheckController _routineCheckController;
         private AppointmentController _appointmentController;
         private List<Appointment> _appointments = new List<Appointment>();
 
@@ -25,9 +23,7 @@ namespace CS6232_G2.UserControls
         public ucPatientAppointments()
         {
             InitializeComponent();
-            _userController = new UserController();
             _appointmentController = new AppointmentController();
-            _routineCheckController= new RoutineCheckController();
             dgAppointments.AutoGenerateColumns = false;
         }
 
@@ -119,7 +115,6 @@ namespace CS6232_G2.UserControls
 
         private void routineCheckupButton_Click(object sender, EventArgs e)
         {
-
             if (dgAppointments.SelectedRows.Count > 0)
             {
                 Appointment appointment = (Appointment)dgAppointments.SelectedRows[0].DataBoundItem;
@@ -127,10 +122,8 @@ namespace CS6232_G2.UserControls
                 using (RoutineCheckupForm checkupForm = new RoutineCheckupForm(appointment))
                 {
                     checkupForm.ShowDialog();
-
                 }
             }
-
         }
     }
 }

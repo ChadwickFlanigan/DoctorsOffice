@@ -32,10 +32,9 @@
             this.routineTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.testDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Normal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.labTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fDiagnosesTextBox = new System.Windows.Forms.TextBox();
             this.iDiagnosisTextBox = new System.Windows.Forms.TextBox();
@@ -64,6 +63,7 @@
             this.saveVisitButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.lblSaveFirst = new System.Windows.Forms.Label();
             this.routineTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.testDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labTestBindingSource)).BeginInit();
@@ -103,6 +103,7 @@
             this.routineTableLayoutPanel.Controls.Add(this.saveVisitButton, 1, 13);
             this.routineTableLayoutPanel.Controls.Add(this.cancelButton, 2, 13);
             this.routineTableLayoutPanel.Controls.Add(this.errorLabel, 1, 14);
+            this.routineTableLayoutPanel.Controls.Add(this.lblSaveFirst, 0, 13);
             this.routineTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.routineTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.routineTableLayoutPanel.Name = "routineTableLayoutPanel";
@@ -135,10 +136,9 @@
             this.testDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.testDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewCheckBoxColumn1});
+            this.Result,
+            this.Normal});
             this.routineTableLayoutPanel.SetColumnSpan(this.testDataGridView, 2);
             this.testDataGridView.DataSource = this.labTestBindingSource;
             this.testDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -148,8 +148,8 @@
             this.testDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.testDataGridView.Size = new System.Drawing.Size(475, 182);
             this.testDataGridView.TabIndex = 27;
-            this.testDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.testDataGridView_CellValueChanged);
             this.testDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.testDataGridView_DataError);
+            this.testDataGridView.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.testDataGridView_RowLeave);
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -158,30 +158,25 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "PatientVisitId";
-            this.dataGridViewTextBoxColumn4.HeaderText = "PatientVisitId";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "TestDateTime";
             this.dataGridViewTextBoxColumn5.HeaderText = "TestDateTime";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // dataGridViewTextBoxColumn6
+            // Result
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "result";
-            this.dataGridViewTextBoxColumn6.HeaderText = "result";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.Result.DataPropertyName = "Result";
+            this.Result.HeaderText = "Result";
+            this.Result.Name = "Result";
             // 
-            // dataGridViewCheckBoxColumn1
+            // Normal
             // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "normal";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "normal";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.Normal.DataPropertyName = "Normal";
+            this.Normal.HeaderText = "Normal";
+            this.Normal.Name = "Normal";
+            this.Normal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Normal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // labTestBindingSource
             // 
@@ -356,6 +351,7 @@
             // 
             this.pulseTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pulseTextBox.Location = new System.Drawing.Point(140, 118);
+            this.pulseTextBox.MaxLength = 3;
             this.pulseTextBox.Name = "pulseTextBox";
             this.pulseTextBox.Size = new System.Drawing.Size(338, 20);
             this.pulseTextBox.TabIndex = 6;
@@ -467,10 +463,25 @@
             // 
             this.errorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.errorLabel.AutoSize = true;
+            this.errorLabel.ForeColor = System.Drawing.Color.Red;
             this.errorLabel.Location = new System.Drawing.Point(140, 453);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(338, 13);
             this.errorLabel.TabIndex = 22;
+            // 
+            // lblSaveFirst
+            // 
+            this.lblSaveFirst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSaveFirst.AutoSize = true;
+            this.lblSaveFirst.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblSaveFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaveFirst.ForeColor = System.Drawing.Color.White;
+            this.lblSaveFirst.Location = new System.Drawing.Point(3, 402);
+            this.lblSaveFirst.Name = "lblSaveFirst";
+            this.lblSaveFirst.Size = new System.Drawing.Size(131, 32);
+            this.lblSaveFirst.TabIndex = 28;
+            this.lblSaveFirst.Text = "Save Visit Before Adding Labs";
+            this.lblSaveFirst.Visible = false;
             // 
             // RoutineCheckupForm
             // 
@@ -524,10 +535,12 @@
         private System.Windows.Forms.BindingSource labTestBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Result;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Normal;
+        private System.Windows.Forms.Label lblSaveFirst;
     }
 }

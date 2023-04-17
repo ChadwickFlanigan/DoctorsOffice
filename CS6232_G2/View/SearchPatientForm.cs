@@ -12,7 +12,6 @@ namespace CS6232_G2.View
     public partial class SearchPatientForm : Form
     {
         private readonly PatientController _patientController;
-        private readonly NurseController _nurseController;
         private List<Patient> _patients;
         private bool loggedOut;
         private readonly LoginForm _loginForm;
@@ -24,7 +23,6 @@ namespace CS6232_G2.View
             InitializeComponent();
             _loginForm = loginForm;
             _patientController = new PatientController();
-            _nurseController = new NurseController();
             _patients = new List<Patient>();
             appointmentDataGridView.AutoGenerateColumns = false;
         }
@@ -186,11 +184,6 @@ namespace CS6232_G2.View
             if (appointmentDataGridView.SelectedRows.Count == 1)
             {
                 var selectedPatient = (Patient)appointmentDataGridView.SelectedRows[0].DataBoundItem;
-
-                //using (PatientAppointments patientAppointments = new PatientAppointments(userId))
-                //{
-                //    patientAppointments.ShowDialog();
-                //}
 
                 using (PatientTabsForm patientAppointments = new PatientTabsForm(selectedPatient))
                 {

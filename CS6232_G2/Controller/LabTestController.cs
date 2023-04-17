@@ -29,6 +29,15 @@ namespace CS6232_G2.Controller
         }
 
         /// <summary>
+        /// Returns all labTests from the database for the given patientVisit
+        /// </summary>
+        /// <returns></returns>
+        public List<LabTest> GetLabTestByVistId(int patientVisit)
+        {
+            return _labTestDAL.GetLabTestByVistId(patientVisit);
+        }
+
+        /// <summary>
         /// method to insert a labtest into the datebase.
         /// </summary>
         /// <param name="labTest"> a LabTest object representing a Test ordered for a patient</param>

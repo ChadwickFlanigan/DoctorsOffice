@@ -38,10 +38,22 @@ namespace CS6232_G2.DAL
                             {
                                 TestCode = Convert.ToInt32(reader["testCode"]),
                                 PatientVisitId = Convert.ToInt32(reader["patientVisitID"]),
-                                TestDateTime = Convert.ToDateTime(reader["testDateTime"]),
-                                result = reader["result"].ToString(),
-                                normal = reader["normal"].ToString() == "1" || reader["normal"].ToString() == "True",
                             };
+
+
+
+                            if (reader["testDateTime"] != DBNull.Value)
+                            {
+                                test.TestDateTime = Convert.ToDateTime(reader["testDateTime"]);
+                            }
+                            if (reader["result"] != DBNull.Value)
+                            {
+                                test.Result = reader["result"].ToString();
+                            }
+                            if (reader["normal"] != DBNull.Value)
+                            {
+                                test.Normal = reader["normal"].ToString() == "1" ? true : false;
+                            }
                             tests.Add(test);
                         }
                     }
@@ -89,8 +101,8 @@ namespace CS6232_G2.DAL
                 using (SqlCommand updateStatement = new SqlCommand(updateString, connetion))
                 {
                     updateStatement.Parameters.AddWithValue("@testDateTime", test.TestDateTime);
-                    updateStatement.Parameters.AddWithValue("@result", test.result);
-                    updateStatement.Parameters.AddWithValue("@normal", test.normal);
+                    updateStatement.Parameters.AddWithValue("@result", test.Result);
+                    updateStatement.Parameters.AddWithValue("@normal", test.Normal);
                     updateStatement.Parameters.AddWithValue("@testCode", test.TestCode);
                     updateStatement.Parameters.AddWithValue("@patientVisitID", test.PatientVisitId);
 
@@ -98,5 +110,55 @@ namespace CS6232_G2.DAL
                 }
             }
         }
-    }
+        /// <summary>
+        /// Returns all tests for an appointment
+        /// </summary>
+        /// <returns></returns>
+        public List<LabTest> GetLabTestByVistId(int patientVisitId)
+        {
+            List<LabTest> tests = new List<LabTest>();
+
+            string selectStatement = "select testCode, patientVisitID, testDateTime, result, normal " +
+                                     "from LabTest " +
+                                     "where patientVisitID = @patientVisitId;";
+
+            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@patientVisitId", patientVisitId);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            LabTest test = new LabTest
+                            {
+                                TestCode = Convert.ToInt32(reader["testCode"]),
+                                PatientVisitId = Convert.ToInt32(reader["patientVisitID"]),
+                            };
+
+                            if (reader["testDateTime"] != DBNull.Value)
+                            {
+                                test.TestDateTime = Convert.ToDateTime(reader["testDateTime"]);
+                            }
+                            if (reader["result"] != DBNull.Value)
+                            {
+                                test.Result = reader["result"].ToString();
+                            }
+                            if (reader["normal"] != DBNull.Value)
+                            {
+                                test.Normal = reader["normal"].ToString() == "1" ? true : false;
+                            }
+
+                            tests.Add(test);
+                    }
+                }
+            }
+        }
+            return tests;
+        }
+}
 }

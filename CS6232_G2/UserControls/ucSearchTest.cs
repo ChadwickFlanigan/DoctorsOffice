@@ -60,9 +60,13 @@ namespace CS6232_G2.UserControls
         private void UpdateDataGrid()
         {
             dgvTests.DataSource = _labTestController.GetLabTestByVistIdAndTestCode(int.Parse(cbVisits.SelectedValue.ToString()), int.Parse(cbTests.SelectedValue.ToString()));
-            if (!string.IsNullOrEmpty(dgvTests.SelectedCells[3].Value.ToString()))
+            if (dgvTests.SelectedCells.Count > 0 && dgvTests.SelectedCells[3].Value != null)
             {
                 lblResult.Text = dgvTests.SelectedCells[3].Value.ToString();
+            }
+            else
+            {
+                lblResult.Text = string.Empty;
             }
         }
 

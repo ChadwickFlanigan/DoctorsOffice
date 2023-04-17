@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-
 namespace CS6232_G2.View
 {
     /// <summary>
@@ -14,19 +13,15 @@ namespace CS6232_G2.View
     /// </summary>
     public partial class RoutineCheckupForm : Form
     {
-        private readonly RoutineCheckController _routineCheckController;
-        private PatientVisit visit;
         private TestController _testController;
+        private PatientVisitController _patientVisitController;
         private List<Test> _tests;
         private List<LabTest> _orderedTests;
         private Nurse _nurse;
         private NurseController _nurseController;
         private LabTestController _labTestController;
-        private int appointmentID;
-        private DateTime appointmentTime;
-        private PatientVisit selectedVisit;
-
-
+        private Appointment _appointment;
+        private PatientVisit _selectedVisit;
 
         /// <summary>
         /// Constructor to initialize the control
@@ -34,24 +29,108 @@ namespace CS6232_G2.View
         public RoutineCheckupForm(Appointment appointment)
         {
             InitializeComponent();
-            _routineCheckController = new RoutineCheckController();
+            _patientVisitController = new PatientVisitController();
             _testController = new TestController();
-            _orderedTests = new List<LabTest>();
             _nurseController = new NurseController();
-            _nurse = _nurseController.GetNurseByLogin(LoginDAL.GetCurrentLogin());
             _labTestController = new LabTestController();
-        }
+            _appointment = appointment;
 
-        public RoutineCheckupForm(Appointment appointment, DateTime appointmentTime, int appointmentID)
-        {
-            InitializeComponent();
-            this.appointmentTime=appointmentTime;
-            this.appointmentID=appointmentID;
+            try
+            {
+                _nurse = _nurseController.GetNurseByLogin(LoginDAL.GetCurrentLogin());
+                _selectedVisit = _patientVisitController.GetPatientVisitAppointmentId(appointment.AppointmentId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
+            InitializeForData();
         }
 
         public RoutineCheckupForm(PatientVisit selectedVisit)
         {
-            this.selectedVisit=selectedVisit;
+            InitializeComponent();
+            _testController = new TestController();
+            this._selectedVisit = selectedVisit;
+            InitializeForData();
+        }
+
+        private void InitializeForData()
+        {
+            if (_selectedVisit == null || _selectedVisit.PatientVisitID == 0)
+            {
+                _orderedTests = new List<LabTest>();
+                labTestBindingSource.DataSource = _orderedTests;
+                submitLabOrderButton.Enabled = false;
+                lblSaveFirst.Visible = true;
+                return;
+            }
+
+            heightTextBox.Text = _selectedVisit.Height.ToString();
+            weightTextBox.Text = _selectedVisit.Weight.ToString();
+            sysTextBox.Text = _selectedVisit.Systolic.ToString();
+            diaTextBox.Text = _selectedVisit.Diastolic.ToString();
+            tempTextBox.Text = _selectedVisit.Temperature.ToString();
+            pulseTextBox.Text = _selectedVisit.Pulse.ToString();
+            symptomsTextBox.Text = _selectedVisit.Symptoms;
+            iDiagnosisTextBox.Text = _selectedVisit.InitialDiagnosis;
+            fDiagnosesTextBox.Text = _selectedVisit.FinalDiagnosis;
+
+            try
+            {
+                _orderedTests = _labTestController.GetLabTestByVistId(_selectedVisit.PatientVisitID);
+                labTestBindingSource.DataSource = _orderedTests;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void RoutineCheckup_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                _tests = this._testController.GetAllTests();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
+            selectLabTestComboBox.DataSource = this._tests;
+            selectLabTestComboBox.DisplayMember = "TestName";
+            selectLabTestComboBox.SelectedIndex = 0;
+            labTestBindingSource.DataSource = this._orderedTests;
+            this.testDataGridView.AutoGenerateColumns = true;
+
+            CheckIfPastVisit();
+        }
+
+        private void CheckIfPastVisit()
+        {
+            if (_selectedVisit.PatientVisitID > 0 && !string.IsNullOrEmpty(_selectedVisit.FinalDiagnosis))
+            {
+                DisableForm();
+            }
+        }
+
+        private void DisableForm()
+        {
+            heightTextBox.Enabled = false;
+            weightTextBox.Enabled = false;
+            sysTextBox.Enabled = false;
+            diaTextBox.Enabled = false;
+            tempTextBox.Enabled = false;
+            pulseTextBox.Enabled = false;
+            symptomsTextBox.Enabled = false;
+            iDiagnosisTextBox.Enabled = false;
+            fDiagnosesTextBox.Enabled = false;
+            saveVisitButton.Enabled = false;
+            addTestButton.Enabled = false;
+            removeTestButton.Enabled = false;
+            submitLabOrderButton.Enabled = false;
         }
 
         private decimal GetDecimal2(string number, string source)
@@ -116,8 +195,8 @@ namespace CS6232_G2.View
                 Temperature = GetDecimal1(tempTextBox.Text, "temperature"),
                 Pulse = GetInt(pulseTextBox.Text, "pulse"),
                 NurseID = _nurse.NurseId,
-              //  AppointmentID = 1,
-              //  AppointmentTime = new DateTime(2023, 3, 15, 10, 0, 0)
+                AppointmentID = _appointment != null ? _appointment.AppointmentId : _selectedVisit.AppointmentID,
+                AppointmentTime = _appointment.AppointmentTime.HasValue ? _appointment.AppointmentTime.Value : _selectedVisit.AppointmentTime
             };
 
             if (symptomsTextBox.Text.Length > 150)
@@ -185,7 +264,7 @@ namespace CS6232_G2.View
             }
             else if (String.IsNullOrEmpty(fDiagnosesTextBox.Text))
             {
-                newVisit.FinalDiagnosis = "Empty!";
+                newVisit.FinalDiagnosis = "";
             }
             else
             {
@@ -197,27 +276,41 @@ namespace CS6232_G2.View
 
         private void saveVisitButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                PatientVisit routineVisit = PatientVisit();
+            DialogResult confirmSave = MessageBox.Show("Once a final diagnosis is entered you cannot make any further changes, would you still like to save",
+                "Are you sure?", MessageBoxButtons.YesNo);
 
-                if (_routineCheckController.RoutineVisit(routineVisit))
-                {
-                    errorLabel.Text = "The checkup has been successfully entered";
-                    clear();
-                }
-                else
-                {
-                    errorLabel.Text = "The checkup wasn't entered properly. There was an error.";
-                }
-            }
-            catch (Exception ex)
+            if (confirmSave.ToString().Equals("Yes", StringComparison.InvariantCultureIgnoreCase))
             {
-                errorLabel.Text = ex.Message;
+                try
+                {
+                    PatientVisit routineVisit = PatientVisit();
+
+                    if (_patientVisitController.RoutineVisit(routineVisit))
+                    {
+                        _selectedVisit = _patientVisitController.GetPatientVisitAppointmentId(_appointment.AppointmentId);
+                        submitLabOrderButton.Enabled = true;
+                        lblSaveFirst.Visible = false;
+
+                        foreach (LabTest test in _orderedTests)
+                        {
+                            test.PatientVisitId = _selectedVisit.PatientVisitID;
+                        }
+
+                        errorLabel.Text = "The checkup has been successfully entered";
+                    }
+                    else
+                    {
+                        errorLabel.Text = "The checkup wasn't entered properly. There was an error.";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    errorLabel.Text = ex.Message;
+                }
             }
         }
 
-        private void HandleDecimalInput(System.Windows.Forms.TextBox textBox, KeyPressEventArgs e, int maxIntegerDigits, int maxDecimalDigits)
+        private void HandleDecimalInput(TextBox textBox, KeyPressEventArgs e, int maxIntegerDigits, int maxDecimalDigits)
         {
             // Check if the key is a valid numeric key (0-9), decimal point symbol ('.'), or Backspace key
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != (char)Keys.Back))
@@ -284,7 +377,7 @@ namespace CS6232_G2.View
         {
             HandleDecimalInput(tempTextBox, e, 3, 1);
         }
- 
+
 
         private void pulseTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -308,16 +401,6 @@ namespace CS6232_G2.View
             fDiagnosesTextBox.Text = "";
         }
 
-        private void RoutineCheckup_Load(object sender, EventArgs e)
-        {
-            _tests = this._testController.GetAllTests();
-            selectLabTestComboBox.DataSource = this._tests;
-            selectLabTestComboBox.DisplayMember = "TestName";
-            selectLabTestComboBox.SelectedIndex = 0;
-            labTestBindingSource.DataSource = this._orderedTests;
-            this.testDataGridView.AutoGenerateColumns = true;
-        }
-
         private void addTestButton_Click(object sender, EventArgs e)
         {
             this.errorLabel.Text = "";
@@ -326,20 +409,22 @@ namespace CS6232_G2.View
             if (this.labTestBindingSource.List.Count == 0)
             {
                 newTest.TestCode = this._tests[this.selectLabTestComboBox.SelectedIndex].TestCode;
-                newTest.PatientVisitId = this.visit.PatientVisitID;
+                newTest.PatientVisitId = this._selectedVisit.PatientVisitID;
                 this.labTestBindingSource.Add(newTest);
                 return;
             }
+
             for (int i = 0; i < this.labTestBindingSource.List.Count; i++)
-            {    
+            {
                 if (this._orderedTests[i].TestCode == this._tests[this.selectLabTestComboBox.SelectedIndex].TestCode)
                 {
                     this.errorLabel.Text = "You may not order duplicate tests.";
                     return;
                 }
             }
+
             newTest.TestCode = this._tests[this.selectLabTestComboBox.SelectedIndex].TestCode;
-            newTest.PatientVisitId = this.visit.PatientVisitID;
+            newTest.PatientVisitId = this._selectedVisit.PatientVisitID;
             this.labTestBindingSource.Add(newTest);
         }
 
@@ -359,7 +444,8 @@ namespace CS6232_G2.View
         private void submitLabOrderButton_Click(object sender, EventArgs e)
         {
             string labOrder = "";
-            foreach (LabTest labTest in this._orderedTests) {
+            foreach (LabTest labTest in this._orderedTests)
+            {
                 foreach (Test test in this._tests)
                 {
                     if (labTest.TestCode == test.TestCode)
@@ -368,7 +454,8 @@ namespace CS6232_G2.View
                     }
                 }
             }
-            DialogResult result = MessageBox.Show("Are you sure you want to order these tests: \n" + labOrder, 
+
+            DialogResult result = MessageBox.Show("Are you sure you want to order these tests: \n" + labOrder,
                 "Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (result == DialogResult.OK)
             {
@@ -377,12 +464,15 @@ namespace CS6232_G2.View
                 this.selectLabTestComboBox.Enabled = false;
                 foreach (LabTest test in this._orderedTests)
                 {
-                    _labTestController.OrderLabTest(test);
+                    try
+                    {
+                        _labTestController.OrderLabTest(test);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    }
                 }
-            }
-            if (result == DialogResult.Cancel)
-            {
-
             }
         }
 
@@ -392,13 +482,24 @@ namespace CS6232_G2.View
             this.Close();
         }
 
-        private void testDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void testDataGridView_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
-            LabTest test = this._orderedTests[e.RowIndex];
-
-            if (test.result != null && test.result != "" && test.TestDateTime != null)
+            if (e.RowIndex > -1)
             {
-                this._labTestController.UpdateLabTestResults(test);
+                LabTest test = this._orderedTests[e.RowIndex];
+                test.TestDateTime = DateTime.Now;
+
+                if (test.Result != null && test.Result != "" && test.TestDateTime != null)
+                {
+                    try
+                    {
+                        this._labTestController.UpdateLabTestResults(test);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    }
+                }
             }
         }
     }
