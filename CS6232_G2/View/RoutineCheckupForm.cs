@@ -485,17 +485,16 @@ namespace CS6232_G2.View
                 this.addTestButton.Enabled = false;
                 this.removeTestButton.Enabled = false;
                 this.selectLabTestComboBox.Enabled = false;
-                foreach (LabTest test in this._orderedTests)
+
+                try
                 {
-                    try
-                    {
-                        _labTestController.OrderLabTest(test);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, ex.GetType().ToString());
-                    }
+                    _labTestController.OrderLabTest(this._orderedTests);
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+                
             }
         }
 

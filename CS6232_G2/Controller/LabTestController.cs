@@ -41,9 +41,9 @@ namespace CS6232_G2.Controller
         /// method to insert a labtest into the datebase.
         /// </summary>
         /// <param name="labTest"> a LabTest object representing a Test ordered for a patient</param>
-        public void OrderLabTest(LabTest labTest)
+        public void OrderLabTest(List<LabTest> labTests)
         {
-            this._labTestDAL.OrderLabTest(labTest);
+            this._labTestDAL.OrderLabTest(labTests);
         }
 
         /// <summary>
