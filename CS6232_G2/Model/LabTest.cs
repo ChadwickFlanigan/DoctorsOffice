@@ -7,6 +7,7 @@ namespace CS6232_G2.Model
     /// </summary>
     public class LabTest
     {
+        public string TestName { get; set; }
         public int TestCode { get; set; }
         public int PatientVisitId { get; set; }
         public DateTime TestDateTime { get; set; }

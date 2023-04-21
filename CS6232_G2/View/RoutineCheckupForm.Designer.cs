@@ -61,6 +61,7 @@
             this.lblSaveFirst = new System.Windows.Forms.Label();
             this.labTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TestName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Normal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -136,6 +137,7 @@
             this.testDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.testDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3,
+            this.TestName,
             this.dataGridViewTextBoxColumn5,
             this.Result,
             this.Normal});
@@ -364,12 +366,12 @@
             // selectLabTestComboBox
             // 
             this.selectLabTestComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.selectLabTestComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.selectLabTestComboBox.FormattingEnabled = true;
             this.selectLabTestComboBox.Location = new System.Drawing.Point(484, 220);
             this.selectLabTestComboBox.Name = "selectLabTestComboBox";
             this.selectLabTestComboBox.Size = new System.Drawing.Size(201, 21);
             this.selectLabTestComboBox.TabIndex = 10;
-            this.selectLabTestComboBox.Text = "Select Lab Test";
             // 
             // addTestButton
             // 
@@ -466,6 +468,12 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
+            // TestName
+            // 
+            this.TestName.DataPropertyName = "TestName";
+            this.TestName.HeaderText = "TestName";
+            this.TestName.Name = "TestName";
+            // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "TestDateTime";
@@ -542,6 +550,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.Label lblSaveFirst;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TestName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Result;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Normal;
