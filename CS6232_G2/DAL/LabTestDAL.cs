@@ -69,22 +69,32 @@ namespace CS6232_G2.DAL
         /// <summary>
         /// method to insert a labtest into the datebase.
         /// </summary>
-        /// <param name="labTest"> a LabTest object representing a Test ordered for a patient</param>
-        public void OrderLabTest(LabTest labTest)
+        /// <param name="labTests"> a LabTest object representing a Test ordered for a patient</param>
+        public void OrderLabTest(List<LabTest> labTests)
         {
-            string insertString = "INSERT INTO LabTest(testCode, patientVisitID) " +
-                                     "VALUES " +
-                                     "(@testCode, @patientVisitID);";
+
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {
                 connection.Open();
-                using (SqlCommand insertStatement = new SqlCommand(insertString, connection))
+                SqlTransaction transaction = connection.BeginTransaction();
+
+                try
                 {
-                    insertStatement.Parameters.AddWithValue("@testCode", labTest.TestCode);
-                    insertStatement.Parameters.AddWithValue("@patientVisitID", labTest.PatientVisitId);
+                    foreach (LabTest test in labTests)
+                    {
+                        SqlCommand insertUserCommand = new SqlCommand("INSERT INTO LabTest(testCode, patientVisitID) " +
+                        "VALUES " +
+                        "(@testCode, @patientVisitID);", connection, transaction);
+                        insertUserCommand.Parameters.AddWithValue("@testCode", test.TestCode);
+                        insertUserCommand.Parameters.AddWithValue("@patientVisitID", test.PatientVisitId);
 
-                    insertStatement.ExecuteNonQuery();
-
+                        insertUserCommand.ExecuteNonQuery();
+                    }
+                    transaction.Commit();
+                } catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
                 }
             }
         }

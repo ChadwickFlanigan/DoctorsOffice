@@ -109,6 +109,7 @@ namespace CS6232_G2.View
             selectLabTestComboBox.DisplayMember = "TestName";
             selectLabTestComboBox.SelectedIndex = 0;
             labTestBindingSource.DataSource = this._orderedTests;
+            this.setTestNames();
             this.testDataGridView.AutoGenerateColumns = true;
 
             CheckIfPastVisit();
@@ -446,6 +447,8 @@ namespace CS6232_G2.View
             newTest.TestCode = this._tests[this.selectLabTestComboBox.SelectedIndex].TestCode;
             newTest.PatientVisitId = this._selectedVisit.PatientVisitID;
             this.labTestBindingSource.Add(newTest);
+            this.setTestNames();
+
         }
 
         private void removeTestButton_Click(object sender, EventArgs e)
@@ -482,17 +485,16 @@ namespace CS6232_G2.View
                 this.addTestButton.Enabled = false;
                 this.removeTestButton.Enabled = false;
                 this.selectLabTestComboBox.Enabled = false;
-                foreach (LabTest test in this._orderedTests)
+
+                try
                 {
-                    try
-                    {
-                        _labTestController.OrderLabTest(test);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, ex.GetType().ToString());
-                    }
+                    _labTestController.OrderLabTest(this._orderedTests);
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+                
             }
         }
 
@@ -530,6 +532,20 @@ namespace CS6232_G2.View
         private void testDataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             errorLabel.Text = string.Empty;
+        }
+
+        private void setTestNames()
+        {
+            foreach (LabTest labTest in this._orderedTests)
+            {
+                foreach (Test test in this._tests)
+                {
+                    if (labTest.TestCode == test.TestCode)
+                    {
+                        labTest.TestName = test.TestName;
+                    }
+                }
+            }
         }
     }
 }

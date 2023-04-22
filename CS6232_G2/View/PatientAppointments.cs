@@ -116,5 +116,7 @@ namespace CS6232_G2.View
                 dgAppointments.Rows[e.RowIndex].Selected = true;
             }
         }
+
+     
     }
 }

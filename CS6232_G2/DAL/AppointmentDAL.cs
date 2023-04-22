@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace CS6232_G2.DAL
 {
@@ -217,5 +218,36 @@ namespace CS6232_G2.DAL
 
             return appointments;
         }
+
+        public bool DeleteAppointment(Appointment appointment)
+        {
+            bool success = false;
+
+            string deleteStatement = "DELETE FROM Appointments WHERE AppointmentId = @appointmentId";
+
+            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection))
+                {
+                    deleteCommand.Parameters.AddWithValue("@appointmentId", appointment.AppointmentId);
+                    int rowsAffected = deleteCommand.ExecuteNonQuery();
+
+                    // check if any rows were affected
+                    if (rowsAffected > 0)
+                    {
+                        success = true;
+                    }
+                }
+            }
+
+            return success;
+        }
+
     }
 }
+
+
+    
+

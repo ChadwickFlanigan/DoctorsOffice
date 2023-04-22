@@ -125,5 +125,35 @@ namespace CS6232_G2.UserControls
                 }
             }
         }
+
+        private void deleteApptButton_Click(object sender, EventArgs e)
+        {
+            if (dgAppointments.SelectedRows.Count > 0)
+            {
+                Appointment appointment = (Appointment)dgAppointments.SelectedRows[0].DataBoundItem;
+
+                DateTime appointmentDateTime = (DateTime)appointment.AppointmentTime;
+                if (appointmentDateTime > DateTime.Now)
+                {
+                    
+                    if (_appointmentController.DeleteAppointment(appointment))
+                    {
+                        
+                        dgAppointments.Rows.Remove(dgAppointments.SelectedRows[0]);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete appointment.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selected appointment cannot be deleted because it has already passed.");
+                }
+                dgAppointments.Refresh();
+            }
+        }
+
+       
     }
 }
