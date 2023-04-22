@@ -81,6 +81,7 @@
             this.dgAppointments.Size = new System.Drawing.Size(594, 377);
             this.dgAppointments.TabIndex = 0;
             this.dgAppointments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAppointments_CellClick);
+            
             // 
             // AppointmentTime
             // 

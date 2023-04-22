@@ -31,6 +31,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnViewAppointment = new System.Windows.Forms.Button();
             this.btnAddAppointment = new System.Windows.Forms.Button();
+            this.routineCheckupButton = new System.Windows.Forms.Button();
             this.tblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.dgAppointments = new System.Windows.Forms.DataGridView();
             this.AppointmentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,7 +39,7 @@
             this.DoctorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPatientName = new System.Windows.Forms.Label();
             this.btnEditPatient = new System.Windows.Forms.Button();
-            this.routineCheckupButton = new System.Windows.Forms.Button();
+            this.deleteApptButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.tblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAppointments)).BeginInit();
@@ -50,6 +51,7 @@
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.Controls.Add(this.btnViewAppointment);
             this.flowLayoutPanel1.Controls.Add(this.btnAddAppointment);
+            this.flowLayoutPanel1.Controls.Add(this.deleteApptButton);
             this.flowLayoutPanel1.Controls.Add(this.routineCheckupButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(544, 67);
@@ -83,6 +85,19 @@
             this.btnAddAppointment.Text = "Add Appointment";
             this.btnAddAppointment.UseVisualStyleBackColor = true;
             this.btnAddAppointment.Click += new System.EventHandler(this.btnAddAppointment_Click);
+            // 
+            // routineCheckupButton
+            // 
+            this.routineCheckupButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.routineCheckupButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.routineCheckupButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.routineCheckupButton.Location = new System.Drawing.Point(3, 138);
+            this.routineCheckupButton.Name = "routineCheckupButton";
+            this.routineCheckupButton.Size = new System.Drawing.Size(170, 39);
+            this.routineCheckupButton.TabIndex = 6;
+            this.routineCheckupButton.Text = "Routine Check-Up";
+            this.routineCheckupButton.UseVisualStyleBackColor = true;
+            this.routineCheckupButton.Click += new System.EventHandler(this.routineCheckupButton_Click);
             // 
             // tblLayout
             // 
@@ -165,18 +180,18 @@
             this.btnEditPatient.UseVisualStyleBackColor = true;
             this.btnEditPatient.Click += new System.EventHandler(this.btnEditPatient_Click);
             // 
-            // routineCheckupButton
+            // deleteApptButton
             // 
-            this.routineCheckupButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.routineCheckupButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.routineCheckupButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.routineCheckupButton.Location = new System.Drawing.Point(3, 93);
-            this.routineCheckupButton.Name = "routineCheckupButton";
-            this.routineCheckupButton.Size = new System.Drawing.Size(170, 39);
-            this.routineCheckupButton.TabIndex = 6;
-            this.routineCheckupButton.Text = "Routine Check-Up";
-            this.routineCheckupButton.UseVisualStyleBackColor = true;
-            this.routineCheckupButton.Click += new System.EventHandler(this.routineCheckupButton_Click);
+            this.deleteApptButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteApptButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.deleteApptButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteApptButton.Location = new System.Drawing.Point(3, 93);
+            this.deleteApptButton.Name = "deleteApptButton";
+            this.deleteApptButton.Size = new System.Drawing.Size(170, 39);
+            this.deleteApptButton.TabIndex = 7;
+            this.deleteApptButton.Text = "Delete Appointment";
+            this.deleteApptButton.UseVisualStyleBackColor = true;
+            this.deleteApptButton.Click += new System.EventHandler(this.deleteApptButton_Click);
             // 
             // ucPatientAppointments
             // 
@@ -206,5 +221,6 @@
         private System.Windows.Forms.Label lblPatientName;
         private System.Windows.Forms.Button btnEditPatient;
         private System.Windows.Forms.Button routineCheckupButton;
+        private System.Windows.Forms.Button deleteApptButton;
     }
 }
