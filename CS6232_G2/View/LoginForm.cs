@@ -25,6 +25,8 @@ namespace CS6232_G2.View
             _loginController = new LoginController();
             _userController = new UserController();
             _login = new Login();
+            txtUsername.Text = "hansmuller";
+            txtPassword.Text = "mypassword";
         }
 
         /// <summary>
@@ -57,8 +59,6 @@ namespace CS6232_G2.View
                     _searchPatientForm.SetUsername(_login, _userController.GetUserNurseByLogin(_login));
                     Hide();
                     _searchPatientForm.Show();
-                    //RoutineCheckupForm routineCheckupForm = new RoutineCheckupForm();
-                    //routineCheckupForm.Show();
                 }
                 else
                 {

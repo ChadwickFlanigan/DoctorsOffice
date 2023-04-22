@@ -1,7 +1,6 @@
 ﻿using CS6232_G2.Model;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System;
 
 namespace CS6232_G2.DAL
 {
@@ -36,6 +35,36 @@ namespace CS6232_G2.DAL
                                 StateCode = reader["stateCode"].ToString(),
                                 StateName = reader["stateName"].ToString()
                             };
+                            states.Add(state);
+                        }
+                    }
+                }
+            }
+            return states;
+        }
+
+        /// <summary>
+        /// Returns all the state codes in the database
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetAllStateCodes()
+        {
+            List<string> states = new List<string>();
+
+            string selectStatement = "select stateCode, stateName " +
+                                     "from States";
+
+            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string state = reader["stateCode"].ToString();
                             states.Add(state);
                         }
                     }

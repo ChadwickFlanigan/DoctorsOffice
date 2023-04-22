@@ -27,5 +27,14 @@ namespace CS6232_G2.Controller
         {
             return _stateDAL.GetAllStates();
         }
+
+        /// <summary>
+        /// Returns all the state codes for the database
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetAllStateCodes()
+        {
+            return _stateDAL.GetAllStateCodes();
+        }
     }
 }

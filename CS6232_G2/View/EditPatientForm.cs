@@ -48,7 +48,7 @@ namespace CS6232_G2.View
                 cbGender.SelectedIndex = 1;
             }
 
-            cbStates.SelectedIndex = cbStates.FindString(_loadedUser.State.Trim());
+            cbStates.SelectedIndex = _stateController.GetAllStateCodes().IndexOf(_loadedUser.State);
 
             tbStreetNumber.Text = _loadedUser.StreetNumber;
             tbCity.Text = _loadedUser.City;         
@@ -74,7 +74,7 @@ namespace CS6232_G2.View
                 cbGender.ValueMember = "Id";
                 List<State> states = _stateController.GetAllStates();
                 cbStates.DataSource= states;
-                cbStates.DisplayMember= "StateName";
+                cbStates.DisplayMember = "StateName";
                 cbStates.ValueMember = "StateCode";
             }
             catch (Exception ex)
