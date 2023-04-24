@@ -470,8 +470,17 @@ namespace CS6232_G2.View
 
         private void submitLabOrderButton_Click(object sender, EventArgs e)
         {
+            List<LabTest> testsToBeOrdered = new List<LabTest>(this._orderedTests);
+            foreach (LabTest test in this._orderedTests)
+            {
+                if (this._labTestController.HasTestBeenOrdered(test))
+                {
+                    testsToBeOrdered.Remove(test);
+                }
+            }
+
             string labOrder = "";
-            foreach (LabTest labTest in this._orderedTests)
+            foreach (LabTest labTest in testsToBeOrdered)
             {
                 foreach (Test test in this._tests)
                 {
@@ -482,23 +491,29 @@ namespace CS6232_G2.View
                 }
             }
 
-            DialogResult result = MessageBox.Show("Are you sure you want to order these tests: \n" + labOrder,
-                "Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (result == DialogResult.OK)
+            if (testsToBeOrdered.Count == 0)
             {
-                this.addTestButton.Enabled = false;
-                this.removeTestButton.Enabled = false;
-                this.selectLabTestComboBox.Enabled = false;
-                this.updateTestButton.Enabled = true;
-                try
+                DialogResult result = MessageBox.Show("There are no new tests to order.");
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to order these tests: \n" + labOrder,
+                "Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.OK)
                 {
-                    _labTestController.OrderLabTest(this._orderedTests);
+                    this.removeTestButton.Enabled = false;
+                    this.updateTestButton.Enabled = true;
+
+                    try
+                    {
+                        _labTestController.OrderLabTest(testsToBeOrdered);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString());
-                }
-                
             }
         }
 
@@ -557,6 +572,11 @@ namespace CS6232_G2.View
             List <LabTest> testsToBeUpdated = new List <LabTest>();
             foreach (LabTest test in this._orderedTests)
             {
+                if (!this._labTestController.HasTestBeenOrdered(test))
+                {
+                    this.errorLabel.Text = "All tests must first be ordered before they can be updated.";
+                    return;
+                }
                 if (test.TestDateTime == null || string.IsNullOrEmpty(test.Result) || test.Normal == null)
                 {
                     this.errorLabel.Text = "All test fields must be entered before submitting their results.";

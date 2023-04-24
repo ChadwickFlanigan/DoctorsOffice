@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CS6232_G2.DAL
 {
@@ -72,7 +73,6 @@ namespace CS6232_G2.DAL
         /// <param name="labTests"> a LabTest object representing a Test ordered for a patient</param>
         public void OrderLabTest(List<LabTest> labTests)
         {
-
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {
                 connection.Open();
@@ -177,6 +177,31 @@ namespace CS6232_G2.DAL
                 }
             }
             return tests;
+        }
+
+        /// <summary>
+        /// method returning true if a test has been ordered, otherwise false
+        /// </summary>
+        /// <param name="test"></param>
+        /// <returns>true or false depending on if test has been ordered</returns>
+        public Boolean HasTestBeenOrdered(LabTest test)
+        {
+            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            {
+                connection.Open();
+                SqlCommand selectCommand = new SqlCommand("SELECT testCode FROM LabTest WHERE testCode = @testCode " +
+                    "AND patientVisitID = @patientVisitID;",
+                connection);
+                selectCommand.Parameters.AddWithValue("@testCode", test.TestCode);
+                selectCommand.Parameters.AddWithValue("@patientVisitID", test.PatientVisitId);
+                if (selectCommand.ExecuteScalar() != null)
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            }
         }
     }
 }

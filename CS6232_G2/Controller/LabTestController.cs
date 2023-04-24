@@ -1,5 +1,6 @@
 ﻿using CS6232_G2.DAL;
 using CS6232_G2.Model;
+using System;
 using System.Collections.Generic;
 
 namespace CS6232_G2.Controller
@@ -53,6 +54,16 @@ namespace CS6232_G2.Controller
         public void UpdateLabTestResults(LabTest test)
         {
             this._labTestDAL.UpdateLabTestResults(test);
+        }
+
+        /// <summary>
+        /// method returning true if a test has been ordered, otherwise false
+        /// </summary>
+        /// <param name="test"></param>
+        /// <returns>true or false depending on if test has been ordered</returns>
+        public Boolean HasTestBeenOrdered(LabTest test)
+        {
+            return this._labTestDAL.HasTestBeenOrdered(test);
         }
     }
 }
