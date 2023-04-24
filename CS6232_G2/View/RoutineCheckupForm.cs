@@ -523,31 +523,6 @@ namespace CS6232_G2.View
             this.Close();
         }
 
-        /*private void testDataGridView_RowLeave(object sender, DataGridViewCellEventArgs e)
-        { 
-            if (e.RowIndex > -1)
-            {
-                testDataGridView.EndEdit();
-
-                LabTest test = this._orderedTests[e.RowIndex];
-                test.Normal = test.Normal ?? false;
-                if (!string.IsNullOrEmpty(test.Result) && test.Normal != null)
-                {
-                    test.TestDateTime = DateTime.Now;
-
-                    try
-                    {
-                        this._labTestController.UpdateLabTestResults(test);
-                        errorLabel.Text = "Row Updated";
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, ex.GetType().ToString());
-                    }
-                }
-            }
-        }*/
-
         private void testDataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             errorLabel.Text = string.Empty;
