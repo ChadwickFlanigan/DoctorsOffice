@@ -120,6 +120,9 @@ namespace CS6232_G2.View
             if (_selectedVisit.PatientVisitID > 0 && !string.IsNullOrEmpty(_selectedVisit.FinalDiagnosis))
             {
                 DisableForm();
+            } else
+            {
+                this.updateTestButton.Enabled = true;
             }
         }
 
@@ -139,6 +142,7 @@ namespace CS6232_G2.View
             removeTestButton.Enabled = false;
             submitLabOrderButton.Enabled = false;
             testDataGridView.Enabled = false;
+            this.updateTestButton.Enabled = false;
         }
 
         private decimal GetDecimal2(string number, string source)
@@ -485,7 +489,7 @@ namespace CS6232_G2.View
                 this.addTestButton.Enabled = false;
                 this.removeTestButton.Enabled = false;
                 this.selectLabTestComboBox.Enabled = false;
-
+                this.updateTestButton.Enabled = true;
                 try
                 {
                     _labTestController.OrderLabTest(this._orderedTests);
@@ -504,8 +508,8 @@ namespace CS6232_G2.View
             this.Close();
         }
 
-        private void testDataGridView_RowLeave(object sender, DataGridViewCellEventArgs e)
-        {
+        /*private void testDataGridView_RowLeave(object sender, DataGridViewCellEventArgs e)
+        { 
             if (e.RowIndex > -1)
             {
                 testDataGridView.EndEdit();
@@ -527,7 +531,7 @@ namespace CS6232_G2.View
                     }
                 }
             }
-        }
+        }*/
 
         private void testDataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -546,6 +550,38 @@ namespace CS6232_G2.View
                     }
                 }
             }
+        }
+
+        private void updateTestButton_Click(object sender, EventArgs e)
+        {
+            List <LabTest> testsToBeUpdated = new List <LabTest>();
+            foreach (LabTest test in this._orderedTests)
+            {
+                if (test.TestDateTime == null || string.IsNullOrEmpty(test.Result) || test.Normal == null)
+                {
+                    this.errorLabel.Text = "All test fields must be entered before submitting their results.";
+                    return;
+                } else if (test.TestDateTime.TimeOfDay == TimeSpan.Zero) 
+                {
+                    this.errorLabel.Text = "The time must be entered for a test.";
+                    return;
+                } else 
+                {
+                    testsToBeUpdated.Add(test);
+                }
+            }
+
+            try
+            {
+                foreach (LabTest test in testsToBeUpdated)
+                {
+                    this._labTestController.UpdateLabTestResults(test);
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
         }
     }
 }
