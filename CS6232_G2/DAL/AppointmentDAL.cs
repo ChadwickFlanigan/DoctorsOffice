@@ -176,7 +176,7 @@ namespace CS6232_G2.DAL
             List<Appointment> appointments = new List<Appointment>();
 
             string selectStatement = @"select AppointmentId, patientId, appointmentTime, reasonsForVisit, body.firstName + ' ' + body.lastName PatientName, 
-                                       u.firstName  + ' '  + u.lastName as DoctorName, body.DoctorId
+                                       u.firstName  + ' '  + u.lastName as DoctorName, body.DoctorId, u.dob
                                     From (
 	                                    SELECT a.appointmentId, appointmentTime, a.patientId, reasonsForVisit, firstName , lastName, a.doctorId
 	                                    FROM Appointments a 
@@ -207,7 +207,8 @@ namespace CS6232_G2.DAL
                                 AppointmentId = Convert.ToInt32(reader["AppointmentId"]),
                                 PatientId = Convert.ToInt32(reader["patientId"]),
                                 DoctorName = reader["DoctorName"].ToString(),
-                                DoctorId= Convert.ToInt32(reader["DoctorId"])
+                                DoctorId = Convert.ToInt32(reader["DoctorId"]),
+                                PatientDob = Convert.ToDateTime(reader["dob"])
                             };
 
                             appointments.Add(appointment);
@@ -219,6 +220,11 @@ namespace CS6232_G2.DAL
             return appointments;
         }
 
+        /// <summary>
+        /// Deletes the appointment by the appointmentId
+        /// </summary>
+        /// <param name="appointment"></param>
+        /// <returns></returns>
         public bool DeleteAppointment(Appointment appointment)
         {
             bool success = false;
@@ -249,5 +255,5 @@ namespace CS6232_G2.DAL
 }
 
 
-    
+
 

@@ -151,12 +151,6 @@
     <Compile Include="View\SearchPatientForm.Designer.cs">
       <DependentUpon>SearchPatientForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\PatientAppointments.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\PatientAppointments.Designer.cs">
-      <DependentUpon>PatientAppointments.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="UserControls\ucPatientAppointments.resx">
       <DependentUpon>ucPatientAppointments.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,9 +195,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\SearchPatientForm.resx">
       <DependentUpon>SearchPatientForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\PatientAppointments.resx">
-      <DependentUpon>PatientAppointments.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -77,7 +77,5 @@ namespace CS6232_G2.Controller
             return _appointmentDAL.DeleteAppointment(appointment);
         }
     }
-
-     
-    }
+}
 
