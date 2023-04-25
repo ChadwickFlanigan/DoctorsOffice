@@ -30,6 +30,15 @@ namespace CS6232_G2.Controller
         }
 
         /// <summary>
+        /// Deletes both a patient in the patient table, and the associated user in the user table
+        /// </summary>
+        /// <param name="userId"></param>
+        public void Delete(int userId)
+        {
+            _patientDAL.DeletePatient(userId);
+        }
+
+        /// <summary>
         /// represent boolean value for update patient
         /// </summary>
         /// <param name="user"></param>

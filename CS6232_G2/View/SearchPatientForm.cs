@@ -12,6 +12,7 @@ namespace CS6232_G2.View
     public partial class SearchPatientForm : Form
     {
         private readonly PatientController _patientController;
+        private readonly AppointmentController _appointmentController;
         private List<Patient> _patients;
         private bool loggedOut;
         private readonly LoginForm _loginForm;
@@ -23,6 +24,7 @@ namespace CS6232_G2.View
             InitializeComponent();
             _loginForm = loginForm;
             _patientController = new PatientController();
+            _appointmentController = new AppointmentController();
             _patients = new List<Patient>();
             appointmentDataGridView.AutoGenerateColumns = false;
         }
@@ -204,6 +206,28 @@ namespace CS6232_G2.View
             using (RegisterPatientForm patientRegistration = new RegisterPatientForm())
             {
                 patientRegistration.ShowDialog();
+            }
+        }
+
+        private void btnDeletePatient_Click(object sender, EventArgs e)
+        {
+            if (appointmentDataGridView.SelectedRows.Count == 1)
+            {
+                var selectedPatient = (Patient)appointmentDataGridView.SelectedRows[0].DataBoundItem;
+
+                if (_appointmentController.GetPatientAppointments(selectedPatient.PatientId).Count == 0)
+                {
+                    _patientController.Delete(selectedPatient.UserId);
+                    appointmentDataGridView.DataSource = null;
+                    clear();
+                } else
+                {
+                    MessageBox.Show("Cannot delete a patient with scheduled appointments");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select only 1 row");
             }
         }
     }

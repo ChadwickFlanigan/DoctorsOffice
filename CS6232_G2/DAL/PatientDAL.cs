@@ -76,6 +76,38 @@ namespace CS6232_G2.DAL
         }
 
         /// <summary>
+        /// Deletes a patient from the database
+        /// </summary>
+        /// <param name="userId"></param>
+        public void DeletePatient(int userId)
+        {
+            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            {
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction();
+
+                SqlCommand insertUserCommand = new SqlCommand("DELETE FROM Users " +
+                                                              "WHERE userId = @userId", connection, transaction);
+                insertUserCommand.Parameters.AddWithValue("@userId", userId);
+
+                try
+                {                
+                    SqlCommand insertPatientCommand = new SqlCommand("DELETE FROM Patients " +
+                    "WHERE userId = @userId ", connection, transaction);
+                    insertPatientCommand.Parameters.AddWithValue("@userId", userId);
+                    insertPatientCommand.ExecuteNonQuery();
+                    insertUserCommand.ExecuteNonQuery();
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
+
+        /// <summary>
         /// Updates a user data in the database relating to the patient
         /// </summary>
         /// <param name="user"></param>

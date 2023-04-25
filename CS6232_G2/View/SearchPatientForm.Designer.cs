@@ -53,6 +53,7 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.lnkLogout = new System.Windows.Forms.LinkLabel();
             this.lblName = new System.Windows.Forms.Label();
+            this.btnDeletePatient = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDataGridView)).BeginInit();
             this.searchTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -205,10 +206,11 @@
             this.searchTableLayoutPanel.Controls.Add(this.lLabel, 0, 4);
             this.searchTableLayoutPanel.Controls.Add(this.dateLabel, 0, 5);
             this.searchTableLayoutPanel.Controls.Add(this.btnAddPatient, 2, 9);
-            this.searchTableLayoutPanel.Controls.Add(this.btnViewPatient, 0, 9);
             this.searchTableLayoutPanel.Controls.Add(this.lblUsername, 2, 0);
             this.searchTableLayoutPanel.Controls.Add(this.lnkLogout, 1, 0);
             this.searchTableLayoutPanel.Controls.Add(this.lblName, 2, 1);
+            this.searchTableLayoutPanel.Controls.Add(this.btnDeletePatient, 1, 9);
+            this.searchTableLayoutPanel.Controls.Add(this.btnViewPatient, 0, 9);
             this.searchTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.searchTableLayoutPanel.Name = "searchTableLayoutPanel";
@@ -368,6 +370,18 @@
             this.lblName.Text = "Username";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnDeletePatient
+            // 
+            this.btnDeletePatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeletePatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletePatient.Location = new System.Drawing.Point(283, 419);
+            this.btnDeletePatient.Name = "btnDeletePatient";
+            this.btnDeletePatient.Size = new System.Drawing.Size(274, 27);
+            this.btnDeletePatient.TabIndex = 22;
+            this.btnDeletePatient.Text = "Delete Patient";
+            this.btnDeletePatient.UseVisualStyleBackColor = true;
+            this.btnDeletePatient.Click += new System.EventHandler(this.btnDeletePatient_Click);
+            // 
             // SearchPatientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -411,5 +425,6 @@
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.LinkLabel lnkLogout;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Button btnDeletePatient;
     }
 }
