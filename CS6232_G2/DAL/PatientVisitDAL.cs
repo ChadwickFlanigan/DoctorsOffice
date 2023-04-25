@@ -120,9 +120,11 @@ namespace CS6232_G2.DAL
 
             string selectStatement = @"select patientVisitID, visitDateAndTime, pv.appointmentTime as time, weight, bpSystolic, 
                                        bpDiastolic, bodyTemperature, pulse, symptoms, initialDiagnosis, finalDiagnosis, 
-                                       nurseId, pv.appointmentId as Id, height
+                                       nurseId, pv.appointmentId as Id, height, firstName + ' ' + lastName PatientName
                                        from PatientVisits pv
                                        join Appointments a
+                                       join Patients p on a.patientId = p.patientId
+                                       join Users u on p.userId = u.userId
                                        on pv.appointmentId = a.appointmentId
                                        where a.patientId = @patientId;";
 
@@ -153,7 +155,8 @@ namespace CS6232_G2.DAL
                                 FinalDiagnosis = reader["finalDiagnosis"].ToString(),
                                 AppointmentID = Convert.ToInt32(reader["Id"]),
                                 NurseID = Convert.ToInt32(reader["nurseId"]),
-                                Height = decimal.Parse(reader["height"].ToString())
+                                Height = decimal.Parse(reader["height"].ToString()),
+                                PatientName = reader["PatientName"].ToString(),
                             };
 
                             patientVisits.Add(patientVisit);

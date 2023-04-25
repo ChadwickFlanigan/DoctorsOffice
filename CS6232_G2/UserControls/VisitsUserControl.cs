@@ -30,14 +30,12 @@ namespace CS6232_G2.UserControls
                     this._filteredVisitList.Add(visit);
                 }
             }
-            if (_filteredVisitList.Count != 0)
+            if (_filteredVisitList.Count == 0)
             {
-                this.patientVisitBindingSource.DataSource = _filteredVisitList;
-            } else
-            {
-                DialogResult message = MessageBox.Show("There are no visits on the given date");
+                MessageBox.Show("There are no visits on the given date");
             }
 
+            this.patientVisitBindingSource.DataSource = _filteredVisitList;
         }
         /// <summary>
         /// public method to set the current patient the user is viewing
@@ -52,7 +50,7 @@ namespace CS6232_G2.UserControls
         {
             if (this.patientVisitBindingSource.List.Count == 0)
             {
-                DialogResult message = MessageBox.Show("There are no visits to view");
+                MessageBox.Show("There are no visits to view");
                 return;
             }
             if (this.patientVisitBindingSource.DataSource == this._filteredVisitList)
@@ -84,6 +82,12 @@ namespace CS6232_G2.UserControls
         }
 
         private void VisitsUserControl_Paint(object sender, PaintEventArgs e)
+        {
+            this._visitList = this._visitController.GetPatientVisits(this._patient.PatientId);
+            this.patientVisitBindingSource.DataSource = _visitList;
+        }
+
+        private void VisitsUserControl_Load(object sender, EventArgs e)
         {
             this._visitList = this._visitController.GetPatientVisits(this._patient.PatientId);
             this.patientVisitBindingSource.DataSource = _visitList;

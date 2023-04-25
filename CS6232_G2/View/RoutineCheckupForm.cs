@@ -120,6 +120,9 @@ namespace CS6232_G2.View
             if (_selectedVisit.PatientVisitID > 0 && !string.IsNullOrEmpty(_selectedVisit.FinalDiagnosis))
             {
                 DisableForm();
+            } else
+            {
+                this.updateTestButton.Enabled = true;
             }
         }
 
@@ -139,6 +142,7 @@ namespace CS6232_G2.View
             removeTestButton.Enabled = false;
             submitLabOrderButton.Enabled = false;
             testDataGridView.Enabled = false;
+            this.updateTestButton.Enabled = false;
         }
 
         private decimal GetDecimal2(string number, string source)
@@ -466,8 +470,17 @@ namespace CS6232_G2.View
 
         private void submitLabOrderButton_Click(object sender, EventArgs e)
         {
+            List<LabTest> testsToBeOrdered = new List<LabTest>(this._orderedTests);
+            foreach (LabTest test in this._orderedTests)
+            {
+                if (this._labTestController.HasTestBeenOrdered(test))
+                {
+                    testsToBeOrdered.Remove(test);
+                }
+            }
+
             string labOrder = "";
-            foreach (LabTest labTest in this._orderedTests)
+            foreach (LabTest labTest in testsToBeOrdered)
             {
                 foreach (Test test in this._tests)
                 {
@@ -478,48 +491,23 @@ namespace CS6232_G2.View
                 }
             }
 
-            DialogResult result = MessageBox.Show("Are you sure you want to order these tests: \n" + labOrder,
-                "Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (result == DialogResult.OK)
+            if (testsToBeOrdered.Count == 0)
             {
-                this.addTestButton.Enabled = false;
-                this.removeTestButton.Enabled = false;
-                this.selectLabTestComboBox.Enabled = false;
-
-                try
-                {
-                    _labTestController.OrderLabTest(this._orderedTests);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString());
-                }
-                
+                DialogResult result = MessageBox.Show("There are no new tests to order.");
             }
-        }
-
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        private void testDataGridView_RowLeave(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex > -1)
+            else
             {
-                testDataGridView.EndEdit();
+                DialogResult result = MessageBox.Show("Are you sure you want to order these tests: \n" + labOrder,
+                "Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
-                LabTest test = this._orderedTests[e.RowIndex];
-                test.Normal = test.Normal ?? false;
-                if (!string.IsNullOrEmpty(test.Result) && test.Normal != null)
+                if (result == DialogResult.OK)
                 {
-                    test.TestDateTime = DateTime.Now;
+                    this.removeTestButton.Enabled = false;
+                    this.updateTestButton.Enabled = true;
 
                     try
                     {
-                        this._labTestController.UpdateLabTestResults(test);
-                        errorLabel.Text = "Row Updated";
+                        _labTestController.OrderLabTest(testsToBeOrdered);
                     }
                     catch (Exception ex)
                     {
@@ -527,6 +515,12 @@ namespace CS6232_G2.View
                     }
                 }
             }
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
 
         private void testDataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -546,6 +540,43 @@ namespace CS6232_G2.View
                     }
                 }
             }
+        }
+
+        private void updateTestButton_Click(object sender, EventArgs e)
+        {
+            List <LabTest> testsToBeUpdated = new List <LabTest>();
+            foreach (LabTest test in this._orderedTests)
+            {
+                if (!this._labTestController.HasTestBeenOrdered(test))
+                {
+                    this.errorLabel.Text = "All tests must first be ordered before they can be updated.";
+                    return;
+                }
+                if (test.TestDateTime == null || string.IsNullOrEmpty(test.Result) || test.Normal == null)
+                {
+                    this.errorLabel.Text = "All test fields must be entered before submitting their results.";
+                    return;
+                } else if (test.TestDateTime.TimeOfDay == TimeSpan.Zero) 
+                {
+                    this.errorLabel.Text = "The time must be entered for a test.";
+                    return;
+                } else 
+                {
+                    testsToBeUpdated.Add(test);
+                }
+            }
+
+            try
+            {
+                foreach (LabTest test in testsToBeUpdated)
+                {
+                    this._labTestController.UpdateLabTestResults(test);
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
         }
     }
 }

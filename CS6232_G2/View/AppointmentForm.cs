@@ -71,7 +71,7 @@ namespace CS6232_G2
 
         private void BindAppointmentValues()
         {
-            lblPatientName.Text = _appointment.PatientName;
+            lblPatientName.Text = $"{_appointment.PatientName} - {_appointment.PatientDob.ToString("d")}";
 
             if (_appointment.AppointmentId > 0)
             {

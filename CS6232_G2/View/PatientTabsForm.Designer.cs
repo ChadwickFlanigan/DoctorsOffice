@@ -47,19 +47,20 @@
             this.tbPatientInfo.Controls.Add(this.visits);
             this.tbPatientInfo.Controls.Add(this.labTests);
             this.tbPatientInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbPatientInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPatientInfo.Location = new System.Drawing.Point(0, 0);
             this.tbPatientInfo.Name = "tbPatientInfo";
             this.tbPatientInfo.SelectedIndex = 0;
-            this.tbPatientInfo.Size = new System.Drawing.Size(800, 450);
+            this.tbPatientInfo.Size = new System.Drawing.Size(908, 450);
             this.tbPatientInfo.TabIndex = 0;
             // 
             // appointments
             // 
             this.appointments.Controls.Add(this.ucPatientAppointments);
-            this.appointments.Location = new System.Drawing.Point(4, 22);
+            this.appointments.Location = new System.Drawing.Point(4, 25);
             this.appointments.Name = "appointments";
             this.appointments.Padding = new System.Windows.Forms.Padding(3);
-            this.appointments.Size = new System.Drawing.Size(792, 424);
+            this.appointments.Size = new System.Drawing.Size(900, 421);
             this.appointments.TabIndex = 0;
             this.appointments.Text = "Appointments";
             this.appointments.UseVisualStyleBackColor = true;
@@ -69,7 +70,7 @@
             this.ucPatientAppointments.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucPatientAppointments.Location = new System.Drawing.Point(3, 3);
             this.ucPatientAppointments.Name = "ucPatientAppointments";
-            this.ucPatientAppointments.Size = new System.Drawing.Size(786, 418);
+            this.ucPatientAppointments.Size = new System.Drawing.Size(894, 415);
             this.ucPatientAppointments.TabIndex = 0;
             // 
             // visits
@@ -113,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(908, 450);
             this.Controls.Add(this.tbPatientInfo);
             this.Name = "PatientTabsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

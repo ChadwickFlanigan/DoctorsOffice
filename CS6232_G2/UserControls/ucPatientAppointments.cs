@@ -36,7 +36,7 @@ namespace CS6232_G2.UserControls
             _user = patient;
             InitializeAppointment();
         }
-        public void SetAppoinment( PatientVisit appoinment)
+        public void SetAppoinment(PatientVisit appoinment)
         {
             _patientCheckUp = appoinment;
             InitializeAppointment();
@@ -102,7 +102,8 @@ namespace CS6232_G2.UserControls
             Appointment newAppointment = new Appointment()
             {
                 PatientId = _user.PatientId,
-                PatientName = $"{_user.FirstName} {_user.LastName}"
+                PatientName = $"{_user.FirstName} {_user.LastName}",
+                PatientDob = _user.DOB
             };
 
             using (AppointmentForm appointmentForm = new AppointmentForm(newAppointment))
@@ -135,10 +136,10 @@ namespace CS6232_G2.UserControls
                 DateTime appointmentDateTime = (DateTime)appointment.AppointmentTime;
                 if (appointmentDateTime > DateTime.Now)
                 {
-                    
+
                     if (_appointmentController.DeleteAppointment(appointment))
                     {
-                        
+
                         dgAppointments.Rows.Remove(dgAppointments.SelectedRows[0]);
                     }
                     else
@@ -154,6 +155,6 @@ namespace CS6232_G2.UserControls
             }
         }
 
-       
+
     }
 }

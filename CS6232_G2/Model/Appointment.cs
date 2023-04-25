@@ -14,5 +14,6 @@ namespace CS6232_G2.Model
         public DateTime? AppointmentTime { get; set; }
         public string Reason { get; set; }
         public string DoctorName { get; set; }
+        public DateTime PatientDob { get; set; }
     }
 }

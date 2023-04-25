@@ -31,6 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.routineTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.testDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TestName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Normal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.labTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fDiagnosesTextBox = new System.Windows.Forms.TextBox();
             this.iDiagnosisTextBox = new System.Windows.Forms.TextBox();
             this.symptomsLabel = new System.Windows.Forms.Label();
@@ -56,15 +62,10 @@
             this.removeTestButton = new System.Windows.Forms.Button();
             this.submitLabOrderButton = new System.Windows.Forms.Button();
             this.saveVisitButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
             this.lblSaveFirst = new System.Windows.Forms.Label();
-            this.labTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TestName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Normal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.updateTestButton = new System.Windows.Forms.Button();
             this.routineTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.testDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labTestBindingSource)).BeginInit();
@@ -102,9 +103,10 @@
             this.routineTableLayoutPanel.Controls.Add(this.removeTestButton, 2, 11);
             this.routineTableLayoutPanel.Controls.Add(this.submitLabOrderButton, 2, 12);
             this.routineTableLayoutPanel.Controls.Add(this.saveVisitButton, 1, 13);
-            this.routineTableLayoutPanel.Controls.Add(this.cancelButton, 2, 13);
             this.routineTableLayoutPanel.Controls.Add(this.errorLabel, 1, 14);
             this.routineTableLayoutPanel.Controls.Add(this.lblSaveFirst, 0, 13);
+            this.routineTableLayoutPanel.Controls.Add(this.cancelButton, 2, 14);
+            this.routineTableLayoutPanel.Controls.Add(this.updateTestButton, 2, 13);
             this.routineTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.routineTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.routineTableLayoutPanel.Name = "routineTableLayoutPanel";
@@ -152,7 +154,43 @@
             this.testDataGridView.TabIndex = 27;
             this.testDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.testDataGridView_DataError);
             this.testDataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.testDataGridView_RowEnter);
-            this.testDataGridView.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.testDataGridView_RowLeave);
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "TestCode";
+            this.dataGridViewTextBoxColumn3.HeaderText = "TestCode";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // TestName
+            // 
+            this.TestName.DataPropertyName = "TestName";
+            this.TestName.HeaderText = "TestName";
+            this.TestName.Name = "TestName";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "TestDateTime";
+            this.dataGridViewTextBoxColumn5.HeaderText = "TestDateTime";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // Result
+            // 
+            this.Result.DataPropertyName = "Result";
+            this.Result.HeaderText = "Result";
+            this.Result.Name = "Result";
+            // 
+            // Normal
+            // 
+            this.Normal.DataPropertyName = "Normal";
+            this.Normal.HeaderText = "Normal";
+            this.Normal.Name = "Normal";
+            this.Normal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Normal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // labTestBindingSource
+            // 
+            this.labTestBindingSource.DataSource = typeof(CS6232_G2.Model.LabTest);
             // 
             // fDiagnosesTextBox
             // 
@@ -421,18 +459,6 @@
             this.saveVisitButton.UseVisualStyleBackColor = true;
             this.saveVisitButton.Click += new System.EventHandler(this.saveVisitButton_Click);
             // 
-            // cancelButton
-            // 
-            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(484, 407);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(201, 23);
-            this.cancelButton.TabIndex = 15;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
             // errorLabel
             // 
             this.errorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -457,42 +483,30 @@
             this.lblSaveFirst.Text = "Save Visit Before Adding Labs";
             this.lblSaveFirst.Visible = false;
             // 
-            // labTestBindingSource
+            // cancelButton
             // 
-            this.labTestBindingSource.DataSource = typeof(CS6232_G2.Model.LabTest);
+            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.Location = new System.Drawing.Point(484, 448);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(201, 23);
+            this.cancelButton.TabIndex = 15;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // dataGridViewTextBoxColumn3
+            // updateTestButton
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "TestCode";
-            this.dataGridViewTextBoxColumn3.HeaderText = "TestCode";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // TestName
-            // 
-            this.TestName.DataPropertyName = "TestName";
-            this.TestName.HeaderText = "TestName";
-            this.TestName.Name = "TestName";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "TestDateTime";
-            this.dataGridViewTextBoxColumn5.HeaderText = "TestDateTime";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // Result
-            // 
-            this.Result.DataPropertyName = "Result";
-            this.Result.HeaderText = "Result";
-            this.Result.Name = "Result";
-            // 
-            // Normal
-            // 
-            this.Normal.DataPropertyName = "Normal";
-            this.Normal.HeaderText = "Normal";
-            this.Normal.Name = "Normal";
-            this.Normal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Normal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.updateTestButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.updateTestButton.Enabled = false;
+            this.updateTestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateTestButton.Location = new System.Drawing.Point(484, 407);
+            this.updateTestButton.Name = "updateTestButton";
+            this.updateTestButton.Size = new System.Drawing.Size(201, 23);
+            this.updateTestButton.TabIndex = 29;
+            this.updateTestButton.Text = "Update Tests";
+            this.updateTestButton.UseVisualStyleBackColor = true;
+            this.updateTestButton.Click += new System.EventHandler(this.updateTestButton_Click);
             // 
             // RoutineCheckupForm
             // 
@@ -554,5 +568,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Result;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Normal;
+        private System.Windows.Forms.Button updateTestButton;
     }
 }

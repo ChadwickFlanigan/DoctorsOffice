@@ -21,5 +21,6 @@ namespace CS6232_G2.Model
         public string FinalDiagnosis { get; set; }
         public int NurseID { get; set; }
         public int AppointmentID { get; set; }
+        public string PatientName { get; set; }
     }
 }
