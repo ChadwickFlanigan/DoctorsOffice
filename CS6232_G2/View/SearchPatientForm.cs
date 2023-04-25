@@ -209,11 +209,23 @@ namespace CS6232_G2.View
             }
         }
 
+        private bool ShouldDelete()
+        {
+            DialogResult close = MessageBox.Show("Are you sure you want to delete this patient?", "" +
+                "", MessageBoxButtons.YesNo);
+            return DialogResult.Yes == close;
+        }
+
         private void btnDeletePatient_Click(object sender, EventArgs e)
         {
             if (appointmentDataGridView.SelectedRows.Count == 1)
             {
                 var selectedPatient = (Patient)appointmentDataGridView.SelectedRows[0].DataBoundItem;
+
+                if (!ShouldDelete())
+                {
+                    return;
+                }
 
                 if (_appointmentController.GetPatientAppointments(selectedPatient.PatientId).Count == 0)
                 {
