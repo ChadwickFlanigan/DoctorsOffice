@@ -14,9 +14,10 @@ namespace CS6232_G2.DAL
         {
             Nurse nurse = new Nurse();
             string selectStatement =
-                        "SELECT nurseId, userId, active " +
+                        "SELECT nurseId, n.userId as nurseUserId, firstName, lastName, active " +
                         "FROM Nurses n " +
                         "JOIN Logins l on l.username = n.username " +
+                        "JOIN Users u on u.userId = n.userId " +
                         "WHERE n.username = @username";
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {
@@ -30,7 +31,9 @@ namespace CS6232_G2.DAL
                         while (reader.Read())
                         {
                             nurse.NurseId = int.Parse(reader["nurseId"].ToString());
-                            nurse.UserId = int.Parse(reader["userId"].ToString());
+                            nurse.UserId = int.Parse(reader["nurseUserId"].ToString());
+                            nurse.FirstName = reader["firstName"].ToString();
+                            nurse.LastName = reader["lastName"].ToString();
                             nurse.Username = login.Username;
                         }
                     }

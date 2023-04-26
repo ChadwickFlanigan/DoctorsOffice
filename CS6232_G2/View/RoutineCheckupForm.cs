@@ -16,6 +16,7 @@ namespace CS6232_G2.View
         private TestController _testController;
         private PatientVisitController _patientVisitController;
         private AppointmentController _appointmentController;
+        private DoctorController _doctorController;
         private PatientController _patientController;
         private List<Test> _tests;
         private List<LabTest> _orderedTests;
@@ -54,6 +55,7 @@ namespace CS6232_G2.View
             InitializeControllers();
 
             this._selectedVisit = selectedVisit;
+            _nurse = _nurseController.GetNurseByLogin(LoginDAL.GetCurrentLogin());
             _appointment = _appointmentController.GetAppointmentById(selectedVisit.AppointmentID);
             InitializeForData();
         }
@@ -67,6 +69,7 @@ namespace CS6232_G2.View
             _userController= new UserController();
             _patientController = new PatientController();
             _appointmentController = new AppointmentController();
+            _doctorController = new DoctorController();
         }
 
         private void InitializeForData()
@@ -106,13 +109,14 @@ namespace CS6232_G2.View
         private void BindValue()
         {
             var patient = _patientController.GetPatientById(_appointment.PatientId);
+            var doctor = _doctorController.GetDoctorById(_appointment.DoctorId);
             var user = _userController.GetUserById(patient.UserId);
 
             textBoxPatName.Text = $"{_appointment.PatientName.ToUpper()} ({_appointment.PatientId})";
             textBoxPatDOB.Text =$"{_appointment.PatientDob.ToString("d")}";
             textBoxPatAddress.Text = $"{user.StreetNumber},{user.City},{user.State},{user.Zipcode},{user.Country}";
-            textBoxDocName.Text = $"{_appointment.DoctorName.ToUpper()} ({_appointment.DoctorId})";
-            textBoxNurName.Text = $"{_nurse.Username.ToUpper()} ({_nurse.NurseId})";
+            textBoxDocName.Text = $"{doctor.FirstName.ToUpper() + " " + doctor.LastName.ToUpper()} ({_appointment.DoctorId})";
+            textBoxNurName.Text = $"{_nurse.FirstName.ToUpper() + " " + _nurse.LastName.ToUpper()} ({_nurse.NurseId})";
             textBoxVisitTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
         private void RoutineCheckup_Load(object sender, EventArgs e)
