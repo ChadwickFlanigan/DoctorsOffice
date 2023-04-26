@@ -203,5 +203,52 @@ namespace CS6232_G2.DAL
                 }
             }
         }
+
+        /// <summary>
+        /// method calling on a stored procedure to get the statistics of performed lab tests in a given date range
+        /// </summary>
+        /// <param name="startDate">the starting date</param>
+        /// <param name="endDate">the ending date</param>
+        /// <returns></returns>
+        public List<LabTestStatistic> GetLabTestStatistics(DateTime startDate, DateTime endDate)
+        {
+            List<LabTestStatistic> testStatistics = new List<LabTestStatistic>();
+
+            string procedureCall = "getMostPerformedTestsDuringDates @startDate, @endDate";
+
+            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(procedureCall, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@startDate", startDate.ToShortDateString());
+                    selectCommand.Parameters.AddWithValue("@endDate", endDate.ToShortDateString());
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            LabTestStatistic testStat = new LabTestStatistic
+                            {
+                                TestCode = Convert.ToInt32(reader["testCode"]),
+                                TestName = Convert.ToString(reader["TestName"]),
+                                QualifiedTestQuantity = Convert.ToInt32(reader["TotalQualifiedTests"]),
+                                TotalTestQuantity = Convert.ToInt32(reader["TotalTests"]),
+                                QualifiedPercentage = Convert.ToDouble(reader["PercentageQualifiedTests"]),
+                                TotalNormal = Convert.ToInt32(reader["NormalResults"]),
+                                TotalAbnormal = Convert.ToInt32(reader["TotalAbnormal"]),
+                                PercentageEighteenToTwentyNine = Convert.ToDouble(reader["Percentage1829"]),
+                                PercentageThirtyToThirtyNine = Convert.ToDouble(reader["Percentage3039"]),
+                                PercentageOtherYears = Convert.ToDouble(reader["PercentageOtherYears"])
+                            };
+
+                            testStatistics.Add(testStat);
+                        }
+                    }
+                }
+            }
+            return testStatistics;
+        }
     }
 }
