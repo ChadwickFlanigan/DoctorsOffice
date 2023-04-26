@@ -65,5 +65,16 @@ namespace CS6232_G2.Controller
         {
             return this._labTestDAL.HasTestBeenOrdered(test);
         }
+
+        /// <summary>
+        /// method calling on a stored procedure to get the statistics of performed lab tests in a given date range
+        /// </summary>
+        /// <param name="startDate">the starting date</param>
+        /// <param name="endDate">the ending date</param>
+        /// <returns></returns>
+        public List<LabTestStatistic> GetLabTestStatistics(DateTime startDate, DateTime endDate)
+        {
+            return this._labTestDAL.GetLabTestStatistics(startDate, endDate);
+        }
     }
 }

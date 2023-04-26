@@ -35,11 +35,13 @@
             this.lblName = new System.Windows.Forms.Label();
             this.tabAdmin = new System.Windows.Forms.TabControl();
             this.tabNurses = new System.Windows.Forms.TabPage();
-            this.tabStats = new System.Windows.Forms.TabPage();
             this.ucSearchNurse1 = new CS6232_G2.UserControls.ucSearchNurse();
+            this.tabStats = new System.Windows.Forms.TabPage();
+            this.ucLabTestStatistic1 = new CS6232_G2.UserControls.ucLabTestStatistic();
             this.searchTableLayoutPanel.SuspendLayout();
             this.tabAdmin.SuspendLayout();
             this.tabNurses.SuspendLayout();
+            this.tabStats.SuspendLayout();
             this.SuspendLayout();
             // 
             // searchTableLayoutPanel
@@ -140,8 +142,17 @@
             this.tabNurses.Text = "Nurses";
             this.tabNurses.UseVisualStyleBackColor = true;
             // 
+            // ucSearchNurse1
+            // 
+            this.ucSearchNurse1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucSearchNurse1.Location = new System.Drawing.Point(3, 3);
+            this.ucSearchNurse1.Name = "ucSearchNurse1";
+            this.ucSearchNurse1.Size = new System.Drawing.Size(780, 370);
+            this.ucSearchNurse1.TabIndex = 0;
+            // 
             // tabStats
             // 
+            this.tabStats.Controls.Add(this.ucLabTestStatistic1);
             this.tabStats.Location = new System.Drawing.Point(4, 22);
             this.tabStats.Name = "tabStats";
             this.tabStats.Padding = new System.Windows.Forms.Padding(3);
@@ -150,13 +161,13 @@
             this.tabStats.Text = "Stats";
             this.tabStats.UseVisualStyleBackColor = true;
             // 
-            // ucSearchNurse1
+            // ucLabTestStatistic1
             // 
-            this.ucSearchNurse1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucSearchNurse1.Location = new System.Drawing.Point(3, 3);
-            this.ucSearchNurse1.Name = "ucSearchNurse1";
-            this.ucSearchNurse1.Size = new System.Drawing.Size(780, 370);
-            this.ucSearchNurse1.TabIndex = 0;
+            this.ucLabTestStatistic1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucLabTestStatistic1.Location = new System.Drawing.Point(3, 3);
+            this.ucLabTestStatistic1.Name = "ucLabTestStatistic1";
+            this.ucLabTestStatistic1.Size = new System.Drawing.Size(780, 370);
+            this.ucLabTestStatistic1.TabIndex = 0;
             // 
             // AdministratorForm
             // 
@@ -172,6 +183,7 @@
             this.searchTableLayoutPanel.PerformLayout();
             this.tabAdmin.ResumeLayout(false);
             this.tabNurses.ResumeLayout(false);
+            this.tabStats.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -187,5 +199,6 @@
         private System.Windows.Forms.TabPage tabNurses;
         private System.Windows.Forms.TabPage tabStats;
         private UserControls.ucSearchNurse ucSearchNurse1;
+        private UserControls.ucLabTestStatistic ucLabTestStatistic1;
     }
 }

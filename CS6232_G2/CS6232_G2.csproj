@@ -66,6 +66,7 @@
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\Gender.cs" />
     <Compile Include="Model\LabTest.cs" />
+    <Compile Include="Model\LabTestStatistic.cs" />
     <Compile Include="Model\Login.cs" />
     <Compile Include="Model\Nurse.cs" />
     <Compile Include="Model\Patient.cs" />
@@ -73,6 +74,12 @@
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\Test.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="UserControls\ucLabTestStatistic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucLabTestStatistic.Designer.cs">
+      <DependentUpon>ucLabTestStatistic.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucPatientAppointments.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -151,6 +158,9 @@
     <Compile Include="View\SearchPatientForm.Designer.cs">
       <DependentUpon>SearchPatientForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\ucLabTestStatistic.resx">
+      <DependentUpon>ucLabTestStatistic.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucPatientAppointments.resx">
       <DependentUpon>ucPatientAppointments.cs</DependentUpon>
     </EmbeddedResource>

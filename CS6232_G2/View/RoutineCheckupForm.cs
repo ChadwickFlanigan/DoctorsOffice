@@ -566,20 +566,25 @@ namespace CS6232_G2.View
         private void updateTestButton_Click(object sender, EventArgs e)
         {
             List <LabTest> testsToBeUpdated = new List <LabTest>();
+            
             foreach (LabTest test in this._orderedTests)
             {
+                if (test.Normal == null)
+                {
+                    test.Normal = false;
+                }
                 if (!this._labTestController.HasTestBeenOrdered(test))
                 {
                     this.errorLabel.Text = "All tests must first be ordered before they can be updated.";
                     return;
                 }
-                if (test.TestDateTime == null || string.IsNullOrEmpty(test.Result) || test.Normal == null)
+                if ( string.IsNullOrEmpty(test.Result) || test.Normal == null)
                 {
                     this.errorLabel.Text = "All test fields must be entered before submitting their results.";
                     return;
-                } else if (test.TestDateTime.TimeOfDay == TimeSpan.Zero) 
+                } else if (test.TestDateTime == null || test.TestDateTime.TimeOfDay == TimeSpan.Zero) 
                 {
-                    this.errorLabel.Text = "The time must be entered for a test.";
+                    this.errorLabel.Text = "The complete date and time must be entered for a test.";
                     return;
                 } else 
                 {
