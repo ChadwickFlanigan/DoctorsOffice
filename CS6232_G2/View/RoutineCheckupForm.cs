@@ -114,7 +114,7 @@ namespace CS6232_G2.View
 
             textBoxPatName.Text = $"{_appointment.PatientName.ToUpper()} ({_appointment.PatientId})";
             textBoxPatDOB.Text =$"{_appointment.PatientDob.ToString("d")}";
-            textBoxPatAddress.Text = $"{user.StreetNumber},{user.City},{user.State},{user.Zipcode},{user.Country}";
+            textBoxPatAddress.Text = $"{user.StreetNumber},{user.City},{user.State},{user.Zipcode}";
             textBoxDocName.Text = $"{doctor.FirstName.ToUpper() + " " + doctor.LastName.ToUpper()} ({_appointment.DoctorId})";
             textBoxNurName.Text = $"{_nurse.FirstName.ToUpper() + " " + _nurse.LastName.ToUpper()} ({_nurse.NurseId})";
             textBoxVisitTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");

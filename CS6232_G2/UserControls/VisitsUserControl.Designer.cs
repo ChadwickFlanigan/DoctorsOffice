@@ -36,7 +36,6 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.visitSearchButton = new System.Windows.Forms.Button();
             this.viewVisitButton = new System.Windows.Forms.Button();
-            this.PatientVisitID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,7 +49,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.13044F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.86956F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 204F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 205F));
             this.tableLayoutPanel1.Controls.Add(this.patientVisitDataGridView, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.visitLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker, 1, 0);
@@ -74,7 +73,6 @@
             this.patientVisitDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.patientVisitDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.patientVisitDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PatientVisitID,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn10,
             this.PatientName});
@@ -96,7 +94,7 @@
             // 
             this.visitLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.visitLabel.AutoSize = true;
-            this.visitLabel.Location = new System.Drawing.Point(88, 30);
+            this.visitLabel.Location = new System.Drawing.Point(87, 30);
             this.visitLabel.Name = "visitLabel";
             this.visitLabel.Size = new System.Drawing.Size(95, 13);
             this.visitLabel.TabIndex = 0;
@@ -105,7 +103,7 @@
             // dateTimePicker
             // 
             this.dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dateTimePicker.Location = new System.Drawing.Point(189, 27);
+            this.dateTimePicker.Location = new System.Drawing.Point(188, 27);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker.TabIndex = 1;
@@ -113,7 +111,7 @@
             // visitSearchButton
             // 
             this.visitSearchButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.visitSearchButton.Location = new System.Drawing.Point(478, 25);
+            this.visitSearchButton.Location = new System.Drawing.Point(477, 25);
             this.visitSearchButton.Name = "visitSearchButton";
             this.visitSearchButton.Size = new System.Drawing.Size(75, 23);
             this.visitSearchButton.TabIndex = 2;
@@ -124,20 +122,13 @@
             // viewVisitButton
             // 
             this.viewVisitButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.viewVisitButton.Location = new System.Drawing.Point(266, 418);
+            this.viewVisitButton.Location = new System.Drawing.Point(265, 418);
             this.viewVisitButton.Name = "viewVisitButton";
             this.viewVisitButton.Size = new System.Drawing.Size(129, 23);
             this.viewVisitButton.TabIndex = 4;
             this.viewVisitButton.Text = "View Visit";
             this.viewVisitButton.UseVisualStyleBackColor = true;
             this.viewVisitButton.Click += new System.EventHandler(this.viewVisitButton_Click);
-            // 
-            // PatientVisitID
-            // 
-            this.PatientVisitID.DataPropertyName = "PatientVisitID";
-            this.PatientVisitID.HeaderText = "PatientVisitID";
-            this.PatientVisitID.Name = "PatientVisitID";
-            this.PatientVisitID.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -185,7 +176,6 @@
         private System.Windows.Forms.Button viewVisitButton;
         private System.Windows.Forms.DataGridView patientVisitDataGridView;
         private System.Windows.Forms.BindingSource patientVisitBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PatientVisitID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn PatientName;
