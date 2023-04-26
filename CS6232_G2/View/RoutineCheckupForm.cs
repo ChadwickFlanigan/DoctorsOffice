@@ -15,6 +15,7 @@ namespace CS6232_G2.View
     {
         private TestController _testController;
         private PatientVisitController _patientVisitController;
+        private AppointmentController _appointmentController;
         private PatientController _patientController;
         private List<Test> _tests;
         private List<LabTest> _orderedTests;
@@ -53,6 +54,7 @@ namespace CS6232_G2.View
             InitializeControllers();
 
             this._selectedVisit = selectedVisit;
+            _appointment = _appointmentController.GetAppointmentById(selectedVisit.AppointmentID);
             InitializeForData();
         }
 
@@ -64,6 +66,7 @@ namespace CS6232_G2.View
             _labTestController = new LabTestController();
             _userController= new UserController();
             _patientController = new PatientController();
+            _appointmentController = new AppointmentController();
         }
 
         private void InitializeForData()
