@@ -15,6 +15,7 @@ namespace CS6232_G2.View
     {
         private TestController _testController;
         private PatientVisitController _patientVisitController;
+        private PatientController _patientController;
         private List<Test> _tests;
         private List<LabTest> _orderedTests;
         private Nurse _nurse;
@@ -22,6 +23,7 @@ namespace CS6232_G2.View
         private LabTestController _labTestController;
         private Appointment _appointment;
         private PatientVisit _selectedVisit;
+        private UserController _userController;
 
         /// <summary>
         /// Constructor to initialize the control
@@ -60,6 +62,8 @@ namespace CS6232_G2.View
             _testController = new TestController();
             _nurseController = new NurseController();
             _labTestController = new LabTestController();
+            _userController= new UserController();
+            _patientController = new PatientController();
         }
 
         private void InitializeForData()
@@ -93,7 +97,21 @@ namespace CS6232_G2.View
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
+        /// <summary>
+        /// Bind values to the textfield.
+        /// </summary>
+        private void BindValue()
+        {
+            var patient = _patientController.GetPatientById(_appointment.PatientId);
+            var user = _userController.GetUserById(patient.UserId);
 
+            textBoxPatName.Text = $"{_appointment.PatientName.ToUpper()} ({_appointment.PatientId})";
+            textBoxPatDOB.Text =$"{_appointment.PatientDob.ToString("d")}";
+            textBoxPatAddress.Text = $"{user.StreetNumber},{user.City},{user.State},{user.Zipcode},{user.Country}";
+            textBoxDocName.Text = $"{_appointment.DoctorName.ToUpper()} ({_appointment.DoctorId})";
+            textBoxNurName.Text = $"{_nurse.Username.ToUpper()} ({_nurse.NurseId})";
+            textBoxVisitTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        }
         private void RoutineCheckup_Load(object sender, EventArgs e)
         {
             try
@@ -104,7 +122,7 @@ namespace CS6232_G2.View
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
-
+            BindValue();
             selectLabTestComboBox.DataSource = this._tests;
             selectLabTestComboBox.DisplayMember = "TestName";
             selectLabTestComboBox.SelectedIndex = 0;
@@ -373,7 +391,7 @@ namespace CS6232_G2.View
 
         private void heightTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            HandleDecimalInput(heightTextBox, e, 1, 2);
+            HandleDecimalInput(heightTextBox, e, 3, 2);
         }
 
         private void weightTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -583,6 +601,8 @@ namespace CS6232_G2.View
             }
 
         }
+
+      
     }
 }
 

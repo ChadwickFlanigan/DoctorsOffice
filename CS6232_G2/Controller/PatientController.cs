@@ -90,5 +90,15 @@ namespace CS6232_G2.Controller
             }
             return _patientDAL.GetPatientsByDOBAndLastName(dob, lname);
         }
+
+        /// <summary>
+        /// Get patient by Id
+        /// </summary>
+        /// <param name="patientId"></param>
+        /// <returns></returns>
+        public Patient GetPatientById(int patientId)
+        {
+            return _patientDAL.GetPatientByPatientId(patientId);
+        }
     }
 }
