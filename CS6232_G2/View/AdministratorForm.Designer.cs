@@ -35,7 +35,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.tabAdmin = new System.Windows.Forms.TabControl();
             this.tabNurses = new System.Windows.Forms.TabPage();
-            this.ucSearchNurse1 = new CS6232_G2.UserControls.ucSearchNurse();
+            this.ucSearchNurse = new CS6232_G2.UserControls.ucSearchNurse();
             this.tabStats = new System.Windows.Forms.TabPage();
             this.ucLabTestStatistic1 = new CS6232_G2.UserControls.ucLabTestStatistic();
             this.searchTableLayoutPanel.SuspendLayout();
@@ -69,7 +69,7 @@
             this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.searchTableLayoutPanel.Size = new System.Drawing.Size(800, 450);
+            this.searchTableLayoutPanel.Size = new System.Drawing.Size(1231, 633);
             this.searchTableLayoutPanel.TabIndex = 2;
             // 
             // lblAdministrator
@@ -77,9 +77,9 @@
             this.lblAdministrator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAdministrator.AutoSize = true;
             this.lblAdministrator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdministrator.Location = new System.Drawing.Point(3, 2);
+            this.lblAdministrator.Location = new System.Drawing.Point(3, 7);
             this.lblAdministrator.Name = "lblAdministrator";
-            this.lblAdministrator.Size = new System.Drawing.Size(274, 16);
+            this.lblAdministrator.Size = new System.Drawing.Size(424, 16);
             this.lblAdministrator.TabIndex = 0;
             this.lblAdministrator.Text = "Administrator";
             // 
@@ -88,7 +88,7 @@
             this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsername.AutoSize = true;
             this.lblUsername.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Assertive;
-            this.lblUsername.Location = new System.Drawing.Point(742, 0);
+            this.lblUsername.Location = new System.Drawing.Point(1173, 0);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(55, 13);
             this.lblUsername.TabIndex = 20;
@@ -99,7 +99,7 @@
             // 
             this.lnkLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkLogout.AutoSize = true;
-            this.lnkLogout.Location = new System.Drawing.Point(517, 0);
+            this.lnkLogout.Location = new System.Drawing.Point(817, 0);
             this.lnkLogout.Name = "lnkLogout";
             this.lnkLogout.Size = new System.Drawing.Size(40, 13);
             this.lnkLogout.TabIndex = 21;
@@ -112,7 +112,7 @@
             this.lblName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblName.AutoSize = true;
             this.lblName.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Assertive;
-            this.lblName.Location = new System.Drawing.Point(742, 21);
+            this.lblName.Location = new System.Drawing.Point(1173, 30);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(55, 13);
             this.lblName.TabIndex = 22;
@@ -125,30 +125,30 @@
             this.tabAdmin.Controls.Add(this.tabNurses);
             this.tabAdmin.Controls.Add(this.tabStats);
             this.tabAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabAdmin.Location = new System.Drawing.Point(3, 45);
+            this.tabAdmin.Location = new System.Drawing.Point(3, 63);
             this.tabAdmin.Name = "tabAdmin";
             this.tabAdmin.SelectedIndex = 0;
-            this.tabAdmin.Size = new System.Drawing.Size(794, 402);
+            this.tabAdmin.Size = new System.Drawing.Size(1225, 567);
             this.tabAdmin.TabIndex = 23;
             // 
             // tabNurses
             // 
-            this.tabNurses.Controls.Add(this.ucSearchNurse1);
+            this.tabNurses.Controls.Add(this.ucSearchNurse);
             this.tabNurses.Location = new System.Drawing.Point(4, 22);
             this.tabNurses.Name = "tabNurses";
             this.tabNurses.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNurses.Size = new System.Drawing.Size(786, 376);
+            this.tabNurses.Size = new System.Drawing.Size(1217, 541);
             this.tabNurses.TabIndex = 0;
             this.tabNurses.Text = "Nurses";
             this.tabNurses.UseVisualStyleBackColor = true;
             // 
-            // ucSearchNurse1
+            // ucSearchNurse
             // 
-            this.ucSearchNurse1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucSearchNurse1.Location = new System.Drawing.Point(3, 3);
-            this.ucSearchNurse1.Name = "ucSearchNurse1";
-            this.ucSearchNurse1.Size = new System.Drawing.Size(780, 370);
-            this.ucSearchNurse1.TabIndex = 0;
+            this.ucSearchNurse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucSearchNurse.Location = new System.Drawing.Point(3, 3);
+            this.ucSearchNurse.Name = "ucSearchNurse";
+            this.ucSearchNurse.Size = new System.Drawing.Size(1211, 535);
+            this.ucSearchNurse.TabIndex = 0;
             // 
             // tabStats
             // 
@@ -156,7 +156,7 @@
             this.tabStats.Location = new System.Drawing.Point(4, 22);
             this.tabStats.Name = "tabStats";
             this.tabStats.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStats.Size = new System.Drawing.Size(786, 376);
+            this.tabStats.Size = new System.Drawing.Size(1217, 541);
             this.tabStats.TabIndex = 1;
             this.tabStats.Text = "Stats";
             this.tabStats.UseVisualStyleBackColor = true;
@@ -166,14 +166,14 @@
             this.ucLabTestStatistic1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucLabTestStatistic1.Location = new System.Drawing.Point(3, 3);
             this.ucLabTestStatistic1.Name = "ucLabTestStatistic1";
-            this.ucLabTestStatistic1.Size = new System.Drawing.Size(780, 370);
+            this.ucLabTestStatistic1.Size = new System.Drawing.Size(1211, 535);
             this.ucLabTestStatistic1.TabIndex = 0;
             // 
             // AdministratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1231, 633);
             this.Controls.Add(this.searchTableLayoutPanel);
             this.Name = "AdministratorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -198,7 +198,7 @@
         private System.Windows.Forms.TabControl tabAdmin;
         private System.Windows.Forms.TabPage tabNurses;
         private System.Windows.Forms.TabPage tabStats;
-        private UserControls.ucSearchNurse ucSearchNurse1;
+        private UserControls.ucSearchNurse ucSearchNurse;
         private UserControls.ucLabTestStatistic ucLabTestStatistic1;
     }
 }

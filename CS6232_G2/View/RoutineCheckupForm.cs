@@ -66,7 +66,7 @@ namespace CS6232_G2.View
             _testController = new TestController();
             _nurseController = new NurseController();
             _labTestController = new LabTestController();
-            _userController= new UserController();
+            _userController = new UserController();
             _patientController = new PatientController();
             _appointmentController = new AppointmentController();
             _doctorController = new DoctorController();
@@ -74,6 +74,8 @@ namespace CS6232_G2.View
 
         private void InitializeForData()
         {
+            testDataGridView.AutoGenerateColumns = false;
+
             if (_selectedVisit == null || _selectedVisit.PatientVisitID == 0)
             {
                 _orderedTests = new List<LabTest>();
@@ -113,7 +115,7 @@ namespace CS6232_G2.View
             var user = _userController.GetUserById(patient.UserId);
 
             textBoxPatName.Text = $"{_appointment.PatientName.ToUpper()} ({_appointment.PatientId})";
-            textBoxPatDOB.Text =$"{_appointment.PatientDob.ToString("d")}";
+            textBoxPatDOB.Text = $"{user.DOB.ToString("yyyy-MM-dd")}";
             textBoxPatAddress.Text = $"{user.StreetNumber},{user.City},{user.State},{user.Zipcode}";
             textBoxDocName.Text = $"{doctor.FirstName.ToUpper() + " " + doctor.LastName.ToUpper()} ({_appointment.DoctorId})";
             textBoxNurName.Text = $"{_nurse.FirstName.ToUpper() + " " + _nurse.LastName.ToUpper()} ({_nurse.NurseId})";
@@ -135,7 +137,6 @@ namespace CS6232_G2.View
             selectLabTestComboBox.SelectedIndex = 0;
             labTestBindingSource.DataSource = this._orderedTests;
             this.setTestNames();
-            this.testDataGridView.AutoGenerateColumns = true;
 
             CheckIfPastVisit();
         }
@@ -145,7 +146,8 @@ namespace CS6232_G2.View
             if (_selectedVisit.PatientVisitID > 0 && !string.IsNullOrEmpty(_selectedVisit.FinalDiagnosis))
             {
                 DisableForm();
-            } else
+            }
+            else
             {
                 this.updateTestButton.Enabled = true;
             }
@@ -349,6 +351,8 @@ namespace CS6232_G2.View
                         }
 
                         errorLabel.Text = "The checkup has been successfully entered";
+
+                        CheckIfPastVisit();
                     }
                     else
                     {
@@ -459,6 +463,7 @@ namespace CS6232_G2.View
             if (this.labTestBindingSource.List.Count == 0)
             {
                 newTest.TestCode = this._tests[this.selectLabTestComboBox.SelectedIndex].TestCode;
+                newTest.TestName = this._tests[this.selectLabTestComboBox.SelectedIndex].TestName;
                 newTest.PatientVisitId = this._selectedVisit.PatientVisitID;
                 this.labTestBindingSource.Add(newTest);
                 return;
@@ -518,7 +523,7 @@ namespace CS6232_G2.View
 
             if (testsToBeOrdered.Count == 0)
             {
-                DialogResult result = MessageBox.Show("There are no new tests to order.");
+                MessageBox.Show("There are no new tests to order.");
             }
             else
             {
@@ -569,8 +574,8 @@ namespace CS6232_G2.View
 
         private void updateTestButton_Click(object sender, EventArgs e)
         {
-            List <LabTest> testsToBeUpdated = new List <LabTest>();
-            
+            List<LabTest> testsToBeUpdated = new List<LabTest>();
+
             foreach (LabTest test in this._orderedTests)
             {
                 if (test.Normal == null)
@@ -582,15 +587,17 @@ namespace CS6232_G2.View
                     this.errorLabel.Text = "All tests must first be ordered before they can be updated.";
                     return;
                 }
-                if ( string.IsNullOrEmpty(test.Result) || test.Normal == null)
+                if (string.IsNullOrEmpty(test.Result) || test.Normal == null)
                 {
                     this.errorLabel.Text = "All test fields must be entered before submitting their results.";
                     return;
-                } else if (test.TestDateTime == null || test.TestDateTime.TimeOfDay == TimeSpan.Zero) 
+                }
+                else if (test.TestDateTime == null || test.TestDateTime.TimeOfDay == TimeSpan.Zero)
                 {
                     this.errorLabel.Text = "The complete date and time must be entered for a test.";
                     return;
-                } else 
+                }
+                else
                 {
                     testsToBeUpdated.Add(test);
                 }
@@ -602,14 +609,14 @@ namespace CS6232_G2.View
                 {
                     this._labTestController.UpdateLabTestResults(test);
                 }
-            } catch (Exception ex)
+
+                MessageBox.Show("Labs updated successfully");
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
-
         }
-
-      
     }
 }
 

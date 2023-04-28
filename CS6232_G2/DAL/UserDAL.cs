@@ -79,7 +79,7 @@ namespace CS6232_G2.DAL
         {
             User user = new User();
             string selectStatement =
-                        "SELECT userId, lastName, firstName, dob, ssn, gender, streetNumber, city, state, phone, zipcode, country " +
+                        "SELECT userId, lastName, firstName, dob, ssn, gender, streetNumber, city, state, phone, zipcode " +
                         "FROM Users " +
                         "WHERE userId = @userID";
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
@@ -104,7 +104,6 @@ namespace CS6232_G2.DAL
                             user.State = reader["state"].ToString();
                             user.Phone = reader["phone"].ToString();
                             user.Zipcode = reader["zipcode"].ToString();
-                            user.Country = reader["country"].ToString() ;
                         }
                     }
                 }

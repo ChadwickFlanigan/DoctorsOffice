@@ -30,14 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.labTestStatisticDataGridView = new System.Windows.Forms.DataGridView();
             this.startDateLabel = new System.Windows.Forms.Label();
             this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.getStatsButton = new System.Windows.Forms.Button();
             this.endDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.endDateLabel = new System.Windows.Forms.Label();
-            this.getStatsButton = new System.Windows.Forms.Button();
-            this.labTestStatisticDataGridView = new System.Windows.Forms.DataGridView();
             this.errorLabel = new System.Windows.Forms.Label();
-            this.labTestStatisticBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +47,7 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labTestStatisticBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.labTestStatisticDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labTestStatisticBindingSource)).BeginInit();
@@ -79,53 +79,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(657, 512);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // startDateLabel
-            // 
-            this.startDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.startDateLabel.AutoSize = true;
-            this.startDateLabel.Location = new System.Drawing.Point(3, 27);
-            this.startDateLabel.Name = "startDateLabel";
-            this.startDateLabel.Size = new System.Drawing.Size(69, 13);
-            this.startDateLabel.TabIndex = 0;
-            this.startDateLabel.Text = "Starting Date";
-            // 
-            // startDateTimePicker
-            // 
-            this.startDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.startDateTimePicker.Location = new System.Drawing.Point(78, 23);
-            this.startDateTimePicker.Name = "startDateTimePicker";
-            this.startDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.startDateTimePicker.TabIndex = 1;
-            // 
-            // endDateTimePicker
-            // 
-            this.endDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.endDateTimePicker.Location = new System.Drawing.Point(356, 23);
-            this.endDateTimePicker.Name = "endDateTimePicker";
-            this.endDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.endDateTimePicker.TabIndex = 2;
-            // 
-            // endDateLabel
-            // 
-            this.endDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.endDateLabel.AutoSize = true;
-            this.endDateLabel.Location = new System.Drawing.Point(284, 27);
-            this.endDateLabel.Name = "endDateLabel";
-            this.endDateLabel.Size = new System.Drawing.Size(66, 13);
-            this.endDateLabel.TabIndex = 3;
-            this.endDateLabel.Text = "Ending Date";
-            // 
-            // getStatsButton
-            // 
-            this.getStatsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.getStatsButton.Location = new System.Drawing.Point(562, 22);
-            this.getStatsButton.Name = "getStatsButton";
-            this.getStatsButton.Size = new System.Drawing.Size(92, 23);
-            this.getStatsButton.TabIndex = 4;
-            this.getStatsButton.Text = "Get Statistics";
-            this.getStatsButton.UseVisualStyleBackColor = true;
-            this.getStatsButton.Click += new System.EventHandler(this.getStatsButton_Click);
-            // 
             // labTestStatisticDataGridView
             // 
             this.labTestStatisticDataGridView.AllowUserToAddRows = false;
@@ -153,6 +106,53 @@
             this.labTestStatisticDataGridView.Size = new System.Drawing.Size(651, 410);
             this.labTestStatisticDataGridView.TabIndex = 5;
             // 
+            // startDateLabel
+            // 
+            this.startDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.startDateLabel.AutoSize = true;
+            this.startDateLabel.Location = new System.Drawing.Point(3, 27);
+            this.startDateLabel.Name = "startDateLabel";
+            this.startDateLabel.Size = new System.Drawing.Size(69, 13);
+            this.startDateLabel.TabIndex = 0;
+            this.startDateLabel.Text = "Starting Date";
+            // 
+            // startDateTimePicker
+            // 
+            this.startDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.startDateTimePicker.Location = new System.Drawing.Point(78, 23);
+            this.startDateTimePicker.Name = "startDateTimePicker";
+            this.startDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.startDateTimePicker.TabIndex = 1;
+            // 
+            // getStatsButton
+            // 
+            this.getStatsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.getStatsButton.Location = new System.Drawing.Point(562, 22);
+            this.getStatsButton.Name = "getStatsButton";
+            this.getStatsButton.Size = new System.Drawing.Size(92, 23);
+            this.getStatsButton.TabIndex = 4;
+            this.getStatsButton.Text = "Get Statistics";
+            this.getStatsButton.UseVisualStyleBackColor = true;
+            this.getStatsButton.Click += new System.EventHandler(this.getStatsButton_Click);
+            // 
+            // endDateTimePicker
+            // 
+            this.endDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.endDateTimePicker.Location = new System.Drawing.Point(356, 23);
+            this.endDateTimePicker.Name = "endDateTimePicker";
+            this.endDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.endDateTimePicker.TabIndex = 2;
+            // 
+            // endDateLabel
+            // 
+            this.endDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.endDateLabel.AutoSize = true;
+            this.endDateLabel.Location = new System.Drawing.Point(284, 27);
+            this.endDateLabel.Name = "endDateLabel";
+            this.endDateLabel.Size = new System.Drawing.Size(66, 13);
+            this.endDateLabel.TabIndex = 3;
+            this.endDateLabel.Text = "Ending Date";
+            // 
             // errorLabel
             // 
             this.errorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -162,10 +162,6 @@
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(0, 13);
             this.errorLabel.TabIndex = 6;
-            // 
-            // labTestStatisticBindingSource
-            // 
-            this.labTestStatisticBindingSource.DataSource = typeof(CS6232_G2.Model.LabTestStatistic);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -236,6 +232,10 @@
             this.dataGridViewTextBoxColumn10.HeaderText = "PercentageOtherYears";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // labTestStatisticBindingSource
+            // 
+            this.labTestStatisticBindingSource.DataSource = typeof(CS6232_G2.Model.LabTestStatistic);
             // 
             // ucLabTestStatistic
             // 

@@ -1,5 +1,6 @@
 ﻿using CS6232_G2.Controller;
 using CS6232_G2.Model;
+using CS6232_G2.View;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -154,6 +155,37 @@ namespace CS6232_G2.UserControls
         private void ShowError(string message)
         {
             lblError.Text = message;
+        }
+
+        private void btnViewNurse_Click(object sender, EventArgs e)
+        {
+            if (dgNurses.SelectedRows.Count == 1)
+            {
+                var selectedNurse = (Nurse)dgNurses.SelectedRows[0].DataBoundItem;
+
+                using (ManageNurseForm manageNurseForm = new ManageNurseForm(selectedNurse.NurseId))
+                {
+                    manageNurseForm.ShowDialog();
+                }
+
+                dgNurses.DataSource = null;
+                ClearForm();
+            }
+            else
+            {
+                MessageBox.Show("Please select only 1 row");
+            }
+        }
+
+        private void btnAddNurse_Click(object sender, EventArgs e)
+        {
+            using (ManageNurseForm manageNurseForm = new ManageNurseForm(0))
+            {
+                manageNurseForm.ShowDialog();
+            }
+
+            dgNurses.DataSource = null;
+            ClearForm();
         }
     }
 }

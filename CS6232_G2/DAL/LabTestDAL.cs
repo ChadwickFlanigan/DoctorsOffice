@@ -214,14 +214,14 @@ namespace CS6232_G2.DAL
         {
             List<LabTestStatistic> testStatistics = new List<LabTestStatistic>();
 
-            string procedureCall = "getMostPerformedTestsDuringDates @startDate, @endDate";
-
             using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
             {
                 connection.Open();
 
-                using (SqlCommand selectCommand = new SqlCommand(procedureCall, connection))
+                using (SqlCommand selectCommand = new SqlCommand("getMostPerformedTestsDuringDates", connection))
                 {
+                    selectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
                     selectCommand.Parameters.AddWithValue("@startDate", startDate.ToShortDateString());
                     selectCommand.Parameters.AddWithValue("@endDate", endDate.ToShortDateString());
 
@@ -234,7 +234,7 @@ namespace CS6232_G2.DAL
                                 TestCode = Convert.ToInt32(reader["testCode"]),
                                 TestName = Convert.ToString(reader["TestName"]),
                                 QualifiedTestQuantity = Convert.ToInt32(reader["TotalQualifiedTests"]),
-                                TotalTestQuantity = Convert.ToInt32(reader["TotalTests"]),
+                                TotalTestQuantity = Convert.ToInt32(reader["TotalTestQuantity"]),
                                 QualifiedPercentage = Convert.ToDouble(reader["PercentageQualifiedTests"]),
                                 TotalNormal = Convert.ToInt32(reader["NormalResults"]),
                                 TotalAbnormal = Convert.ToInt32(reader["AbnormalResults"]),

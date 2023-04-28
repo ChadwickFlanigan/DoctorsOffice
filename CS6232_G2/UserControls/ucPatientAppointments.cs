@@ -41,6 +41,7 @@ namespace CS6232_G2.UserControls
             _patientCheckUp = appoinment;
             InitializeAppointment();
         }
+
         private void InitializeAppointment()
         {
             try
@@ -131,30 +132,31 @@ namespace CS6232_G2.UserControls
         {
             if (dgAppointments.SelectedRows.Count > 0)
             {
-                Appointment appointment = (Appointment)dgAppointments.SelectedRows[0].DataBoundItem;
+                DialogResult result = MessageBox.Show("Are you sure you want delete this appointment?", "Delete Appointment", MessageBoxButtons.YesNo);
 
-                DateTime appointmentDateTime = (DateTime)appointment.AppointmentTime;
-                if (appointmentDateTime > DateTime.Now)
+                if (result.Equals(DialogResult.Yes))
                 {
-
-                    if (_appointmentController.DeleteAppointment(appointment))
+                    Appointment appointment = (Appointment)dgAppointments.SelectedRows[0].DataBoundItem;
+                    DateTime appointmentDateTime = (DateTime)appointment.AppointmentTime;
+                    if (appointmentDateTime > DateTime.Now)
                     {
-
-                        dgAppointments.Rows.Remove(dgAppointments.SelectedRows[0]);
+                        if (_appointmentController.DeleteAppointment(appointment))
+                        {
+                            InitializeAppointment();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to delete appointment.");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Failed to delete appointment.");
+                        MessageBox.Show("Selected appointment cannot be deleted because it has already passed.");
                     }
+
+                    dgAppointments.Refresh();
                 }
-                else
-                {
-                    MessageBox.Show("Selected appointment cannot be deleted because it has already passed.");
-                }
-                dgAppointments.Refresh();
             }
         }
-
-
     }
 }

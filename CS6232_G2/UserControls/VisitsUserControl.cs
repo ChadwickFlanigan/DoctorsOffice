@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace CS6232_G2.UserControls
 {
+    /// <summary>
+    /// User control will display all the patient visits and ability to search for a visit by date
+    /// </summary>
     public partial class VisitsUserControl : UserControl
     {
         private PatientVisitController _visitController;
@@ -14,6 +17,9 @@ namespace CS6232_G2.UserControls
         private List<PatientVisit> _visitList;
         private List<PatientVisit> _filteredVisitList;
 
+        /// <summary>
+        /// Constructor will initialize components and patient visit controller
+        /// </summary>
         public VisitsUserControl()
         {
             InitializeComponent();
@@ -21,6 +27,11 @@ namespace CS6232_G2.UserControls
         }
 
         private void visitSearchButton_Click(object sender, EventArgs e)
+        {
+            FilterPatientVisits();
+        }
+
+        private void FilterPatientVisits()
         {
             _filteredVisitList = new List<PatientVisit>();
             foreach (PatientVisit visit in this._visitList)
@@ -37,6 +48,7 @@ namespace CS6232_G2.UserControls
 
             this.patientVisitBindingSource.DataSource = _filteredVisitList;
         }
+
         /// <summary>
         /// public method to set the current patient the user is viewing
         /// </summary>
@@ -56,41 +68,43 @@ namespace CS6232_G2.UserControls
             if (this.patientVisitBindingSource.DataSource == this._filteredVisitList)
             {
                 PatientVisit selectedVisit = this._filteredVisitList[this.patientVisitDataGridView.SelectedRows[0].Index];
-                using (RoutineCheckupForm checkupForm = new RoutineCheckupForm(selectedVisit)) {
-                    this.Hide();
-                    DialogResult result = checkupForm.ShowDialog();
-
-                    if (result == DialogResult.Cancel)
-                    {
-                        this.Show();
-                    }
+                using (RoutineCheckupForm checkupForm = new RoutineCheckupForm(selectedVisit))
+                {
+                    checkupForm.ShowDialog();
                 }
-            } else
+
+                GetPatientVisits();
+                FilterPatientVisits();
+            }
+            else
             {
                 PatientVisit selectedVisit = this._visitList[this.patientVisitDataGridView.SelectedRows[0].Index];
                 using (RoutineCheckupForm checkupForm = new RoutineCheckupForm(selectedVisit))
                 {
-                    this.Hide();
-                    DialogResult result = checkupForm.ShowDialog();
-
-                    if (result == DialogResult.Cancel)
-                    {
-                        this.Show();
-                    }
+                    checkupForm.ShowDialog();
                 }
+
+                GetPatientVisits();
             }
         }
 
         private void VisitsUserControl_Paint(object sender, PaintEventArgs e)
         {
-            this._visitList = this._visitController.GetPatientVisits(this._patient.PatientId);
-            this.patientVisitBindingSource.DataSource = _visitList;
+            GetPatientVisits();
         }
 
         private void VisitsUserControl_Load(object sender, EventArgs e)
         {
-            this._visitList = this._visitController.GetPatientVisits(this._patient.PatientId);
-            this.patientVisitBindingSource.DataSource = _visitList;
+            GetPatientVisits();
+        }
+
+        private void GetPatientVisits()
+        {
+            if (_visitController != null && _patient != null && _patient.PatientId > 0)
+            {
+                this._visitList = this._visitController.GetPatientVisits(this._patient.PatientId);
+                this.patientVisitBindingSource.DataSource = _visitList;
+            }
         }
     }
 }

@@ -18,6 +18,5 @@ namespace CS6232_G2.Model
         public string State { get; set; }
         public string Phone { get; set; }
         public string Zipcode { get; set; }
-        public string Country { get; set; }
     }
 }

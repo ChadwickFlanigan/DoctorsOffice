@@ -37,9 +37,12 @@
             this.textBoxDocName = new System.Windows.Forms.TextBox();
             this.labelPatient = new System.Windows.Forms.Label();
             this.testDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TestName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Normal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.labTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.saveVisitButton = new System.Windows.Forms.Button();
             this.lblSaveFirst = new System.Windows.Forms.Label();
             this.errorLabel = new System.Windows.Forms.Label();
@@ -76,9 +79,6 @@
             this.updateTestButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.labelTemp = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.routineTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.testDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labTestBindingSource)).BeginInit();
@@ -243,11 +243,24 @@
             this.testDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.testDataGridView_DataError);
             this.testDataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.testDataGridView_RowEnter);
             // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "TestCode";
+            this.dataGridViewTextBoxColumn3.HeaderText = "TestCode";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
             // TestName
             // 
             this.TestName.DataPropertyName = "TestName";
             this.TestName.HeaderText = "TestName";
             this.TestName.Name = "TestName";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "TestDateTime";
+            this.dataGridViewTextBoxColumn5.HeaderText = "TestDateTime";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // Result
             // 
@@ -262,6 +275,10 @@
             this.Normal.Name = "Normal";
             this.Normal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Normal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // labTestBindingSource
+            // 
+            this.labTestBindingSource.DataSource = typeof(CS6232_G2.Model.LabTest);
             // 
             // saveVisitButton
             // 
@@ -638,7 +655,7 @@
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(170, 23);
             this.cancelButton.TabIndex = 15;
-            this.cancelButton.Text = "Cancel";
+            this.cancelButton.Text = "Close";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
@@ -651,23 +668,6 @@
             this.labelTemp.Size = new System.Drawing.Size(170, 13);
             this.labelTemp.TabIndex = 45;
             this.labelTemp.Text = "fahrenheit";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "TestCode";
-            this.dataGridViewTextBoxColumn3.HeaderText = "TestCode";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "TestDateTime";
-            this.dataGridViewTextBoxColumn5.HeaderText = "TestDateTime";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // labTestBindingSource
-            // 
-            this.labTestBindingSource.DataSource = typeof(CS6232_G2.Model.LabTest);
             // 
             // RoutineCheckupForm
             // 

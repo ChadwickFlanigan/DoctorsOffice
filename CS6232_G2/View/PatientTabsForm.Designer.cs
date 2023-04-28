@@ -31,27 +31,23 @@
             this.tbPatientInfo = new System.Windows.Forms.TabControl();
             this.appointments = new System.Windows.Forms.TabPage();
             this.ucPatientAppointments = new CS6232_G2.UserControls.ucPatientAppointments();
-            this.visits = new System.Windows.Forms.TabPage();
+            this.tabVisits = new System.Windows.Forms.TabPage();
             this.visitsUserControl = new CS6232_G2.UserControls.VisitsUserControl();
-            this.labTests = new System.Windows.Forms.TabPage();
-            this.ucSearchTest = new CS6232_G2.UserControls.ucSearchTest();
             this.tbPatientInfo.SuspendLayout();
             this.appointments.SuspendLayout();
-            this.visits.SuspendLayout();
-            this.labTests.SuspendLayout();
+            this.tabVisits.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbPatientInfo
             // 
             this.tbPatientInfo.Controls.Add(this.appointments);
-            this.tbPatientInfo.Controls.Add(this.visits);
-            this.tbPatientInfo.Controls.Add(this.labTests);
+            this.tbPatientInfo.Controls.Add(this.tabVisits);
             this.tbPatientInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbPatientInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPatientInfo.Location = new System.Drawing.Point(0, 0);
             this.tbPatientInfo.Name = "tbPatientInfo";
             this.tbPatientInfo.SelectedIndex = 0;
-            this.tbPatientInfo.Size = new System.Drawing.Size(908, 450);
+            this.tbPatientInfo.Size = new System.Drawing.Size(1021, 450);
             this.tbPatientInfo.TabIndex = 0;
             // 
             // appointments
@@ -60,7 +56,7 @@
             this.appointments.Location = new System.Drawing.Point(4, 25);
             this.appointments.Name = "appointments";
             this.appointments.Padding = new System.Windows.Forms.Padding(3);
-            this.appointments.Size = new System.Drawing.Size(900, 421);
+            this.appointments.Size = new System.Drawing.Size(1013, 421);
             this.appointments.TabIndex = 0;
             this.appointments.Text = "Appointments";
             this.appointments.UseVisualStyleBackColor = true;
@@ -70,59 +66,41 @@
             this.ucPatientAppointments.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucPatientAppointments.Location = new System.Drawing.Point(3, 3);
             this.ucPatientAppointments.Name = "ucPatientAppointments";
-            this.ucPatientAppointments.Size = new System.Drawing.Size(894, 415);
+            this.ucPatientAppointments.Size = new System.Drawing.Size(1007, 415);
             this.ucPatientAppointments.TabIndex = 0;
             // 
-            // visits
+            // tabVisits
             // 
-            this.visits.Controls.Add(this.visitsUserControl);
-            this.visits.Location = new System.Drawing.Point(4, 22);
-            this.visits.Name = "visits";
-            this.visits.Padding = new System.Windows.Forms.Padding(3);
-            this.visits.Size = new System.Drawing.Size(792, 424);
-            this.visits.TabIndex = 1;
-            this.visits.Text = "Visits";
-            this.visits.UseVisualStyleBackColor = true;
+            this.tabVisits.Controls.Add(this.visitsUserControl);
+            this.tabVisits.Location = new System.Drawing.Point(4, 25);
+            this.tabVisits.Name = "tabVisits";
+            this.tabVisits.Padding = new System.Windows.Forms.Padding(3);
+            this.tabVisits.Size = new System.Drawing.Size(1013, 421);
+            this.tabVisits.TabIndex = 1;
+            this.tabVisits.Text = "Visits";
+            this.tabVisits.UseVisualStyleBackColor = true;
             // 
             // visitsUserControl
             // 
             this.visitsUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.visitsUserControl.Location = new System.Drawing.Point(3, 3);
+            this.visitsUserControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.visitsUserControl.Name = "visitsUserControl";
-            this.visitsUserControl.Size = new System.Drawing.Size(186, 68);
+            this.visitsUserControl.Size = new System.Drawing.Size(1007, 415);
             this.visitsUserControl.TabIndex = 0;
-            // 
-            // labTests
-            // 
-            this.labTests.Controls.Add(this.ucSearchTest);
-            this.labTests.Location = new System.Drawing.Point(4, 22);
-            this.labTests.Name = "labTests";
-            this.labTests.Size = new System.Drawing.Size(792, 424);
-            this.labTests.TabIndex = 2;
-            this.labTests.Text = "LabTests";
-            this.labTests.UseVisualStyleBackColor = true;
-            // 
-            // ucSearchTest
-            // 
-            this.ucSearchTest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucSearchTest.Location = new System.Drawing.Point(0, 0);
-            this.ucSearchTest.Name = "ucSearchTest";
-            this.ucSearchTest.Size = new System.Drawing.Size(792, 424);
-            this.ucSearchTest.TabIndex = 0;
             // 
             // PatientTabsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(908, 450);
+            this.ClientSize = new System.Drawing.Size(1021, 450);
             this.Controls.Add(this.tbPatientInfo);
             this.Name = "PatientTabsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PatientTabsForm";
             this.tbPatientInfo.ResumeLayout(false);
             this.appointments.ResumeLayout(false);
-            this.visits.ResumeLayout(false);
-            this.labTests.ResumeLayout(false);
+            this.tabVisits.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -131,10 +109,8 @@
 
         private System.Windows.Forms.TabControl tbPatientInfo;
         private System.Windows.Forms.TabPage appointments;
-        private System.Windows.Forms.TabPage visits;
-        private System.Windows.Forms.TabPage labTests;
-        private UserControls.ucSearchTest ucSearchTest;
-        private UserControls.VisitsUserControl visitsUserControl;
         private UserControls.ucPatientAppointments ucPatientAppointments;
+        private System.Windows.Forms.TabPage tabVisits;
+        private UserControls.VisitsUserControl visitsUserControl;
     }
 }

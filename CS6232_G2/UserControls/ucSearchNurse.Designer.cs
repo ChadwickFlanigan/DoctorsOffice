@@ -41,13 +41,13 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.dtDOB = new System.Windows.Forms.DateTimePicker();
             this.dgNurses = new System.Windows.Forms.DataGridView();
+            this.btnViewNurse = new System.Windows.Forms.Button();
+            this.btnAddNurse = new System.Windows.Forms.Button();
+            this.lblError = new System.Windows.Forms.Label();
             this.NurseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnViewNurse = new System.Windows.Forms.Button();
-            this.btnAddNurse = new System.Windows.Forms.Button();
-            this.lblError = new System.Windows.Forms.Label();
             this.tblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgNurses)).BeginInit();
             this.SuspendLayout();
@@ -229,6 +229,39 @@
             this.dgNurses.Size = new System.Drawing.Size(709, 194);
             this.dgNurses.TabIndex = 7;
             // 
+            // btnViewNurse
+            // 
+            this.btnViewNurse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnViewNurse.Location = new System.Drawing.Point(3, 368);
+            this.btnViewNurse.Name = "btnViewNurse";
+            this.btnViewNurse.Size = new System.Drawing.Size(208, 23);
+            this.btnViewNurse.TabIndex = 8;
+            this.btnViewNurse.Text = "View Nurse";
+            this.btnViewNurse.UseVisualStyleBackColor = true;
+            this.btnViewNurse.Click += new System.EventHandler(this.btnViewNurse_Click);
+            // 
+            // btnAddNurse
+            // 
+            this.btnAddNurse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddNurse.Location = new System.Drawing.Point(431, 368);
+            this.btnAddNurse.Name = "btnAddNurse";
+            this.btnAddNurse.Size = new System.Drawing.Size(281, 23);
+            this.btnAddNurse.TabIndex = 9;
+            this.btnAddNurse.Text = "Add Nurse";
+            this.btnAddNurse.UseVisualStyleBackColor = true;
+            this.btnAddNurse.Click += new System.EventHandler(this.btnAddNurse_Click);
+            // 
+            // lblError
+            // 
+            this.lblError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(431, 52);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(281, 16);
+            this.lblError.TabIndex = 32;
+            // 
             // NurseId
             // 
             this.NurseId.DataPropertyName = "NurseId";
@@ -257,42 +290,13 @@
             // 
             // IsActive
             // 
-            this.IsActive.DataPropertyName = "IsActive";
+            this.IsActive.DataPropertyName = "Active";
+            this.IsActive.FalseValue = "";
             this.IsActive.HeaderText = "Is Active";
             this.IsActive.Name = "IsActive";
             this.IsActive.ReadOnly = true;
             this.IsActive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // btnViewNurse
-            // 
-            this.btnViewNurse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnViewNurse.Location = new System.Drawing.Point(3, 368);
-            this.btnViewNurse.Name = "btnViewNurse";
-            this.btnViewNurse.Size = new System.Drawing.Size(208, 23);
-            this.btnViewNurse.TabIndex = 8;
-            this.btnViewNurse.Text = "View Nurse";
-            this.btnViewNurse.UseVisualStyleBackColor = true;
-            // 
-            // btnAddNurse
-            // 
-            this.btnAddNurse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddNurse.Location = new System.Drawing.Point(431, 368);
-            this.btnAddNurse.Name = "btnAddNurse";
-            this.btnAddNurse.Size = new System.Drawing.Size(281, 23);
-            this.btnAddNurse.TabIndex = 9;
-            this.btnAddNurse.Text = "Add Nurse";
-            this.btnAddNurse.UseVisualStyleBackColor = true;
-            // 
-            // lblError
-            // 
-            this.lblError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblError.AutoSize = true;
-            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(431, 52);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(281, 16);
-            this.lblError.TabIndex = 32;
+            this.IsActive.TrueValue = "";
             // 
             // ucSearchNurse
             // 

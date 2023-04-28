@@ -36,7 +36,7 @@ namespace CS6232_G2.DAL
         public Login CheckIfUserIsValid(Login login)
         {
             string selectStatement = "select n.nurseId, n.userId, n.active, a.administratorId, a.personId " +
-                "From Logins l left join Nurses n on l.username = n.username " +
+                "From Logins l left join Nurses n on l.username = n.username and isnull(n.active, 0) = 1 " +
                 "left join Administrators a on l.username = a.username " +
                 "where l.username = @username and [password] = @password";
 

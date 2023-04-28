@@ -33,14 +33,14 @@
             this.btnAddAppointment = new System.Windows.Forms.Button();
             this.deleteApptButton = new System.Windows.Forms.Button();
             this.routineCheckupButton = new System.Windows.Forms.Button();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.tblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.dgAppointments = new System.Windows.Forms.DataGridView();
             this.AppointmentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReasonsForVisit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DoctorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEditPatient = new System.Windows.Forms.Button();
             this.lblPatientName = new System.Windows.Forms.Label();
-            this.lblInfo = new System.Windows.Forms.Label();
+            this.btnEditPatient = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.tblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAppointments)).BeginInit();
@@ -115,6 +115,20 @@
             this.routineCheckupButton.UseVisualStyleBackColor = true;
             this.routineCheckupButton.Click += new System.EventHandler(this.routineCheckupButton_Click);
             // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.SetFlowBreak(this.lblInfo, true);
+            this.lblInfo.ForeColor = System.Drawing.Color.Red;
+            this.lblInfo.Location = new System.Drawing.Point(3, 230);
+            this.lblInfo.Margin = new System.Windows.Forms.Padding(3, 50, 3, 0);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(163, 26);
+            this.lblInfo.TabIndex = 8;
+            this.lblInfo.Text = "Please close this form to go back to the patient search";
+            this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tblLayout
             // 
             this.tblLayout.ColumnCount = 2;
@@ -174,18 +188,6 @@
             this.DoctorName.Name = "DoctorName";
             this.DoctorName.ReadOnly = true;
             // 
-            // btnEditPatient
-            // 
-            this.btnEditPatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditPatient.Location = new System.Drawing.Point(544, 12);
-            this.btnEditPatient.Name = "btnEditPatient";
-            this.btnEditPatient.Size = new System.Drawing.Size(175, 39);
-            this.btnEditPatient.TabIndex = 3;
-            this.btnEditPatient.Text = "Edit Patient";
-            this.btnEditPatient.UseVisualStyleBackColor = true;
-            this.btnEditPatient.Click += new System.EventHandler(this.btnEditPatient_Click);
-            // 
             // lblPatientName
             // 
             this.lblPatientName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -197,16 +199,17 @@
             this.lblPatientName.TabIndex = 1;
             this.lblPatientName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblInfo
+            // btnEditPatient
             // 
-            this.lblInfo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(3, 180);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(163, 26);
-            this.lblInfo.TabIndex = 8;
-            this.lblInfo.Text = "Please close this form to go back to the patient search";
-            this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnEditPatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditPatient.Location = new System.Drawing.Point(544, 12);
+            this.btnEditPatient.Name = "btnEditPatient";
+            this.btnEditPatient.Size = new System.Drawing.Size(175, 39);
+            this.btnEditPatient.TabIndex = 3;
+            this.btnEditPatient.Text = "Edit Patient";
+            this.btnEditPatient.UseVisualStyleBackColor = true;
+            this.btnEditPatient.Click += new System.EventHandler(this.btnEditPatient_Click);
             // 
             // ucPatientAppointments
             // 
