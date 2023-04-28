@@ -237,10 +237,10 @@ namespace CS6232_G2.DAL
                                 TotalTestQuantity = Convert.ToInt32(reader["TotalTests"]),
                                 QualifiedPercentage = Convert.ToDouble(reader["PercentageQualifiedTests"]),
                                 TotalNormal = Convert.ToInt32(reader["NormalResults"]),
-                                TotalAbnormal = Convert.ToInt32(reader["TotalAbnormal"]),
+                                TotalAbnormal = Convert.ToInt32(reader["AbnormalResults"]),
                                 PercentageEighteenToTwentyNine = Convert.ToDouble(reader["Percentage1829"]),
                                 PercentageThirtyToThirtyNine = Convert.ToDouble(reader["Percentage3039"]),
-                                PercentageOtherYears = Convert.ToDouble(reader["PercentageOtherYears"])
+                                PercentageOtherYears = Convert.ToDouble(reader["PercentageOtherAges"])
                             };
 
                             testStatistics.Add(testStat);

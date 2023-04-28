@@ -28,9 +28,14 @@ namespace CS6232_G2.UserControls
         {
             this.errorLabel.Text = string.Empty;
             
+            if (this.startDateTimePicker.Value > this.endDateTimePicker.Value)
+            {
+                this.errorLabel.Text = "The start date must be a date earlier than the end date";
+                return;
+            }
             this._testStatisticList = this._labTestController.GetLabTestStatistics(this.startDateTimePicker.Value, this.endDateTimePicker.Value);
             this.labTestStatisticBindingSource.DataSource = this._testStatisticList;
             
-        }
+        } 
     }
 }
