@@ -5,7 +5,7 @@ namespace CS6232_G2.DAL
     /// <summary>
     /// Gets the connection string
     /// </summary>
-    public class G2ProjectConnectionString
+    public class DoctorsOfficeConnectionString
     {
         /// <summary>
         /// returns the connection string of the tech support DB

@@ -23,7 +23,7 @@ namespace CS6232_G2.DAL
                                      "from LabTest " +
                                      "where testCode = @testCode and patientVisitID = @patientVisitId;";
 
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -73,7 +73,7 @@ namespace CS6232_G2.DAL
         /// <param name="labTests"> a LabTest object representing a Test ordered for a patient</param>
         public void OrderLabTest(List<LabTest> labTests)
         {
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
                 SqlTransaction transaction = connection.BeginTransaction();
@@ -109,7 +109,7 @@ namespace CS6232_G2.DAL
                 "SET testDateTime = @testDateTime, result = @result, normal = @normal " +
                 "WHERE testCode = @testCode AND patientVisitID = @patientVisitID;";
 
-            using (SqlConnection connetion = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connetion = DoctorsOfficeConnectionString.GetConnection())
             {
                 connetion.Open();
                 using (SqlCommand updateStatement = new SqlCommand(updateString, connetion))
@@ -136,7 +136,7 @@ namespace CS6232_G2.DAL
                                      "from LabTest " +
                                      "where patientVisitID = @patientVisitId;";
 
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -186,7 +186,7 @@ namespace CS6232_G2.DAL
         /// <returns>true or false depending on if test has been ordered</returns>
         public Boolean HasTestBeenOrdered(LabTest test)
         {
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
                 SqlCommand selectCommand = new SqlCommand("SELECT testCode FROM LabTest WHERE testCode = @testCode " +
@@ -214,7 +214,7 @@ namespace CS6232_G2.DAL
         {
             List<LabTestStatistic> testStatistics = new List<LabTestStatistic>();
 
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 

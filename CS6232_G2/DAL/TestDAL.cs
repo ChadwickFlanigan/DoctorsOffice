@@ -21,7 +21,7 @@ namespace CS6232_G2.DAL
             string selectStatement = "select testCode, testName " +
                                      "from Tests";
 
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 

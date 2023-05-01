@@ -40,7 +40,7 @@ namespace CS6232_G2.DAL
                 "left join Administrators a on l.username = a.username " +
                 "where l.username = @username and [password] = @password";
 
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 

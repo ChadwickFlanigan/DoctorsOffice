@@ -22,7 +22,7 @@ namespace CS6232_G2.DAL
             string selectStatement = "select d.doctorId, u.firstName + ' ' + u.lastName as doctorName " +
                 "from Doctors d left join Users u on d.userId = u.userId";
 
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -62,7 +62,7 @@ namespace CS6232_G2.DAL
                 "Set doctorId = @doctorId, appointmentTime = @appointmentTime, reasonsForVisit = @reason " +
                 "Where appointmentId = @appointmentId and doctorId = @doctorId";
 
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -99,7 +99,7 @@ namespace CS6232_G2.DAL
                 "FROM [Appointments] a left join users u on u.userId = a.patientId " +
                 "Where appointmentId = @appointmentId";
 
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -146,7 +146,7 @@ namespace CS6232_G2.DAL
                 selectStatement += " and appointmentId <> @appointmentId";
             }
 
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -187,7 +187,7 @@ namespace CS6232_G2.DAL
                                     left join Doctors d on body.doctorId = d.DoctorId
                                     left join users u on u.userId = d.userId";
 
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -231,7 +231,7 @@ namespace CS6232_G2.DAL
 
             string deleteStatement = "DELETE FROM Appointments WHERE AppointmentId = @appointmentId";
 
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 

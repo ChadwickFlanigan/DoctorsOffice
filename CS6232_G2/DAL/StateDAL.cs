@@ -20,7 +20,7 @@ namespace CS6232_G2.DAL
             string selectStatement = "select stateCode, stateName " +
                                      "from States";
 
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -54,7 +54,7 @@ namespace CS6232_G2.DAL
             string selectStatement = "select stateCode, stateName " +
                                      "from States";
 
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 

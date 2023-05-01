@@ -37,7 +37,7 @@ namespace CS6232_G2.DAL
         /// <param name="user"></param>
         public void AddPatient(User user)
         {
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
                 SqlTransaction transaction = connection.BeginTransaction();
@@ -81,7 +81,7 @@ namespace CS6232_G2.DAL
         /// <param name="userId"></param>
         public void DeletePatient(int userId)
         {
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
                 SqlTransaction transaction = connection.BeginTransaction();
@@ -136,7 +136,7 @@ namespace CS6232_G2.DAL
                 "AND state = @oldState " +
                 "AND phone = @oldPhone " +
                 "AND zipcode = @oldZipcode ";
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
                 SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
@@ -187,7 +187,7 @@ namespace CS6232_G2.DAL
                         "SELECT userId " +
                         "FROM Patients p " +
                         "WHERE patientId = @patientId";
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -218,7 +218,7 @@ namespace CS6232_G2.DAL
 
             string selectStatement = "select p.patientId, u.userId, lastName, firstName, dob from users u inner join Patients p on u.userId = p.userId " +
                 "Where firstName = @firstName And lastName =@lastName";
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -257,7 +257,7 @@ namespace CS6232_G2.DAL
         {
             List<Patient> patientsdetails = new List<Patient>();
             string selectStatement = "select p.patientId, u.userId, lastName, firstName, dob from users u inner join Patients p on u.userId = p.userId Where dob = @dob ";
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -297,7 +297,7 @@ namespace CS6232_G2.DAL
         {
             List<Patient> patientsdetails = new List<Patient>();
             string selectStatement = " select p.patientId, u.userId, lastName, firstName, dob from users u inner join Patients p on u.userId = p.userId Where dob = @dob And lastName =@lastName";
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 

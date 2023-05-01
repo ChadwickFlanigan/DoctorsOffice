@@ -20,7 +20,7 @@ namespace CS6232_G2.DAL
                         "SELECT d.userId doctorUserId, firstName, lastName " +
                         "FROM doctors d join users u on d.userId = u.userId " +
                         "WHERE doctorId = @doctorId";
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 

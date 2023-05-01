@@ -24,7 +24,7 @@ namespace CS6232_G2.DAL
                         "JOIN Logins l on l.username = n.username " +
                         "JOIN Users u on u.userId = n.userId " +
                         "WHERE n.username = @username";
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -61,7 +61,7 @@ namespace CS6232_G2.DAL
                         "JOIN Logins l on l.username = n.username " +
                         "JOIN Users u on u.userId = n.userId " +
                         "WHERE n.nurseId = @nurseId";
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -125,7 +125,7 @@ namespace CS6232_G2.DAL
                 return null;
             }
 
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -171,7 +171,7 @@ namespace CS6232_G2.DAL
         /// <param name="nurse"></param>
         public void SaveNurse(Nurse nurse)
         {
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
                 SqlTransaction transaction = connection.BeginTransaction();

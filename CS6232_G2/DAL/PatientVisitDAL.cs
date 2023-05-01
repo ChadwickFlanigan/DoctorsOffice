@@ -43,7 +43,7 @@ namespace CS6232_G2.DAL
                                   ,[appointmentId] = @appointmentId
                              WHERE PatientVisitId = @patientVisitId";
             }
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
                 SqlCommand insertCommand = new SqlCommand(saveStatement, connection);
@@ -128,7 +128,7 @@ namespace CS6232_G2.DAL
                                        on pv.appointmentId = a.appointmentId
                                        where a.patientId = @patientId;";
 
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -185,7 +185,7 @@ namespace CS6232_G2.DAL
                                        on pv.appointmentId = a.appointmentId
                                        where a.appointmentId = @appointmentId;";
 
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 

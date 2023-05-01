@@ -18,7 +18,7 @@ namespace CS6232_G2.DAL
             string insertStatement =
                 "INSERT INTO Users (lastName, firstName, dob, ssn, gender, streetNumber, city, state, phone, zipcode) " +
                 "VALUES (@lastName, @firstName, @dob, @ssn, @gender, @streetNumber, @city, @state, @phone, @zipcode) ";
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
                 SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
@@ -48,7 +48,7 @@ namespace CS6232_G2.DAL
                         "SELECT p.PatientId, lastName, firstName " +
                         "FROM users u left join Patients p on u.userId = p.userId " +
                         "WHERE u.userId = @userID";
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -82,7 +82,7 @@ namespace CS6232_G2.DAL
                         "SELECT userId, lastName, firstName, dob, ssn, gender, streetNumber, city, state, phone, zipcode " +
                         "FROM Users " +
                         "WHERE userId = @userID";
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -124,7 +124,7 @@ namespace CS6232_G2.DAL
                         "FROM Users u " +
                         "JOIN Nurses n on n.userId = u.userId " +
                         "WHERE n.userId = @userID";
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
@@ -166,7 +166,7 @@ namespace CS6232_G2.DAL
                         "FROM Users u " +
                         "JOIN Administrators a on a.personId = u.userId " +
                         "WHERE a.personId = @userID";
-            using (SqlConnection connection = G2ProjectConnectionString.GetConnection())
+            using (SqlConnection connection = DoctorsOfficeConnectionString.GetConnection())
             {
                 connection.Open();
 
